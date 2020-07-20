@@ -7,27 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-    <meta property="og:title" content="Dynamsoft Barcode Reader Documentation" />
+    <meta property="og:title" content="Dynamsoft Dynamic Web TWAIN Documentation" />
     <script type="application/ld+json">
-	{"@type":"WebSite","headline":"Dynamsoft Barcode Reader Documentation","@context":"https://schema.org"}</script>
+	{"@type":"WebSite","headline":"Dynamsoft Dynamic Web TWAIN Documentation","@context":"https://schema.org"}</script>
     <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="{{ site._assets }}css/style.css?v=133a36dfd678da7cc85283a514df0fe9b7426336">
+    <link rel="stylesheet" href="{{ site.assets }}css/style.css?v=133a36dfd678da7cc85283a514df0fe9b7426336">
 </head>
 
 <body>
     <div class="container-lg px-3 my-5 markdown-body">
 
-        <p align="left"><img src="{{ site.dynamsoft_logo }}" alt="Dynamsoft Logo" /></p>
-        <p align="right">
-            {% capture sourceCodeUrl %}		
-            {% if page.url contains '.html' %}		
-                {{ page.url | strip | replace: '.html', '.md'}}		
+        <p class="text-left"><img src="{{ site.dynamsoft_logo }}" alt="Dynamsoft Logo" /></p>
+        <p class="text-right">
+            {% capture sourceCodeUrl %}
+            {% if page.url contains '.html' %}
+            {{ page.url | strip | replace: '.html', '.md'}}
             {% else %}
-                {{ page.url	| strip }}index.md
+            {{ page.url	| strip }}index.md
             {% endif %}
             {% endcapture %}
-            <a href="{{ site.repositoryUrl }}{{ sourceCodeUrl | strip }}" class="otherLinkColour">Edit<img src="{{ site.edit_icon }}" width="20px" height="15px" /></a>
+            <a href="{{ site.repositoryUrl }}{{ sourceCodeUrl | strip }}" class="otherLinkColour">Edit<img
+                    src="{{ site.edit_icon }}" width="20px" height="15px" /></a>
         </p>
         {{ content }}
     </div>

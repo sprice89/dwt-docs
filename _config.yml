@@ -1,8 +1,10 @@
 repositoryUrl: https://github.com/Tom-Dynamsoft/dwt-docs/blob/master
 
 docHomePage: /dwt-docs
+dynamsoft_logo: /dwt-docs/assets/dynamsoft-logo.png
+dwt_logo: /dwt-docs/assets/dwt-logo.png
 
-_assets: /dwt-docs/_assets/
+assets: /dwt-docs/assets/
 _includes: /dwt-docs/_includes/
 _layouts: /dwt-docs/_layouts/
 1_about: /dwt-docs/1_about/

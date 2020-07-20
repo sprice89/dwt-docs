@@ -9,19 +9,24 @@
             <div class="sideBarProductPage">
                 <p align="left"><img src="{{ site.dbr_logo }}" class="sideDBRLogo" alt="DBR Logo" />&nbsp;&nbsp;<a
                         href="https://www.dynamsoft.com/Products/Dynamic-Barcode-Reader.aspx"
-                        class="sideProductPage">Dynamsoft Barcode Reader</a></p>
+                        class="sideProductPage">Dynamsoft Dynamic Web TWAIN</a></p>
             </div>
             <div class="sideBarHeader">
-                <p><a href="{{ site.docHomePage }}" class="sideHomePage">< Documentation Home Page</a></p>
+                <p><a href="{{ site.docHomePage }}" class="sideHomePage">
+                        < Documentation Home Page</a>
+                </p>
             </div>
             <ul class="mainPage" id="fullTreeMenuListContainer" name="listLevel1">
                 <li><a href="{{ site.introduction }}" class="otherLinkColour">Introduction</a>
                     {%- if page.url contains '/introduction/' -%}
                     <ul>
                         <li><a href="{{ site.introduction }}overview.html" class="otherLinkColour">Overview</a></li>
-                        <li><a href="{{ site.introduction }}architecture.html" class="otherLinkColour">Architecture</a></li>
-                        <li><a href="{{ site.introduction }}security-features.html" class="otherLinkColour">Security Features</a></li>
-                        <li><a href="{{ site.introduction }}licensing/" class="otherLinkColour">License & Usage Tracking</a></li>
+                        <li><a href="{{ site.introduction }}architecture.html" class="otherLinkColour">Architecture</a>
+                        </li>
+                        <li><a href="{{ site.introduction }}security-features.html" class="otherLinkColour">Security
+                                Features</a></li>
+                        <li><a href="{{ site.introduction }}licensing/" class="otherLinkColour">License & Usage
+                                Tracking</a></li>
                         {%- include sidelist-introduction/introduction-comparison-tools.html -%}
                         {%- include sidelist-introduction/introduction-how-to-guides.html -%}
                         <li><a href="{{ site.faqs }}" class="otherLinkColour">FAQs</a></li>
@@ -45,7 +50,8 @@
                 <li><a href="{{ site.parameters }}" class="otherLinkColour">Parameters</a>
                     {%- if page.url contains '/parameters/' -%}
                     <ul>
-                        <li><a href="{{ site.parameters }}structure-and-interfaces-of-parameters.html" class="otherLinkColour">Structure and Interfaces of Parameters</a></li>
+                        <li><a href="{{ site.parameters }}structure-and-interfaces-of-parameters.html"
+                                class="otherLinkColour">Structure and Interfaces of Parameters</a></li>
                         {%- include sidelist-parameters/parameters-references.html -%}
                         {%- include sidelist-parameters/parameters-enumerations.html -%}
                         {%- include sidelist-parameters/parameters-scenario-settings.html -%}
@@ -57,7 +63,8 @@
                     {%- if page.url contains '/enhancements/' -%}
                     <ul>
                         <li><a href="{{ site.enhancements }}dpm-codes.html" class="otherLinkColour">DPM Codes</a></li>
-                        <li><a href="{{ site.enhancements }}intermediate-results.html" class="otherLinkColour">Intermediate Result</a></li>
+                        <li><a href="{{ site.enhancements }}intermediate-results.html"
+                                class="otherLinkColour">Intermediate Result</a></li>
                         <li><a href="{{ site.enhancements }}panorama.html" class="otherLinkColour">Panorama</a></li>
                         <li><a href="{{ site.enhancements }}pdf-vector.html" class="otherLinkColour">PDF Vector</a></li>
                     </ul>
@@ -66,19 +73,20 @@
             </ul>
         </div>
         <div class="container">
-            <div class = "head">
+            <div class="head">
                 <p align="left"><a href="https://www.dynamsoft.com/"><img src="{{ site.dynamsoft_logo }}"
-                    class = "dynamsoftLogo" alt="Dynamsoft Logo" /></a></p>
+                            class="dynamsoftLogo" alt="Dynamsoft Logo" /></a></p>
                 <div>
                     <div style="float:right">
-                        {% capture sourceCodeUrl %}		
-                            {% if page.url contains '.html' %}		
-                                {{ page.url | strip | replace: '.html', '.md'}}		
-                            {% else %}
-                                {{ page.url	| strip }}index.md
-                            {% endif %}
+                        {% capture sourceCodeUrl %}
+                        {% if page.url contains '.html' %}
+                        {{ page.url | strip | replace: '.html', '.md'}}
+                        {% else %}
+                        {{ page.url	| strip }}index.md
+                        {% endif %}
                         {% endcapture %}
-                        <a href="{{ site.repositoryUrl }}{{ sourceCodeUrl | strip }}" class="otherLinkColour">Edit<img src="{{ site.edit_icon }}" width="20px" height="15px" /></a>
+                        <a href="{{ site.repositoryUrl }}{{ sourceCodeUrl | strip }}" class="otherLinkColour">Edit<img
+                                src="{{ site.edit_icon }}" width="20px" height="15px" /></a>
                     </div>
                     <div style="float:left">
                         <div id="crumbs">
@@ -92,8 +100,8 @@
             <div class="main">
                 <div class="content markdown-body">
                     <h1 id="in-the-process-of-development">in the process of development…</h2>
-                    <p>Back to <a href="/">Homepage</a></p>       
-                    {{ content }}
+                        <p>Back to <a href="/">Homepage</a></p>
+                        {{ content }}
                 </div>
             </div>
         </div>
@@ -101,7 +109,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
         integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
-    
+
     {%- if page.needAutoGenerateSidebar -%}
     <script>
         FullTreeMenuList(true);
