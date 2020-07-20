@@ -9,3 +9,4 @@ _layouts: /dwt-docs/_layouts/
 2_getstarted: /dwt-docs/2_getstarted/
 3_indepth: /dwt-docs/3_indepth/
 4_info: /dwt-docs/4_info/
+theme: jekyll-theme-cayman
