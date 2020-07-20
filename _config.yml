@@ -1,48 +1,11 @@
-repositoryUrl: https://github.com/Dynamsoft/barcode-sdk-docs-dev/blob/master
+repositoryUrl: https://github.com/Tom-Dynamsoft/dwt-docs/blob/master
 
-docHomePage: /barcode-sdk-docs-dev
+docHomePage: /dwt-docs
 
-introduction: /barcode-sdk-docs-dev/introduction/
-programming: /barcode-sdk-docs-dev/programming/
-parameters: /barcode-sdk-docs-dev/parameters/
-enhancements: /barcode-sdk-docs-dev/enhancements/
-
-c_cplusplus: /barcode-sdk-docs-dev/programming/c-cplusplus/
-structs: /barcode-sdk-docs-dev/programming/c-cplusplus/struct/
-
-c: /barcode-sdk-docs-dev/programming/c/
-c_methods: /barcode-sdk-docs-dev/programming/c/api-reference/
-
-cpp: /barcode-sdk-docs-dev/programming/cplusplus/
-cpp_methods: /barcode-sdk-docs-dev/programming/cplusplus/api-reference/
-
-
-js: /barcode-sdk-docs-dev/programming/javascript/
-js_api: /barcode-sdk-docs-dev/programming/javascript/api-reference/
-
-dotnet: /barcode-sdk-docs-dev/programming/dotnet/
-dotnet_api: /barcode-sdk-docs-dev/programming/dotnet/api-reference/
-
-oc: /barcode-sdk-docs-dev/programming/objectivec-swift/
-oc_api: /barcode-sdk-docs-dev/programming/objectivec-swift/api-reference/
-
-java: /barcode-sdk-docs-dev/programming/java/
-java_api: /barcode-sdk-docs-dev/programming/java/api-reference/
-
-android: /barcode-sdk-docs-dev/programming/android/
-android_api: /barcode-sdk-docs-dev/programming/android/api-reference/
-  
-python: /barcode-sdk-docs-dev/programming/python/
-python_api: /barcode-sdk-docs-dev/programming/python/api-reference/
-
-parameters_reference: /barcode-sdk-docs-dev/parameters/reference/
-scenario_settings: /barcode-sdk-docs-dev/parameters/scenario-settings/
-enumerations: /barcode-sdk-docs-dev/parameters/enum/
-
-faqs: /barcode-sdk-docs-dev/introduction/faqs.html
-how_to: /barcode-sdk-docs-dev/introduction/how-to-guide/
-
-assets: /barcode-sdk-docs-dev/assets/
-dynamsoft_logo: /barcode-sdk-docs-dev/assets/img-icon/dynamsoft-logo.png
-dbr_logo: /barcode-sdk-docs-dev/assets/img-icon/dbr-logo.png
-edit_icon: /barcode-sdk-docs-dev/assets/img-icon/edit-icon.png
+_assets: /dwt-docs/_assets/
+_includes: /dwt-docs/_includes/
+_layouts: /dwt-docs/_layouts/
+1_about: /dwt-docs/1_about/
+2_getstarted: /dwt-docs/2_getstarted/
+3_indepth: /dwt-docs/3_indepth/
+4_info: /dwt-docs/4_info/
