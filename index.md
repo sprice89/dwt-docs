@@ -5,18 +5,18 @@ breadcrumbText: HomePage
 
 # Dynamic Web TWAIN Documentation  
 
-* [ABOUT DWT]({{site.about}})
+* ABOUT DWT
 
    - [Features]({{site.about}}features.html)
    - [Resources]({{site.about}}resources.html)
    - [FAQs]({{site.about}}faqs.html)
 
-* [GETTING STARTED]({{site.getstarted}})
+* GETTING STARTED
 
    - [HelloWorld]({{site.getstarted}}helloworld.html)
    - [Hardware]({{site.getstarted}}hardware.html)
 
-* [TECHNIQUES]({{site.indepth}})
+* TECHNIQUES
 
    - [Initialize]({{site.indepth}}initialize.html)
    - [Input]({{site.indepth}}input.html)
@@ -28,24 +28,22 @@ breadcrumbText: HomePage
    - [OCR]({{site.indepth}}ocr.html)
    - [Handle PDF]({{site.indepth}}pdf.html)
 
-* [DEVELOPMENT]({{site.indepth}}development/)
+* DEVELOPMENT
 
-   - [Angular Integration]({{site.indepth}}development/dwt_angular.html)
-   - [React Integration]({{site.indepth}}development/dwt_react.html)
-   - [Vue Integration]({{site.indepth}}development/dwt_vue.html)
-   - [MVC Integration]({{site.indepth}}development/dwt_mvc.html)
-   - [Server-side Scripting]({{site.indepth}}development/server_script.html)
-   - [Capability Negotiation]({{site.indepth}}development/capabilities.html)
-   - [Service Installation]({{site.indepth}}development/service_install.html)
-   - [Custom Configuration]({{site.indepth}}development/configure.html)
+   - [Angular Integration]({{site.indepth}}development/angular.html)
+   - [React Integration]({{site.indepth}}development/react.html)
+   - [Vue Integration]({{site.indepth}}development/vue.html)
+   - [MVC Integration]({{site.indepth}}development/mvc.html)
+   - [Server-side Scripting]({{site.indepth}}development/serverScript.html)
 
-* [DEPLOYMENT]({{site.indepth}}deployment/)
-
-   - [Citrix]({{site.indepth}}deployment/citrix.html)
+* DEPLOYMENT
+   - [Server Setup]({{site.indepth}}deployment/server.html)
+   - [Service Setup]({{site.indepth}}deployment/service.html)
+   - [Scenarios]({{site.indepth}}deployment/scenarios.html)
 
 * [GOVERNANCE]({{site.info}}governance.html)
 
-* [RELEASES]({{site.info}}releases/)
+* RELEASES
 
    - [No active development]({{site.info}}releases/ideas.html)
    - [Proposed]({{site.info}}releases/proposed.html)
