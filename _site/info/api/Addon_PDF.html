@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/Addon_PDF.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/Addon_PDF.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/Addon_PDF.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwainaddonpdf">WebTwain.Addon.PDF</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#converttoimage">ConvertToImage</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getconvertmode">GetConvertMode</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ismoduleinstalled">IsModuleInstalled</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#istextbasedpdf">IsTextBasedPDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setconvertmode">SetConvertMode()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setpassword">SetPassword()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setresolution">SetResolution()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#writesetup">Write.Setup()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h2 id="converttoimage">ConvertToImage</h2>
+<h3 id="syntax">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Convert the specified PDF file to image(s).
+ * @param path The path of the PDF file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ConvertToImage</span><span class="p">(</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">resolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getconvertmode">GetConvertMode</h2>
+<h3 id="syntax-1">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the convert mode.
+ */</span>
+<span class="nx">GetConvertMode</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ismoduleinstalled">IsModuleInstalled</h2>
+<h3 id="syntax-2">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* Return whether the PDF module has been installed.
+*/</span>
+<span class="nx">IsModuleInstalled</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="istextbasedpdf">IsTextBasedPDF</h2>
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Detect whether a local PDF file is text based or not.
+ * @path Specify the path of the PDF file.
+ */</span>
+<span class="nx">IsTextBasedPDF</span><span class="p">(</span><span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setconvertmode">SetConvertMode</h2>
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the convert mode.
+ * @param mode Specify the mode.
+ */</span>
+<span class="nx">SetConvertMode</span><span class="p">(</span><span class="nx">mode</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ConvertMode</span> <span class="o">|</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setpassword">SetPassword</h2>
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the password for reading encrypted PDF files.
+ * @param password Specify the password.
+ */</span>
+<span class="nx">SetPassword</span><span class="p">(</span><span class="nx">password</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setresolution">SetResolution</h2>
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the resolution for rasterizing.
+ * @param resolution Specify the resolution.
+ */</span>
+<span class="nx">SetResolution</span><span class="p">(</span><span class="nx">resolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>There are three conversion modes</p>
+
+<ul>
+  <li>CM_RENDERALL (1): All the content in the target PDF file will be rasterized.</li>
+  <li>CM_IMAGEONLY (2): The PDF Rasterizer is turned off. This is the default mode.</li>
+  <li>CM_AUTO (3): The library automatically detect whether a file needs to be rasterized or not and then process the file accordingly.</li>
+</ul>
+
+<p>The default resolution for the conversion is 200. We recommend that you set a value smaller than 300, otherwise it might slow down the program or cause the process to fail.</p>
+
+<hr />
+
+<h2 id="writesetup">Write.Setup()</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set up the PDF writing engine.
+ * @param settings Configures how the PDF is generated.
+ */</span>
+<span class="nx">Write</span><span class="p">.</span><span class="nx">Setup</span><span class="p">(</span><span class="nx">settings</span><span class="p">:</span> <span class="nx">IPDFWSettings</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IPDFWSettings</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the author.
+     */</span>
+    <span class="nl">author</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the compression type.
+     */</span>
+    <span class="nl">compression</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PDFCompressionType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the creator.
+     */</span>
+    <span class="nl">creator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the creation date.
+     * Note that the argument should start with 'D:' like 'D:20181231'.
+     */</span>
+    <span class="nl">creationDate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the key words.
+     */</span>
+    <span class="nl">keyWords</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the modified date.
+     * Note that the argument should start with 'D:' like 'D:20181231'.
+     */</span>
+    <span class="nl">modifiedDate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the producer.
+     */</span>
+    <span class="nl">producer</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the subject.
+     */</span>
+    <span class="nl">subject</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the title.
+     */</span>
+    <span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the PDF version. For example, '1.5'.
+     */</span>
+    <span class="nl">version</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the quality of the images in the file.
+     * The value ranges from 0 to 100.
+     * Only valid when the {compression} is 'JPEG' or 'JPEG2000'.
+     */</span>
+    <span class="nl">quality</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>Use this method before you create a PDF with methods such as <code class="language-plaintext highlighter-rouge">HTTPUpload()</code> and <code class="language-plaintext highlighter-rouge">SaveAsPDF()</code>;</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

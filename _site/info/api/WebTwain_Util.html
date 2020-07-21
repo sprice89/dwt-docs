@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/WebTwain_Util.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/WebTwain_Util.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/WebTwain_Util.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwain-util">WebTwain Util</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#registerevent">RegisterEvent()</a></td>
+      <td style="text-align: left"><a href="#unregisterevent">UnregisterEvent()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setlanguage">SetLanguage()</a></td>
+      <td style="text-align: left"><a href="#generateurlforuploaddata">GenerateURLForUploadData()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#errorcode">ErrorCode</a></td>
+      <td style="text-align: left"><a href="#errorstring">ErrorString</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#loglevel">LogLevel</a></td>
+      <td style="text-align: left"><a href="#manufacturer">Manufacturer</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#productfamily">ProductFamily</a></td>
+      <td style="text-align: left"><a href="#productname">ProductName</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#versioninfo">VersionInfo</a></td>
+      <td style="text-align: left"><a href="#productkey">ProductKey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="registerevent">RegisterEvent</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Specify an event listener for the specified built-in event.
+ * @param name Specify the event
+ * @param callback The event listener
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">callback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="unregisterevent">UnregisterEvent</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Remove an event listener from the specified built-in event.
+ * @param name Specify the event
+ * @param callback The event listener
+ */</span>
+<span class="nx">UnregisterEvent</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">callback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>There can only be one listener for each built-in event. If you call <code class="language-plaintext highlighter-rouge">RegisterEvent</code> on the same event again, the new callback will replace the old one.</p>
+
+<hr />
+
+<h2 id="setlanguage">SetLanguage</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the language for the authorization dialogs.
+ * @param language Specify the language.
+ */</span>
+<span class="nx">SetLanguage</span><span class="p">(</span>
+    <span class="nx">language</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_Language</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>The language set with this method is only for the built-in security dialogs which show up when the user tries to access a scanner, a camera or a local file.</p>
+
+<hr />
+
+<h2 id="generateurlforuploaddata">GenerateURLForUploadData</h2>
+
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Generate a URL to be used by a FileUpoader instance to fetch the data to upload.
+ * @param indices Specify the images to upload.
+ * @param type Specify the file type.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument resultURL The generated URL.
+ * @argument indices The indices of the images.
+ * @argument type The file type.
+ */</span>
+<span class="nx">GenerateURLForUploadData</span><span class="p">(</span>
+    <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">resultURL</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+        <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+        <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>The language set with this method is only for the built-in security dialogs which show up when the user tries to access a scanner, a camera or a local file.</p>
+
+<hr />
+
+<h2 id="errorcode">ErrorCode</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the error code.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ErrorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-3">Usage notes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ErrorCode</code> and <code class="language-plaintext highlighter-rouge">ErrorString</code> always reflect the result of the last API call. So make sure you read them in time.</p>
+
+<hr />
+
+<h2 id="errorstring">ErrorString</h2>
+
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the error string.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ErrorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-4">Usage notes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ErrorCode</code> and <code class="language-plaintext highlighter-rouge">ErrorString</code> always reflect the result of the last API call. So make sure you read them in time.</p>
+
+<hr />
+
+<h2 id="loglevel">LogLevel</h2>
+
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the log level for debugging.
+ */</span>
+<span class="nx">LogLevel</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-5">Usage notes</h3>
+
+<p>The logs for the Dynamic Web TWAIN library are saved in the directory <code class="language-plaintext highlighter-rouge">C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\log\</code>. By default, <code class="language-plaintext highlighter-rouge">LogLevel</code> is 0 and nothing is recorded. When it is set to 1, all debugging information is recorded.</p>
+
+<p>Setting <code class="language-plaintext highlighter-rouge">LogLevel</code> to 1/0 is equivalent to setting <code class="language-plaintext highlighter-rouge">LogLevel</code> to 14/1 in the file <code class="language-plaintext highlighter-rouge">C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\DSConfiguration.ini</code>.</p>
+
+<hr />
+
+<h2 id="manufacturer">Manufacturer</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Manufacturer in the identity string of the Dynamic Web TWAIN library.
+ */</span> 
+<span class="nx">readonly</span> <span class="nx">Manufacturer</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="usage-notes-6">Usage notes</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Manufacturer</code>, <code class="language-plaintext highlighter-rouge">ProductFamily</code>, <code class="language-plaintext highlighter-rouge">ProductName</code> and <code class="language-plaintext highlighter-rouge">VersionInfo</code> together form the identity string of the Dynamic Web TWAIN library.</p>
+
+<hr />
+
+<h2 id="productfamily">ProductFamily</h2>
+
+<h3 id="syntax-8">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * ProductFamily in the identity string of the Dynamic Web TWAIN library.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ProductFamily</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="usage-notes-7">Usage notes</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Manufacturer</code>, <code class="language-plaintext highlighter-rouge">ProductFamily</code>, <code class="language-plaintext highlighter-rouge">ProductName</code> and <code class="language-plaintext highlighter-rouge">VersionInfo</code> together form the identity string of the Dynamic Web TWAIN library.</p>
+
+<hr />
+
+<h2 id="productname">ProductName</h2>
+
+<h3 id="syntax-9">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * ProductName in the identity string of the Dynamic Web TWAIN library.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ProductName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="usage-notes-8">Usage notes</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Manufacturer</code>, <code class="language-plaintext highlighter-rouge">ProductFamily</code>, <code class="language-plaintext highlighter-rouge">ProductName</code> and <code class="language-plaintext highlighter-rouge">VersionInfo</code> together form the identity string of the Dynamic Web TWAIN library.</p>
+
+<hr />
+
+<h2 id="versioninfo">VersionInfo</h2>
+
+<h3 id="syntax-10">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * VersionInfo in the identity string of the Dynamic Web TWAIN library.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">VersionInfo</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="usage-notes-9">Usage notes</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Manufacturer</code>, <code class="language-plaintext highlighter-rouge">ProductFamily</code>, <code class="language-plaintext highlighter-rouge">ProductName</code> and <code class="language-plaintext highlighter-rouge">VersionInfo</code> together form the identity string of the Dynamic Web TWAIN library.</p>
+
+<hr />
+
+<h2 id="productkey">ProductKey</h2>
+
+<h3 id="syntax-11">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the ProductKey.
+ */</span>
+<span class="nx">ProductKey</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-10">Usage notes</h3>
+
+<p>The ProductKey contains the license to use the Dynamic Web TWAIN library.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

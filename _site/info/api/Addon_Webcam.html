@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/Addon_Webcam.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/Addon_Webcam.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/Addon_Webcam.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <p>/<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script></p>
+<h1 id="webtwainaddonwebcam">WebTwain.Addon.Webcam</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#captureimage">CaptureImage()</a></td>
+      <td style="text-align: left"><a href="#closesource">CloseSource()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getcameracontrolpropertysetting">GetCameraControlPropertySetting()</a></td>
+      <td style="text-align: left"><a href="#getcameracontrolpropertymoresetting">GetCameraControlPropertyMoreSetting()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getvideopropertysetting">GetVideoPropertySetting()</a></td>
+      <td style="text-align: left"><a href="#getvideopropertymoresetting">GetVideoPropertyMoreSetting()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setcameracontrolpropertysetting">SetCameraControlPropertySetting()</a></td>
+      <td style="text-align: left"><a href="#setvideopropertysetting">SetVideoPropertySetting()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getframerate">GetFrameRate()</a></td>
+      <td style="text-align: left"><a href="#setframerate">SetFrameRate()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getmediatype">GetMediaType()</a></td>
+      <td style="text-align: left"><a href="#setmediatype">SetMediaType()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getresolution">GetResolution()</a></td>
+      <td style="text-align: left"><a href="#setresolution">SetResolution()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getframeparturl">GetFramePartURL()</a></td>
+      <td style="text-align: left"><a href="#getframeurl">GetFrameURL()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#">GetSourceList()</a></td>
+      <td style="text-align: left"><a href="#">SelectSource()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#">PauseVideo()</a></td>
+      <td style="text-align: left"><a href="#">PlayVideo()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#">SetVideoRotateMode()</a></td>
+      <td style="text-align: left"><a href="#">StopVideo()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="captureimage">CaptureImage</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Capture an image from the current camera.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error String
+ */</span>
+<span class="nx">CaptureImage</span><span class="p">(</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getsourcelist">GetSourceList</h2>
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return a list of all available cameras.
+ */</span>
+<span class="nx">GetSourceList</span><span class="p">():</span> <span class="nx">string</span><span class="p">[];</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="selectsource">SelectSource</h2>
+<h3 id="syntax-2">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Select a camera to use.
+ * @param name Specify the camera.
+ */</span>
+<span class="nx">SelectSource</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="closesource">CloseSource</h2>
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Close the current camera.
+ */</span>
+<span class="nx">CloseSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getsourcelist-1">GetSourceList</h2>
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return a list of all available cameras.
+ */</span>
+<span class="nx">GetSourceList</span><span class="p">():</span> <span class="nx">string</span><span class="p">[];</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="selectsource-1">SelectSource</h2>
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Select a camera to use.
+ * @param name Specify the camera.
+ */</span>
+<span class="nx">SelectSource</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="closesource-1">CloseSource</h2>
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Close the current camera.
+ */</span>
+<span class="nx">CloseSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>When you close the camera, the video stream will stop at the last frame.</p>
+
+<hr />
+
+<h2 id="playvideo">PlayVideo</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Start to play the video stream from the current camera.
+ * @param DWObject Specify a WebTwain instance to show the video.
+ * @param quality Specify the quality of the video.
+ * @param frameDidShow A callback function that is triggered after each video frame is shown.
+ */</span>
+<span class="nx">PlayVideo</span><span class="p">(</span>
+    <span class="nx">DWObject</span><span class="p">:</span> <span class="nx">WebTwain</span><span class="p">,</span>
+    <span class="nx">quality</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">frameDidShow</span><span class="p">?:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="pausevideo">PauseVideo</h2>
+<h3 id="syntax-8">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Pause the video.
+ */</span>
+<span class="nx">PauseVideo</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="stopvideo">StopVideo</h2>
+<h3 id="syntax-9">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Stop the video.
+ */</span>
+<span class="nx">StopVideo</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>When you capture a frame, it’s always the actual latest frame from the camera even if you have paused the video.</p>
+
+<p>When you close the camera, the video stream will stop at the last frame.</p>
+
+<hr />
+
+<h2 id="getcameracontrolpropertysetting">GetCameraControlPropertySetting</h2>
+<h3 id="syntax-10">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return information about the specified camera property.
+ * @param property Specify the property.
+ */</span>
+<span class="nx">GetCameraControlPropertySetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">EnumDWT_CameraControlProperty</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">ICameraControlProperty</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getcameracontrolpropertymoresetting">GetCameraControlPropertyMoreSetting</h2>
+<h3 id="syntax-11">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return detailed information about the specified camera property.
+ * @param property Specify the property.
+ */</span>
+<span class="nx">GetCameraControlPropertyMoreSetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CameraControlProperty</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">ICameraControlPropertyExtra</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setcameracontrolpropertysetting">SetCameraControlPropertySetting</h2>
+
+<h3 id="syntax-12">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the specified camera property.
+ * @param property Specify the property.
+ * @param value Specify the value.
+ * @param auto Specify whether the propery should change automatically.
+ */</span>
+<span class="nx">SetCameraControlPropertySetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CameraControlProperty</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">auto</span><span class="p">:</span> <span class="nx">boolean</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">ICameraControlProperty</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the value of the property.
+     */</span>
+    <span class="nx">GetValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return whether the property is set autmatically or not.
+     */</span>
+    <span class="nx">GetIfAuto</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ICameraControlPropertyExtra</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the minimum value of the property.
+     */</span>
+    <span class="nx">GetMinValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the maximum value of the property.
+     */</span>
+    <span class="nx">GetMaxValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the default value of the property.
+     */</span>
+    <span class="nx">GetDefaultValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the smallest increment by which the property can change.
+     */</span>
+    <span class="nx">GetSteppingDelta</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>    
+    <span class="cm">/**
+     * Return whether the property is set autmatically or not.
+     */</span>
+    <span class="nx">GetIfAuto</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>Check out <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_cameracontrolproperty">Dynamsoft.EnumDWT_CameraControlProperty</a>.</p>
+
+<hr />
+
+<h2 id="getvideopropertysetting">GetVideoPropertySetting</h2>
+
+<h3 id="syntax-13">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return information about the specified video property.
+ * @param property Specify the property.
+ */</span>
+<span class="nx">GetVideoPropertySetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_VideoProperty</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">IVideoControlProperty</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getvideopropertymoresetting">GetVideoPropertyMoreSetting</h2>
+<h3 id="syntax-14">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return detailed information about the specified video property.
+ * @param property Specify the property.
+ */</span>
+<span class="nx">GetVideoPropertyMoreSetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_VideoProperty</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">IVideoControlPropertyExtra</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setvideopropertysetting">SetVideoPropertySetting</h2>
+<h3 id="syntax-15">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the specified video property.
+ * @param property Specify the property.
+ * @param value Specify the value.
+ * @param auto Specify whether the propery should change automatically.
+ */</span>
+<span class="nx">SetVideoPropertySetting</span><span class="p">(</span>
+    <span class="nx">property</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_VideoProperty</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">auto</span><span class="p">:</span> <span class="nx">boolean</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IVideoControlProperty</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the value of the property.
+     */</span>
+    <span class="nx">GetValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return whether the property is set autmatically or not.
+     */</span>
+    <span class="nx">GetIfAuto</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">IVideoControlPropertyExtra</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the minimum value of the property.
+     */</span>
+    <span class="nx">GetMinValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the maximum value of the property.
+     */</span>
+    <span class="nx">GetMaxValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the default value of the property.
+     */</span>
+    <span class="nx">GetDefaultValue</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the smallest increment by which the property can change.
+     */</span>
+    <span class="nx">GetSteppingDelta</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>    
+    <span class="cm">/**
+     * Return whether the property is set autmatically or not.
+     */</span>
+    <span class="nx">GetIfAuto</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-3">Usage notes</h3>
+
+<p>Check out <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_videoproperty">Dynamsoft.EnumDWT_VideoProperty</a>.</p>
+
+<hr />
+
+<h2 id="getframerate">GetFrameRate</h2>
+<h3 id="syntax-16">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the frame rates supported by the current camera.
+ */</span>
+<span class="nx">GetFrameRate</span><span class="p">():</span> <span class="nx">IFrameRate</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getmediatype">GetMediaType</h2>
+<h3 id="syntax-17">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the media types supported by the current camera.
+ */</span>
+<span class="nx">GetMediaType</span><span class="p">():</span> <span class="nx">IMediaType</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getresolution">GetResolution</h2>
+<h3 id="syntax-18">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the resolutions supported by the current camera.
+ */</span>
+<span class="nx">GetResolution</span><span class="p">():</span> <span class="nx">IResolution</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setframerate">SetFrameRate</h2>
+<h3 id="syntax-19">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the frame rate.
+ * @param rate Specify the frame rate.
+ */</span>
+<span class="nx">SetFrameRate</span><span class="p">(</span><span class="nx">rate</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setmediatype">SetMediaType</h2>
+<h3 id="syntax-20">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the media type.
+ * @param type Sepcify the media type.
+ */</span>
+<span class="nx">SetMediaType</span><span class="p">(</span><span class="nx">type</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setresolution">SetResolution</h2>
+<h3 id="syntax-21">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the resolution.
+ * @param resolution Specify the resolution.
+ */</span>
+<span class="nx">SetResolution</span><span class="p">(</span><span class="nx">resolution</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+
+
+<span class="kr">interface</span> <span class="nx">IFrameRate</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the number of available frame rates.
+     */</span>
+    <span class="nx">GetCount</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the specified frame rate.
+     */</span>
+    <span class="nx">Get</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the current frame rate.
+     */</span>
+    <span class="nx">GetCurrent</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">IMediaType</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the number of available media types.
+     */</span>
+    <span class="nx">GetCount</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the specified media type.
+     */</span>
+    <span class="nx">Get</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the current media type.
+     */</span>
+    <span class="nx">GetCurrent</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">IResolution</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the number of available resolutions.
+     */</span>
+    <span class="nx">GetCount</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the specified resolution.
+     */</span>
+    <span class="nx">Get</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the current resolution.
+     */</span>
+    <span class="nx">GetCurrent</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setvideorotatemode">SetVideoRotateMode</h2>
+<h3 id="syntax-22">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Rotate the video.
+ * @param mode Specify the rotate mode
+ */</span>
+<span class="nx">SetVideoRotateMode</span><span class="p">(</span>
+    <span class="nx">mode</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_VideoRotateMode</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-4">Usage notes</h3>
+
+<p>Check out <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_videorotatemode">Dynamsoft.EnumDWT_VideoRotateMode</a>.</p>
+
+<hr />
+
+<h2 id="getframeurl">GetFrameURL</h2>
+
+<h3 id="syntax-23">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the URL (http(s)://) for the latest frame.
+ */</span>
+<span class="nx">GetFrameURL</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="getframeparturl">GetFramePartURL</h2>
+<h3 id="syntax-24">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the internal URL (dwt://) for the latest frame.
+ */</span>
+<span class="nx">GetFramePartURL</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-5">Usage notes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">GetFrameURL()</code> returns a public URL that can be used to access the frame directly by any applicatoin capable of HTTP requests that runs on the same machine. For example: ‘https://127.0.0.1:18623/dwt/dwt_16000428/img?id=853407158&amp;index=-1&amp;width=-1&amp;height=-1&amp;webcam=80&amp;t=1590481406860’.</p>
+
+<p><code class="language-plaintext highlighter-rouge">GetFramePartURL()</code> returns an internal URL that only Dynamsoft libraries such as the Barcode Reader add-on can read. For example: <code class="language-plaintext highlighter-rouge">dwt://dwt_16000428/img?id=853407158&amp;index=-1&amp;width=-1&amp;height=-1&amp;webcam=80&amp;t=1590481403659</code>.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

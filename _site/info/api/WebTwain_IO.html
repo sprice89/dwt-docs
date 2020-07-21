@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/WebTwain_IO.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/WebTwain_IO.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/WebTwain_IO.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwain-io">WebTwain IO</h1>
+
+<h2 id="input">Input</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#loadimage">LoadImage()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#loadimageex">LoadImageEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#loadimagefrombase64binary">LoadImageFromBase64Binary()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#loadimagefrombinary">LoadImageFromBinary()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#loaddibfromclipboard">LoadDibFromClipboard()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpdownload">FTPDownload()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpdownloadex">FTPDownloadEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpdownload">HTTPDownload()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpdownloadex">HTTPDownloadEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpdownloadthroughpost">HTTPDownloadThroughPost()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpdownloaddirectly">HTTPDownloadDirectly()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="output">Output</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#converttobase64">ConvertToBase64()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#converttoblob">ConvertToBlob()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpupload">FTPUpload()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpuploadex">FTPUploadEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpuploadallasmultipagetiff">FTPUploadAllAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpuploadallaspdf">FTPUploadAllAsPDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpuploadasmultipagepdf">FTPUploadAsMultiPagePDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpuploadasmultipagetiff">FTPUploadAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpupload">HTTPUpload()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughputex">HTTPUploadThroughPutEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughpost">HTTPUploadThroughPost()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughpostex">HTTPUploadThroughPostEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadallthroughpostasmultipagetiff">HTTPUploadAllThroughPostAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadallthroughpostaspdf">HTTPUploadAllThroughPostAsPDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughpostasmultipagepdf">HTTPUploadThroughPostAsMultiPagePDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughpostasmultipagetiff">HTTPUploadThroughPostAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpuploadthroughpostdirectly">HTTPUploadThroughPostDirectly()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveasbmp">SaveAsBMP()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveasjpeg">SaveAsJPEG()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveaspdf">SaveAsPDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveaspng">SaveAsPNG()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveastiff">SaveAsTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveselectedimagesasmultipagepdf">SaveSelectedImagesAsMultiPagePDF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveselectedimagesasmultipagetiff">SaveSelectedImagesAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveallasmultipagetiff">SaveAllAsMultiPageTIFF()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#saveallaspdf">SaveAllAsPDF()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="others">Others</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#cleartiffcustomtag">ClearTiffCustomTag()</a></td>
+      <td style="text-align: left"><a href="#settiffcustomtag">SetTiffCustomTag()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#clearallhttpformfield">ClearAllHTTPFormField()</a></td>
+      <td style="text-align: left"><a href="#sethttpformfield">SetHTTPFormField()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#sethttpheader">SetHTTPHeader()</a></td>
+      <td style="text-align: left"><a href="#setuploadsegment">SetUploadSegment()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#showfiledialog">ShowFileDialog()</a></td>
+      <td style="text-align: left"><a href="#print">Print()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#ftppassword">FTPPassword</a></td>
+      <td style="text-align: left"><a href="#ftpport">FTPPort</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ftpusername">FTPUserName</a></td>
+      <td style="text-align: left"><a href="#httppassword">HTTPPassword</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpusername">HTTPUserName</a></td>
+      <td style="text-align: left"><a href="#ifpasvmode">IfPASVMode</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#httpfieldnameofuploadedimage">HttpFieldNameOfUploadedImage</a></td>
+      <td style="text-align: left"><a href="#httpport">HTTPPort</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifssl">IfSSL</a></td>
+      <td style="text-align: left"><a href="#httppostresponsestring">HTTPPostResponseString</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifshowfiledialog">IfShowFileDialog</a></td>
+      <td style="text-align: left"><a href="#ifshowprogressbar">IfShowCancelDialogWhenImageTransfer</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifshowprogressbar">IfShowProgressBar</a></td>
+      <td style="text-align: left"><a href="">JPEGQuality</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#iftiffmultipage">IfTiffMultiPage</a></td>
+      <td style="text-align: left"><a href="">TIFFCompressionType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#maxuploadimagesize">MaxUploadImageSize</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Events</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#ongetfilepath">OnGetFilePath</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#onpostload">OnPostLoad</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#oninternettransferpercentage">OnInternetTransferPercentage</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>[Deprecation] The following APIs are deprecated.</p>
+
+  <p>[Alternative] New methods like ConvertToBase64(), PDF.Write.Setup()</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Load-Save.html#SaveSelectedImagesToBase64Binary">SaveSelectedImagesToBase64Binary()</a></td>
+      <td style="text-align: left">SetCookie()</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#IfOpenImageWithGDIPlus">IfOpenImageWithGDIPlus</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFAuthor">PDFAuthor</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFCompressionType">PDFCompressionType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFCreationDate">PDFCreationDate</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFCreator">PDFCreator</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFKeywords">PDFKeywords</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFModifiedDate">PDFModifiedDate</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFProducer">PDFProducer</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFSubject">PDFSubject</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFTitle">PDFTitle</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Encode-Decode.html#PDFVersion">PDFVersion</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MaxInternetTransferThreads</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="ifappendimage">IfAppendImage</h2>
+<h3 id="syntax">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* Return or set whether to insert or append images when they are scanned/loaded.
+*/</span>
+<span class="nx">IfAppendImage</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="loadimage">LoadImage</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load image(s) specified by its absolute path.
+ * @param fileName The path of the image to load.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">LoadImage</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImage</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">DWT.jpg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="loadimageex">LoadImageEx</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load image(s) specified by its absolute path.
+ * @param fileName The path of the image to load.
+ * @param type The format of the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">LoadImageEx</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-1">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImageEx</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">DWT.jpg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_JPG</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="loadimagefrombase64binary">LoadImageFromBase64Binary</h2>
+
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load image(s) from a base64 string.
+ * @param imageData The image data which is a base64 string without the data URI scheme.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">LoadImageFromBase64Binary</span><span class="p">(</span>
+    <span class="nx">imageData</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">imageType</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-2">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBase64</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span> 
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImageFromBase64Binary</span><span class="p">(</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">getLength</span><span class="p">()),</span> 
+            <span class="nx">type</span><span class="p">,</span>           
+            <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="loadimagefrombinary">LoadImageFromBinary</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load image(s) from a binary object (Blob | ArrayBuffer).
+ * @param imageData The image data.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">LoadImageFromBinary</span><span class="p">(</span>
+    <span class="nx">imageData</span><span class="p">:</span> <span class="nx">Blob</span> <span class="o">|</span> <span class="nb">ArrayBuffer</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-3">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBlob</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span> 
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImageFromBinary</span><span class="p">(</span>
+            <span class="nx">result</span><span class="p">,</span>         
+            <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="loaddibfromclipboard">LoadDibFromClipboard</h2>
+
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load an image from the system clipboard. The image must be in DIB format.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">LoadDibFromClipboard</span><span class="p">(</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>If called without any callback functions, these methods (except for <code class="language-plaintext highlighter-rouge">LoadImageFromBinary()</code>) become synchronously and return a boolean value to indicate whether it succeeded.</p>
+
+<p>However, calling them asynchronously is recommended.</p>
+
+<h3 id="example-4">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImage</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">DWT.jpg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImage</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">DWT.jpg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBase64</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span> 
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImageFromBase64Binary</span><span class="p">(</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">getLength</span><span class="p">()),</span> 
+            <span class="nx">type</span><span class="p">,</span>           
+            <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBlob</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span> 
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">LoadImageFromBinary</span><span class="p">(</span>
+            <span class="nx">result</span><span class="p">,</span>         
+            <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ongetfilepath">OnGetFilePath</h2>
+
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when {ShowFileDialog} is called or when  {LoadImageEx} is called with {IfShowFileDialog} set to true.
+ * @argument isSave Whether or not the event is triggered after a save-file dialog was shown or a open-file dialog.
+ * @argument filesCount How many files were selected.
+ * @argument index The index of the current image.
+ * @argument directory The parent directory of currently selected file(s), "\\" is not included. If the methed ShowFileDialog() failed, the initial directory path set in the ShowFileDialog method is returned.
+ * @argument fileName The current file name.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnGetFilePath</span><span class="dl">'</span><span class="p">,</span>
+     <span class="kd">function</span> <span class="p">(</span>
+         <span class="nx">isSave</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+         <span class="nx">filesCount</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+         <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+         <span class="nx">directory</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+         <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">){}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="onpostload">OnPostLoad</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when a file from a local directory has been loaded into the control.
+ * @argument directory The directory of the loaded file.
+ * @argument fileName The name of the loaded file.
+ * @argument fileType The file type.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostLoad</span><span class="dl">'</span><span class="p">,</span>
+     <span class="kd">function</span> <span class="p">(</span>
+         <span class="nx">directory</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+         <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+         <span class="nx">fileType</span><span class="p">:</span> <span class="nx">string</span><span class="p">){}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ftpdownload">FTPDownload</h2>
+
+<h3 id="syntax-8">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via FTP
+ * @param host The FTP Host.
+ * @param path Specify the file to download.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPDownload</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ftpdownloadex">FTPDownloadEx</h2>
+
+<h3 id="syntax-9">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via FTP.
+ * @param host The FTP Host.
+ * @param path Specify the file to download.
+ * @param type The format of the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPDownloadEx</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ftpupload">FTPUpload</h2>
+<h3 id="syntax-10">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image via FTP.
+ * @param host The FTP Host.
+ * @param index Specify the image.
+ * @param path The path to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUpload</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpuploadex">FTPUploadEx</h2>
+
+<h3 id="syntax-11">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image via FTP.
+ * @param host The FTP Host.
+ * @param index Specify the image.
+ * @param path The path to save the file.
+ * @param type The format of the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUploadEx</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpuploadallasmultipagetiff">FTPUploadAllAsMultiPageTIFF</h2>
+
+<h3 id="syntax-12">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all images as a multi-page TIFF via FTP.
+ * @param host The FTP Host.
+ * @param path Specify the path to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUploadAllAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpuploadallaspdf">FTPUploadAllAsPDF</h2>
+
+<h3 id="syntax-13">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all images as a multi-page PDF via FTP.
+ * @param host The FTP Host.
+ * @param path Specify the path to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUploadAllAsPDF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpuploadasmultipagepdf">FTPUploadAsMultiPagePDF</h2>
+
+<h3 id="syntax-14">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload selected images as a multi-page PDF via FTP.
+ * @param host The FTP Host.
+ * @param path Specify the path to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUploadAsMultiPagePDF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpuploadasmultipagetiff">FTPUploadAsMultiPageTIFF</h2>
+
+<h3 id="syntax-15">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload selected images as a multi-page TIFF via FTP.
+ * @param host The FTP Host.
+ * @param path Specify the path to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">FTPUploadAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftpusername">FTPUserName</h2>
+<h3 id="syntax-16">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * The password to connect to the FTP.
+ */</span>
+<span class="nx">FTPUserName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ftppassword">FTPPassword</h2>
+<h3 id="syntax-17">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * The password to connect to the FTP.
+ */</span>
+<span class="nx">FTPPassword</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ftpport">FTPPort</h2>
+<h3 id="syntax-18">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * The port to connect to the FTP.
+ */</span>
+<span class="nx">FTPPort</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ifpasvmode">IfPASVMode</h2>
+
+<h3 id="syntax-19">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to use passive mode when connect to the FTP.
+ */</span>
+<span class="nx">IfPASVMode</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="httppassword">HTTPPassword</h2>
+<h3 id="syntax-20">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * [Deprecation] Return or set the password used to log into the HTTP server.
+ */</span>
+<span class="nx">HTTPPassword</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="httpusername">HTTPUserName</h2>
+<h3 id="syntax-21">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * [Deprecation] Return or set the user name used to log into the HTTP server.
+ */</span>
+<span class="nx">HTTPUserName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="httpdownload">HTTPDownload</h2>
+
+<h3 id="syntax-22">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via a HTTP Get request.
+ * @param host The HTTP Host.
+ * @param path Specify the path of the file to download.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">HTTPDownload</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpdownloadex">HTTPDownloadEx</h2>
+
+<h3 id="syntax-23">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via a HTTP Get request.
+ * @param host The HTTP Host.
+ * @param path Specify the path of the file to download.
+ * @param type The format of the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">HTTPDownloadEx</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpdownloadthroughpost">HTTPDownloadThroughPost</h2>
+
+<h3 id="syntax-24">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param path Specify the path of the file to download.
+ * @param type The format of the file.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPDownloadThroughPost</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpdownloaddirectly">HTTPDownloadDirectly</h2>
+
+<h3 id="syntax-25">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download the specified file via a HTTP Get request.
+ * @param host The HTTP Host.
+ * @param path Specify the path of the file to download.
+ * @param localPath Specify where to save the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">HTTPDownloadDirectly</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">localPath</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>The Dynamic Web TWAIN library will decode the downloaded data based on the <code class="language-plaintext highlighter-rouge">type</code> parameter (<code class="language-plaintext highlighter-rouge">HTTPDownloadEx()</code>, <code class="language-plaintext highlighter-rouge">HTTPDownloadThroughPost()</code>) or the extension of the file in the <code class="language-plaintext highlighter-rouge">path</code> parameter (<code class="language-plaintext highlighter-rouge">HTTPDownload()</code>).</p>
+
+<p>For security reasons, the method <code class="language-plaintext highlighter-rouge">HTTPDownloadDirectly()</code> can only download the specified file to a whitelisted location. In other words, the user needs to call the method <a href="#showfiledialog">ShowFileDialog()</a> and then get a whitelisted location to use. Check out the example below.</p>
+
+<h3 id="example-5">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnGetFilePath</span><span class="dl">'</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">isSave</span><span class="p">,</span> <span class="nx">filesCount</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">directory</span><span class="p">,</span> <span class="nx">fileName</span><span class="p">)</span> <span class="p">{</span>     
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">HTTPDownloadDirectly</span><span class="p">(</span>
+            <span class="dl">"</span><span class="s2">tst.dynamsoft.com</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">/public/download/tools/Twack_32.msi</span><span class="dl">"</span><span class="p">,</span>
+            <span class="nx">directory</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\\</span><span class="dl">"</span> <span class="o">+</span>  <span class="nx">fileName</span><span class="p">,</span> 
+            <span class="kd">function</span><span class="p">(){},</span>
+            <span class="kd">function</span><span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">){</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ShowFileDialog</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="dl">"</span><span class="s2">MSI|*.msi</span><span class="dl">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">.msi</span><span class="dl">"</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpupload">HTTPUpload</h2>
+
+<h3 id="syntax-26">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image(s) via a HTTP Post.
+ * @param URL The server-side script to receive the post.
+ * @param indices Specify the image(s).
+ * @param type The format of the file.
+ * @param dataFormat Whether to upload the file as binary or a base64 string.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUpload</span><span class="p">(</span>
+    <span class="nx">URL</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">dataFormat</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_UploadDataFormat</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="nx">HTTPUpload</span><span class="p">(</span>
+    <span class="nx">URL</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">dataFormat</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_UploadDataFormat</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="nx">HTTPUpload</span><span class="p">(</span>
+    <span class="nx">URL</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughputex">HTTPUploadThroughPutEx</h2>
+
+<h3 id="syntax-27">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image via a HTTP Put request.
+ * @param host The HTTP Host.
+ * @param index Specify the image.
+ * @param path Specify the path to put the file.
+ * @param type The format of the file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">HTTPUploadThroughPutEx</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughpost">HTTPUploadThroughPost</h2>
+
+<h3 id="syntax-28">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param index Specify the image.
+ * @param target The target wherethe request is sent.
+ * @param type The format of the file.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadThroughPost</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughpostex">HTTPUploadThroughPostEx</h2>
+
+<h3 id="syntax-29">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified image via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param index Specify the image.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param type The format of the file.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadThroughPostEx</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="httpuploadallthroughpostasmultipagetiff">HTTPUploadAllThroughPostAsMultiPageTIFF</h2>
+
+<h3 id="syntax-30">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all images in the buffer as a TIFF file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadAllThroughPostAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadallthroughpostaspdf">HTTPUploadAllThroughPostAsPDF</h2>
+
+<h3 id="syntax-31">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all images in the buffer as a PDF file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadAllThroughPostAsPDF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughpostasmultipagepdf">HTTPUploadThroughPostAsMultiPagePDF</h2>
+
+<h3 id="syntax-32">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all selected images in the buffer as a PDF file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadThroughPostAsMultiPagePDF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughpostasmultipagetiff">HTTPUploadThroughPostAsMultiPageTIFF</h2>
+
+<h3 id="syntax-33">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload all selected images in the buffer as a TIFF file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadThroughPostAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpuploadthroughpostdirectly">HTTPUploadThroughPostDirectly</h2>
+
+<h3 id="syntax-34">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Upload the specified file via a HTTP Post request.
+ * @param host The HTTP Host.
+ * @param path Specify the file to upload.
+ * @param target The target wherethe request is sent.
+ * @param fileName The file name.
+ * @param onEmptyResponse A callback function that is executed if the response is empty.
+ * @param onServerReturnedSomething A callback function that is executed if the response is not empty.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ * @argument response The response string.
+ */</span>
+<span class="nx">HTTPUploadThroughPostDirectly</span><span class="p">(</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">onEmptyResponse</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">onServerReturnedSomething</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+        <span class="nx">response</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>For security reasons, the method <code class="language-plaintext highlighter-rouge">HTTPUploadThroughPostDirectly()</code> can only upload a whitelisted file. In other words, the local file to upload should be either created by the library or selected manually by the user.</p>
+
+<p>To select a local file to upload, call the method <a href="#showfiledialog">ShowFileDialog()</a> and then get the file path in the callback <a href="#ongetfilepath">OnGetFilePath</a>. Check out the example below.</p>
+
+<h3 id="example-6">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnGetFilePath</span><span class="dl">'</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">isSave</span><span class="p">,</span> <span class="nx">filesCount</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">directory</span><span class="p">,</span> <span class="nx">fileName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">HTTPUploadThroughPostDirectly</span><span class="p">(</span>
+            <span class="dl">"</span><span class="s2">localhost</span><span class="dl">"</span><span class="p">,</span>
+            <span class="nx">directory</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\\</span><span class="dl">"</span> <span class="o">+</span>  <span class="nx">fileName</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">SaveUploadedFile.aspx</span><span class="dl">"</span><span class="p">,</span>
+            <span class="nx">fileName</span><span class="p">,</span>
+            <span class="kd">function</span><span class="p">(){},</span>
+            <span class="kd">function</span><span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">response</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ShowFileDialog</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">All Files|*.*</span><span class="dl">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Sample code for the target script (SaveUploadedFile.aspx)</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;%</span><span class="err">@</span> <span class="n">Page</span> <span class="n">Language</span><span class="p">=</span><span class="s">"C#"</span> <span class="p">%&gt;</span>
+<span class="p">&lt;%</span>
+    <span class="k">try</span><span class="p">{</span>
+        <span class="n">String</span> <span class="n">strImageName</span><span class="p">;</span>
+        <span class="n">HttpFileCollection</span> <span class="n">files</span> <span class="p">=</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Files</span><span class="p">;</span>
+        <span class="n">HttpPostedFile</span> <span class="n">uploadfile</span> <span class="p">=</span> <span class="n">files</span><span class="p">[</span><span class="s">"RemoteFile"</span><span class="p">];</span>
+        <span class="n">strImageName</span> <span class="p">=</span> <span class="n">uploadfile</span><span class="p">.</span><span class="n">FileName</span><span class="p">;</span>
+        <span class="n">uploadfile</span><span class="p">.</span><span class="nf">SaveAs</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="nf">MapPath</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span> <span class="p">+</span> <span class="s">"\\"</span> <span class="p">+</span> <span class="n">strImageName</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">%&gt;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpfieldnameofuploadedimage">HttpFieldNameOfUploadedImage</h2>
+
+<h3 id="syntax-35">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the field name for the uploaded file. 
+ * By default, it's "RemoteFile".
+ */</span>
+<span class="nx">HttpFieldNameOfUploadedImage</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httpport">HTTPPort</h2>
+
+<h3 id="syntax-36">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+/**
+ * Return or set the HTTP Port.
+ */</span>
+<span class="nx">HTTPPort</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ifssl">IfSSL</h2>
+<h3 id="syntax-37">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+/**
+ * Return or set whether to use SSL in HTTP requests.
+ */</span>
+<span class="nx">IfSSL</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="httppostresponsestring">HTTPPostResponseString</h2>
+<h3 id="syntax-38">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the response string of the latest HTTP Post request.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">HTTPPostResponseString</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="maxuploadimagesize">MaxUploadImageSize</h2>
+<h3 id="syntax-39">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the maximum allowed size of a file to upload (in bytes).
+ */</span>
+<span class="nx">MaxUploadImageSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="oninternettransferpercentage">OnInternetTransferPercentage</h2>
+
+<h3 id="syntax-40">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered multiple times during a HTTP upload or download request.
+ * @argument percentage Return the progress by percentage.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnInternetTransferPercentage</span><span class="dl">'</span><span class="p">,</span>
+     <span class="kd">function</span> <span class="p">(</span><span class="nx">percentage</span><span class="p">:</span> <span class="nx">number</span><span class="p">){});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="converttobase64">ConvertToBase64</h2>
+
+<h3 id="syntax-41">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Convert the specified images to a base64 string.
+ * @param indices Specify one or multiple images.
+ * @param type The file type.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument result The resulting base64 string.
+ * @argument indices The indices of the converted images.
+ * @argument type The file type.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ConvertToBase64</span><span class="p">(</span>
+    <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">IBase64Result</span><span class="p">,</span> 
+        <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span> 
+        <span class="nx">type</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IBase64Result</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the length of the result string.
+     */</span> 
+    <span class="nx">getLength</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return part of the string.
+     * @param offset The starting position.
+     * @param length The length of the expected string.
+     */</span>
+    <span class="nx">getData</span><span class="p">(</span><span class="nx">offset</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">length</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the MD5 value of the result.
+     */</span> 
+    <span class="nx">getMD5</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="usage-notes-3">Usage notes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">getData()</code> returns the pure base64 string without the data URI scheme. For example, “/9j/4AAQSkZJRgABA…”. If you want to use the string, you probably need to add the scheme. For example, “data:image/png;base64,/9j/4AAQSkZJRgABA…”.</p>
+
+<h3 id="example-7">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBase64</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">getLength</span><span class="p">()));</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="converttoblob">ConvertToBlob</h2>
+
+<h3 id="syntax-42">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Convert the specified images to a blob.
+ * @param indices Specify one or multiple images.
+ * @param type The file type.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument result The resulting blob.
+ * @argument indices The indices of the converted images.
+ * @argument type The file type.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ConvertToBlob</span><span class="p">(</span>
+    <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+    <span class="nx">type</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">Blob</span><span class="p">,</span>
+        <span class="nx">indices</span><span class="p">:</span> <span class="nx">number</span><span class="p">[],</span>
+        <span class="nx">type</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-4">Usage notes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">getData()</code> returns the pure base64 string without the data URI scheme. For example, “/9j/4AAQSkZJRgABA…”. If you want to use the string, you probably need to add the scheme. For example, “data:image/png;base64,/9j/4AAQSkZJRgABA…”.</p>
+
+<h3 id="example-8">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">ConvertToBlob</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span><span class="p">.</span><span class="nx">IT_PDF</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">indices</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveasbmp">SaveAsBMP</h2>
+
+<h3 id="syntax-43">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Save the specified image as a BMP file.
+ * @param fileName The name to save to.
+ * @param index The index which specifies the image to save.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAsBMP</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveasjpeg">SaveAsJPEG</h2>
+
+<h3 id="syntax-44">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Save the specified image as a JPEG file.
+ * @param fileName The name to save to.
+ * @param index The index which specifies the image to save.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAsJPEG</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveaspdf">SaveAsPDF</h2>
+
+<h3 id="syntax-45">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Save the specified image as a PDF file.
+ * @param fileName The name to save to.
+ * @param index The index which specifies the image to save.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAsPDF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveaspng">SaveAsPNG</h2>
+
+<h3 id="syntax-46">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Save the specified image as a PNG file.
+ * @param fileName The name to save to.
+ * @param index The index which specifies the image to save.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAsPNG</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveastiff">SaveAsTIFF</h2>
+
+<h3 id="syntax-47">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Save the specified image as a TIFF file.
+ * @param fileName The name to save to.
+ * @param index The index which specifies the image to save.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAsTIFF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveallasmultipagetiff">SaveAllAsMultiPageTIFF</h2>
+
+<h3 id="syntax-48">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Saves all the images in buffer as a multi-page TIFF file.
+ * @param fileName The name to save to.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAllAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveallaspdf">SaveAllAsPDF</h2>
+
+<h3 id="syntax-49">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Saves all the images in buffer as a multi-page PDF file.
+ * @param fileName The name to save to.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveAllAsPDF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveselectedimagesasmultipagepdf">SaveSelectedImagesAsMultiPagePDF</h2>
+
+<h3 id="syntax-50">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Saves all selected images in buffer as a multi-page PDF file.
+ * @param fileName The name to save to.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveSelectedImagesAsMultiPagePDF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="saveselectedimagesasmultipagetiff">SaveSelectedImagesAsMultiPageTIFF</h2>
+
+<h3 id="syntax-51">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Saves all selected images in buffer as a multi-page TIFF file.
+ * @param fileName The name to save to.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SaveSelectedImagesAsMultiPageTIFF</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-5">Usage notes</h3>
+
+<p>If called without any callback functions, these methods become synchronously and return a boolean value to indicate whether it succeeded.</p>
+
+<p>However, calling them asynchronously is recommended.</p>
+
+<hr />
+
+<h2 id="cleartiffcustomtag">ClearTiffCustomTag</h2>
+
+<h3 id="syntax-52">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Clear the content of all custom tiff tags.
+ */</span>
+<span class="nx">ClearTiffCustomTag</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="settiffcustomtag">SetTiffCustomTag</h2>
+
+<h3 id="syntax-53">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Clear the content of all custom tiff tags.
+ * @param id The id of the custom tag.
+ * @param content The content of the tag.
+ * @param useBase64Encoding Whether the content is encoded.
+ */</span>
+<span class="nx">SetTiffCustomTag</span><span class="p">(</span>
+    <span class="nx">id</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+    <span class="nx">content</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+    <span class="nx">useBase64Encoding</span><span class="p">:</span> <span class="nx">boolean</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-6">Usage notes</h3>
+
+<p>The method <code class="language-plaintext highlighter-rouge">SetTiffCustomTag()</code> sets one or up to 32 tags to be added to a TIFF file when generating it. The content of the tags can be plain text or a base64-encoded string. If it’s encoded, it’ll be decoded when generating the TIFF file.</p>
+
+<p>To make sure you don’t included unwanted tags, call <code class="language-plaintext highlighter-rouge">ClearTiffCustomTag()</code> to clear old tags before setting up new ones.</p>
+
+<h3 id="example-9">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">ClearTiffCustomTag</span><span class="p">();</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">SetTiffCustomTag</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Created By DWT</span><span class="dl">"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> 
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">SaveAsTIFF</span><span class="p">(</span><span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">DWT.tiff</span><span class="dl">"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="clearallhttpformfield">ClearAllHTTPFormField</h2>
+
+<h3 id="syntax-54">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Clear all the custom fields from the HTTP Post Form.
+ */</span>
+<span class="nx">ClearAllHTTPFormField</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="sethttpformfield">SetHTTPFormField</h2>
+
+<h3 id="syntax-55">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Add a custom field to the HTTP Post Form.
+ * @param name The name of the field.
+ * @param value The value of the field.
+ */</span>
+<span class="nx">SetHTTPFormField</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Add a binary file to the HTTP Post Form.
+ * @param name The name of the field.
+ * @param content The content of the file.
+ * @param fileName The name of the file.
+ */</span>
+<span class="nx">SetHTTPFormField</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">content</span><span class="p">:</span> <span class="nx">Blob</span><span class="p">,</span>
+    <span class="nx">fileName</span><span class="p">?:</span> <span class="nx">string</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="sethttpheader">SetHTTPHeader</h2>
+
+<h3 id="syntax-56">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Add a custom header to the HTTP Post Form.
+ * @param name The name of the field.
+ * @param value The value of the field.
+ */</span>
+<span class="nx">SetHTTPHeader</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="setuploadsegment">SetUploadSegment</h2>
+
+<h3 id="syntax-57">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the segmentation threshold and segment size.
+ * @param threshold Specify the threshold (in MB).
+ * @param size Specify the segment size (in KB).
+ */</span>
+<span class="nx">SetUploadSegment</span><span class="p">(</span>
+    <span class="nx">threshold</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">size</span><span class="p">:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ifshowfiledialog">IfShowFileDialog</h2>
+
+<h3 id="syntax-58">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to show open/save file dialog when saving images in the buffer or loading images from a local directory.
+ */</span>
+<span class="nx">IfShowFileDialog</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ifshowcanceldialogwhenimagetransfer">IfShowCancelDialogWhenImageTransfer</h2>
+
+<h3 id="syntax-59">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to show the progress of an operation with a button to cancel it.
+ */</span>
+<span class="nx">IfShowCancelDialogWhenImageTransfer</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ifshowprogressbar">IfShowProgressBar</h2>
+
+<h3 id="syntax-60">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to show the progressbar. 
+ */</span>
+<span class="nx">IfShowProgressBar</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="showfiledialog">ShowFileDialog</h2>
+
+<h3 id="syntax-61">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Show the system's save-file dialog or open-file dialog.
+ * @param isSave Whether to show a save-file dialog or an open-file dialog
+ * @param filter The filter pattern like "JPG | *.jpg".
+ * @param filterIndex The order of the filter. Normally, just put 0.
+ * @param defaultExtension Extension to be appended to the file name. Only valid in a save-file dialog
+ * @param initialDirectory The initial directory that the dialog opens.
+ * @param allowMultiSelect Whether or not multiple files can be selected at the same time. Only valid in an open-file dialog.
+ * @param showOverwritePrompt Whether or not a prompt shows up when saving a file may overwrite an existing file.
+ * @param flag If set to 0, bAllowMultiSelect and bShowOverwritePrompt will be effective. Otherwise, these two parameters are ignored.
+ */</span>
+<span class="nx">ShowFileDialog</span><span class="p">(</span>
+    <span class="nx">isSave</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span> 
+    <span class="nx">filter</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">filterIndex</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> 
+    <span class="nx">defaultExtension</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> 
+    <span class="nx">initialDirectory</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">allowMultiSelect</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span> 
+    <span class="nx">showOverwritePrompt</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="nx">flag</span><span class="p">:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-7">Usage notes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">filter</code> pattern string consists of a combination(s) of valid file extensions with asterisk (*). For example: <code class="language-plaintext highlighter-rouge">JPG, PNG and TIF | *.jpg;*png;*.tif</code>. On macOS, the string is different. For example <code class="language-plaintext highlighter-rouge">JPG, PNG , TIF</code>. To show all files, use <code class="language-plaintext highlighter-rouge">All Files | *.*</code>.  Do not include spaces in the pattern string.</p>
+
+<p>This method will trigger <a href="#ongetfilepath"><code class="language-plaintext highlighter-rouge">OnGetFilePath</code></a> event even when it fails. If multiple files are selected, the event will be called multiple times.</p>
+
+<h3 id="example-10">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnGetFilePath</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">isSave</span><span class="p">,</span> <span class="nx">filesCount</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">directory</span><span class="p">,</span> <span class="nx">fileName</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2"> directory: </span><span class="dl">"</span> <span class="o">+</span>  <span class="nx">directory</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\\</span><span class="dl">"</span> <span class="o">+</span>  <span class="nx">fileName</span><span class="p">);</span>
+	<span class="p">});</span>
+
+<span class="c1">//On macOS</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ShowFileDialog</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">TIF,TIFF,JPG,JPEG,PNG,PDF</span><span class="dl">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">//On Windows</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">ShowFileDialog</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">BMP,TIF,JPG,PNG,PDF|*.bmp;*.tif;*.png;*.jpg;*.pdf;*.tiff;*.jpeg</span><span class="dl">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> 
+<span class="dl">""</span><span class="p">,</span> <span class="dl">""</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="print">Print</h2>
+
+<h3 id="syntax-62">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Export all image data in the buffer to a new browser window and use the browser's built-in print feature to print the image(s).
+ * @param useOSPrintWindow Whether to use the print feature of the operating system instead.
+ */</span>
+<span class="nx">Print</span><span class="p">(</span><span class="nx">useOSPrintWindow</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="jpegquality">JPEGQuality</h2>
+
+<h3 id="syntax-63">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the quality for JPEG compression.
+ * The values range from 0 to 100.
+ */</span>
+<span class="nx">JPEGQuality</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="iftiffmultipage">IfTiffMultiPage</h2>
+
+<h3 id="syntax-64">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cm">/**
+ * Return or set whether to append to or replace an existing TIFF file with the same name.
+ */</span>
+<span class="nx">IfTiffMultiPage</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="tiffcompressiontype">TIFFCompressionType</h2>
+
+<h3 id="syntax-65">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the compression type for TIFF files.
+ */</span>
+<span class="nx">TIFFCompressionType</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TIFFCompressionType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

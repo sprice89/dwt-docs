@@ -7,33 +7,33 @@
     <div class="wrapper">
         <div class="sideBar">
             <div class="sideBarProductPage">
-                <p class="text-left"><img src="{{ site.dwt_logo }}" class="sideDBRLogo" alt="DWT Logo" />&nbsp;&nbsp;<a
+                <p class="text-left"><img src="{{site.dwt_logo}}" class="sideDBRLogo" alt="DWT Logo" />&nbsp;&nbsp;<a
                         href="https://www.dynamsoft.com/Products/Dynamic-Barcode-Reader.aspx"
-                        class="sideProductPage">Dynamsoft Dynamic Web TWAIN</a></p>
+                        class="sideProductPage">Dynamic Web TWAIN</a></p>
             </div>
             <div class="sideBarHeader">
-                <p><a href="{{ site.docHomePage }}" class="sideHomePage">
-                        Documentation Home Page</a>
+                <p><a href="{{site.docHomePage}}" class="sideHomePage">
+                        Home Page</a>
                 </p>
             </div>
             <ul class="mainPage" id="fullTreeMenuListContainer" name="listLevel1">
-                <li><a href="{{ site.introduction }}" class="otherLinkColour">Introduction</a>
+                <li><a href="{{site.introduction}}" class="otherLinkColour">Introduction</a>
                     {%- if page.url contains '/introduction/' -%}
                     <ul>
-                        <li><a href="{{ site.introduction }}overview.html" class="otherLinkColour">Overview</a></li>
-                        <li><a href="{{ site.introduction }}architecture.html" class="otherLinkColour">Architecture</a>
+                        <li><a href="{{site.introduction}}overview.html" class="otherLinkColour">Overview</a></li>
+                        <li><a href="{{site.introduction}}architecture.html" class="otherLinkColour">Architecture</a>
                         </li>
-                        <li><a href="{{ site.introduction }}security-features.html" class="otherLinkColour">Security
+                        <li><a href="{{site.introduction}}security-features.html" class="otherLinkColour">Security
                                 Features</a></li>
-                        <li><a href="{{ site.introduction }}licensing/" class="otherLinkColour">License & Usage
+                        <li><a href="{{site.introduction}}licensing/" class="otherLinkColour">License & Usage
                                 Tracking</a></li>
                         {%- include sidelist-introduction/introduction-comparison-tools.html -%}
                         {%- include sidelist-introduction/introduction-how-to-guides.html -%}
-                        <li><a href="{{ site.faqs }}" class="otherLinkColour">FAQs</a></li>
+                        <li><a href="{{site.faqs}}" class="otherLinkColour">FAQs</a></li>
                     </ul>
                     {%- endif -%}
                 </li>
-                <li><a href="{{ site.programming }}" class="otherLinkColour">Programming</a>
+                <li><a href="{{site.programming}}" class="otherLinkColour">Programming</a>
                     {%- if page.url contains '/programming/' -%}
                     <ul>
                         {%- include sidelist-programming/programming-c.html -%}
@@ -47,10 +47,10 @@
                     </ul>
                     {%- endif -%}
                 </li>
-                <li><a href="{{ site.parameters }}" class="otherLinkColour">Parameters</a>
+                <li><a href="{{site.parameters}}" class="otherLinkColour">Parameters</a>
                     {%- if page.url contains '/parameters/' -%}
                     <ul>
-                        <li><a href="{{ site.parameters }}structure-and-interfaces-of-parameters.html"
+                        <li><a href="{{site.parameters}}structure-and-interfaces-of-parameters.html"
                                 class="otherLinkColour">Structure and Interfaces of Parameters</a></li>
                         {%- include sidelist-parameters/parameters-references.html -%}
                         {%- include sidelist-parameters/parameters-enumerations.html -%}
@@ -59,14 +59,14 @@
                     </ul>
                     {%- endif -%}
                 </li>
-                <li><a href="{{ site.enhancements }}" class="otherLinkColour">Enhancements</a>
+                <li><a href="{{site.enhancements}}" class="otherLinkColour">Enhancements</a>
                     {%- if page.url contains '/enhancements/' -%}
                     <ul>
-                        <li><a href="{{ site.enhancements }}dpm-codes.html" class="otherLinkColour">DPM Codes</a></li>
-                        <li><a href="{{ site.enhancements }}intermediate-results.html"
+                        <li><a href="{{site.enhancements}}dpm-codes.html" class="otherLinkColour">DPM Codes</a></li>
+                        <li><a href="{{site.enhancements}}intermediate-results.html"
                                 class="otherLinkColour">Intermediate Result</a></li>
-                        <li><a href="{{ site.enhancements }}panorama.html" class="otherLinkColour">Panorama</a></li>
-                        <li><a href="{{ site.enhancements }}pdf-vector.html" class="otherLinkColour">PDF Vector</a></li>
+                        <li><a href="{{site.enhancements}}panorama.html" class="otherLinkColour">Panorama</a></li>
+                        <li><a href="{{site.enhancements}}pdf-vector.html" class="otherLinkColour">PDF Vector</a></li>
                     </ul>
                     {%- endif -%}
                 </li>
@@ -74,19 +74,19 @@
         </div>
         <div class="container">
             <div class="head">
-                <p class="text-left"><a href="https://www.dynamsoft.com/"><img src="{{ site.dynamsoft_logo }}"
+                <p class="text-left"><a href="https://www.dynamsoft.com/"><img src="{{site.dynamsoft_logo}}"
                             class="dynamsoftLogo" alt="Dynamsoft Logo" /></a></p>
                 <div>
                     <div style="float:right">
                         {% capture sourceCodeUrl %}
                         {% if page.url contains '.html' %}
-                        {{ page.url | strip | replace: '.html', '.md'}}
+                        {{page.url | strip | replace: '.html', '.md'}}
                         {% else %}
-                        {{ page.url	| strip }}index.md
+                        {{page.url	| strip}}index.md
                         {% endif %}
                         {% endcapture %}
-                        <a href="{{ site.repositoryUrl }}{{ sourceCodeUrl | strip }}" class="otherLinkColour">Edit<img
-                                src="{{ site.edit_icon }}" width="20px" height="15px" /></a>
+                        <a href="{{site.repositoryUrl}}{{sourceCodeUrl | strip}}" class="otherLinkColour">Edit<img
+                                src="{{site.edit_icon}}" width="20px" height="15px" /></a>
                     </div>
                     <div style="float:left">
                         <div id="crumbs">
@@ -102,7 +102,7 @@
             </div>
             <div class="main">
                 <div class="content markdown-body headCounter">
-                    {{ content }}
+                    {{content}}
                     <hr />
                     <div class="footer">
                         <p>Was it helpful? <a href="#">Yes</a> <a href="#">No</a></p>

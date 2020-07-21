@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/WebTwain_Acquire.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/WebTwain_Acquire.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/WebTwain_Acquire.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwain-scan">WebTwain Scan</h1>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>The following APIs are compatible with  TWAIN</td>
+        <td>ICA</td>
+        <td>SANE (Windows, macOS and Linux)</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#acquireimage">AcquireImage()</a></td>
+      <td style="text-align: left"><a href="#closesource">CloseSource()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#closeworkingprocess">CloseWorkingProcess</a></td>
+      <td style="text-align: left"><a href="#disablesource">DisableSource()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#enablesource">EnableSource()</a></td>
+      <td style="text-align: left"><a href="#getdevicetype">GetDeviceType()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getsourcenameitems">GetSourceNameItems()</a></td>
+      <td style="text-align: left"><a href="#getsourcenames">GetSourceNames()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#opensource">OpenSource()</a></td>
+      <td style="text-align: left"><a href="#selectsource">SelectSource()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#selectsourcebyindex">SelectSourceByIndex()</a></td>
+      <td style="text-align: left"><a href="#setopensourcetimeout">SetOpenSourceTimeout()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#startscan">startScan()</a></td>
+      <td style="text-align: left"><a href="#enablesourceui">EnableSourceUI()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#currentsourcename">CurrentSourceName</a></td>
+      <td style="text-align: left"><a href="#ifdisablesourceafteracquire">IfDisableSourceAfterAcquire</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifduplexenabled">IfDuplexEnabled</a></td>
+      <td style="text-align: left"><a href="#iffeederenabled">IfFeederEnabled</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#pagesize">PageSize</a></td>
+      <td style="text-align: left"><a href="#pixeltype">PixelType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#resolution">Resolution</a></td>
+      <td style="text-align: left"><a href="#sourcecount">SourceCount</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Events</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#onpostalltransfers">OnPostAllTransfers</a></td>
+      <td style="text-align: left"><a href="#onposttransfer">OnPostTransfer</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#onposttransferasync">OnPostTransferAsync</a></td>
+      <td style="text-align: left"><a href="#onprealltransfers">OnPreAllTransfers</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#onpretransfer">OnPreTransfer</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The following APIs are compatible with TWAIN (mostly Windows, but could also be macOS)</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#cancelallpendingtransfers">CancelAllPendingTransfers()</a></td>
+      <td style="text-align: left"><a href="#closesourcemanager">CloseSourceManager()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#feedpage">FeedPage()</a></td>
+      <td style="text-align: left"><a href="#getcustomdsdata">GetCustomDSData()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getcustomdsdataex">GetCustomDSDataEx()</a></td>
+      <td style="text-align: left"><a href="#opensourcemanager">OpenSourceManager()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#resetimagelayout">ResetImageLayout()</a></td>
+      <td style="text-align: left"><a href="#rewindpage">RewindPage()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setcustomdsdata">SetCustomDSData()</a></td>
+      <td style="text-align: left"><a href="#setcustomdsdataex">SetCustomDSDataEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setfilexferinfo">SetFileXferInfo()</a></td>
+      <td style="text-align: left"><a href="#setimagelayout">SetImageLayout()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getcapabilities">getCapabilities</a></td>
+      <td style="text-align: left"><a href="#setcapabilities">setCapabilities</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#bitdepth">BitDepth </a></td>
+      <td style="text-align: left"><a href="#brightness">Brightness</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#contrast">Contrast</a></td>
+      <td style="text-align: left"><a href="#datasourcestatus">DataSourceStatus</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#defaultsourcename">DefaultSourceName</a></td>
+      <td style="text-align: left"><a href="#duplex">Duplex</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifautobright">IfAutoBright</a></td>
+      <td style="text-align: left"><a href="#ifautodiscardblankpages">IfAutoDiscardBlankpages</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifautofeed">IfAutoFeed</a></td>
+      <td style="text-align: left"><a href="#ifautomaticborderdetection">IfAutomaticBorderDetection</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifautomaticdeskew">IfAutomaticDeskew</a></td>
+      <td style="text-align: left"><a href="#ifautoscan">IfAutoScan</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#iffeederloaded">IfFeederLoaded</a></td>
+      <td style="text-align: left"><a href="#ifpaperdetectable">IfPaperDetectable</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifshowindicator">IfShowIndicator</a></td>
+      <td style="text-align: left"><a href="#ifshowui">IfShowUI</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#ifuicontrollable">IfUIControllable</a></td>
+      <td style="text-align: left"><a href="#ifusetwaindsm">IfUseTwainDSM</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagelayoutdocumentnumber">ImageLayoutDocumentNumber</a></td>
+      <td style="text-align: left"><a href="#imagelayoutframebottom">ImageLayoutFrameBottom</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagelayoutframeleft">ImageLayoutFrameLeft</a></td>
+      <td style="text-align: left"><a href="#imagelayoutframenumber">ImageLayoutFrameNumber</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagelayoutframeright">ImageLayoutFrameRight</a></td>
+      <td style="text-align: left"><a href="#imagelayoutframetop">ImageLayoutFrameTop</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagelayoutpagenumber">ImageLayoutPageNumber</a></td>
+      <td style="text-align: left"><a href="#imagepixeltype">ImagePixelType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagebitsperpixel">ImageBitsPerPixel</a></td>
+      <td style="text-align: left"><a href="#imagelength">ImageLength</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imagewidth">ImageWidth</a></td>
+      <td style="text-align: left"><a href="#imagexresolution">ImageXResolution</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#imageyresolution">ImageYResolution</a></td>
+      <td style="text-align: left"><a href="#xfercount">XferCount</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#magdata">MagData</a></td>
+      <td style="text-align: left"><a href="#magtype">MagType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#pendingxfers">PendingXfers</a></td>
+      <td style="text-align: left"><a href="#pixelflavor">PixelFlavor</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#transfermode">TransferMode</a></td>
+      <td style="text-align: left"><a href="#unit">Unit</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#onsourceuiclose">OnSourceUIClose</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>[Deprecation] The following APIs are deprecated.
+[Alternative] Use getCapabilities() and setCapabilities() instead.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGet">CapGet()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetHelp">CapGetHelp()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetCurrent">CapGetCurrent()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetDefault">CapGetDefault()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom">CapGetFrameBottom()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft">CapGetFrameLeft()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight">CapGetFrameRight()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop">CapGetFrameTop()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabel">CapGetLabel()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabels">CapGetLabels()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSet">CapSet()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapReset">CapReset()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame">CapSetFrame()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapIfSupported">CapIfSupported()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItems">GetCapItems()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItemsString">GetCapItemsString()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItems">SetCapItems()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItemsString">SetCapItemsString()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Properties</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#Capability">Capability</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapNumItems">CapNumItems</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMaxValue">CapMaxValue</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMinValue">CapMinValue</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentValue">CapCurrentValue</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentIndex">CapCurrentIndex</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultValue">CapDefaultValue</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultIndex">CapDefaultIndex</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapType">CapType</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueType">CapValueType</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CapDescription</td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapStepSize">CapStepSize</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValue">CapValue</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueString">CapValueString</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The following API only makes sense on macOS and Linux</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#imagecapturedrivertype">ImageCaptureDriverType</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="acquireimage">AcquireImage</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Start image acquisition.
+ * @param deviceConfiguration Configuration for the acquisition.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">AcquireImage</span><span class="p">(</span>
+    <span class="nx">deviceConfiguration</span><span class="p">?:</span> <span class="nx">IDeviceConfiguration</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="nx">AcquireImage</span><span class="p">(</span>
+    <span class="nx">successCallBack</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="nx">AcquireImage</span><span class="p">(</span>
+    <span class="nx">deviceConfiguration</span><span class="p">?:</span> <span class="nx">IDeviceConfiguration</span><span class="p">,</span>
+    <span class="nx">successCallBack</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IDeviceConfiguration</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Whether to show the built-in User Interface from the device vendor
+     */</span>
+    <span class="nx">IfShowUI</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * How a pixel is represented. Basically it means whether to scan in color, grey or black &amp; white
+     */</span>
+    <span class="nx">PixelType</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span><span class="p">;</span>
+    <span class="cm">/**
+     * How detailed is the acquisition. Measured by dots per pixel (DPI)
+     */</span>
+    <span class="nx">Resolution</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to use the document feeder or the flatbed of the device.
+     */</span>
+    <span class="nx">IfFeederEnabled</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to scan one side or both sides of each paper.
+     */</span>
+    <span class="nx">IfDuplexEnabled</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to close the built-in User Interface after aquisition. Only valid when {IfShowUI} is true.
+     */</span>
+    <span class="nx">IfDisableSourceAfterAcquire</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to retrieve information about the image after it's transferred.
+     */</span>
+    <span class="nx">IfGetImageInfo</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to retrieve extended information about the image after it's transferred.
+     */</span>
+    <span class="nx">IfGetExtImageInfo</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * How much extended information is retrieved. Only valid when {IfGetExtImageInfo} is true.
+     */</span>
+    <span class="nx">extendedImageInfoQueryLevel</span><span class="p">?:</span> <span class="nx">number</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">extendedImageInfoQueryLevel</code> is 0 by default which means the following information will be retrieved (if available):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Label</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODEX</td>
+      <td style="text-align: left">0x1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODEY</td>
+      <td style="text-align: left">0x1201</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODETEXT</td>
+      <td style="text-align: left">0x1202</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODETYPE</td>
+      <td style="text-align: left">0x1203</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_ENDORSEDTEXT</td>
+      <td style="text-align: left">0x1213</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODECONFIDENCE</td>
+      <td style="text-align: left">0x121A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODEROTATION</td>
+      <td style="text-align: left">0x121B</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODETEXTLENGTH</td>
+      <td style="text-align: left">0x121C</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BOOKNAME</td>
+      <td style="text-align: left">0x1238</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_CHAPTERNUMBER</td>
+      <td style="text-align: left">0x1239</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DOCUMENTNUMBER</td>
+      <td style="text-align: left">0x123A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PAGENUMBER</td>
+      <td style="text-align: left">0x123B</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_CAMERA</td>
+      <td style="text-align: left">0x123C</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FRAMENUMBER</td>
+      <td style="text-align: left">0x123D</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FRAME</td>
+      <td style="text-align: left">0x123E</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PIXELFLAVOR</td>
+      <td style="text-align: left">0x123F</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_MAGDATA</td>
+      <td style="text-align: left">0x1243</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_MAGTYPE</td>
+      <td style="text-align: left">0x1244</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PAGESIDE</td>
+      <td style="text-align: left">0x1245</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If it’s set to 1, the following will also be retrieved (if available):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Label</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADETOP</td>
+      <td style="text-align: left">0x1204</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADELEFT</td>
+      <td style="text-align: left">0x1205</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEHEIGHT</td>
+      <td style="text-align: left">0x1206</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWIDTH</td>
+      <td style="text-align: left">0x1207</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADESIZE</td>
+      <td style="text-align: left">0x1208</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SPECKLESREMOVED</td>
+      <td style="text-align: left">0x1209</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_HORZLINEXCOORD</td>
+      <td style="text-align: left">0x120A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_HORZLINEYCOORD</td>
+      <td style="text-align: left">0x120B</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_HORZLINELENGTH</td>
+      <td style="text-align: left">0x120C</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_HORZLINETHICKNESS</td>
+      <td style="text-align: left">0x120D</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_VERTLINEXCOORD</td>
+      <td style="text-align: left">0x120E</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_VERTLINEYCOORD</td>
+      <td style="text-align: left">0x120F</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_VERTLINELENGTH</td>
+      <td style="text-align: left">0x1210</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_VERTLINETHICKNESS</td>
+      <td style="text-align: left">0x1211</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PATCHCODE</td>
+      <td style="text-align: left">0x1212</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FORMCONFIDENCE</td>
+      <td style="text-align: left">0x1214</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FORMTEMPLATEMATCH</td>
+      <td style="text-align: left">0x1215</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FORMTEMPLATEPAGEMATCH</td>
+      <td style="text-align: left">0x1216</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FORMHORZDOCOFFSET</td>
+      <td style="text-align: left">0x1217</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FORMVERTDOCOFFSET</td>
+      <td style="text-align: left">0x1218</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BARCODECOUNT</td>
+      <td style="text-align: left">0x1219</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADECOUNT</td>
+      <td style="text-align: left">0x121D</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEBLACKCOUNTOLD</td>
+      <td style="text-align: left">0x121E</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEBLACKCOUNTNEW</td>
+      <td style="text-align: left">0x121F</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEBLACKRLMIN</td>
+      <td style="text-align: left">0x1220</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEBLACKRLMAX</td>
+      <td style="text-align: left">0x1221</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWHITECOUNTOLD</td>
+      <td style="text-align: left">0x1222</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWHITECOUNTNEW</td>
+      <td style="text-align: left">0x1223</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWHITERLMIN</td>
+      <td style="text-align: left">0x1224</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWHITERLAVE</td>
+      <td style="text-align: left">0x1225</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESHADEWHITERLMAX</td>
+      <td style="text-align: left">0x1226</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_BLACKSPECKLESREMOVED</td>
+      <td style="text-align: left">0x1227</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_WHITESPECKLESREMOVED</td>
+      <td style="text-align: left">0x1228</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_HORZLINECOUNT</td>
+      <td style="text-align: left">0x1229</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_VERTLINECOUNT</td>
+      <td style="text-align: left">0x122A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_DESKEWSTATUS</td>
+      <td style="text-align: left">0x122B</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWORIGINALANGLE</td>
+      <td style="text-align: left">0x122C</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWFINALANGLE</td>
+      <td style="text-align: left">0x122D</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWCONFIDENCE</td>
+      <td style="text-align: left">0x122E</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWX1</td>
+      <td style="text-align: left">0x122F</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWY1</td>
+      <td style="text-align: left">0x1230</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWX2</td>
+      <td style="text-align: left">0x1231</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWY2</td>
+      <td style="text-align: left">0x1232</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWX3</td>
+      <td style="text-align: left">0x1233</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWY3</td>
+      <td style="text-align: left">0x1234</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWX4</td>
+      <td style="text-align: left">0x1235</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SKEWWINDOWY4</td>
+      <td style="text-align: left">0x1236</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_ICCPROFILE</td>
+      <td style="text-align: left">0x1240</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_LASTSEGMENT</td>
+      <td style="text-align: left">0x1241</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_SEGMENTNUMBER</td>
+      <td style="text-align: left">0x1242</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_FILESYSTEMSOURCE</td>
+      <td style="text-align: left">0x1246</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_IMAGEMERGED</td>
+      <td style="text-align: left">0x1247</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_MAGDATALENGTH</td>
+      <td style="text-align: left">0x1248</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PAPERCOUNT</td>
+      <td style="text-align: left">0x1249</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWEI_PRINTERTEXT</td>
+      <td style="text-align: left">0x124A</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If it’s set to 2, then besides what’s mentioned in the two tables above, the Dynamci Web TWAIN library will also try to query the scanner for its own custom extended image info.</p>
+
+<h3 id="example">Example</h3>
+
+<blockquote>
+  <p>The example code shows 4 ways to use the API <code class="language-plaintext highlighter-rouge">AcquireImage()</code></p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deviceConfiguration</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">IfShowUI</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">PixelType</span><span class="p">:</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span><span class="p">.</span><span class="nx">TWPT_RGB</span><span class="p">,</span>
+    <span class="na">Resolution</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="na">IfFeederEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">IfDuplexEnabled</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">IfDisableSourceAfterAcquire</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">IfGetImageInfo</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">IfGetExtImageInfo</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">extendedImageInfoQueryLevel</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">successCallback</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">successful</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">failureCallback</span><span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">AcquireImage1</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfShowUI</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">PixelType</span> <span class="o">=</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span><span class="p">.</span><span class="nx">TWPT_RGB</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">Resolution</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfFeederEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfDuplexEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfDisableSourceAfterAcquire</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span>
+    <span class="p">},</span> <span class="nx">failureCallback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">AcquireImage2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">(</span><span class="nx">deviceConfiguration</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">failureCallback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">AcquireImage3</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfShowUI</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">PixelType</span> <span class="o">=</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span><span class="p">.</span><span class="nx">TWPT_RGB</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">Resolution</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfFeederEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfDuplexEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfDisableSourceAfterAcquire</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">failureCallback</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">failureCallback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">AcquireImage4</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">(</span><span class="nx">deviceConfiguration</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">,</span> <span class="nx">failureCallback</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">failureCallback</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="closesource">CloseSource</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Close the data source (a TWAIN/ICA/SANE device which in most cases is a scanner) to free it to be used by other applications.
+ */</span>
+<span class="nx">CloseSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="disablesource">DisableSource</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Disable the data source (a TWAIN/ICA/SANE device which in most cases is a scanner) to stop the acquiring process. If the data source's user interface is displayed, it will be closed.
+ */</span>
+<span class="nx">DisableSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>After <code class="language-plaintext highlighter-rouge">DisableSource()</code> is called, the Source is still open and you can continue to acquire images by calling <code class="language-plaintext highlighter-rouge">AcquireImage()</code> or <code class="language-plaintext highlighter-rouge">EnableSource()</code>.</p>
+
+<hr />
+
+<h2 id="enablesource">EnableSource</h2>
+
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Enable the data source to start the acquiring process.
+ */</span> 
+<span class="nx">EnableSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>The method is equivalent to <code class="language-plaintext highlighter-rouge">AcquireImage()</code> without parameters.</p>
+
+<hr />
+
+<h2 id="enablesourceui">EnableSourceUI</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Display the TWAIN source's built-in user interface.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ */</span>
+<span class="nx">EnableSourceUI</span><span class="p">(</span>
+    <span class="nx">successCallBack</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-3">Usage notes</h3>
+
+<p>This method enables the user to manipulate the settings for scanning but not start an actual scan. It only works if the source supports the capability <code class="language-plaintext highlighter-rouge">CAP_ENABLEDSUIONLY</code>. User can call <a href="#getcustomdsdataex">GetCustomDSDataEx()</a> to save the settings in the callback <code class="language-plaintext highlighter-rouge">successCallBack</code> and later call <a href="#setcustomdsdataex">SetCustomDSDataEx()</a> to apply the settings before starting a scan.</p>
+
+<hr />
+
+<h2 id="opensource">OpenSource</h2>
+
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load a data source to get it ready to acquire images.
+ */</span>
+<span class="nx">OpenSource</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getsourcenames">GetSourceNames</h2>
+
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return all available data sources (scanners, etc.) and optionally all detailed information about them.
+ * @param bIncludeDetails Whether to return more details about the data sources or just their names.
+ */</span>
+<span class="nx">GetSourceNames</span><span class="p">(</span><span class="nx">bIncludeDetails</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">):</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">|</span> <span class="nx">ISourceDetails</span><span class="p">[];</span>
+
+<span class="kr">interface</span> <span class="nx">ISourceDetails</span> <span class="p">{</span>
+    <span class="cm">/**
+     * The driver type which can be "TWAIN" | "ICA" | "SANE"
+     */</span>
+    <span class="nx">DriverType</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Information about the driver if it's DriverType is "ICA"
+     */</span>
+    <span class="nx">DeviceInfo</span><span class="p">?:</span> <span class="nx">any</span><span class="p">;</span>
+    <span class="cm">/**
+     * The name of the data source. E.g. "TWAIN2 FreeImage Software Scanner".
+     */</span>
+    <span class="nx">ProductName</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether it is the default source.
+     */</span>
+    <span class="nx">IsDefaultSource</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether it is the current source.
+     */</span>
+    <span class="nx">IsCurrentSource</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="cm">/**
+     * The family name of the data source. E.g. "Software Scan".
+     */</span>
+    <span class="nx">ProductFamily</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * The manufacturer of the data source. E.g. "TWAIN Working Group".
+     */</span>
+    <span class="nx">Manufacturer</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     *
+     */</span>
+    <span class="nx">SupportedGroups</span><span class="p">?:</span> <span class="mi">1073741827</span><span class="p">,</span>
+    <span class="cm">/**
+     * The version of the protocol based on which the data source is developed.
+     */</span>
+    <span class="nx">ProtocolMajor</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">ProtocolMinor</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Detailed version of the data source.
+     */</span>
+    <span class="nx">Version</span><span class="p">?:</span> <span class="nx">IVersion</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IVersion</span> <span class="p">{</span>
+    <span class="nx">MajorNum</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">MinorNum</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">Language</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">Country</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">Info</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="selectsource">SelectSource</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Bring up the Source Selection User Interface (UI) for the user to choose a data source.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SelectSource</span><span class="p">(</span>
+    <span class="nx">successCallBack</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallBack</span><span class="p">?:</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="nx">boolean</span> <span class="o">|</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-4">Usage notes</h3>
+
+<p>It’s recommended to use this API asynchronously by pass arguments to the parameters <code class="language-plaintext highlighter-rouge">successCallback</code> and <code class="language-plaintext highlighter-rouge">failureCallback</code>.
+On <code class="language-plaintext highlighter-rouge">Windows</code> and <code class="language-plaintext highlighter-rouge">Windows</code> only, you can call this method with no arguments so that it runs synchronously and return a boolean value.</p>
+
+<h3 id="example-1">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span>
+<span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">errorCode</span><span class="p">,</span> <span class="nx">errorString</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorString</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="selectsourcebyindex">SelectSourceByIndex</h2>
+
+<h3 id="syntax-8">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Select a data source by its index.
+ * @param index The index of the data source.
+ */</span>
+<span class="nx">SelectSourceByIndex</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-2">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSourceByIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="setopensourcetimeout">SetOpenSourceTimeout</h2>
+
+<h3 id="syntax-9">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Sets a timer which stops the data source opening process once it expires.
+ * @param duration Define the duration of the timer (in milliseconds).
+ */</span>
+<span class="nx">SetOpenSourceTimeout</span><span class="p">(</span><span class="nx">duration</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-3">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>      
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">SetOpenSourceTimeout</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+    <span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="startscan">startScan</h2>
+
+<h3 id="syntax-10">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Start the acquisition by passing all settings at once.
+ * @param scanSetup Configuration for the acquisition.
+ */</span>
+<span class="nx">startScan</span><span class="p">(</span><span class="nx">scanSetup</span><span class="p">:</span> <span class="nx">IScanSetup</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">IScanSetup</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IScanSetup</span> <span class="p">{</span>
+  <span class="cm">/**
+   * An id that specifies this specific setup.
+   */</span>
+  <span class="nx">setupId</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="cm">/**
+   * Whether to ignore or fail the acquistion when an exception is raised. Set "ignore" or "fail".
+   */</span>
+  <span class="nx">exception</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="cm">/**
+   * The name of the data source (the scanner). If not set, the default data source is used.
+   */</span>
+  <span class="nx">scanner</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">ui</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Whether to show the UI of the device.
+     */</span>
+    <span class="nx">bShowUI</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to show the indicator of the device.
+     */</span>
+    <span class="nx">bShowIndicator</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="cm">/**
+   * The TWAIN transfer mode.
+   */</span>
+  <span class="nx">transferMode</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TransferMode</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="cm">/**
+   * Set how the transfer is done.
+   */</span>
+  <span class="nx">fileXfer</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the file name (or pattern) for file transfer.
+     * Example: "C:\\WebTWAIN&lt;%06d&gt;.bmp"
+     */</span>
+    <span class="nx">fileName</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the file format.
+     */</span>
+    <span class="nx">fileFormat</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_FileFormat</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the quality of JPEG files.
+     */</span>
+    <span class="nx">jpegQuality</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the compression type of the file.
+     */</span>
+    <span class="nx">compressionType</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CompressionType</span> <span class="o">|</span> <span class="nx">number</span>
+  <span class="p">}</span>
+  <span class="cm">/**
+   * Set where the scanned images are inserted.
+   */</span>
+  <span class="nx">insertingIndex</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="cm">/**
+   * The profile is a base64 string, if present, it overrides settings and more settings.
+   */</span>
+  <span class="nx">profile</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="cm">/**
+   * Basic settings.
+   */</span>
+  <span class="nx">settings</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="cm">/**
+     * "ignore" (default) or "fail".
+     */</span>
+    <span class="nx">exception</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the pixel type.
+     */</span>
+    <span class="nx">pixelType</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the resolution.
+     */</span>
+    <span class="nx">resolution</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable document feader.
+     */</span>
+    <span class="nx">bFeeder</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable duplex scan.
+     */</span>
+    <span class="nx">bDuplex</span><span class="p">?:</span> <span class="nx">boolean</span>
+  <span class="p">},</span>
+  <span class="nx">moreSettings</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="cm">/**
+     * "ignore" (default) or "fail".
+     */</span>
+    <span class="nx">exception</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the bit depth.
+     */</span>
+    <span class="nx">bitDepth</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the page size.
+     */</span>
+    <span class="nx">pageSize</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CapSupportedSizes</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify the unit.
+     */</span>
+    <span class="nx">unit</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_UnitType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify a layout to scan, if present, it'll override pageSize.
+     */</span>
+    <span class="nx">layout</span><span class="p">?:</span> <span class="p">{</span>
+      <span class="nx">left</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">top</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">right</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">bottom</span><span class="p">?:</span> <span class="nx">number</span>
+    <span class="p">},</span>
+    <span class="cm">/**
+     * Specify the pixel flavor.
+     */</span>
+    <span class="nx">pixelFlavor</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CapPixelFlavor</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify Brightness.
+     */</span>
+    <span class="nx">brightness</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify contrast.
+     */</span>
+    <span class="nx">contrast</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify how many images are transferred per session.
+     */</span>
+    <span class="nx">nXferCount</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable automatic blank image detection and removal.
+     */</span>
+    <span class="nx">autoDiscardBlankPages</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable automatic border detection.
+     */</span>
+    <span class="nx">autoBorderDetection</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable automatic skew correction.
+     */</span>
+    <span class="nx">autoDeskew</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to enable automatic brightness adjustment.
+     */</span>
+    <span class="nx">autoBright</span><span class="p">?:</span> <span class="nx">boolean</span>
+  <span class="p">},</span>
+  <span class="cm">/**
+   * A callback triggered before the scan, after the scan and after each page has been transferred.
+   */</span>
+  <span class="nx">funcScanStatus</span><span class="p">?:</span> <span class="p">(</span><span class="nx">status</span><span class="p">:</span> <span class="nx">IStatus</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+  <span class="cm">/**
+   * Set up how the scanned images are outputted.
+   */</span>
+  <span class="nx">outputSetup</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Output type. "http" is the only supported type for now.
+     */</span>
+    <span class="nx">type</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="cm">/**
+     * Set the output format.
+     */</span>
+    <span class="nx">format</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_ImageType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="cm">/**
+     * Specify how many times the library will try the output.
+     */</span>
+    <span class="nx">reTries</span><span class="p">?:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to use the FileUploader.
+     */</span>
+    <span class="nx">useUploader</span><span class="p">?:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to upload all images in one HTTP post.
+     */</span>
+    <span class="nx">singlePost</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to show a progress bar when outputting.
+     */</span>
+    <span class="nx">showProgressBar</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * Whether to remove the images after outputting.
+     */</span>
+    <span class="nx">removeAfterOutput</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="cm">/**
+     * A callback triggered during the outputting.
+     * @argument fileInfo A JSON object that contains the fileName, percentage, statusCode, responseString, etc.
+     */</span>
+    <span class="nx">funcHttpUploadStatus</span><span class="p">?:</span> <span class="p">(</span><span class="na">fileInfo</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="cm">/**
+     * Setup for PDF output.
+     */</span>
+    <span class="nx">pdfSetup</span><span class="p">?:</span> <span class="p">{</span>
+      <span class="nx">author</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">compression</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PDFCompressionType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">creator</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="cm">/**
+       * Example: 'D:20181231'
+       */</span>
+      <span class="nx">creationDate</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">keyWords</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="cm">/**
+       * Example: 'D:20181231'
+       */</span>
+      <span class="nx">modifiedDate</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">producer</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">subject</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">title</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="nx">version</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">quality</span><span class="p">?:</span> <span class="nx">number</span>
+    <span class="p">},</span>
+    <span class="cm">/**
+     * Setup for TIFF output.
+     */</span>
+    <span class="nx">tiffSetup</span><span class="p">?:</span> <span class="p">{</span>
+      <span class="nx">quality</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="nx">compression</span><span class="p">?:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TIFFCompressionType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="cm">/**
+       * Specify Tiff custom tags.
+       */</span>
+      <span class="nx">tiffTags</span><span class="p">?:</span> <span class="nx">TiffTag</span><span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="cm">/**
+     * Setup for HTTP upload via Post.
+     */</span>
+    <span class="nx">httpParams</span><span class="p">?:</span> <span class="p">{</span>
+      <span class="cm">/**
+       * Target of the request.
+       * Example: "http://dynamsoft.com/receivepost.aspx"
+       */</span>
+      <span class="nx">url</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="cm">/**
+       * Custom headers in the form.
+       * Example: {md5: ""}
+       */</span>
+      <span class="nx">headers</span><span class="p">?:</span> <span class="nx">any</span><span class="p">,</span>
+      <span class="cm">/**
+       * Custom form fields.
+       * Example: {"UploadedBy": "Dynamsoft"}
+       */</span>
+      <span class="nx">formFields</span><span class="p">?:</span> <span class="nx">any</span><span class="p">,</span>
+      <span class="cm">/**
+       * The maximum size of a file to be uploaded (in bytes).
+       */</span>
+      <span class="nx">maxSizeLimit</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="cm">/**
+       * Specify how many threads (&lt;=4) are to be used. Only valid when {useUploader} is true.
+       */</span>
+      <span class="nx">threads</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+      <span class="cm">/**
+       * Specify the names for the files in the form.
+       * Example: "RemoteName&lt;%06d&gt;"
+       */</span>
+      <span class="nx">remoteName</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+      <span class="cm">/**
+       * Specify the name(s) (pattern) of the uploaded files.
+       * Example: "uploadedFile&lt;%06d&gt;.jpg"
+       */</span>
+      <span class="nx">fileName</span><span class="p">?:</span> <span class="nx">string</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cancelallpendingtransfers">CancelAllPendingTransfers</h2>
+
+<h3 id="syntax-11">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Cancels all pending transfers.
+ */</span> 
+<span class="nx">CancelAllPendingTransfers</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-5">Usage notes</h3>
+
+<p>This method is only valid in the events <a href="#onprealltransfers">OnPreAllTransfers</a>, <a href="#onpretransfer">OnPreTransfer</a> and <a href="#onposttransfer">OnPostTransfer</a>.</p>
+
+<hr />
+
+<h2 id="closesourcemanager">CloseSourceManager</h2>
+
+<h3 id="syntax-12">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Closes and unloads Data Source Manager.
+ */</span>
+<span class="nx">CloseSourceManager</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-6">Usage notes</h3>
+
+<p>If this method is not called explicitly by the application, it’ll be called automatically when the browser or tab closes.</p>
+
+<hr />
+
+<h2 id="closeworkingprocess">CloseWorkingProcess</h2>
+
+<h3 id="syntax-13">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Closes the scanning process to release resources on the machine.
+ */</span>
+<span class="nx">CloseWorkingProcess</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-7">Usage notes</h3>
+
+<p>In the HTML5 edition, Dynamic Web TWAIN uses a separate process to communicate with the scanners. When it’s not scanning, you can choose to close this process to release the resources (CPU, memory, etc.) used on the machine.</p>
+
+<hr />
+
+<h2 id="feedpage">FeedPage</h2>
+
+<h3 id="syntax-14">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Ejects the current page and begins scanning the next page in the document feeder.
+ */</span>
+<span class="nx">FeedPage</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-8">Usage notes</h3>
+
+<p>Use this method after <a href="#opensource">OpenSource()</a> is called and make sure <a href="#iffeederenabled">IfFeederEnabled</a> is <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<hr />
+
+<h2 id="getcustomdsdata">GetCustomDSData</h2>
+
+<h3 id="syntax-15">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Get the custom data source data and saves the data in a specified file.
+ * @param fileName The path of the file to save the data source data to.
+ */</span>
+<span class="nx">GetCustomDSData</span><span class="p">(</span><span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example-4">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">GetCustomDSData</span><span class="p">(</span><span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">customDSData</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getcustomdsdataex">GetCustomDSDataEx</h2>
+
+<h3 id="syntax-16">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Gets custom DS data and returns it in a base64 string.
+ */</span>
+<span class="nx">GetCustomDSDataEx</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getdevicetype">GetDeviceType</h2>
+
+<h3 id="syntax-17">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Inspect the current data source and return whether it is a scanner, a webcam, etc.
+ */</span>
+<span class="nx">GetDeviceType</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-9">Usage notes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">Failed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Digital Camera</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Flatbed-only scanner</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Flatbed, feeder, auto feed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Feeder-only scanner, auto feed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Flatbed, feeder, without auto feed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Feeder-only scanner, without auto feed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Webcam</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="getsourcenameitems">GetSourceNameItems</h2>
+
+<h3 id="syntax-18">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Get the name of a data source by its index in data source manager source list.
+ * @param index The index of the data source.
+ */</span>
+<span class="nx">GetSourceNameItems</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="opensourcemanager">OpenSourceManager</h2>
+
+<h3 id="syntax-19">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Load and open data source manager.
+ */</span>
+<span class="nx">OpenSourceManager</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-10">Usage notes</h3>
+
+<p>If application identification needs to be set, it should be set before this API.</p>
+
+<hr />
+
+<h2 id="resetimagelayout">ResetImageLayout</h2>
+
+<h3 id="syntax-20">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Reset the image layout in the data source.
+ */</span>
+<span class="nx">ResetImageLayout</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-11">Usage notes</h3>
+
+<p>To set the image layout manually, you can use <a href="#setimagelayout">SetImageLayout()</a></p>
+
+<hr />
+
+<h2 id="rewindpage">RewindPage</h2>
+
+<h3 id="syntax-21">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * If called while {IfFeederEnabled} property is true, the data source will return the current page to the input area and return the last page from the output area into the acquisition area.
+ */</span>
+<span class="nx">RewindPage</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-12">Usage notes</h3>
+
+<p>Use this method after <a href="#opensource">OpenSource()</a> method and make sure <a href="#iffeederenabled">IfFeederEnabled</a> is <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<hr />
+
+<h2 id="setcustomdsdata">SetCustomDSData</h2>
+
+<h3 id="syntax-22">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Sets custom data source data to be used for scanning, the data is stored in a file which can be regarded as a scanning profile.
+ * @param fileName The path  of the file.
+ */</span>
+<span class="nx">SetCustomDSData</span><span class="p">(</span><span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-13">Usage notes</h3>
+
+<p>Typically, the data source data file is created by the method <a href="#getcustomdsdata">GetCustomDSData()</a>.</p>
+
+<hr />
+
+<h2 id="setcustomdsdataex">SetCustomDSDataEx</h2>
+
+<h3 id="syntax-23">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set custom data source data to be used for scanning, the input is a base64 string.
+ * @param dsDataString The string that contains custom data source data.
+ */</span>
+<span class="nx">SetCustomDSDataEx</span><span class="p">(</span><span class="nx">dsDataString</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-14">Usage notes</h3>
+
+<p>Typically the data source data string is created by the method <a href="#getcustomdsdataex">GetCustomDSDataEx()</a></p>
+
+<hr />
+
+<h2 id="setfilexferinfo">SetFileXferInfo</h2>
+
+<h3 id="syntax-24">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the file transfer information to be used in File Transfer mode.
+ * @param fileName The path to transfer the file to.
+ * @param fileFormat The format of the file.
+ */</span>
+<span class="nx">SetFileXferInfo</span><span class="p">(</span>
+    <span class="nx">fileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">fileFormat</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_FileFormat</span> <span class="o">|</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-15">Usage notes</h3>
+
+<p>Make sure the format you set is supported by the data source.</p>
+
+<p>Example argument for the parameter <code class="language-plaintext highlighter-rouge">fileName</code></p>
+
+<ul>
+  <li>“C:\webtwain.jpg”: The next scanned image will be compressed as a JPEG file named <code class="language-plaintext highlighter-rouge">webtwain</code> and transferred to “C:\”.</li>
+  <li>“C:\webtwain” + &lt;&gt; + “.jpg”: The scanned images will result in “C:\webtwain1.jpg”,”C:\webtwain2.jpg”, “C:\webtwain3.jpg”, etc.</li>
+  <li>“C:\webtwain” + &lt;%06d&gt; + “.jpg”: The scanned images will result in “C:\webtwain000001.jpg”, “C:\webtwain000002.jpg”,  “C:\webtwain000003.jpg”, etc.</li>
+</ul>
+
+<p>Check out the available formats <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_fileformat">Dynamsoft.EnumDWT_FileFormat</a>.</p>
+
+<h3 id="example-5">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">TransferMode</span> <span class="o">=</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TransferMode</span><span class="p">.</span><span class="nx">TWSX_FILE</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">DWObject</span><span class="p">.</span><span class="nx">TransferMode</span> <span class="o">===</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TransferMode</span><span class="p">.</span><span class="nx">TWSX_FILE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">DWObject</span><span class="p">.</span><span class="nx">SetFileXferInfo</span><span class="p">(</span>
+        <span class="dl">"</span><span class="s2">C:</span><span class="se">\\</span><span class="s2">Temp</span><span class="se">\\</span><span class="s2">WebTWAIN&amp;lt;&amp;gt;.bmp</span><span class="dl">"</span><span class="p">,</span>
+		<span class="nx">EnumDWT_FileFormat</span><span class="p">.</span><span class="nx">TWFF_BMP</span>
+        <span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfShowUI</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>		
+		<span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="setimagelayout">SetImageLayout</h2>
+
+<h3 id="syntax-25">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set the left, top, right, and bottom sides of the image layout rectangle for the current data source. The image layout rectangle defines a frame of the data source's scanning area to be acquired.
+ * @param left Specify the rectangle (leftmost coordinate).
+ * @param top Specify the rectangle (topmost coordinate).
+ * @param right Specify the rectangle (rightmost coordinate).
+ * @param bottom Specify the rectangle (bottommost coordinate).
+ */</span>
+<span class="nx">SetImageLayout</span><span class="p">(</span>
+    <span class="nx">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bottom</span><span class="p">:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-16">Usage notes</h3>
+
+<p>The arguments set to the parameters <code class="language-plaintext highlighter-rouge">left</code>, <code class="language-plaintext highlighter-rouge">top</code>, <code class="language-plaintext highlighter-rouge">right</code>, <code class="language-plaintext highlighter-rouge">bottom</code> are based on the value of the <code class="language-plaintext highlighter-rouge">Unit</code> property which is <code class="language-plaintext highlighter-rouge">inches</code> by default.</p>
+
+<p>This API is device-dependent. If a data source doesn’t support the customization of the scan area, this method might not work correctly.</p>
+
+<p>Since there are several ways to negotiate the scan area, it becomes confusing when deciding what should take precedence.</p>
+
+<p>The TWAIN Working Group has suggested the following behavior</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>If the current frame is set by <code class="language-plaintext highlighter-rouge">SetImageLayout</code>. The same frame shall be what you get with the APIs <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom">CapGetFrameBottom()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft">CapGetFrameLeft()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight">CapGetFrameRight()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop">CapGetFrameTop()</a> and the property <a href="#pagesize">PageSize</a> shall return <code class="language-plaintext highlighter-rouge">TWSS_NONE</code></td>
+          <td>0.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>If the current frame is set from negotiating the capability <code class="language-plaintext highlighter-rouge">ICAP_FRAMES</code> with the method <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame">CapSetFrame()</a>, the property <a href="#pagesize">PageSize</a> shall return <code class="language-plaintext highlighter-rouge">TWSS_NONE</code></td>
+          <td>0 and the image layout shall reflect the same frame with the properties <a href="#imagelayoutframebottom">ImageLayoutFrameBottom</a>, <a href="#imagelayoutframeleft">ImageLayoutFrameLeft</a>, <a href="#imagelayoutframeright">ImageLayoutFrameRight</a> and <a href="#imagelayoutframetop">ImageLayoutFrameTop</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>If the current fixed frame is set by the property <a href="#pagesize">PageSize</a>, the same dimensions shall be reflected in the APIs <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom">CapGetFrameBottom()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft">CapGetFrameLeft()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight">CapGetFrameRight()</a>, <a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop">CapGetFrameTop()</a> as well as <a href="#imagelayoutframebottom">ImageLayoutFrameBottom</a>, <a href="#imagelayoutframeleft">ImageLayoutFrameLeft</a>, <a href="#imagelayoutframeright">ImageLayoutFrameRight</a> and <a href="#imagelayoutframetop">ImageLayoutFrameTop</a>. Note, however, the orientation (in other words, whether it’s in the portrait mole or landscape mode) also plays a role in the order of the values.</li>
+</ul>
+
+<h3 id="example-6">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">SelectSource</span><span class="p">();</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">OpenSource</span><span class="p">();</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">IfShowUI</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">Unit</span> <span class="o">=</span><span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_UnitType</span><span class="p">.</span><span class="nx">TWUN_PIXELS</span><span class="p">;</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">SetImageLayout</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">DWObject</span><span class="p">.</span><span class="nx">AcquireImage</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="bitdepth">BitDepth</h2>
+
+<h3 id="syntax-26">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set the pixel bit depth for the current value of `PixelType`.
+ */
+BitDepth: number;
+</code></pre></div></div>
+
+<h3 id="usage-notes-17">Usage notes</h3>
+
+<p>Set this property after <code class="language-plaintext highlighter-rouge">OpenSource()</code> and before <code class="language-plaintext highlighter-rouge">AcquireImage()</code>.</p>
+
+<p>By default, the bit depth is 1 for <code class="language-plaintext highlighter-rouge">TWPT_BW</code>, 8 for <code class="language-plaintext highlighter-rouge">TWPT_GRAY</code> and 24 for <code class="language-plaintext highlighter-rouge">TWPT_RGB</code>.</p>
+
+<hr />
+
+<h2 id="ifappendimage">IfAppendImage</h2>
+
+<h3 id="syntax-27">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether newly acquired images are inserted or appended.
+ */
+IfAppendImage: boolean;
+</code></pre></div></div>
+
+<h3 id="usage-notes-18">Usage notes</h3>
+
+<p>The value of this property defaults to <code class="language-plaintext highlighter-rouge">true</code>, which means that the newly acquired image will be appended to the last image in the buffer.</p>
+
+<p>If it’s set to <code class="language-plaintext highlighter-rouge">false</code>, the images will be inserted before the current image. The important thing to note is that, by design, the current image is always the last acquired one which means that the images acquired after setting <code class="language-plaintext highlighter-rouge">IfAppendImage</code> to <code class="language-plaintext highlighter-rouge">false</code> will be displayed / retained in the reverse order.</p>
+
+<hr />
+
+<h2 id="ifdisablesourceafteracquire">IfDisableSourceAfterAcquire</h2>
+
+<h3 id="syntax-28">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether to close the user interface after all images have been acquired.
+ */
+IfDisableSourceAfterAcquire: boolean;
+</code></pre></div></div>
+
+<h3 id="usage-notes-19">Usage notes</h3>
+
+<p>This property only makes sense when <code class="language-plaintext highlighter-rouge">IfShowUI</code> is set to <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<hr />
+
+<h2 id="ifduplexenabled">IfDuplexEnabled</h2>
+
+<h3 id="syntax-29">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether to enable duplex scanning (in other words, whether to scan both sides of the paper).
+ */
+IfDuplexEnabled: boolean;
+</code></pre></div></div>
+
+<h3 id="usage-notes-20">Usage notes</h3>
+
+<p>Set this property after <code class="language-plaintext highlighter-rouge">OpenSource()</code> and before <code class="language-plaintext highlighter-rouge">AcquireImage()</code>.</p>
+
+<p>Not all scanners support duplex scanning. To confirm, check the user manual of the device or check the value of <code class="language-plaintext highlighter-rouge">Duplex</code> after <code class="language-plaintext highlighter-rouge">OpenSource()</code>.</p>
+
+<hr />
+
+<h2 id="iffeederenabled">IfFeederEnabled</h2>
+
+<h3 id="syntax-30">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether a data source's Automatic Document Feeder (ADF) is enabled for scanning.
+ */
+IfFeederEnabled: boolean;
+</code></pre></div></div>
+
+<h2 id="usage-notes-21">Usage notes</h2>
+
+<p>Set this property after <code class="language-plaintext highlighter-rouge">OpenSource()</code> and before <code class="language-plaintext highlighter-rouge">AcquireImage()</code>.</p>
+
+<p>If the property is set to <code class="language-plaintext highlighter-rouge">true</code>, the data source will try acquiring images from the document feeder first. If the data source doesn’t have a document feeder, the flatbed will be used.</p>
+
+<hr />
+
+<h2 id="ifshowui">IfShowUI</h2>
+
+<h3 id="syntax-31">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether the data source displays the user interface when scanning.
+ */
+IfShowUI: boolean;
+</code></pre></div></div>
+
+<h3 id="usage-notes-22">Usage notes</h3>
+
+<p>If the property is set to <code class="language-plaintext highlighter-rouge">true</code>, the data source will display its user interface when <code class="language-plaintext highlighter-rouge">AcquireImage()</code> is called. Otherwise, the UI will not be displayed and the scan will start immediately.</p>
+
+<hr />
+
+<h2 id="imagecapturedrivertype">ImageCaptureDriverType</h2>
+
+<h3 id="syntax-32">Syntax</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Return or set whether to use TWAIN or ICA protocol on macOS.
+ */
+ImageCaptureDriverType: Dynamsoft.EnumDWT_Driver | number;
+</code></pre></div></div>
+
+<h3 id="usage-notes-23">Usage notes</h3>
+
+<p>Set this property right after the SDK is initialized or after calling <code class="language-plaintext highlighter-rouge">CloseSourceManager()</code> and <code class="language-plaintext highlighter-rouge">OpenSourceManager()</code>.</p>
+
+<p>This property only makes sense on macOS. The allowed values for <code class="language-plaintext highlighter-rouge">EnumDWT_Driver</code> are</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Label</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TWAIN</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">Use data sources that conforms to the TWAIN protocol</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ICA</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Use data sources that conforms to the Image Capture Architecture</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SANE</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Use data sources that conforms to the SANE API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWAIN_AND_ICA</td>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Use both TWAIN and ICA data sources</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="pagesize">PageSize</h2>
+
+<h3 id="syntax-33">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the page size the data source uses to acquire images.
+ */</span>
+<span class="nx">PageSize</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CapSupportedSizes</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="pixeltype">PixelType</h2>
+
+<h3 id="syntax-34">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the pixel type used when acquiring images. 
+ */</span>
+<span class="nx">PixelType</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="resolution">Resolution</h2>
+
+<h3 id="syntax-35">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the resolution used when acquiring images.
+ */</span>
+<span class="nx">Resolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="sourcecount">SourceCount</h2>
+
+<h3 id="syntax-36">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Returns how many data sources are available on the local system.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">SourceCount</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="brightness">Brightness</h2>
+
+<h3 id="syntax-37">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the brightness to be used for scanning by the data source.
+ */</span>
+<span class="nx">Brightness</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-24">Usage notes</h3>
+
+<p>Set this property after <code class="language-plaintext highlighter-rouge">OpenSource()</code> and before <code class="language-plaintext highlighter-rouge">AcquireImage()</code>.</p>
+
+<p>Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and 1000 the brightest.</p>
+
+<hr />
+
+<h2 id="contrast">Contrast</h2>
+
+<h3 id="syntax-38">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set Contrast to be used for scanning by the data source.
+ */</span>
+<span class="nx">Contrast</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-25">Usage notes</h3>
+
+<p>Set this property after <code class="language-plaintext highlighter-rouge">OpenSource()</code> and before <code class="language-plaintext highlighter-rouge">AcquireImage()</code>.</p>
+
+<p>Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and 1000 the brightest.</p>
+
+<hr />
+
+<h2 id="currentsourcename">CurrentSourceName</h2>
+
+<h3 id="syntax-39">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the device name of current source. 
+ */</span>
+<span class="nx">readonly</span> <span class="nx">CurrentSourceName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="usage-notes-26">Usage notes</h3>
+
+<p>If no source is currently selected, this property returns “”.</p>
+
+<hr />
+
+<h2 id="datasourcestatus">DataSourceStatus</h2>
+
+<h3 id="syntax-40">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return a value that indicates the data source status.
+ */</span>
+<span class="nx">DataSourceStatus</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-27">Usage notes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">The data source is closed.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">The data source is opened.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">The data source is enabled.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">The data source is acquiring images.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="defaultsourcename">DefaultSourceName</h2>
+
+<h3 id="syntax-41">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the name of the default source.
+ */</span>
+<span class="nx">DefaultSourceName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="duplex">Duplex</h2>
+
+<h3 id="syntax-42">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return whether the source supports duplex. If yes, it further returns the level of duplex the data source supports.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">Duplex</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_DUPLEX</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-28">Usage notes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Label</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TWDX_NONE</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">duplex is not supported</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWDX_1PASSDUPLEX</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1-pass duplex</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWDX_2PASSDUPLEX</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">2-pass duplex</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>1-pass means the paper gets scanned on both sides at the same time. 2-pass means the paper passes the light bar twice to get both sides scanned separately.</p>
+
+<hr />
+
+<h2 id="ifautobright">IfAutoBright</h2>
+
+<h3 id="syntax-43">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to enable the data source's auto-brightness feature.
+ */</span>
+<span class="nx">IfAutoBright</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ifautodiscardblankpages">IfAutoDiscardBlankpages</h2>
+
+<h3 id="syntax-44">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether the data source (the scanner) discards blank images during scanning automatically.
+ */</span>
+<span class="nx">IfAutoDiscardBlankpages</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-29">Usage notes</h3>
+
+<p>The property works only if the device and its driver supports discarding blank pages. You can find whether your device supports this capbility from its user manual.</p>
+
+<p>Alternatively, the Dynamic Web TWAIN library can also detect blank images after they are transferred.</p>
+
+<hr />
+
+<h2 id="ifautofeed">IfAutoFeed</h2>
+
+<h3 id="syntax-45">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to enable the data source's automatic document feeding process.
+ */</span>
+<span class="nx">IfAutoFeed</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-30">Usage notes</h3>
+
+<p>If set to <code class="language-plaintext highlighter-rouge">true</code>, the data source will automatically feed the next page from the document feeder as soon as the previous page is scanned.</p>
+
+<hr />
+
+<h2 id="ifautomaticborderdetection">IfAutomaticBorderDetection</h2>
+
+<h3 id="syntax-46">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to enable the data source's automatic border detection feature.
+ */</span>
+<span class="nx">IfAutomaticBorderDetection</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-31">Usage notes</h3>
+
+<p>The property works only if the device and its driver support detecting the border automatically. You can find whether your device supports this capbility from its user manual.</p>
+
+<p>Once enabled, the data source (scanner) will automatically detect the borders of the document so that no extra margins are scanned.</p>
+
+<hr />
+
+<h2 id="ifautomaticdeskew">IfAutomaticDeskew</h2>
+
+<h3 id="syntax-47">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to enable the data source's automatic skew correction feature.
+ */</span>
+<span class="nx">IfAutomaticDeskew</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-32">Usage notes</h3>
+
+<p>The property works only if the device and its driver supports automatical deskewing. You can find whether your device supports this capbility from its user manual.</p>
+
+<hr />
+
+<h2 id="ifautoscan">IfAutoScan</h2>
+
+<h3 id="syntax-48">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether to enable the data source's automatic document scanning process.
+ */</span>
+<span class="nx">IfAutoScan</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-33">Usage notes</h3>
+
+<p>This property is only valid when <a href="#iffeederenabled">IfFeederEnabled</a> is set to <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<p>The fundamental assumption behind this property is that the device may be able to capture the number of images indicated by the property <a href="#xfercount">XferCount</a> without waiting for the Application to request the image transfers. This is
+only possible if the device has internal buffers capable of caching the images it captures.</p>
+
+<hr />
+
+<h2 id="iffeederloaded">IfFeederLoaded</h2>
+
+<h3 id="syntax-49">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return whether or not there are documents loaded in the data source's feeder.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">IfFeederLoaded</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-34">Usage notes</h3>
+
+<p>This property is only valid when <a href="#iffeederenabled">IfFeederEnabled</a> and <a href="#ifpaperdetectable">IfPaperDetectable</a> are <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<hr />
+
+<h2 id="ifpaperdetectable">IfPaperDetectable</h2>
+
+<h3 id="syntax-50">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return whether the Source has a paper sensor that can detect pages on the ADF or Flatbed.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">IfPaperDetectable</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-35">Usage notes</h3>
+
+<p>Check this property after <a href="#opensource">OpenSource()</a> is called.</p>
+
+<hr />
+
+<h2 id="ifshowindicator">IfShowIndicator</h2>
+
+<h3 id="syntax-51">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether the data source displays a progress indicator during acquisition and transfer.
+ */</span>
+<span class="nx">IfShowIndicator</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-36">Usage notes</h3>
+
+<p>This property works only when IfShowUI is set to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>The indicator will only be hidden if you set both <a href="#ifshowui">IfShowUI</a> and <a href="#ifshowindicator">IfShowIndicator</a> to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<hr />
+
+<h2 id="ifuicontrollable">IfUIControllable</h2>
+
+<h3 id="syntax-52">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return whether the data source supports acquisitions with the UI (User Interface) disabled.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">IfUIControllable</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="usage-notes-37">Usage notes</h3>
+
+<p>Check this property after <a href="#opensource">OpenSource()</a> is called.</p>
+
+<hr />
+
+<h2 id="ifusetwaindsm">IfUseTwainDSM</h2>
+
+<h3 id="syntax-53">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set whether the new TWAIN DSM (data source Manager) is used for acquisitions. The new TWAIN DSM is a DLL called 'TWAINDSM.dll' while the default | old DSM is called 'twain_32.dll'.
+ */</span>
+<span class="nx">IfUseTwainDSM</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-38">Usage notes</h3>
+
+<p>This property should be set before any TWAIN related methods or properties are called or set.</p>
+
+<hr />
+
+<h2 id="imagelayoutframebottom">ImageLayoutFrameBottom</h2>
+
+<h3 id="syntax-54">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the value of the bottom edge of the current image frame (in Unit).
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutFrameBottom</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="imagelayoutframeleft">ImageLayoutFrameLeft</h2>
+
+<h3 id="syntax-55">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the value of the left edge of the current image frame (in Unit).
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutFrameLeft</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="imagelayoutframeright">ImageLayoutFrameRight</h2>
+
+<h3 id="syntax-56">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the value of the right edge of the current image frame (in Unit).
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutFrameRight</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="imagelayoutframetop">ImageLayoutFrameTop</h2>
+
+<h3 id="syntax-57">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the value of the top edge of the current image frame (in Unit).
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutFrameTop</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="imagelayoutdocumentnumber">ImageLayoutDocumentNumber</h2>
+
+<h3 id="syntax-58">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the document number of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutDocumentNumber</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagelayoutpagenumber">ImageLayoutPageNumber</h2>
+
+<h3 id="syntax-59">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the page number of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLayoutPageNumber</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagebitsperpixel">ImageBitsPerPixel</h2>
+
+<h3 id="syntax-60">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the bit depth of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageBitsPerPixel</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagelength">ImageLength</h2>
+<h3 id="syntax-61">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the length of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageLength</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagewidth">ImageWidth</h2>
+<h3 id="syntax-62">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the width of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageWidth</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagexresolution">ImageXResolution</h2>
+<h3 id="syntax-63">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the horizontal resolution of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageXResolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imageyresolution">ImageYResolution</h2>
+<h3 id="syntax-64">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the vertical resolution of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImageYResolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="imagepixeltype">ImagePixelType</h2>
+
+<h3 id="syntax-65">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the pixel type of the current image.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">ImagePixelType</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_PixelType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="magdata">MagData</h2>
+
+<h3 id="syntax-66">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the data of the magnetic data if the data source supports magnetic data recognition.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">MagData</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="magtype">MagType</h2>
+
+<h3 id="syntax-67">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the type of the magnetic data if the data source supports magnetic data recognition.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">MagType</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_MagType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-39">Usage notes</h3>
+
+<p>The numbers returned by these APIs are based on the value of the <a href="#unit">Unit</a> property which by default means “inches”.</p>
+
+<p>These APIs are only valid in the callbacks for the events <a href="#onpretransfer">OnPreTransfer</a> and <a href="#onposttransfer">OnPostTransfer</a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">MagData</code> and <code class="language-plaintext highlighter-rouge">MagType</code> are device-dependent. Check the user manual of the device to see if magnetic data recognition is supported.</p>
+
+<hr />
+
+<h2 id="pendingxfers">PendingXfers</h2>
+
+<h3 id="syntax-68">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the number of transfers the data source is ready to supply upon demand.
+ */</span>
+<span class="nx">readonly</span> <span class="nx">PendingXfers</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-40">Usage notes</h3>
+
+<p>This property is only valid in the event <a href="#onposttransfer">OnPostTransfer</a>.</p>
+
+<p>The data source returns -1 if it is not sure how many transfers are pending which normally occurs when the ADF (Automatic Document Feeder) is used.</p>
+
+<hr />
+
+<h2 id="pixelflavor">PixelFlavor</h2>
+
+<h3 id="syntax-69">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the pixel flavor to be used for acquiring images.
+ */</span>
+<span class="nx">PixelFlavor</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-41">Usage notes</h3>
+
+<p>Available values:</p>
+<ul>
+  <li>0: Chocolate. Zero pixel represents darkest shade</li>
+  <li>1: Vanilla. Zero pixel represents lightest shade.</li>
+</ul>
+
+<hr />
+
+<h2 id="transfermode">TransferMode</h2>
+
+<h3 id="syntax-70">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the data source's transfer mode.
+ */</span>
+<span class="nx">TransferMode</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_TransferMode</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-42">Usage notes</h3>
+
+<p>Allowed values are</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>TWSX_NATIVE</td>
+          <td>0: The default mode. In this mode, the whole image is transfered in a single memory block.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>TWSX_FILE</td>
+          <td>1: In this mode, the image is transfered to a specified file on the disk directly. This mode is ideal when transferring large images that might encounter memory limitations with Native mode. Check out <a href="#SetFileXferInfo">SetFileXferInfo</a> for more information.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>TWSX_MEMORY</td>
+          <td>2: In this mode, the image is transferred in multiple memory blocks. It’s ideal for transferring very large images or a large number of images in a short time.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>TWSX_NATIVE and TWSX_MEMORY are required by all TWAIN data sources while TWSX_FILE is not. Therefore, make sure the data source supports TWSX_FILE before you use it.</p>
+
+<hr />
+
+<h2 id="unit">Unit</h2>
+
+<h3 id="syntax-71">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the unit of measure for all quantities.     
+ */</span>
+<span class="nx">Unit</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_UnitType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-43">Usage notes</h3>
+
+<p>Allowed values are</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Label</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TWUN_INCHES</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">inches(Default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_CENTIMETERS</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">centimeters</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_PICAS</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">picas</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_POINTS</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">points</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_TWIPS</td>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">twips</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_PIXELS</td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">pixels</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TWUN_MILLIMETERS</td>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">millimeters</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="xfercount">XferCount</h2>
+
+<h3 id="syntax-72">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return and set the number of images your application is willing to accept for each scan job.
+ */</span> 
+<span class="nx">XferCount</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-44">Usage notes</h3>
+
+<p>Allowed values are between -1 and 215 where -1 indicate multiple images.</p>
+
+<hr />
+
+<h2 id="onpostalltransfers">OnPostAllTransfers</h2>
+
+<h3 id="syntax-73">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when all page(s) have been scanned and transferred.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostAllTransfers</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){});</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-45">Usage notes</h3>
+
+<p>This event fires after all pages in the document feeder have been scanned and transferred. This is a good place to upload the images, detect barcodes, discard blank pages, etc.</p>
+
+<h3 id="example-7">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostAllTransfers</span><span class="dl">'</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">All images are transferred.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="onposttransfer">OnPostTransfer</h2>
+
+<h3 id="syntax-74">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered after each page has been scanned and transferred.
+ * @argument outputInfo Detailed information about the image that just got transferred.
+ */</span> 
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostTransfer</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">outputInfo</span><span class="p">:</span> <span class="nx">IOutputInfo</span><span class="p">)</span> <span class="p">{});</span>
+</code></pre></div></div>
+
+<h3 id="example-8">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostTransfer</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">An image has been scanned</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="onposttransferasync">OnPostTransferAsync</h2>
+
+<h3 id="syntax-75">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered after each page has been scanned and transferred. This is the asynchronous counterpart to the synchronous event {OnPostTransfer}.
+ * @argument outputInfo Detailed information about the image that just got transferred.
+ */</span> 
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostTransferAsync</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">outputInfo</span><span class="p">:</span> <span class="nx">IOutputInfo</span><span class="p">)</span> <span class="p">{});</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-46">Usage notes</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">IoutputInfo</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Id of the image if it's transferred to the buffer.
+     */</span>
+    <span class="nx">imageId</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Path of the image if it's transferred to the disk.
+     */</span>
+    <span class="nx">Path</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Information about the image.
+     */</span>
+    <span class="nx">imageInfo</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+    <span class="cm">/**
+     * Extended information about the image.
+     */</span>
+    <span class="nx">extendedImageInfo</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="example-9">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPostTransferAsync</span><span class="dl">'</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">outputInfo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">The image ID is </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">outputInfo</span><span class="p">.</span><span class="nx">imageId</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="onprealltransfers">OnPreAllTransfers</h2>
+
+<h3 id="syntax-76">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when all images are scanned and ready to be transferred.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPreAllTransfers</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){});</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-47">Usage notes</h3>
+
+<p>Multiple transfers may occur in two cases</p>
+
+<ul>
+  <li>Multiple images are scanned through the ADF(Auto Document Feeder)</li>
+  <li>Multiple frames are scanned on one single page</li>
+</ul>
+
+<p>In such cases, the event <code class="language-plaintext highlighter-rouge">OnPreTransfer</code> is triggered multiple times but <code class="language-plaintext highlighter-rouge">OnPreAllTransfers</code> is triggerred only once.</p>
+
+<p>In the callback function of this event, you can call <code class="language-plaintext highlighter-rouge">CancelAllPendingTransfers()</code> to cancel all the transfers.</p>
+
+<hr />
+
+<h2 id="onpretransfer">OnPreTransfer</h2>
+
+<h3 id="syntax-77">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when a page has been scanned and is ready to be transferred.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnPreTransfer</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){...});</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-48">Usage notes</h3>
+
+<p>In the callback function of this event, you can</p>
+
+<ul>
+  <li>Check <code class="language-plaintext highlighter-rouge">PendingXFERs</code> for the number of pending transfers.</li>
+  <li>Check the information about the transferred image including <code class="language-plaintext highlighter-rouge">ImageLayoutDocumentNumber</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutFrameLeft</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutFrameTop</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutFrameRight</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutFrameBottom</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutPageNumber</code>, <code class="language-plaintext highlighter-rouge">ImageLayoutFrameNumber</code>, etc.</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">CancelAllPendingTransfers()</code> to cancel all the rest of the transfers.</li>
+</ul>
+
+<hr />
+
+<h2 id="onsourceuiclose">OnSourceUIClose</h2>
+
+<h3 id="syntax-78">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This event is triggered when the user interface of the data source is closed manually by the user.
+ */</span>
+<span class="nx">RegisterEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">OnSourceUIClose</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getcapabilities">getCapabilities</h2>
+
+<h3 id="syntax-79">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Gets detailed information about all capabilities of the current data source.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument capabilityDetails Detailed information about the specified capabilities.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">getCapabilities</span><span class="p">(</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span><span class="nx">capabilityDetails</span><span class="p">:</span> <span class="nx">ICapabilityDetails</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Detailed information about a specific capability
+ */</span>
+<span class="kr">interface</span> <span class="nx">ICapabilityDetails</span> <span class="p">{</span>
+    <span class="cm">/**
+     * The Capability.
+     */</span>
+    <span class="nl">capability</span><span class="p">:</span> <span class="nx">ValueAndLabel</span><span class="p">;</span>
+    <span class="cm">/**
+     * The container type of the Capability
+     */</span>
+    <span class="nl">conType</span><span class="p">:</span> <span class="nx">ValueAndLabel</span><span class="p">;</span>
+    <span class="cm">/**
+     * The index for the current value of the Capability
+     */</span>
+    <span class="nl">curIndex</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The current value of the Capability
+     */</span>    
+    <span class="nl">curValue</span><span class="p">:</span> <span class="nx">ValueAndLabel</span><span class="p">;</span>
+    <span class="cm">/**
+     * The index for the default value of the Capability
+     */</span>    
+    <span class="nl">defIndex</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The operation types that are supported by the Capability. Types include {"get", "set", "reset" "getdefault", "getcurrent"}
+     */</span>   
+    <span class="nl">query</span><span class="p">:</span> <span class="nx">string</span><span class="p">[];</span>
+    <span class="cm">/**
+     * The value type of the Capability. Value types include
+        TWTY_BOOL: 6
+        TWTY_FIX32: 7
+        TWTY_FRAME: 8
+        TWTY_INT8: 0
+        TWTY_INT16: 1
+        TWTY_INT32: 2
+        TWTY_STR32: 9
+        TWTY_STR64: 10
+        TWTY_STR128: 11
+        TWTY_STR255: 12
+        TWTY_UINT8: 3
+        TWTY_UINT16: 4
+        TWTY_int: 5
+     */</span>    
+    <span class="nl">valueType</span><span class="p">:</span> <span class="nx">ValueAndLabel</span><span class="p">;</span>
+    <span class="cm">/**
+     * The available values of the Capability
+     */</span>    
+    <span class="nl">values</span><span class="p">:</span> <span class="nx">ValueAndLabel</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ValueAndLabel</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Numeric representation of the item
+     */</span>
+    <span class="nl">value</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_Cap</span> <span class="o">|</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CapType</span> <span class="o">|</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_CapValueType</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Label or name of the item
+     */</span>    
+    <span class="nl">label</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-49">Usage notes</h3>
+
+<p>Check out the Enumerations</p>
+<ul>
+  <li><a href="Dynamsoft.Enum.md#enumdwt_cap">Dynamsoft.EnumDWT_Cap</a></li>
+  <li><a href="Dynamsoft.Enum.md#enumdwt_captype">Dynamsoft.EnumDWT_CapType</a></li>
+  <li><a href="Dynamsoft.Enum.md#enumdwt_capvaluetype">Dynamsoft.EnumDWT_CapValueType</a></li>
+</ul>
+
+<hr />
+
+<h2 id="setcapabilities">setCapabilities</h2>
+
+<h3 id="syntax-80">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Sets up one or multiple capabilities in one call.
+ * @param capabilities A object that describes how to set capabilities.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument capabilities The capabilities to set.
+ */</span>
+<span class="nx">setCapabilities</span><span class="p">(</span>
+    <span class="nx">capabilities</span><span class="p">:</span> <span class="nx">ICapabilities</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span><span class="nx">capabilities</span><span class="p">:</span> <span class="nx">ICapabilities</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span><span class="nx">capabilities</span><span class="p">:</span> <span class="nx">ICapabilities</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">ICapabilities</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Whether to "ignore" or "fail" the request if an exception occurs. This is an overall setting that is inherited by all capabilities. 
+     */</span>
+    <span class="nl">exceptition</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specifies how to set capabilities
+     */</span>
+    <span class="nl">capabilities</span><span class="p">:</span> <span class="nx">ICapabilitySetup</span><span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ICapabilitySetup</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify a capability
+     */</span>
+    <span class="nl">capability</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_Cap</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The value to set to the capability or the value of the capability after setting.
+     */</span>
+    <span class="nl">curValue</span><span class="p">:</span> <span class="nx">number</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">errorCode</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">errorString</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Whether to "ignore" or "fail" the request if an exception occurs when setting this specific capability.
+     */</span>
+    <span class="nx">exception</span><span class="p">?</span> <span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-50">Usage notes</h3>
+
+<p>To make things easier, Dynamsoft designed the API with a simplified parameter <code class="language-plaintext highlighter-rouge">Capabilities</code> which only requires the minimum information for setting a capability: a number to specify the capability and the value to set to it. Underneath, Dynamsoft takes care of container type setting, value type setting as well as data validation.</p>
+
+<p>Pay attention to the argument you set to the overall parameter <code class="language-plaintext highlighter-rouge">exception</code> and the individual parameter <code class="language-plaintext highlighter-rouge">exception</code> for each capability. If the overall parameter is set to <code class="language-plaintext highlighter-rouge">fail</code>, the setting will abort as soon as an exception is raised while setting any of the capabilities. Otherwise, <code class="language-plaintext highlighter-rouge">ignore</code> means to carry on setting the next capability even when the previous one failed. Aside from the overall parameter, the individual <code class="language-plaintext highlighter-rouge">exception</code> is optional but takes precedence if set. In other words, you can set the overall <code class="language-plaintext highlighter-rouge">exception</code> to <code class="language-plaintext highlighter-rouge">ignore</code> and then set the individual one to <code class="language-plaintext highlighter-rouge">fail</code> for the capabilities which you think are important. This way, you get notified if these important capabilities failed to be set while other less-important ones are ignored when setting them failed.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

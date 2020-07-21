@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/Addon_BarcodeReader.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/Addon_BarcodeReader.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/Addon_BarcodeReader.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwainaddonbarcodereader">WebTwain.Addon.BarcodeReader</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#decode">decode()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#getruntimesettings">getRuntimeSettings()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#updateruntimesettings">updateRuntimeSettings()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#resetruntimesettings">resetRuntimeSettings()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#initruntimesettingswithstring">initRuntimeSettingsWithString()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="decode">decode</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Read an image in the buffer and try to locate and decode barcode(s) on it.
+ * @param index Specify the image to decode.
+ */</span>
+<span class="nx">decode</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ITextResults</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">ITextResults</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">]:</span> <span class="nx">TextResult</span><span class="p">;</span>
+    <span class="nx">description</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">exception</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">imageid</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">TextResult</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Barcode result content in a byte array.
+     */</span>
+    <span class="nl">barcodeBytes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="cm">/**
+     * The barcode format.
+     */</span>
+    <span class="nl">barcodeFormat</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumBarcodeFormat</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Extra barcde formats.
+     */</span>
+    <span class="nl">barcodeFormat_2</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumBarcodeFormat_2</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Barcode formats as a string.
+     */</span>
+    <span class="nl">barcodeFormatString</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Extra barcode formats as a string.
+     */</span>
+    <span class="nl">barcodeFormatString_2</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * The barcode result text.
+     */</span>
+    <span class="nl">barcodeText</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Detailed result information.
+     */</span>
+    <span class="nl">detailedResult</span><span class="p">:</span> <span class="nx">any</span> <span class="o">|</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="cm">/**
+     * The corresponding localization result.
+     */</span>
+    <span class="nl">localizationResult</span><span class="p">:</span> <span class="nx">ILocalizationResult</span><span class="p">;</span>
+    <span class="cm">/**
+     * Other information
+     */</span>
+    <span class="nl">results</span><span class="p">:</span> <span class="nx">IResult</span><span class="p">[];</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">ILocalizationResult</span> <span class="p">{</span>
+    <span class="cm">/**
+     * The angle of a barcode. Values range from 0 to 360.
+     */</span>
+    <span class="nl">angle</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The X coordinate of the left-most point.
+     */</span>
+    <span class="nl">x1</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The X coordinate of the second point in a clockwise direction.
+     */</span>
+    <span class="nl">x2</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The X coordinate of the third point in a clockwise direction.
+     */</span>
+    <span class="nl">x3</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The X coordinate of the fourth point in a clockwise direction.
+     */</span>
+    <span class="nl">x4</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The Y coordinate of the left-most point.
+     */</span>
+    <span class="nl">y1</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The Y coordinate of the second point in a clockwise direction.
+     */</span>
+    <span class="nl">y2</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The Y coordinate of the third point in a clockwise direction.
+     */</span>
+    <span class="nl">y3</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * The Y coordinate of the fourth point in a clockwise direction.
+     */</span>
+    <span class="nl">y4</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">moduleSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">pageNumber</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">regionName</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">resultCoordinateType</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">terminatePhase</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IResult</span> <span class="p">{</span>
+    <span class="nl">accompanyingTextBytes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">clarity</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">confidence</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">deformation</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">resultType</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="getruntimesettings">getRuntimeSettings</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Get the current runtime settings.
+ */</span>
+<span class="nx">getRuntimeSettings</span><span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RuntimeSettings</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">RuntimeSettings</span> <span class="p">{</span>
+    <span class="nl">barcodeFormatIds</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">barcodeFormatIds_2</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">binarizationModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">deblurLevel</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">expectedBarcodesCount</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">furtherModes</span><span class="p">:</span> <span class="nx">IFurtherModes</span><span class="p">;</span>
+    <span class="nl">intermediateResultSavingMode</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">intermediateResultTypes</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">localizationModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">maxAlgorithmThreadCount</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">minBarcodeTextLength</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">minResultConfidence</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">pdfRasterDPI</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">pdfReadingMode</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="nx">IRegion</span><span class="p">;</span>
+    <span class="nl">resultCoordinateType</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">returnBarcodeZoneClarity</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">scaleDownThreshold</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">scaleUpModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">terminatePhase</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">textResultOrderModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">timeout</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IFurtherModes</span> <span class="p">{</span>
+    <span class="nl">accompanyingTextRecognitionModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">barcodeColourModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">barcodeComplementModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">colourClusteringModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">colourConversionModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">deformationResistingModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">dpmCodeReadingModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">grayscaleTransformationModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">imagePreprocessingModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">regionPredetectionModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">textAssistedCorrectionMode</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">textFilterModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+    <span class="nl">textureDetectionModes</span><span class="p">:</span> <span class="nx">number</span><span class="p">[];</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IRegion</span> <span class="p">{</span>
+    <span class="nl">regionBottom</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">regionLeft</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">regionMeasuredByPercentage</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">regionRight</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">regionTop</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="updateruntimesettings">updateRuntimeSettings</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Update the runtime settings with a given object or use the string "speed", "balance", or "coverage" to use our preset settings. The default setting is "coverage".
+ * @param settings Specify the runtime settings.
+ */</span>
+<span class="nx">updateRuntimeSettings</span><span class="p">(</span><span class="nx">settings</span><span class="p">:</span> <span class="nx">RuntimeSettings</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RuntimeSettings</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="example">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DWObject</span><span class="p">.</span><span class="nx">Addon</span><span class="p">.</span><span class="nx">BarcodeReader</span><span class="p">.</span><span class="nx">getRuntimeSettings</span><span class="p">(</span><span class="dl">'</span><span class="s1">balance</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">settings</span><span class="p">.</span><span class="nx">barcodeFormatIds</span> <span class="o">=</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumBarcodeFormat</span><span class="p">.</span><span class="nx">BF_ONED</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">DWObject</span><span class="p">.</span><span class="nx">Addon</span><span class="p">.</span><span class="nx">BarcodeReader</span><span class="p">.</span><span class="nx">updateRuntimeSettings</span><span class="p">(</span><span class="nx">settings</span><span class="p">);</span>
+    <span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">DWObject</span><span class="p">.</span><span class="nx">Addon</span><span class="p">.</span><span class="nx">BarcodeReader</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">textResult</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">textResult</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">barcodeText</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ex</span><span class="p">.</span><span class="nx">message</span> <span class="o">||</span> <span class="nx">ex</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">});</span>  
+<span class="p">});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="resetruntimesettings">resetRuntimeSettings</h2>
+
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Reset all runtime settings to default values.
+ */</span>
+<span class="nx">resetRuntimeSettings</span><span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RuntimeSettings</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="initruntimesettingswithstring">initRuntimeSettingsWithString</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Set up the barcode reader with advanced settings.
+ * @param settings The runtime setting in the form of a string.
+ */</span>
+<span class="nx">initRuntimeSettingsWithString</span><span class="p">(</span>
+    <span class="nx">settings</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RuntimeSettings</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

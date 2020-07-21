@@ -1,14 +1,14 @@
-repositoryUrl: https://github.com/Tom-Dynamsoft/dwt-docs/blob/master
+repositoryUrl: https://github.com/Tom-Dynamsoftblob/master
 
-docHomePage: /dwt-docs
-dynamsoft_logo: /dwt-docs/assets/dynamsoft-logo.png
-dwt_logo: /dwt-docs/assets/dwt-logo.png
+docHomePage: /
+dynamsoft_logo: /assets/img-icon/dynamsoft-logo.png
+dwt_logo: /assets/img-icon/dwt-logo.png
 
-assets: /dwt-docs/assets/
-_includes: /dwt-docs/_includes/
-_layouts: /dwt-docs/_layouts/
-1_about: /dwt-docs/1_about/
-2_getstarted: /dwt-docs/2_getstarted/
-3_indepth: /dwt-docs/3_indepth/
-4_info: /dwt-docs/4_info/
+assets: /assets/
+_includes: /_includes/
+_layouts: /_layouts/
+about: /about/
+getstarted: /getstarted/
+indepth: /indepth/
+info: /info/
 theme: jekyll-theme-cayman

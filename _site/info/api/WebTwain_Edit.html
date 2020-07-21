@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/WebTwain_Edit.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/WebTwain_Edit.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/WebTwain_Edit.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwain-edit">WebTwain Edit</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#crop">Crop()</a></td>
+      <td style="text-align: left"><a href="#croptoclipboard">CropToClipboard()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#cutframetoclipboard">CutFrameToClipboard()</a></td>
+      <td style="text-align: left"><a href="#cuttoclipboard">CutToClipboard()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#copytoclipboard">CopyToClipboard()</a></td>
+      <td style="text-align: left"><a href="#erase">Erase()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#flip">Flip()</a></td>
+      <td style="text-align: left"><a href="#mirror">Mirror()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#rotate">Rotate()</a></td>
+      <td style="text-align: left"><a href="#rotateex">RotateEx()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#rotateleft">RotateLeft()</a></td>
+      <td style="text-align: left"><a href="#rotateright">RotateRight()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#changebitdepth">ChangeBitDepth()</a></td>
+      <td style="text-align: left"><a href="#setdpe">SetDPI()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#converttobw">ConvertToBW()</a></td>
+      <td style="text-align: left"><a href="#converttograyscale">ConvertToGrayScale()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#changeimagesize">ChangeImageSize()</a></td>
+      <td style="text-align: left"><a href="#invert">Invert()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#setimagewidth">SetImageWidth()</a></td>
+      <td style="text-align: left"><a href="#showimageeditor">ShowImageEditor()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#backgroundfillcolor">BackgroundFillColor</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>[Deprecation] The following APIs are deprecated.</p>
+
+  <p>[Alternative] Annotation feature to be added in a later version.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#AddText">AddText()</a></td>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#CreateTextFont">CreateTextFont()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#OverlayRectangle">OverlayRectangle()</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="showimageeditor">ShowImageEditor</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Show the built-in image editor. If called without any arguments while the editor is open, it'll close the editor.
+ * @param divId Specify a div element to hold the editor.
+ * @param width Specify the width of the editor.
+ * @param height Specify the height of the editor.
+ */</span>
+<span class="nx">ShowImageEditor</span><span class="p">(</span>
+    <span class="nx">divId</span><span class="p">?:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">width</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">height</span><span class="p">?:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>If you call the method without any parameter, the editor will take up the full screen. If you’d like to show the editor in a div element, you need to specify all 3 parameters.</p>
+
+<p>If the editor is shown full-screen, you can call the method again to hide it.</p>
+
+<hr />
+
+<h2 id="changebitdepth">ChangeBitDepth</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Change the bit depth of the specified image.
+ * @param index Specify the image.
+ * @param bitDepth Specify the bit depth.
+ * @param highQuality Whether to keep high quality.
+ */</span>
+<span class="nx">ChangeBitDepth</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bitDepth</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">highQuality</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p>The allowed bit depths are 1, 4, 8, 24.</p>
+
+<hr />
+
+<h2 id="changeimagesize">ChangeImageSize</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Change the size of the specified image.
+ * @param index Specify the image.
+ * @param width Specify the new width.
+ * @param height Specify the new height.
+ * @param method Specify the algorithm for the change.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ChangeImageSize</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">width</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">height</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">method</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_InterpolationMethod</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="setdpi">SetDPI</h2>
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Change the DPI (dots per inch) of the specified image.
+ * @param index Specify the image.
+ * @param xResolution Specify the horizontal DPI.
+ * @param yResolution Specify the vertical DPI.
+ * @param resample Whether to resample the image.
+ * @param method Specify the algorithm for the change.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SetDPI</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">xResolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">yResolution</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">resample</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="nx">method</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_InterpolationMethod</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>Check out <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_interpolationmethod">Dynamsoft.EnumDWT_InterpolationMethod</a>.</p>
+
+<hr />
+
+<h2 id="converttobw">ConvertToBW</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Convert the specified image to black &amp; white.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ConvertToBW</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="converttograyscale">ConvertToGrayScale</h2>
+
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Convert the specified image to grayscale.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">ConvertToGrayScale</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="invert">Invert</h2>
+
+<h3 id="syntax-6">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Invert the colour of the pixels on the specified image.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Invert</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="setimagewidth">SetImageWidth</h2>
+
+<h3 id="syntax-7">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Change the width of the specified image by adding a margin or removing part of the image.
+ * @param index Specify the image.
+ * @param width Specify the new width.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">SetImageWidth</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">width</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="flip">Flip</h2>
+
+<h3 id="syntax-8">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Flip the specified image.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Flip</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="mirror">Mirror</h2>
+
+<h3 id="syntax-9">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Mirror the specified image.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Mirror</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="rotateleft">RotateLeft</h2>
+<h3 id="syntax-10">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Rotate the specified image 90 degrees counterclockwise.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RotateLeft</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="rotateright">RotateRight</h2>
+<h3 id="syntax-11">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Rotate the specified image 90 degrees clockwise.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RotateRight</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="rotate">Rotate</h2>
+<h3 id="syntax-12">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Rotate the specified image by the specified angle.
+ * @param index Specify the image.
+ * @param angle Specify the angle.
+ * @param keepSize Whether to keep the original size.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Rotate</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">angle</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">keepSize</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="rotateex">RotateEx</h2>
+<h3 id="syntax-13">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Rotate the specified image by the specified angle.
+ * @param index Specify the image.
+ * @param angle Specify the angle.
+ * @param keepSize Whether to keep the original size.
+ * @param method Specify the algorithm for the change.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RotateEx</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">angle</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">keepSize</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="nx">method</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_InterpolationMethod</span> <span class="o">|</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-3">Usage notes</h3>
+
+<p>Check out <a href="Dynamsoft.Enum.md#dynamsoftenumdwt_interpolationmethod">Dynamsoft.EnumDWT_InterpolationMethod</a>.</p>
+
+<hr />
+
+<h2 id="crop">Crop</h2>
+<h3 id="syntax-14">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Crop the specified image using the specified coordinates.
+ * @param index Specify the image.
+ * @param left Specify the rectangle (leftmost coordinate).
+ * @param top Specify the rectangle (topmost coordinate).
+ * @param right Specify the rectangle (rightmost coordinate).
+ * @param bottom Specify the rectangle (bottommost coordinate).
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Crop</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bottom</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="erase">Erase</h2>
+<h3 id="syntax-15">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Erase a rectangular area from the specified image.
+ * @param index Specify the image.
+ * @param left Specify the rectangle (leftmost coordinate).
+ * @param top Specify the rectangle (topmost coordinate).
+ * @param right Specify the rectangle (rightmost coordinate).
+ * @param bottom Specify the rectangle (bottommost coordinate).
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Erase</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bottom</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">?:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="copytoclipboard">CopyToClipboard</h2>
+<h3 id="syntax-16">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Copy the specified image to the clipboard of the operating system.
+ * @param index Specify the image.
+ */</span>
+<span class="nx">CopyToClipboard</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cuttoclipboard">CutToClipboard</h2>
+<h3 id="syntax-17">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Cut the specified image to the clipboard of the operating system.
+ * @param index Specify the image.
+ */</span>
+<span class="nx">CutToClipboard</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="croptoclipboard">CropToClipboard</h2>
+<h3 id="syntax-18">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Crop a rectangular area from the specified image to the clipboard of the operating system.
+ * @param index Specify the image.
+ * @param left Specify the rectangle (leftmost coordinate).
+ * @param top Specify the rectangle (topmost coordinate).
+ * @param right Specify the rectangle (rightmost coordinate).
+ * @param bottom Specify the rectangle (bottommost coordinate).
+ */</span>
+<span class="nx">CropToClipboard</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bottom</span><span class="p">:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cutframetoclipboard">CutFrameToClipboard</h2>
+<h3 id="syntax-19">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Cut a rectangular area from the specified image to the clipboard of the operating system.
+ * @param index Specify the image.
+ * @param left Specify the rectangle (leftmost coordinate).
+ * @param top Specify the rectangle (topmost coordinate).
+ * @param right Specify the rectangle (rightmost coordinate).
+ * @param bottom Specify the rectangle (bottommost coordinate).
+ */</span>
+<span class="nx">CutFrameToClipboard</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">bottom</span><span class="p">:</span> <span class="nx">number</span>
+<span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-4">Usage notes</h3>
+
+<p>The empty area resulted from the crop/erase/cut will be filled with the colour set with <a href="#backgroundfillcolor">BackgroundFillColor</a>.</p>
+
+<hr />
+
+<h2 id="backgroundfillcolor">BackgroundFillColor</h2>
+
+<h3 id="syntax-20">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the fill colour for the empty area on an image that has been cut/cropped/erased.
+ */</span>
+<span class="nx">BackgroundFillColor</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-5">Usage notes</h3>
+
+<p>By default the colour is white (0xffffff). The byte-ordering of the 24-bit RGB value is <strong>RRGGBB</strong>. RR represents red, GG represents green and BB represents blue.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

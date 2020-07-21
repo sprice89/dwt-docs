@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/Addon_OCRPro.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/Addon_OCRPro.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/Addon_OCRPro.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="webtwainaddonocrpro">WebTwain.Addon.OCRPro</h1>
+
+<p>For Server Side OCR, check out <a href="#server-side">Server-Side OCR</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#download">Download()</a></td>
+      <td style="text-align: left"><a href="#ismoduleinstalled">IsModuleInstalled()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#recognize">Recognize()</a></td>
+      <td style="text-align: left"><a href="#recognizefile">RecognizeFile()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#recognizerect">RecognizeRect()</a></td>
+      <td style="text-align: left"><a href="#recognizeselectedimages">RecognizeSelectedImages()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#settings">Settings</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="download">Download</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Download and install the OCR Professional add-on on the local system.
+ * @param path The URL to download the add-on (typically a ZIP file).
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Download</span><span class="p">(</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ismoduleinstalled">IsModuleInstalled</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return whether the OCR Professional engine has been installed.
+ */</span>
+<span class="nx">IsModuleInstalled</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>This method will attempt to download and install the dll from the server if the dll doesn’t exist already or the exising one is of a different version. You can also call <code class="language-plaintext highlighter-rouge">IsModuleInstalled()</code> first to determine whether it is necessary to call <code class="language-plaintext highlighter-rouge">Download()</code>.</p>
+
+<hr />
+
+<h2 id="recognize">Recognize</h2>
+
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Perform OCR on the specified image in the buffer.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument imageId The imageId of the image which can be used to find the index.
+ * @argument result The OCR result.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Recognize</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">imageId</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">IOCRProResult</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recognizefile">RecognizeFile</h2>
+
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Perform OCR on the specified local file.
+ * @param path Specify a local file.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument path The file path.
+ * @argument result The OCR result.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RecognizeFile</span><span class="p">(</span><span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">IOCRProResult</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recognizerect">RecognizeRect</h2>
+
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Perform OCR on the specified rectangular area(s) on the image.
+ * @param index Specify the image.
+ * @param aryRects Specify the rectangle(s).
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument imageId The imageId of the image which can be used to find the index.
+ * @argument result The OCR result.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RecognizeRect</span><span class="p">(</span>
+    <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+    <span class="nx">aryRects</span><span class="p">:</span> <span class="nx">IRect</span><span class="p">[],</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">imageId</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">aryRects</span><span class="p">:</span> <span class="nx">IRect</span><span class="p">[],</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">IOCRProResult</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recognizeselectedimages">RecognizeSelectedImages</h2>
+
+<h3 id="syntax-5">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Perform OCR on the selected images in the buffer.
+ * @param index Specify the image.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument result The OCR result.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">RecognizeSelectedImages</span><span class="p">(</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">result</span><span class="p">:</span> <span class="nx">IOCRProResult</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kr">interface</span> <span class="nx">IRect</span> <span class="p">{</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IOCRProResult</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return a base64 string that contains the result of the OCR.
+     */</span>
+    <span class="nx">Get</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the error code.
+     */</span>
+    <span class="nx">GetErrorCode</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return an array which contains detailed error information for each page that was OCR'd
+     */</span>
+    <span class="nx">GetErrorDetailList</span><span class="p">():</span> <span class="nx">IError</span><span class="p">[];</span>
+    <span class="cm">/**
+     * Return the error string.
+     */</span>
+    <span class="nx">GetErrorString</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the source information. It could be the index of the OCR'd image or the path of the OCR'd file.
+     */</span>
+    <span class="nx">GetInput</span><span class="p">():</span> <span class="nx">number</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the number of pages already OCR'd on the machine.
+     */</span>
+    <span class="nx">GetAlreadyOCRCount</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the number of pages allowed by the current license.
+     */</span>
+    <span class="nx">GetOCRTotalCount</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the number of pages in the OCR result.
+     */</span>
+    <span class="nx">GetPageCount</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the content of a page.
+     * @param index Specify the page
+     */</span>
+    <span class="nx">GetPageContent</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">IPage</span><span class="p">;</span>
+    <span class="cm">/**
+     * Save the OCR result as a file.
+     * @param path The path to save the file.
+     */</span>
+    <span class="nx">Save</span><span class="p">(</span><span class="nx">path</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IError</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the index of the image or path of the file.
+     */</span>
+    <span class="nx">GetInput</span><span class="p">():</span> <span class="nx">number</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the error message.
+     */</span>
+    <span class="nx">GetMessage</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the number of the page on which the error was thrown.
+     * If the input is a file, this returns the index of the page in that file.
+     * If the input is an image in the buffer, this always returns 0.
+     */</span>
+    <span class="nx">GetPage</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IPage</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the number of letters in the page.
+     */</span>
+    <span class="nx">GetLetterCount</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the content of the specified letter.
+     * @index Specify the letter.
+     */</span>
+    <span class="nx">GetLetterContent</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">ILetter</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the number of recognized rectangles in the page.
+     */</span>
+    <span class="nx">GetZoneCount</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the base64-encoded content of the specified rectangle.
+     * @index Specify the line.
+     */</span>
+    <span class="nx">GetZoneContent</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">ILetter</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Return the text of the letter.
+     */</span>
+    <span class="nx">GetText</span><span class="p">():</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the coordinates for the rectangle that contains the specified letter. The coordinates are in the sequence of "left,top,right,bottom" like "121,125,123,143".
+     */</span>
+    <span class="nx">GetLetterRect</span><span class="p">():</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="settings">Settings</h2>
+
+<h3 id="syntax-6">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return or set the current settings of the OCR engine.
+ */</span>
+<span class="nx">Settings</span><span class="p">:</span> <span class="nx">ISettings</span> <span class="o">|</span> <span class="nx">boolean</span> <span class="o">|</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">ISettings</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the target language.
+     */</span>
+    <span class="nl">Languages</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the URL for the license checker.
+     */</span>
+    <span class="nl">LicenseChecker</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the output format.
+     */</span>
+    <span class="nl">OutputFormat</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRProOutputFormat</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the PDF/A version.
+     */</span>
+    <span class="nl">PDFAVersion</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRProPDFAVersion</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the PDF version.
+     */</span>
+    <span class="nl">PDFVersion</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRProPDFVersion</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the recognition module.
+     */</span>
+    <span class="nl">RecognitionModule</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRProRecognitionModule</span> <span class="o">|</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Configure the redaction.
+     */</span>
+    <span class="nl">Redaction</span><span class="p">:</span> <span class="nx">IRedaction</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IRedaction</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the text to redact.
+     */</span>
+    <span class="nl">FindText</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify how the text is found.
+     */</span>
+    <span class="nl">FindTextFlags</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRFindTextFlags</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify how redaction is done.
+     */</span>
+    <span class="nl">FindTextAction</span><span class="p">:</span> <span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">EnumDWT_OCRFindTextAction</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes-2">Usage notes</h3>
+
+<p>A Settings object can be created with the following method.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Create a new "Settings" object.
+ */</span> 
+<span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">WebTwain</span><span class="p">.</span><span class="nx">Addon</span><span class="p">.</span><span class="nx">OCRPro</span><span class="p">.</span><span class="nx">NewSettings</span><span class="p">:</span> <span class="nx">ISettings</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="server-side">Server-Side</h2>
+
+<p>The OCR Professional engine runs as a service. The workflow is like this</p>
+
+<ol>
+  <li>The image(s) is uploaded to the server and saved on the disk.</li>
+  <li>The path(s) of the saved image(s) is sent to the OCR pro service as part of the <a href="#ocrproserversiderequest">OCRPro.ServerSide.Request</a>.</li>
+  <li>The service returns the OCR result in a HTTP Response.</li>
+</ol>
+
+<p>The following demonstrates the structures of the OCR Request and the Response.</p>
+
+<h3 id="ocrproserversiderequest">OCRPro.ServerSide.Request</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="nl">productKey</span><span class="p">:</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">inputFile</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">d:</span><span class="se">\\</span><span class="s2">input</span><span class="se">\\</span><span class="s2">test.tif</span><span class="dl">"</span><span class="p">],</span>
+    <span class="nx">outputFile</span><span class="p">:</span> <span class="dl">"</span><span class="s2"> d:</span><span class="se">\\</span><span class="s2">temp</span><span class="se">\\</span><span class="s2">ocrresult.pdf</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">zones</span><span class="p">:</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]],</span>    
+    <span class="nx">settings</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nl">recognitionModule</span><span class="p">:</span> <span class="dl">"</span><span class="s2">auto</span><span class="dl">"</span><span class="p">,</span> <span class="cm">/*optional*/</span>
+        <span class="nx">languages</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eng,arabic</span><span class="dl">"</span><span class="p">,</span>
+        <span class="nx">recognitionMethod</span><span class="p">:</span> <span class="dl">"</span><span class="s2">File</span><span class="dl">"</span><span class="p">,</span>
+        <span class="nx">threadCount</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="cm">/*optional*/</span>
+        <span class="nx">outputFormat</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IOTPDF</span><span class="dl">"</span><span class="p">,</span>
+        <span class="nx">pdfVersion</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.7</span><span class="dl">"</span><span class="p">,</span> <span class="cm">/*optional*/</span>
+        <span class="nx">pdfAVersion</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pdf/a-2a</span><span class="dl">"</span><span class="p">,</span> <span class="cm">/*optional*/</span>
+        <span class="nx">redaction</span><span class="p">:</span>
+            <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">findText</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TWAIN</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">findTextFlags</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">findTextAction</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">API</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>productKey</strong></td>
+      <td style="text-align: left">The product key which is generated from an OCR license.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>inputFile</strong></td>
+      <td style="text-align: left">Specify the files to be OCR’d. This is an array of strings which are absolute paths of the files. The supported formats are BMP, JPG, TIF, PDF, PNG, JBIG2, JPEG2000, PCX, etc. Please note the use of ‘\\’ instead of just ‘\’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>outputFile</strong></td>
+      <td style="text-align: left">Specify where the output file is saved. If the input includes more than one file, all of them will be merged into one file. Otherwise, the result will only be returned in the <a href="#ocrproserversideresponse">OCRPro.ServerSide.Response</a>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>zones</strong></td>
+      <td style="text-align: left">Specify which zones are to be OCR’d on an image. There can be multiple zones but it works only when the  <code class="language-plaintext highlighter-rouge">recognitionMethod</code> is <code class="language-plaintext highlighter-rouge">Page</code>. The coordinates are in the sequence of <code class="language-plaintext highlighter-rouge">[[left, top, right, bottom]]</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>settings</strong></td>
+      <td style="text-align: left">Configure the OCR.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.recognitionModule</strong></td>
+      <td style="text-align: left">Specify which module is to be used for this OCR. Allowed values are: <code class="language-plaintext highlighter-rouge">mostaccurate</code>, <code class="language-plaintext highlighter-rouge">fastest</code>, <code class="language-plaintext highlighter-rouge">balanced</code> and <code class="language-plaintext highlighter-rouge">auto</code>. <code class="language-plaintext highlighter-rouge">auto</code> is the default value which means the library will choose one of the 3 modules automatically.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.languages</strong></td>
+      <td style="text-align: left">Specify the language for this OCR. For example, English: “eng”, Arabic :”arabic”. You can also set multiple languages like this “eng,arabic”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.recognitionMethod</strong></td>
+      <td style="text-align: left">Specify how the OCR is done. There are two methods: <code class="language-plaintext highlighter-rouge">Page</code> is the default value and it means the OCR is performed per page, the other method is <code class="language-plaintext highlighter-rouge">File</code> which means the OCR is performed per file. The method <code class="language-plaintext highlighter-rouge">File</code> is faster and it supports multiple threads. But only the method <code class="language-plaintext highlighter-rouge">Page</code> supports zonal OCR and returning detailed.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.threadCount</strong></td>
+      <td style="text-align: left">Specify the maximum number of threads to be used OCRing. The default value is -1 which means all possible threads will be used. This setting is only valid when <code class="language-plaintext highlighter-rouge">recognitionMethod</code> is set to <code class="language-plaintext highlighter-rouge">File</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.outputFormat</strong></td>
+      <td style="text-align: left">Specify the output format. Allowed values are <code class="language-plaintext highlighter-rouge">TXTS</code>, <code class="language-plaintext highlighter-rouge">TXTCSV</code>, <code class="language-plaintext highlighter-rouge">TXTF</code>, <code class="language-plaintext highlighter-rouge">XML</code>, <code class="language-plaintext highlighter-rouge">IOTPDF</code>, <code class="language-plaintext highlighter-rouge">IOTPDF_MRC</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.pdfVersion</strong></td>
+      <td style="text-align: left">Specify the version of the PDF file if the <code class="language-plaintext highlighter-rouge">outputFormat</code> is set to either <code class="language-plaintext highlighter-rouge">IOTPDF</code> or <code class="language-plaintext highlighter-rouge">IOTPDF_MRC</code>. The version number allowed ranges from 1.0 to 1.7 and by default it is 1.5.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.pdfAVersion</strong></td>
+      <td style="text-align: left">Specify the version of the PDF/A file if the <code class="language-plaintext highlighter-rouge">outputFormat</code> is set to either <code class="language-plaintext highlighter-rouge">IOTPDF</code> or <code class="language-plaintext highlighter-rouge">IOTPDF_MRC</code>. The version number allowed are <code class="language-plaintext highlighter-rouge">pdf/a-1a</code>, <code class="language-plaintext highlighter-rouge">pdf/a-1b</code>, <code class="language-plaintext highlighter-rouge">pdf/a-2a</code>, <code class="language-plaintext highlighter-rouge">pdf/a-2b</code>, <code class="language-plaintext highlighter-rouge">pdf/a-2u</code>, <code class="language-plaintext highlighter-rouge">pdf/a-3a </code>, <code class="language-plaintext highlighter-rouge">pdf/a-3b</code>, <code class="language-plaintext highlighter-rouge">pdf/a-3u</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>.redaction</strong></td>
+      <td style="text-align: left">Specify how the redaction is done.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>..findText</strong></td>
+      <td style="text-align: left">A string to specify what to find.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>..findTextFlags</strong></td>
+      <td style="text-align: left">Specify how the text is found. The allowed values are 1 (WHOLEWORD), 2 (MATCHCASE) amd 4 (FUZZYMATCH).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>..findTextAction</strong></td>
+      <td style="text-align: left">Specify how redaction is done. The allowed values are 0 (HIGHLIGHT), 1 (STRIKEOUT) and 2 (MARKFORREDACT).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ocrproserversideresponse">OCRPro.ServerSide.Response</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">Request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nl">inputFile</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">d:</span><span class="se">\\</span><span class="s2">input</span><span class="se">\\</span><span class="s2">test.tif</span><span class="dl">"</span><span class="p">],</span>
+        <span class="nx">settings</span><span class="p">:</span> <span class="p">{...},</span>
+        <span class="nx">outputFile</span><span class="p">:</span> <span class="p">...</span>
+    <span class="p">}</span>
+    <span class="nl">ocrTotalCount</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span>
+    <span class="nx">alreadyOCRCount</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="nx">code</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Recognize succeeded.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">errorList</span><span class="p">:</span> 
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">d:</span><span class="se">\\</span><span class="s2">input</span><span class="se">\\</span><span class="s2">test.tif</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Image file format error.</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">page</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="nx">resultFile</span><span class="p">:</span> <span class="dl">"</span><span class="s2">***</span><span class="dl">"</span><span class="p">,</span> 
+    <span class="nx">resultZoneDetail</span> <span class="p">:</span> 
+        <span class="p">[</span>
+            <span class="p">[</span><span class="dl">"</span><span class="s2">zone1 words</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">zone2 words</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">zone3 words</span><span class="dl">"</span><span class="p">],</span> <span class="c1">// page 1</span>
+            <span class="p">[</span><span class="dl">"</span><span class="s2">zone1 words</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">zone2 words</span><span class="dl">"</span><span class="p">],</span> <span class="c1">// page 2</span>
+            <span class="p">[</span><span class="dl">"</span><span class="s2">zone1 words</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">zone2 words</span><span class="dl">"</span><span class="p">]</span> <span class="c1">// page 3</span>
+        <span class="p">],</span>
+    <span class="nx">resultDetail</span><span class="p">:</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="c1">//page 0</span>
+                <span class="p">{</span><span class="c1">//letter 0</span>
+                    <span class="dl">"</span><span class="s2">letter</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Aa</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">boundary</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span><span class="c1">//letter 1</span>
+                    <span class="p">...</span>
+                <span class="p">},</span>
+                <span class="p">...</span>
+            <span class="p">],</span>
+            <span class="p">[</span><span class="c1">//page 1</span>
+                <span class="p">...</span>
+            <span class="p">],</span>
+            <span class="p">...</span>    
+        <span class="p">]</span>  
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">API</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>inputFile</strong></td>
+      <td style="text-align: left">Check out <a href="#ocrproserversiderequest">OCRPro.ServerSide.Request</a> for more info.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>settings</strong></td>
+      <td style="text-align: left">Check out <a href="#ocrproserversiderequest">OCRPro.ServerSide.Request</a> for more info.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>outputFile</strong></td>
+      <td style="text-align: left">Check out <a href="#ocrproserversiderequest">OCRPro.ServerSide.Request</a> for more info.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>ocrTotalCount</strong></td>
+      <td style="text-align: left">Return  the number of pages allowed to be OCR’d by the current license.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>alreadyOCRCount</strong></td>
+      <td style="text-align: left">Return the number of pages already OCR’d.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>code</strong></td>
+      <td style="text-align: left">Return the error code for the OCR. If it’s not <code class="language-plaintext highlighter-rouge">0</code>, check <code class="language-plaintext highlighter-rouge">errorList</code> for more details.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>message</strong></td>
+      <td style="text-align: left">Return the overall error message.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>errorList</strong></td>
+      <td style="text-align: left">Return the detailed error messages for each of the OCR’d files.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>resultFile</strong></td>
+      <td style="text-align: left">Return the result file encoded as a base64 string. It only works when <a href="#ocrproserversiderequest">OCRPro.ServerSide.Request</a> doesn’t specify an output file path.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>resultDetail</strong></td>
+      <td style="text-align: left">Return detailed OCR result down to each found letter in JSON format. This is only valid when the <code class="language-plaintext highlighter-rouge">recognitionMethod</code> is set to <code class="language-plaintext highlighter-rouge">Page</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

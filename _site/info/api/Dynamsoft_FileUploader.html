@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>dwt-docs</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="dwt-docs" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/info/api/Dynamsoft_FileUploader.html" />
+<meta property="og:url" content="http://localhost:4000/info/api/Dynamsoft_FileUploader.html" />
+<meta property="og:site_name" content="dwt-docs" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"dwt-docs","url":"http://localhost:4000/info/api/Dynamsoft_FileUploader.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1820192186646e31edaef9affe806d7604f7fcc2">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">dwt-docs</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/Tom-Dynamsoft/dwt-docs" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&amp;host=www.dynamsoft.com"></script>
+
+<h1 id="dynamsoftfileuploader">Dynamsoft.FileUploader</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="#init">Init()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#createjob">CreateJob()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#run">Run()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#cancel">Cancel()</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#cancelallupload">CancelAllUpload()</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="init">Init</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Initialize and create a FileUploader instance.
+ * @param URL Specify a path to retrieve the FileUploader library.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument uploadManager A FileUploader instance.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */</span>
+<span class="nx">Init</span><span class="p">(</span>
+    <span class="nx">URL</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+    <span class="nx">successCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">uploadManager</span><span class="p">:</span> <span class="nx">IUploadManager</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span>
+    <span class="nx">failureCallback</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="usage-notes">Usage notes</h3>
+
+<p>The FileUploader library is installed with Dynamsoft Service by default, therefore, <code class="language-plaintext highlighter-rouge">URL</code> can be left empty “”.</p>
+
+<hr />
+
+<h2 id="createjob">CreateJob</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Create an upload job.
+ */</span>
+<span class="nx">CreateJob</span><span class="p">():</span> <span class="nx">IJob</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IJob</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the block size (in bytes). By default, it's 10240.
+     */</span>
+    <span class="nl">BlockSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the file name.
+     */</span>
+    <span class="nl">FileName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the fields in the HTTP Post Form.
+     */</span>
+    <span class="nl">FormField</span><span class="p">:</span> <span class="nx">IFormField</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify custom HTTP Post request headers.
+     * Example: job.HttpHeader["Content-Type"] = "text/plain";
+     */</span>
+    <span class="nl">HttpHeader</span><span class="p">:</span> <span class="nx">object</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the Http version.
+     */</span>
+    <span class="nx">readonly</span> <span class="nx">HttpVersion</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * A callback triggered when the job succeeds.
+     * @argument job Specify the job.
+     * @argument errorCode The error code.
+     * @argument errorString The error string.
+     */</span>
+    <span class="nl">OnRunFailure</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">job</span><span class="p">:</span> <span class="nx">IJob</span><span class="p">,</span>
+        <span class="nx">errorCode</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+        <span class="nx">errorString</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+    <span class="cm">/**
+     * A callback triggered when the job succeeds.
+     * @argument job Specify the job.
+     */</span>
+    <span class="nl">OnRunSuccess</span><span class="p">:</span> <span class="p">(</span><span class="nx">job</span><span class="p">:</span> <span class="nx">IJob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+    <span class="cm">/**
+     * A callback triggered multiple times during the upload.
+     * @argument job Specify the job.
+     * @argument percentage Return the percentage.
+     */</span>
+    <span class="nl">OnUploadTransferPercentage</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">job</span><span class="p">:</span> <span class="nx">IJob</span><span class="p">,</span>
+        <span class="nx">percentage</span><span class="p">:</span> <span class="nx">number</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the URL of the script to receive the upload.
+     */</span>
+    <span class="nl">ServerUrl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the main content of the job, i.e. the file(s).
+     */</span>
+    <span class="nl">SourceValue</span><span class="p">:</span> <span class="nx">ISourceValue</span><span class="p">;</span>
+    <span class="cm">/**
+     * Specify the number of threads (&lt;=4) for the upload.
+     */</span>
+    <span class="nl">ThreadNum</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="cm">/**
+     * Return the version of the job.
+     */</span>
+    <span class="nx">readonly</span> <span class="nx">Version</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">ISourceValue</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the block size. By default, it's 10240.
+     * @param source A URL to specify the content of the file.
+     * Normally it's generated by {GenerateURLForUploadData()}
+     * @param name Specify the name of the file.
+     * @param key Specify the key of the file in the request. This key can be used to retrieve the file content in server-side scripts.
+     */</span>
+    <span class="nl">Add</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">source</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+        <span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+        <span class="nx">key</span><span class="p">?:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">IFormField</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Specify the block size. By default, it's 10240.
+     * @param key Specify the key of the field.
+     * @param value Sepcify the value of the field.
+     */</span>
+    <span class="nl">Add</span><span class="p">:</span> <span class="p">(</span>
+        <span class="nx">key</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+        <span class="nx">value</span><span class="p">:</span> <span class="nx">string</span>
+    <span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="run">Run</h2>
+<h3 id="syntax-2">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* Start uploading (processing the specified job).
+* @param job Specify the job.
+*/</span>
+<span class="nx">Run</span><span class="p">(</span><span class="nx">job</span><span class="p">:</span> <span class="nx">IJob</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cancel">Cancel</h2>
+<h3 id="syntax-3">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Cancel a job.
+ * @param job Specify the job.
+ */</span>
+<span class="nx">Cancel</span><span class="p">(</span><span class="nx">job</span><span class="p">:</span> <span class="nx">IJob</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cancelallupload">CancelAllupload</h2>
+<h3 id="syntax-4">Syntax</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Cancel all jobs.
+ */</span>
+<span class="nx">CancelAllUpload</span><span class="p">():</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="usage-notes-1">Usage notes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Cancel()</code> or <code class="language-plaintext highlighter-rouge">CancleAllUpload()</code> should be called in the event <a href="#onuploadtransferpercentage">OnUploadTransferPercentage</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dsUploadManager</span><span class="p">;</span> 
+<span class="nx">Dynamsoft</span><span class="p">.</span><span class="nx">FileUploader</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="dl">''</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="nx">dsUploadManager</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">job</span> <span class="o">=</span> <span class="nx">dsUploadManager</span><span class="p">.</span><span class="nx">CreateJob</span><span class="p">();</span>
+    <span class="nx">job</span><span class="p">.</span><span class="nx">OnUploadTransferPercentage</span> <span class="o">=</span>  <span class="nx">FileUpload_OnUploadTransferPercentage</span><span class="p">;</span>
+    <span class="nx">dsUploadManager</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">job</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">FileUpload_OnUploadTransferPercentage</span><span class="p">(</span><span class="nx">job</span><span class="p">,</span> <span class="nx">iPercentage</span><span class="p">)</span>
+    <span class="p">{</span>    
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">job cancelled!</span><span class="dl">'</span><span class="p">)</span>
+        <span class="nx">dsUploadManager</span><span class="p">.</span><span class="nx">Cancel</span><span class="p">(</span><span class="nx">job</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(){});</span>
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Tom-Dynamsoft/dwt-docs">dwt-docs</a> is maintained by <a href="https://github.com/Tom-Dynamsoft">Tom-Dynamsoft</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
