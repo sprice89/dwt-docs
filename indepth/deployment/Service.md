@@ -28,3 +28,9 @@ title: "TOADD"
 * Info about the service status page
 
 https://127.0.0.1:18626/
+
+
+
+https://developer.dynamsoft.com/dwt/kb/how-to-get-support/dynamic-web-twain-how-to-restart-dynamic-web-twain-service
+https://www.dynamsoft.com/docs/dwt/KB/Deploy-Dist.html#aboutservices
+https://www.dynamsoft.com/docs/dwt/KB/Deploy-Dist.html#aboutdistfiles

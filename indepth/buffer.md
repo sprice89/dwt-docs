@@ -23,3 +23,6 @@ DWT buffer means the collection of images and their status.
     - bitmap changed (reflecting image edit,index change,remove, etc.)
     - image selection
     - dragdrop down
+
+
+https://developer.dynamsoft.com/dwt/kb/2586

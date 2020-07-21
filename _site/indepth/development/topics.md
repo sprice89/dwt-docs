@@ -1,0 +1,1 @@
+https://www.dynamsoft.com/docs/dwt/KB/Dev-Customize.html

@@ -37,3 +37,7 @@ title: "TOADD"
 
 - Event-driving workflow
 - Next-gen API like `startScan`
+
+
+https://developer.dynamsoft.com/dwt/kb/2001
+https://developer.dynamsoft.com/dwt/kb/2739

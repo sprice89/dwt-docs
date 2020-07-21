@@ -10,3 +10,8 @@ title: "TOADD"
 * (WASM mode) MIME type setting (especially for .wams)
     - Mention multiple servers
 * Resourcespath setting
+
+
+https://developer.dynamsoft.com/dwt/kb/2005
+
+https://www.dynamsoft.com/docs/dwt/KB/Deploy-Dist.html#environment
