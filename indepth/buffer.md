@@ -26,3 +26,7 @@ DWT buffer means the collection of images and their status.
 
 
 https://developer.dynamsoft.com/dwt/kb/2586
+https://developer.dynamsoft.com/dwt/kb/2643
+https://developer.dynamsoft.com/dwt/kb/2147
+https://developer.dynamsoft.com/dwt/kb/2142
+https://developer.dynamsoft.com/dwt/kb/2633

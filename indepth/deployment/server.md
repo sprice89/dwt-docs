@@ -15,3 +15,5 @@ title: "TOADD"
 https://developer.dynamsoft.com/dwt/kb/2005
 
 https://www.dynamsoft.com/docs/dwt/KB/Deploy-Dist.html#environment
+
+https://developer.dynamsoft.com/dwt/kb/2057

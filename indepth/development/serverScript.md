@@ -14,3 +14,10 @@ title: "TOADD"
 
 * How to save to database
     - multiple languages and db combinations
+
+https://developer.dynamsoft.com/dwt/kb/2071
+https://developer.dynamsoft.com/dwt/kb/2898
+
+https://developer.dynamsoft.com/dwt/kb/2641
+https://developer.dynamsoft.com/dwt/kb/2148
+

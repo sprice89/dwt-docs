@@ -14,3 +14,6 @@ title: "TOADD"
 * How to read and analyze results
 
 ## A case: how to use barcode reader for separating docs.
+
+
+https://developer.dynamsoft.com/dwt/kb/2588

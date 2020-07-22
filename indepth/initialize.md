@@ -24,3 +24,5 @@ title: "TOADD"
                 - Dynamsoft_OnReady
             - CreateDWTObject & CreateDWTObjectEx
                 - Callback functions
+
+https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/how-to-initialize-web-twain-object-manually
