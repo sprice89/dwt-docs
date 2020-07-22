@@ -9,6 +9,9 @@
   * [Linux Edition](#Linux-Edition)  
 
 [How to Create a Dump File](#How-to-Create-a-Dump-File)
+  * [v11.3.2 and Later](#v11.3.2-and-Later)
+  * [11.3 and Earlier](#11.3-and-Earlier)  
+
 
 ## How to Enable and Collect Verbose Logs
 
@@ -174,7 +177,7 @@ Check the steps under [HTML5 Edition on Windows](#HTML5-Edition-on-Windows).
     v12.x: */opt/dynamsoft/WebTwainService/log*
 
     v13+: */opt/dynamsoft/DynamsoftService/log*
-    
+
     **v15.3+**: */opt/dynamsoft/DynamsoftServicex64/log*
 
 2. Set `Loglevel` to enable debug mode
@@ -215,4 +218,66 @@ Check the steps under [HTML5 Edition on Windows](#HTML5-Edition-on-Windows).
 
 ## How to Create a Dump File
 
-https://developer.dynamsoft.com/dwt/kb/2799
+This section shows you how to troubleshoot with dump files when the scanning application crashes, stops responding, or freezes.
+
+### v11.3.2 and Later
+
+As of v11.3.2, when the HTML5 Edition of Dynamic Web TWAIN SDK detects a service crash, a dump file will be generated automatically in the **dump** folder. If you need Dynamsoft team to help troubleshoot such an issue, please follow the steps below:
+
+1. Navigate to the following path on the client machine
+
+    *C:\Windows\SysWOW64\Dynamsoft\DynamicWebTwain\ForChrome\dump*; or 
+
+    *C:\Windows\SysWOW64\Dynamsoft\DynamsoftService(DynamsoftServicex64)\dump*
+
+2. Zip the log files and sent them to [support@dynamsoft.com](mailto:support@dynamsoft.com). Our team will review the logs and get back to you with next steps.
+
+ 
+
+NOTE:
+
++ Please also elaborate the issue in the email as detailed as you can. The info will be very helpful for troubleshooting.
+
++ The HTML5 Edition covers IE 10/11, Microsoft Edge, Chrome 27+ and Firefox 27+ on Windows. **If the issue occurred on other browsers on Windows, please refer to [v11.3 and Earlier](#v11.3-and-Earlier).**
+
+### v11.3 and Earlier
+
+To create dump files for the HTML5 Edition of Dynamic Web TWAIN, please follow the steps below.
+
+1. Install [Win debug tool](http://tst.dynamsoft.com/public/Download/Tools/dbg_x86.msi)
+
+    The installation directory of Win debug tool is *C:\Program Files (x86)\Debugging Tools for Windows (x86)*.
+
+2. Run CMD as administrator, and type the following command statements.
+
+    ```
+    > cd C:\Program Files (x86)\Debugging Tools for Windows (x86)
+
+    C:\Program Files (x86)\Debugging Tools for Windows (x86)>adplus.exe -quiet -crash -pn webtwainservice.exe -o D:\Users
+    ```
+
+    The following are some options in ADPlus:
+
+    - `-quiet`: Runs it in quiet mode (to suppress dialog boxes).
+    - `-crash`: Monitors a process in crash mode.
+    - `-pn`: Specifies the target service.
+    - `-o`: output directory: Specifies the dump file output directory, for example *D:\Users*.
+    
+
+3. Reproduce the issue and generate the dump file.
+
+    The dump file is normally quite large. So it is always recommended to compress the dump file before you send it to our support team.
+ 
+4. Compress and zip the log files and sent them to [support@dynamsoft.com](mailto:support@dynamsoft.com). Our team will review the logs and get back to you with next steps.
+
+    For troubleshooting, please provide us these .dmp files that contain **\_mini\_** in the filename.
+
+ 
+
+Reference:
+
+On Windows Vista, 7, server 2008 and later, please check this article from Microsoft:
+[http://support.microsoft.com/kb/931673](http://support.microsoft.com/kb/931673)
+
+On Windows XP, server 2003, please check this article from Microsoft:
+[http://support.microsoft.com/kb/241215](http://support.microsoft.com/kb/241215)
