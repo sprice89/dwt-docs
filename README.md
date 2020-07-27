@@ -1,6 +1,6 @@
-## Dynamsoft Barcode Reader Documentation
+## Dynamic Web TWAIN Documentation
 
-This project is to store DBR documentation.
+This project is to store DWT documentation.
 
 Set up with
 
