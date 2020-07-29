@@ -1,6 +1,5 @@
 # Barcode Reader SDK Add-on
 
-* Description on this addon and our main dbr sdk
 With the increasing use of barcode reading in document management systems, the Barcode Reader SDK add-on of Web TWAIN presents an easy and seamless way of integrating one of the indutry's best barcode reading components into your document management systrem.
 In this guide, we will show you how to get started with the add-on and demonstrate how it can be used as a batch document classifier and separator.
 
