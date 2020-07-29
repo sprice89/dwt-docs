@@ -29,7 +29,7 @@ breadcrumbText: HomePage
    - [Handle PDF]({{site.indepth}}pdf.html)
 
 * DEVELOPMENT
-
+   - [Upgrade Guide]({{site.indepth}}development/upgrade.html)
    - [Angular Integration]({{site.indepth}}development/angular.html)
    - [React Integration]({{site.indepth}}development/react.html)
    - [Vue Integration]({{site.indepth}}development/vue.html)
