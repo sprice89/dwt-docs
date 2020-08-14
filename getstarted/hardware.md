@@ -46,3 +46,7 @@ https://developer.dynamsoft.com/dwt/kb/2642
 https://developer.dynamsoft.com/dwt/kb/2146
 https://developer.dynamsoft.com/dwt/kb/2541
 https://developer.dynamsoft.com/dwt/kb/trouble-shooting-for-end-users/why-isnt-my-scanner-working-on-macos
+
+&nbsp
+
+## [Troubleshotting Scanner Hardware Issues](/indepth/troubleshooting/scanners-hardware.md)
