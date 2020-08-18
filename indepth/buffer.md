@@ -68,7 +68,17 @@ To filter the images in the buffer by tag after tagging them all, the `FilterIma
 The buffer also provides access to a wide array of info for each image. Here is the full list of the info available via the buffer:
 
 - Bit depth, which helps to identify the pixel type of the image. Can be retrieved using `GetImageBitDepth()`.
-- Size, get the size in bytes of the specified image according to input dimensions. Used with `GetImageSize()`.
+- Size in bytes of the specified image according to input dimensions. Used with `GetImageSize()`.
+- Size, but this time you specify an image format and the SDK calculates the size in bytes depending on that image format. Used with `GetImageSizeWithSpecifiedType()`.
+- Size in bytes of selected images according to input dimensions. Used with `GetSelectedImagesSize()`.
+- Height of the image in pixels, retrieved using `GetImageHeight()`.
+- Width of the image in pixels, retrieved using `GetImageWidth()`.
+- Horizontal resolution of the specified image, used with `GetImageXResolution`.
+- Vertical resolution of the specified image, used with `GetImageYResolution`.
+
+Now that we've covered the general image info like the size and dimensions, let's address some of the mless intuitive pieces of information that our buffer can offer:
+- If a scanned image comes out a bit skewed, and you are not able to put that specific page through the scanner again, one potential solution would be to rotate the image by how much it is skewed, which can be easily done using `GetSkewAngle()` or `GetSkewAngleEx()`.
+- Each image in the buffer also has an internal URL which you can use to reference that specific image, accessible via `GetImageURL()` and `GetImagePartURL()`.
 
     - count, current, bitdepth, size, width, height, url, resolution, skew angle, index, image id, selection status
     - [Future] annotation data
