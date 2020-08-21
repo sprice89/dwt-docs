@@ -11,12 +11,8 @@ This is for the legacy webcam addon. For the current implementation please see t
 
 [API Reference](https://www.dynamsoft.com/docs/dwt/API/Addon.Webcam.html)
 
-<!--
-* Description on this addon
-* how to webcam capture
-* how to set up webcam
-    - Specific scenarios?
--->
+# WEBCAM
+
 ### Introduction
 The desktop camera is one of the must-have accessories for every PC. Real-time chat, remote assistance, and many other desktop applications can use the camera directly. However, in the current technology boom of moving desktops to the cloud, integrating cameras directly into the browser is also in high demand. Similar practical scenarios may include
 
@@ -123,3 +119,5 @@ function CaptureImage() {
 [Capture images and video streams in browsers](https://demo.dynamsoft.com/DWT/Webcam/online_demo_scan_Webcam.aspx)
 [Acquire Images from Scanners and Webcam](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=87)
 [Read Barcode from a Webcam](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=223)
+
+## A case: how to use webcam
