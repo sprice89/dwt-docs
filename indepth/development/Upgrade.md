@@ -7,20 +7,21 @@ title: "TOADD"
 
 # Upgrade to latest version
 
-Essentially, there are three steps required to update your application to use a newer version of Dynamic WebTWAIN. Two of the steps would be done by the application developer on the server -ide. The 3rd step would be done by users/ system administrators on the client side. The server side-steps are explained in detail below. For client-side upgrade steps, please see our[client side upgrade guide](./clientsideupgrade.html) 
+Essentially, there are three steps required to update your application to use a newer version of Dynamic WebTWAIN. Two of the steps would be done by the application developer on the server -ide. The 3rd step would be done by users/ system administrators on the client side. The server side-steps are explained in detail below. For client-side upgrade steps, please see our [client side upgrade guide](./clientsideupgrade.html) 
 
-1) Update the serverside "Resources" Folder ---------Done by application developer
-2) Replace your old license key with the newer one.---------Done by application developer
-3) Ensure client machines have uninstalled the old version of the service in preparation to install the newer version. ---Done by user/ system administrator. 
+1. Update the serverside "Resources" Folder ---------Done by application developer
+2. Replace your old license key with the newer one.---------Done by application developer
+3. Ensure client machines have uninstalled the old version of the service in preparation to install the newer version. ---Done by user/ system administrator. 
 
-NOTES
+> NOTES
+>
+> If you are upgrading from a very old version (at least 2 major versions apart like from v12 to v15), more steps may be needed. Please contact Dynamsoft Support for more information.
 
-1) If you are upgrading from a very old version (at least 2 major versions apart like from v12 to v15), more steps may be needed. Please contact Dynamsoft Support for more information.
 
-# For the developer
+## For the developer
 There are two basic steps involved, updating the server side "Resources" folder, and replacing your old product key with the new one. Both steps are emphasized below.
 
-# Step 1 Update Resources on the Server
+### Step 1 Update Resources on the Server
 
 a) Uninstall the trial/old version
 Windows: Search Dynamic Web TWAIN in Control Panel -> Programs and Features, and remove all the relevant components there.
@@ -37,7 +38,7 @@ Windows: C:\Program Files (x86)\Dynamsoft\Dynamic Web TWAIN SDK {Version Number}
 
 macOS: Applications > Dynamsoft > Dynamic Web TWAIN SDK {Version Number}
 
-# Step 2 Update the License Key
+### Step 2 Update the License Key
 
 In the file dynamsoft.webtwain.config.js, search for Dynamsoft.WebTwainEnv.ProductKey and input the product key(s) you received.
 

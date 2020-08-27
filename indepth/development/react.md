@@ -5,8 +5,184 @@ description: "TOADD"
 title: "TOADD"
 ---
 
-# REACT
+# Use Dynamic Web TWAIN with React
 
-How to integrate with react and things to note
+[React](https://reactjs.org/) is a JavaScript library specifically meant for creating interactive UIs. Check out the following on how to implement Dynamic Web TWAIN into a React application.
 
-## Show samples
+## Preparation
+
+* Make sure you have [node](https://nodejs.org/) and [yarn](https://yarnpkg.com/cli/install) installed. `node 14.4.0` and `yarn 1.22.4` are used in the example below.
+
+## Create the sample project
+
+* Create an bootstrapped raw React application
+
+``` 
+npx create-react-app dwt-react
+```
+
+* CD to the root directory of the application and install the `dwt` module amd 
+
+``` 
+yarn add dwt@16.0.0
+```
+
+```
+yarn add ncp
+```
+
+> `ncp` is used to copy static resources files.
+
+## Configure the project
+
+Open `package.json` and change `scripts` like this.
+
+``` 
+"scripts": {
+    "start": "ncp node_modules/dwt/dist public/dwt-resources && react-scripts start",
+    "build": "react-scripts build && ncp node_modules/dwt/dist build/dwt-resources",
+    "test": "ncp node_modules/dwt/dist public/dwt-resources && react-scripts test",
+    "eject": "react-scripts eject"
+},
+```
+
+> The change basically ensures the static files required to run Dynamic Web TWAIN are copied over to the built resulting project.
+
+## Start to implement
+
+* Generate a component
+
+Under `/src/`, create a new JavaScript file and name it `dwt.js`.
+
+* Edit the component
+
+    - Copy the following to `dwt.js`
+
+    ``` javascript
+    import React from 'react';
+    import Dynamsoft from 'dwt';
+
+    export default class DWT extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        DWObject = null;
+        containerId = 'dwtcontrolContainer';
+        componentDidMount() {
+            Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', () => { this.Dynamsoft_OnReady() });
+            Dynamsoft.WebTwainEnv.ProductKey = 'YOUR-PRODUCT-KEY';
+            Dynamsoft.WebTwainEnv.ResourcesPath = "dwt-resources";
+            Dynamsoft.WebTwainEnv.Containers = [{ WebTwainId: 'dwtObject', ContainerId: this.containerId, Width: '300px', Height: '400px' }];
+            Dynamsoft.WebTwainEnv.Load();
+        }
+        Dynamsoft_OnReady() {
+            this.DWObject = Dynamsoft.WebTwainEnv.GetWebTwain(this.containerId);
+        }
+        acquireImage() {
+            this.DWObject.AcquireImage();
+        }
+        render() {
+            return (<>
+                <button onClick={() => this.acquireImage()}>Scan</button>
+                <div id={this.containerId}></div>
+            </>);
+        }
+    }
+    ```
+
+    > Note:
+    > * `containerId` specifies the DIV to create Dynamic Web TWAIN viewer in which is defined in the template.
+    > * `Dynamsoft_OnReady` is the callback function triggered when the initialization succeeds.
+    > * `ProductKey` must be set to a valid trial or full key.
+    > * `ResourcesPath` is set to the location of the static files mentioned in [Configure the project](#configure-the-project).
+
+
+* Add the component to `App.js`
+
+``` javascript
+import React from 'react';
+import './App.css';
+import DWT from './dwt';
+
+function App() {
+  return (
+    <DWT />
+  );
+}
+
+export default App;
+```
+
+* Try running the project
+
+```
+yarn start
+```
+
+> If you have installed Dynamic Web TWAIN and have configured a valid `ProductKey`. You will have a working page to scan documents from your scanner now. If not, you should see an error message in the console that says
+>
+> ```
+> The Dynamsoft namespace is missing
+> ```
+>
+> Read on to find the solution to the issue.
+
+* Take advantage of the built-in service-install prompt
+
+    Dynamsoft defined a few functions to handle the situations where Dynamsoft Service is not installed. These functions are put in a file called `dynamsoft.webtwain.install.js` which gets loaded at runtime. As a result, these functions are not considered part of the `dwt` module. To make sure these functions work correctly, we need to write some extra code.
+
+    - Copy & paste the following function to `dwt.js`
+
+    ``` javascript
+    /**
+    * To make dynamsoft.webtwain.install.js compatible with Angular
+    */
+    modulizeInstallJS() {
+        let _DWT_Reconnect = (window).DWT_Reconnect;
+        (window).DWT_Reconnect = (...args) => _DWT_Reconnect.call({ Dynamsoft: Dynamsoft }, ...args);
+        let __show_install_dialog = (window)._show_install_dialog;
+        (window)._show_install_dialog = (...args) => __show_install_dialog.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainOldPluginNotAllowedCallback = (window).OnWebTwainOldPluginNotAllowedCallback;
+        (window).OnWebTwainOldPluginNotAllowedCallback = (...args) => _OnWebTwainOldPluginNotAllowedCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainNeedUpgradeCallback = (window).OnWebTwainNeedUpgradeCallback;
+        (window).OnWebTwainNeedUpgradeCallback = (...args) => _OnWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainPreExecuteCallback = (window).OnWebTwainPreExecuteCallback;
+        (window).OnWebTwainPreExecuteCallback = (...args) => _OnWebTwainPreExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainPostExecuteCallback = (window).OnWebTwainPostExecuteCallback;
+        (window).OnWebTwainPostExecuteCallback = (...args) => _OnWebTwainPostExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnRemoteWebTwainNotFoundCallback = (window).OnRemoteWebTwainNotFoundCallback;
+        (window).OnRemoteWebTwainNotFoundCallback = (...args) => _OnRemoteWebTwainNotFoundCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnRemoteWebTwainNeedUpgradeCallback = (window).OnRemoteWebTwainNeedUpgradeCallback;
+        (window).OnRemoteWebTwainNeedUpgradeCallback = (...args) => _OnRemoteWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTWAINDllDownloadFailure = (window).OnWebTWAINDllDownloadFailure;
+        (window).OnWebTWAINDllDownloadFailure = (...args) => _OnWebTWAINDllDownloadFailure.call({ Dynamsoft: Dynamsoft }, ...args);
+    }
+    ```
+
+    - In `componentDidMount()`, change the follwing line
+
+    ``` javascript
+    Dynamsoft.WebTwainEnv.Load();
+    ```
+
+    to
+
+    ``` javascript
+    let checkScript = () => {
+        if (Dynamsoft.Lib.detect.scriptLoaded) {
+            this.modulizeInstallJS();
+            Dynamsoft.WebTwainEnv.Load();
+        } else {
+            setTimeout(() => checkScript(), 100);
+        }
+    };
+    checkScript();
+    ```
+
+Save everything, when the application reloads in the browser or when you try `yarn start` again, you will have a working project that has Dynamic Web TWAIN well implemented. From now on, you can try adding more features from the library to meet your business requirements.
+
+Check out the following two sample projects:
+
+[dwt-react-simple](https://github.com/dynamsoft-dwt/dwt-react-simple)
+
+[dwt-react-advanced](https://github.com/dynamsoft-dwt/dwt-react-advanced)

@@ -7,11 +7,11 @@ title: "TOADD"
 
 # Use Dynamic Web TWAIN with Angular
 
-[Angular](https://angular.io/) is one of the most popular and mature JavaScript frameworks. Check out the following on how to implement features of Dynamic Web TWAIN into an Angular application.
+[Angular](https://angular.io/) is one of the most popular and mature JavaScript frameworks. Check out the following on how to implement Dynamic Web TWAIN into an Angular application.
 
 ## Preparation
 
-* Make sure you have [node](https://nodejs.org/) and [Angular CLI](https://cli.angular.io/) installed. Example in this article uses `node 14.4.0` and `Angular CLI 9.1.12` .
+* Make sure you have [node](https://nodejs.org/) and [Angular CLI](https://cli.angular.io/) installed. `node 14.4.0` and `Angular CLI 9.1.12` are used in the example below.
 
 ## Create the sample project
 
@@ -82,7 +82,7 @@ ng generate component dwt
     > * `containerId` specifies the DIV to create Dynamic Web TWAIN viewer in which is defined in `dwt.component.html`.
     > * `Dynamsoft_OnReady` is the callback function triggered when the initialization succeeds.
     > * `ProductKey` must be set to a valid trial or full key.
-    > * `ResourcesPath` is set to the location of the static files mentioned in [Configure the project](#configuretheproject).
+    > * `ResourcesPath` is set to the location of the static files mentioned in [Configure the project](#configure-the-project).
 
     - Get a handler of the `WebTwain` instance
 
