@@ -5,27 +5,40 @@ description: "TOADD"
 title: "TOADD"
 ---
 
-# DWT RESOURCES: 
-Try to include most useful resources in this doc
+# RESOURCES
 
-## HOW TO GET DWT (just the means)
+## HOW TO GET DWT
 
-- Official download page
-- Samples
-- npm
-- yarn
-- etc.
+* [Official installer](https://www.dynamsoft.com/Downloads/WebTWAIN_Download.aspx)
+* [NPM package](https://www.npmjs.com/package/dwt)
+* [YARN package](https://yarnpkg.com/package/dwt)
+* [Official samples](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx)
+* [Github repo](https://github.com/dynamsoft-dwt)
 
 ## USEFUL LINKS
 
-- Samples
-- Demos
-- License agreement
-- Price / online store
-- Online Videos
-
-## HOW TO GET SUPPORT
+* [Official Demo](https://demo.dynamsoft.com/dwt/online_demo_scan.aspx)
+* [License Agreement](https://www.dynamsoft.com/Products/WebTwain_license.aspx)
+* [Price / Online Store](https://www.dynamsoft.com/Secure/imaging-web-application-buyit.aspx#)
+* [Online Videos](https://www.youtube.com/user/Dynamsoft)
 
 ## BLOG TITLES 
 
-check out https://www.dynamsoft.com/codepool, etc.
+[Code Pool](https://www.dynamsoft.com/codepool/?s=twain)
+[Company Blog](https://www.dynamsoft.com/blog/?x=0&y=0&s=twain)
+
+## HOW TO GET SUPPORT
+
+If you encounter any issues or have any suggestions while using the library, please don't hesitate to contact us. We can be reached in a few different ways
+
+* Email
+  - [Tech](mailto:support@dynamsoft.com)
+  - [Sales](mailto:sales@dynamsoft.com)
+
+* Phone
+  - 1-877-605-5491 (Toll-Free) 
+  - 1-604-605-5491
+
+* [Live Chat](http://www.dynamsoft.com/Support/LiveHelp.aspx)
+
+ 

@@ -5,7 +5,7 @@ breadcrumbText: HomePage
 
 # Dynamic Web TWAIN Documentation  
 
-* ABOUT DWT
+* [ABOUT DWT]({{site.about}}about.html)
 
    - [Features]({{site.about}}features.html)
    - [Resources]({{site.about}}resources.html)

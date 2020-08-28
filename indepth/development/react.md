@@ -24,7 +24,7 @@ npx create-react-app dwt-react
 * CD to the root directory of the application and install the `dwt` module amd 
 
 ``` 
-yarn add dwt@16.0.0
+yarn add dwt
 ```
 
 ```
@@ -46,7 +46,7 @@ Open `package.json` and change `scripts` like this.
 },
 ```
 
-> The change basically ensures the static files required to run Dynamic Web TWAIN are copied over to the built resulting project.
+> The change ensures the static files required to run Dynamic Web TWAIN are copied over to the built resulting project.
 
 ## Start to implement
 
@@ -119,67 +119,7 @@ export default App;
 yarn start
 ```
 
-> If you have installed Dynamic Web TWAIN and have configured a valid `ProductKey`. You will have a working page to scan documents from your scanner now. If not, you should see an error message in the console that says
->
-> ```
-> The Dynamsoft namespace is missing
-> ```
->
-> Read on to find the solution to the issue.
-
-* Take advantage of the built-in service-install prompt
-
-    Dynamsoft defined a few functions to handle the situations where Dynamsoft Service is not installed. These functions are put in a file called `dynamsoft.webtwain.install.js` which gets loaded at runtime. As a result, these functions are not considered part of the `dwt` module. To make sure these functions work correctly, we need to write some extra code.
-
-    - Copy & paste the following function to `dwt.js`
-
-    ``` javascript
-    /**
-    * To make dynamsoft.webtwain.install.js compatible with Angular
-    */
-    modulizeInstallJS() {
-        let _DWT_Reconnect = (window).DWT_Reconnect;
-        (window).DWT_Reconnect = (...args) => _DWT_Reconnect.call({ Dynamsoft: Dynamsoft }, ...args);
-        let __show_install_dialog = (window)._show_install_dialog;
-        (window)._show_install_dialog = (...args) => __show_install_dialog.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainOldPluginNotAllowedCallback = (window).OnWebTwainOldPluginNotAllowedCallback;
-        (window).OnWebTwainOldPluginNotAllowedCallback = (...args) => _OnWebTwainOldPluginNotAllowedCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainNeedUpgradeCallback = (window).OnWebTwainNeedUpgradeCallback;
-        (window).OnWebTwainNeedUpgradeCallback = (...args) => _OnWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainPreExecuteCallback = (window).OnWebTwainPreExecuteCallback;
-        (window).OnWebTwainPreExecuteCallback = (...args) => _OnWebTwainPreExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainPostExecuteCallback = (window).OnWebTwainPostExecuteCallback;
-        (window).OnWebTwainPostExecuteCallback = (...args) => _OnWebTwainPostExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnRemoteWebTwainNotFoundCallback = (window).OnRemoteWebTwainNotFoundCallback;
-        (window).OnRemoteWebTwainNotFoundCallback = (...args) => _OnRemoteWebTwainNotFoundCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnRemoteWebTwainNeedUpgradeCallback = (window).OnRemoteWebTwainNeedUpgradeCallback;
-        (window).OnRemoteWebTwainNeedUpgradeCallback = (...args) => _OnRemoteWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTWAINDllDownloadFailure = (window).OnWebTWAINDllDownloadFailure;
-        (window).OnWebTWAINDllDownloadFailure = (...args) => _OnWebTWAINDllDownloadFailure.call({ Dynamsoft: Dynamsoft }, ...args);
-    }
-    ```
-
-    - In `componentDidMount()`, change the follwing line
-
-    ``` javascript
-    Dynamsoft.WebTwainEnv.Load();
-    ```
-
-    to
-
-    ``` javascript
-    let checkScript = () => {
-        if (Dynamsoft.Lib.detect.scriptLoaded) {
-            this.modulizeInstallJS();
-            Dynamsoft.WebTwainEnv.Load();
-        } else {
-            setTimeout(() => checkScript(), 100);
-        }
-    };
-    checkScript();
-    ```
-
-Save everything, when the application reloads in the browser or when you try `yarn start` again, you will have a working project that has Dynamic Web TWAIN well implemented. From now on, you can try adding more features from the library to meet your business requirements.
+> If you have installed Dynamic Web TWAIN and have configured a valid `ProductKey`. You will have a working page to scan documents from your scanner now.  Otherwise, you should see instructions on the page that guide you to install the library.
 
 Check out the following two sample projects:
 
