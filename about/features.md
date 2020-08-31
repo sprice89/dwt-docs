@@ -40,6 +40,8 @@ DWT supports all major browsers on all major operating systems. As of version 16
 >   - Internet Explorer 11
 >   - Safari 13
 
+Check out more on [platforms]({{site.getstarted}}platform.html).
+
 ## CAPTURE AND PROCESS
 
 DWT makes the following tasks easy

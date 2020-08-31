@@ -7,6 +7,7 @@ title: "TOADD"
 
 # VIEW
 
+## Customize the Viewer
 ## Bind & unbind of a viewer object
 
 * Default: WebTwain with a built-in viewer

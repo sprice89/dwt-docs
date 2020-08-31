@@ -11,10 +11,9 @@ title: "TOADD"
 
 The following steps show you how to create your first web-based scanning application in a few minutes!
 
-## Step 1 Start a Web Application
+## Start a Web Application
 
 Create an `helloworld.html` anywhere and copy the `Resources` folder to the same location. You can typically find this folder in `C:\Program Files (x86)\Dynamsoft\Dynamic Web TWAIN SDK {Version Number}\`
-
 * Resources
 
 ![Build-the-Hello-World-Scan-Page-1]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-1.png)
@@ -23,12 +22,12 @@ Create an `helloworld.html` anywhere and copy the `Resources` folder to the same
 
 ![Build-the-Hello-World-Scan-Page-2]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-2.png)
 
-## Step 2 Include the library
+## Include the library
 
 Embed the script of the library and an element on the page.
 
 ``` html
-<script src="Resources/dynamsoft.webtwain.initiate.js"></script> 
+<script src="Resources/dynamsoft.webtwain.initiate.js"></script>
 <script src="Resources/dynamsoft.webtwain.config.js"></script>
 ```
 
@@ -38,7 +37,7 @@ Embed the script of the library and an element on the page.
 
 > "dwtcontrolContainer" is the default id for the div. You can change it in the file dynamsoft.webtwain.config.js if necessary.
 
-## Step 3 Write code to scan
+## Write code to scan
 
 Add a scan button and the miminum code.
 
@@ -65,7 +64,7 @@ Add a scan button and the miminum code.
 </script>
 ```
 
-## Step 4 (from version 16.1) Make sure the code works on mobile devices too
+## (from version 16.1) Make sure the code works on mobile devices too
 
 Change the function `AcquireImage()` like this
 
@@ -73,7 +72,15 @@ Change the function `AcquireImage()` like this
 function AcquireImage() {
     if (DWObject) {
         if (Dynamsoft.Lib.env.bMobile) {
-            DWObject.Viewer.showVideo();
+            DWObject.Viewer.showVideo()
+                .then(
+                    function() {
+                        console.log('success');
+                    },
+                    function(error) {
+                        alert(error);
+                    }
+                )
         } else {
             DWObject.SelectSource(function() {
                     DWObject.OpenSource();
@@ -112,7 +119,15 @@ function AcquireImage() {
         function AcquireImage() {
             if (DWObject) {
                 if (Dynamsoft.Lib.env.bMobile) {
-                    DWObject.Viewer.showVideo();
+                    DWObject.Viewer.showVideo()
+                        .then(
+                            function() {
+                                console.log('success');
+                            },
+                            function(error) {
+                                alert(error);
+                            }
+                        )
                 } else {
                     DWObject.SelectSource(function() {
                             DWObject.OpenSource();
@@ -153,17 +168,167 @@ The scanned documents will show up on the page
 
 ## Try it out on your mobile phone
 
-In step 4 above, we added code for mobile-compliance. However, in order to try it out, the scan page needs to be hosted in a site that runs `HTTPS`. The reason for this is that on mobile devices, the mobile camera is used for image capturing and only a secure site can make use of the camera. The following shows how it works when it's properly deployed.
+In step 4 above, we added code for mobile-compliance. However, in order to try it out, the scan page needs to be hosted in a site that runs `HTTPS` . The reason for this is that on mobile devices, the mobile camera is used for image capturing and only a secure site can make use of the camera. The following shows how it works when it's properly deployed (iPhone X).
+
+> By default, the size of the viewer is 270 in width and 350 in height, so it'll appear to be too small. Check out [how to customize the viewer]({{site.indepth}}view.html#customize-the-viewer) for more information.
 
 ![Build-the-Hello-World-Scan-Page-6]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-6.png)
 
+> Important: Not all mobile browsers allow the use of cameras. Check out [browsers on mobile devices]({{site.getstarted}}platform.html#browsers-on-mobile-devices) for more information. If you are using an unsupported browser (for example, Chrome on iOS), you may receive the error `The current browser has not implemented the MediaDevices interface` .
+
 ## Upload the scanned documents
 
-blahblahblah....
+In almost all our user cases, the scanned documents need to be uploaded to a server. So as the last step in creating the hello world application, the following shows how to implment the upload feature.
 
-A few tips
+> On the server side, any script language can be used (ASP. NET, JSP, PHP, etc.). Here we are using ASP. NET (C#) as an example.
 
-* Consider compliance for all platforms
-    - like how to acquire images on mobile and ensure similar UE
-* Add an upload feature as that's wanted by most.
-* Steer clear of all deprecated APIs
+## Add code to upload the document as a pdf via HTTP Post
+
+``` html
+<!-- Add a button -->
+<input type="button" value="Upload" onclick="UploadAsPDF();" />
+```
+
+Use the method [HTTPUpload]({{site.info}}api/WebTwain. IO.html#httpupload) to do the upload.
+
+``` javascript
+function UploadAsPDF() {
+    var url = Dynamsoft.Lib.detect.ssl ? "https://" : "http://";
+    url += location.hostname;
+    var path = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+    url += location.port === "" ? path : ":" + location.port + path;
+    url += "saveUploadedPDF.aspx";
+    var indices = [];
+    if (DWObject) {
+        if (DWObject.HowManyImagesInBuffer === 0) {
+            console.log("There is no image to upload!");
+            return;
+        }
+        DWObject.SelectAllImages();
+        indices = DWObject.SelectedImagesIndices;
+        DWObject.HTTPUpload(
+            url,
+            indices,
+            Dynamsoft.EnumDWT_ImageType.IT_PDF,
+            Dynamsoft.EnumDWT_UploadDataFormat.Binary,
+            "HelloWorld.pdf",
+            function() {
+                //The server response is empty!
+                console.log("Successfully uploaded!")
+            },
+            function(errCode, errString, response) {
+                console.log(errString);
+            }
+        );
+    }
+}
+```
+
+## Write the script to receive and save the uploaded file
+
+> `RemoteFile` is the default field name for the uploaded file. So we use it to extract the file from the Post Request. This field name can be changed with the API [HttpFieldNameOfUploadedImage]({{site.info}}api/WebTwain. IO.html#httpfieldnameofuploadedimage).
+
+Create a `saveUploadedPDF.aspx` file in the same location of `helloworld.html` and write the following script in it.
+
+``` asp
+<%@ Page Language="C#" %>
+<%
+    try
+    {
+        String strImageName;
+        HttpFileCollection files = HttpContext.Current.Request.Files;
+        HttpPostedFile uploadfile = files["RemoteFile"];
+        strImageName = uploadfile.FileName;
+        uploadfile.SaveAs(Server.MapPath(".") + "\\" + strImageName);
+    }
+    catch
+    {
+    }
+%>
+```
+
+Now we can use the page to scan or acquire, then upload the images as a PDF document!
+
+## Review the complete code
+
+``` html
+<html>
+
+<head>
+    <title>Hello World</title>
+    <script src="Resources/dynamsoft.webtwain.initiate.js"> </script>
+    <script src="Resources/dynamsoft.webtwain.config.js"> </script>
+</head>
+
+<body>
+    <input type="button" value="Scan" onclick="AcquireImage();" /><input type="button" value="Upload" onclick="UploadAsPDF();" />
+    <div id="dwtcontrolContainer"></div>
+    <script type="text/javascript">
+        var DWObject;
+
+        function Dynamsoft_OnReady() {
+            DWObject = Dynamsoft.WebTwainEnv.GetWebTwain('dwtcontrolContainer');
+        }
+
+        function AcquireImage() {
+            if (DWObject) {
+                if (Dynamsoft.Lib.env.bMobile) {
+                    DWObject.Viewer.showVideo()
+                        .then(
+                            function() {
+                                console.log('success');
+                            },
+                            function(error) {
+                                alert(error);
+                            }
+                        );
+                } else {
+                    DWObject.SelectSource(function() {
+                            DWObject.OpenSource();
+                            DWObject.AcquireImage();
+                        },
+                        function() {
+                            console.log("SelectSource failed!");
+                        }
+                    );
+                }
+            }
+        }
+
+        function UploadAsPDF() {
+            var url = Dynamsoft.Lib.detect.ssl ? "https://" : "http://";
+            url += location.hostname;
+            var path = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+            url += location.port === "" ? path : ":" + location.port + path;
+            url += "saveUploadedPDF.aspx";
+            var indices = [];
+            if (DWObject) {
+                if (DWObject.HowManyImagesInBuffer === 0) {
+                    console.log("There is no image to upload!");
+                    return;
+                }
+                DWObject.SelectAllImages();
+                indices = DWObject.SelectedImagesIndices;
+                DWObject.HTTPUpload(
+                    url,
+                    indices,
+                    Dynamsoft.EnumDWT_ImageType.IT_PDF,
+                    Dynamsoft.EnumDWT_UploadDataFormat.Binary,
+                    "HelloWorld.pdf",
+                    function() {
+                        //The server response is empty!
+                        console.log("Successfully uploaded!")
+                    },
+                    function(errCode, errString, response) {
+                        console.log(errString);
+                    }
+                );
+            }
+        }
+    </script>
+</body>
+
+</html>
+```
+
+## THE END
