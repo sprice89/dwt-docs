@@ -10,11 +10,13 @@ breadcrumbText: HomePage
    - [Features]({{site.about}}features.html)
    - [Resources]({{site.about}}resources.html)
    - [FAQs]({{site.about}}faqs.html)
+   - [Support]({{site.about}}getsupport.html)
 
 * GETTING STARTED
 
    - [HelloWorld]({{site.getstarted}}helloworld.html)
    - [Hardware]({{site.getstarted}}hardware.html)
+   - [Platform]({{site.getstarted}}platform.html)
 
 * TECHNIQUES
 

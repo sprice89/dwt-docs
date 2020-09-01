@@ -152,7 +152,7 @@ function AcquireImage() {
 
 ![Build-the-Hello-World-Scan-Page-3]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-3.png)
 
-> If you see a license notice, please make sure you have a valid trial license. Contact [Dynamsoft Support]({{site.about}}resources.html#how-to-get-support) if you need help.
+> If you see a license notice, please make sure you have a valid trial license. Contact [Dynamsoft Support]({{site.about}}getsupport.html) if you need help.
 
 * Press the button
 
@@ -330,5 +330,3 @@ Now we can use the page to scan or acquire, then upload the images as a PDF docu
 
 </html>
 ```
-
-## THE END

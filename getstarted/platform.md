@@ -10,56 +10,132 @@ title: "TOADD"
 The Dynamic Web TWAIN library is designed to be cross-platform which means it can work on all major browsers across all major operating systems. The following shows more details.
 
 ## Browsers on desktop devices
+
 ### Browsers on Windows OS
+
+- The following versions of Windows are supported
+  - 7
+  - 8 & 8.1
+  - 10 [Recommended]
+  - Server 2008
+  - Server 2012
+  - Server 2016
+  - Server 2019
+
+- The following browsers are supported
+  - Chrome 68.* ~ 79.*
+  - Chrome 80.* ~ 85.* [Recommended]
+  - Firefox 61.* ~ 69.*
+  - Firefox 70.* ~ 80.* [Recommended]
+  - Microsoft Edge Spartan
+  - Microsoft Edge Anaheim [Recommended]
+  - Internet Explorer 8 ~ 11
+
 ### Browsers on macOS
+
+- The following versions of macOS are supported
+  - Mac OS X 10.6 Snow Leopard (10.6.8+)
+  - Mac OS X 10.7 Lion
+  - OS X 10.8 Mountain Lion
+  - OS X 10.9 Mavericks
+  - OS X 10.10 Yosemite
+  - OS X 10.11 El Capitan
+  - macOS 10.12 Sierra
+  - macOS 10.13 High Sierra [Recommended]
+  - macOS 10.14 Mojave [Recommended]
+  - macOS 10.15 Catalina [Recommended]
+
+- The following browsers are supported
+  - Chrome 68.* ~ 79.*
+  - Chrome 80.* ~ 85.* [Recommended]
+  - Firefox 61.* ~ 69.*
+  - Firefox 70.* ~ 80.* [Recommended]
+  - Safari 7.* ~ 12.*
+  - Safari 13.* ~ 14.* [Recommended]
+
 ### Browsers on Linux
+
+- The following distributions of Linux are supported
+  - Ubuntu 12.04 LTS (Precise Pangolin)
+  - Ubuntu 12.10 (Quantal Quetzal)
+  - Ubuntu 13.04 (Raring Ringtail)
+  - Ubuntu 13.10 (Saucy Salamander)
+  - Ubuntu 14.04 LTS (Trusty Tahr)
+  - Ubuntu 14.10 (Utopic Unicorn)
+  - Ubuntu 15.04 (Vivid Vervet)
+  - Ubuntu 15.10 (Wily Werewolf)
+  - Ubuntu 16.04 LTS (Xenial Xerus)
+  - Ubuntu 16.10 (Yakkety Yak)
+  - Ubuntu 17.04 (Zesty Zapus)
+  - Ubuntu 17.10 (Artful Aardvark)
+  - Ubuntu 18.04 LTS (Bionic Beaver) [Recommended]
+  - Ubuntu 18.10 (Cosmic Cuttlefish)
+  - Ubuntu 19.04 (Disco Dingo)
+  - Ubuntu 19.10 (Eoan Ermine)
+  - Ubuntu 20.04 LTS (Focal Fossa)
+  - Ubuntu 20.10 (Groovy Gorilla)
+  - Debian 8 (Jessie)
+  - Debian 9 (Stretch) [Recommended]
+  - Debian 10 (Buster)
+  - Fedora 24
+  - Fedora 25
+  - Fedora 26
+  - Fedora 27
+  - Fedora 28
+  - Fedora 29
+  - Fedora 30
+  - Fedora 31
+  - Fedora 32 [Recommended]
+  - Mint 18.3 Sylvia
+  - Mint 19 Tara
+  - Mint 19.1 Tessa
+  - Mint 19.2 Tina
+  - Mint 19.3 Tricia
+  - Mint 20 Ulyana
+
+- The following browsers are supported
+  - Chrome 68.* ~ 79.*
+  - Chrome 80.* ~ 85.* [Recommended]
+  - Firefox 61.* ~ 69.*
+  - Firefox 70.* ~ 80.* [Recommended]
 
 ## Browsers on mobile devices
 
 ### Browsers on iOS & iPadOS
+
+The following versions are supported
+  - iOS 12.*
+  - iOS 13.* [Recommended]
+  - iPadOS 13.* [Recommended]
+
+- The following browsers are supported
+  - Chrome 68.* ~ 79.*
+  - Chrome 80.* ~ 85.* [Recommended]
+  - Firefox 61.* ~ 69.*
+  - Firefox 70.* ~ 80.* [Recommended]
+  - Safari 7.* ~ 12.*
+  - Safari 13.* ~ 14.* [Recommended]
+
 ### Browsers on Android
 
+The following versions are supported
+  - Android 8.0 Oreo
+  - Android 9 Pie [Recommended]
+  - Android 10 [Recommended]
 
-The profile of our dwt users is basically like this
+- The following browsers are supported
+  - Chrome 68.* ~ 79.*
+  - Chrome 80.* ~ 85.* [Recommended]
+  - Firefox 61.* ~ 69.*
+  - Firefox 70.* ~ 80.* [Recommended]
 
-1. Acquire images
-2. Upload
+## Other operating systems
 
-Other features are mostly optional.
+Apart from the systems listed above, there could be some other systems which are also supported but not listed. However, Dynamsoft doesn't recommend the use of such systems as they are not tested by us. If you need to use the Dynamic Web TWAIN library on a system not mentioned above, please first contact [Dynamsoft Support]({{site.about}}getsupport.html) to get more information.
 
-So this article is supposed to show users our compliance with hardware which includes 
+## Other browsers.
 
-* TWAIN 
-* ICA 
-* SANE
-* DIRECTSHOW
-* CAMERA through H5 (MediaDevices)
+There are many different browsers on the market which may not have been listed above. However, these browsers most likely use the same browser engines that one of the listed browsers use. For example, Opera uses [`Blink`](https://en.wikipedia.org/wiki/Blink_(web_engine)) just like Chrome on desktop. These browsers probably work too. If you plan to use any of the browsers that haven't been listed above, you should
 
-Hopefully this article alone can handle most queries users have about hardware.
-
-> Try to include info like
-
-
-https://developer.dynamsoft.com/dwt/kb/2001
-https://developer.dynamsoft.com/dwt/kb/2739
-https://developer.dynamsoft.com/dwt/kb/2777
-https://developer.dynamsoft.com/dwt/kb/2673
-https://developer.dynamsoft.com/dwt/kb/2880
-https://www.dynamsoft.com/docs/dwt/KB/TroubleShooting.html#ismydevicesupported
-https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/work-with-data-source/does-dynamic-web-twain-sdk-support-fingerprint-device
-https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/customize-your-scan/dynamic-web-twain-how-to-support-both-twain-and-ica-scanners-on-macos
-https://developer.dynamsoft.com/dwt/kb/2885
-https://developer.dynamsoft.com/dwt/kb/2881
-https://developer.dynamsoft.com/dwt/kb/2659
-https://developer.dynamsoft.com/dwt/kb/trouble-shooting-for-end-users/how-to-check-if-your-scanner-is-sane-compatible
-https://developer.dynamsoft.com/dwt/kb/trouble-shooting-for-end-users/how-to-find-a-compatible-scanner
-https://developer.dynamsoft.com/dwt/kb/trouble-shooting-for-end-users/how-to-test-if-your-scanner-supports-native-scanning-on-mac-os-x
-https://developer.dynamsoft.com/dwt/kb/2644
-https://developer.dynamsoft.com/dwt/kb/2642
-https://developer.dynamsoft.com/dwt/kb/2146
-https://developer.dynamsoft.com/dwt/kb/2541
-https://developer.dynamsoft.com/dwt/kb/trouble-shooting-for-end-users/why-isnt-my-scanner-working-on-macos
-
-&nbsp
-
-## [Troubleshotting Scanner Hardware Issues](/indepth/troubleshooting/scanners-hardware.md)
+  - Make sure it works by testing our [demo page](https://demo.dynamsoft.com/dwt/online_demo_scan.aspx)
+  - Do thorough tests before going into production
