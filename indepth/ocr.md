@@ -18,15 +18,15 @@ For a quick side-by-side comparison, you can use [this sample application](https
 
 # How to enable OCR pro
 
-For specifics including code samples and overall steps, please see the (OCR Pro developer's guide)[https://download2.dynamsoft.com//Support/Developer's%20Guide_OCR_Pro.pdf]<br><br>
+For specifics including code samples and overall steps, please see the [OCR Pro developer's guide](https://download2.dynamsoft.com//Support/Developer's%20Guide_OCR_Pro.pdf)<br><br>
 
 # How to enable OCR Basic<br><br>
 
-    - Step 1: Include the file: dynamsoft.webtwain.addon.ocr.js in your html. This will give you access to library.  It can be found in the downloaded SDK directory - Dynamic Web TWAIN SDK 16.0\Resources\addon. <br><br>
+Step 1: Include the file: dynamsoft.webtwain.addon.ocr.js in your html. This will give you access to library.  It can be found in the downloaded SDK directory - Dynamic Web TWAIN SDK 16.0\Resources\addon. <br><br>
 
-    - Step 2: In your application code, you must use the DWObject.Addon.OCR.Download API so that the OCR DLL resources are downloaded and accessible on the client side. When this API is called for the first time, it will generate a pop-up which requires the user to accept and download the files.<br><br>
+Step 2: In your application code, you must use the DWObject.Addon.OCR.Download API so that the OCR DLL resources are downloaded and accessible on the client side. When this API is called for the first time, it will generate a pop-up which requires the user to accept and download the files.<br><br>
 
-    - Step 3: Install the language pack with DWObject.Addon.OCR.DownloadLangData API. NOTE - By default, only the english dictionary is installed. If you need to support other OCR  Basic languages, you can point to a different ZIP file in the OCR Basic Languages folder. To support the OCR of multiple languages within your application, you can refer to [this article](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/how-to-add-other-languages-support-in-client-side-ocr-basic-sample)<br><br>
+Step 3: Install the language pack with DWObject.Addon.OCR.DownloadLangData API. NOTE - By default, only the english dictionary is installed. If you need to support other OCR  Basic languages, you can point to a different ZIP file in the OCR Basic Languages folder. To support the OCR of multiple languages within your application, you can refer to [this article](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/how-to-add-other-languages-support-in-client-side-ocr-basic-sample)<br><br>
 
 For a simple snippet on how to use the above APIs, see below:<br><br>
 
@@ -99,42 +99,38 @@ DWObject.Addon.OCR.SetOutputFormat(Dynamsoft.EnumDWT_OCROutputFormat.OCROF_TEXT)
 DWObject.Addon.OCR.Recognize(... //Start Recognizing
 ```
 
-* Optimizing Recognition<br><br>
-    There are several ways to improve the OCR accuracy, they all involve either adjusting the scanner settings or changing the image quality.
-     - Adjust resolution -- 300DPI is usually recommended
-     - Adjust color of scanned document - greyscale is recommended
-     - Adjust file type and compression - Lossless compression types would be the best option (ie- TIFF or PNG but not JPEG)
-     - Adjust brightness settings. You would use the [brightness] (../info/api/WebTwain_Acquire.html#brightness) API for this. A 50% brightness is usually suitable
+# Optimizing Recognition<br>
+There are several ways to improve the OCR accuracy, they all involve either adjusting the scanner settings or changing the image quality.<br><br>
+1)Adjust resolution -- 300DPI is usually recommended<br><br>
+2)Adjust color of scanned document - greyscale is recommended<br><br>
+3)Adjust file type and compression - Lossless compression types would be the best option (ie- TIFF or PNG but not JPEG)<br><br>
+4)Adjust brightness settings. You would use the [brightness](../info/api/WebTwain_Acquire.html#brightness) API for this. A 50% brightness is usually suitable<br><br>
 
-     For more elaboration, please see our [blog post](https://www.dynamsoft.com/blog/insights/scan-settings-for-best-ocr-accuracy/) on the matter.
+For more elaboration, please see our [blog post](https://www.dynamsoft.com/blog/insights/scan-settings-for-best-ocr-accuracy/) on the matter.
 
 
-* How to perform OCR<br><br>
+# Methods for performing OCR <br>
 
-    # 4 methods provided for performing OCR
-    - [Recognize()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognize)
-    - [RecognizeFile()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizefile)
-    - [RecognizeRect()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizerect)
-    - [RecognizeSelectedImages()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizeselectedimages)
+* 4 methods provided for performing OCR<br>
+1.[Recognize()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognize)<br>
+2.[RecognizeFile()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizefile)<br>
+3.[RecognizeRect()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizerect)<br>
+4.[RecognizeSelectedImages()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizeselectedimages)
 
-# Reference Samples
+# Reference Samples and Further Info
 
 
 - [Simple Client-Side OCR Basic Sample App](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=133)
 - [Zonal OCR which compares both OCR Basic and OCR Pro](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=210)
+- [OCR Basic vs OCR Pro Comparison](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-basic-vs-ocr-pro)
 
-
-https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-basic-vs-ocr-pro
-
-
-https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-pro-add-on-license-tracking-mechanism
 
 # Licensing<br>
 * OCR Pro<br><br>
--Due to the fact that Kofax is the creator of the OCR pro engine, they have implemented a license tracking mechanism that will consider both time (annual license) as well as the usage ( the number of pages that have OCR peformed). This mechanism is mandatory and will need to be implemented for your OCR solution to function properly. For a detailed guide on setting up/ configuring this mechansim, please consult [this guide](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-pro-add-on-license-tracking-mechanism)<br><br>    
+Due to the fact that Kofax is the creator of the OCR pro engine, they have implemented a license tracking mechanism that will consider both time (annual license) as well as the usage ( the number of pages that have OCR peformed). This mechanism is mandatory and will need to be implemented for your OCR solution to function properly. For a detailed guide on setting up/ configuring this mechansim, please consult [this guide](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-pro-add-on-license-tracking-mechanism)<br><br>    
 
 * OCR Basic<br><br>
--OCR Basic on the other hand can be purchased either annually or perpetually and there is no limit on the number of scans that can be performed. Your license key will simply allow for the use of the OCR APIs for the length of time of your contract.<br><br>
+OCR Basic on the other hand can be purchased either annually or perpetually and there is no limit on the number of scans that can be performed. Your license key will simply allow for the use of the OCR APIs for the length of time of your contract.<br><br>
 
 
 
