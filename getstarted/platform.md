@@ -11,7 +11,7 @@ The Dynamic Web TWAIN library is designed to be cross-platform which means it ca
 
 ## Browsers on desktop devices
 
-### Browsers on Windows OS
+### Browsers on Windows
 
 - The following versions of Windows are supported
   - 7

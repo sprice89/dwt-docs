@@ -1,3 +1,10 @@
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # BUFFER
 
 The Web TWAIN buffer collects all of the images and stores them in a buffer in *Bitmap* format. This section of the guide will explore the different aspects of the buffer, including its features and abilities as well as its limits. First, let's explore the limits of the buffer and how to use the local cache:

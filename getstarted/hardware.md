@@ -208,6 +208,29 @@ There are 3 ways to verify
 
 ## Troubleshooting
 
+- How to exclude WIA sources in the source list
+> Applicable to Windows only
+
+There are two ways to achive this
+
+- Set `IfUseTwainDSM` to true
+
+```javascript
+DWObject.IfUseTwainDSM = true;
+```
+
+- Filter sources before listing them
+
+```javascript
+var sources = DWObject.GetSourceNames();
+for(var i = 0; i < sources.length; i++) {
+    if(sources[i].toLowerCase().indexOf('epson') != -1) {
+        sources.splice(i,1);
+    }
+}
+```
+
+
 If you are still having issues with a device after reading the above information. You can 
 
   - Check out [hardware issue]({{site.indepth}}troubleshooting/scanners-hardware.html)
