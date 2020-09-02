@@ -24,8 +24,8 @@ title: "TOADD"
 
 ## BLOG TITLES 
 
-[Code Pool](https://www.dynamsoft.com/codepool/?s=twain)
-[Company Blog](https://www.dynamsoft.com/blog/?x=0&y=0&s=twain)
+* [Code Pool](https://www.dynamsoft.com/codepool/?s=twain)
+* [Company Blog](https://www.dynamsoft.com/blog/?x=0&y=0&s=twain)
 
 
  

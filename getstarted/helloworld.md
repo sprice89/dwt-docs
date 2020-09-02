@@ -176,13 +176,11 @@ In step 4 above, we added code for mobile-compliance. However, in order to try i
 
 > Important: Not all mobile browsers allow the use of cameras. Check out [browsers on mobile devices]({{site.getstarted}}platform.html#browsers-on-mobile-devices) for more information. If you are using an unsupported browser (for example, Chrome on iOS), you may receive the error `The current browser has not implemented the MediaDevices interface` .
 
-## Upload the scanned documents
+## Upload the document as a pdf via HTTP Post
 
 In almost all our user cases, the scanned documents need to be uploaded to a server. So as the last step in creating the hello world application, the following shows how to implment the upload feature.
 
 > On the server side, any script language can be used (ASP. NET, JSP, PHP, etc.). Here we are using ASP. NET (C#) as an example.
-
-## Add code to upload the document as a pdf via HTTP Post
 
 ``` html
 <!-- Add a button -->

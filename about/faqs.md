@@ -41,7 +41,7 @@ If more time is required for evaluation purposes, please contact [Dynamsoft Supp
 
 Dynamsoft provides detailed documentation including multiple samples for the  Dynamic Web TWAIN library. However, if you don't want to do the development yourself, you can take advantage of the [Professional Service]({{site.info}}proservice.html).
 
-## What are the most common issues when clients start to use your scan application
+## What are the most common issues when clients start to use my scan application
 
 * When end clients visit your scan page for the first time on a desktop, they will be automatically asked to download and manually install the Dynamsoft Service. Make sure the clients are aware of this.
 * Dynamic Web TWAIN works with scanners via their own vendor-developed drivers. Make sure the proper driver is installed and the scanner itself already works on the system before attempting to use it with the library.
