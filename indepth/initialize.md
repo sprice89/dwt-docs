@@ -30,14 +30,18 @@ The three above files are used to build the viewer component of Dynamic Web TWAI
 ```
 dynamsoft.imagecore-<version number>.wasm
 dynamsoft.imageProc-<version number>.wasm
+dynamsoft.imageio-<version number>.wasm
 dynamsoft.imageio.js
 dynamsoft.imageio_wasm-<version number>.js
+
 dynamsoft.pdfReader-<version number>.wasm
 dynamsoft.pdfWriter-<version number>.wasm
 ```
-The above files are called upon when the SDK is used in WASM mode instead of Service mode. All of the above files are used to define the image viewer operations. The first four files in the above list contain functionalities for image input and output. The last two files contain functionalities for PDF reading & writing. No matter the mode that is used, these files will be downloaded regardless of whether they are utilized or not.
+The above files are called upon when the SDK is used in **WASM (WebAssembly) mode** instead of **Service mode**. All of the above files are used to define the image viewer operations. The first three files in the above list contain functionalities for image input and output as well as decoding and encoding. The last two files contain functionalities for PDF reading & writing. No matter the mode that is used, these files will be downloaded regardless of whether they are utilized or not.
 
-More details on the two modes can be found in the "Creating the WebTwain instance" section, so please keep reading.
+There is an exception in which the SDK will use the WASM files even in Service Mode, and that is when the API for the [WebTwain.Addon.Camera](https://www.dynamsoft.com/docs/dwt/API/Addon.Camera.html) class are called. In other terms, the API corresponding to the mobile camera class of the webcam add-on is based on WASM, but can be used in either service mode or WASM mode.
+
+More details on the two modes can be found in the "Usage Modes" section, so please keep reading.
 
 ## Loading Add-on JS files
 The last part of the loading phase in initialization is the loading of the JS files requires to make any of Web TWAIN add-on components work. Web TWAIN offers a number of add-ons, including a barcode reader, a PDF rasterizer, and OCR.
@@ -52,12 +56,13 @@ dynamsoft.webtwain.addon.webcam.js - This file contains the functionalities of t
 dynamsoft.webtwain.addon.camera.js - This file contains the functionalities of the mobile camera part of the webcam add-on. You're not supposed to change it without consulting the Dynamsoft Support Team.
 dynamsoft.upload.js - This file contains the functionalities of the Dynamsoft Upload Module. You're not supposed to change it without consulting the Dynamsoft Support Team.
 ```
-##  Creating the WebTwain Instance
-Once all the necessary files have been loaded in, it is time for the main part of the initialization process to take place, the creation of the WebTwain instance. Before we dive into the details of what this entails, let's take a look at the two modes in which the SDK can be used:
+##  Usage Modes
+Once all the necessary files have been loaded in, it is time to start using the Web TWAIN Environment to create the Web TWAIN instance. Before we dive into the details of what this entails, let's take a look at the two modes in which the environment can operate in:
 
-**Service Mode** 
+#### Service Mode
 
-The Dynamsoft Service is a quiet, background service that handles the communication between the connected scanner's driver and the browser client.  
+The Dynamsoft Service is a quiet, background service that handles the communication between the connected scanner's driver and the browser client.
+
 When using Web TWAIN on a Windows, Mac, or Linux machine, the user by default goes with service mode (recommended) which requires the installation of the Dynamsoft Service.  
 Once the user accesses the web page, they will be prompted to install the service. The prompt will display the download link, and once the installer (.msi) is downloaded, the installation process will take just a few seconds.  
   
@@ -79,10 +84,17 @@ The last always-running process is meant to support the SSL certificate for Fire
 
 Service mode *needs* to be used if you wish to use a connected physical scanner. It is this Dynamsoft Service that handles all communication between the browser client and the scanner driver. As mentioned previously, Service mode is the default if the user is on a Windows, macOS, or Linux machine.
 
-**WASM Mode**
+#### WASM (WebAssembly) Mode
+
 If a user decides to access the Web TWAIN application via a mobile phone, they will by default be configured to WASM mode. That is mainly because the Dynamsoft Service cannot operate on a mobile phone or a corresponding OS (iOS, Android, Windows Phone).
 
 For that reason, a mobile phone cannot directly use a scanner to capture scanned images. When using a phone or a tablet, images are captured or "scanned" via the available camera. Alternatively, images can also be loaded into the viewer from the device's photo gallery.
+
+In the "loading the supporting files" section, we listed the wasm and js files that are loaded in when using WASM mode, as well as the ones that are used in Service mode as well.
+
+As mentioned previously, Windows. macOS, and Linux (desktop) users will by default go with Service Mode, while mobile and tablet users will default to WASM mode. However, if you would like desktop users to start in WASM mode and forego the need for a service,  you can set [UseLocalService](https://www.dynamsoft.com/docs/dwt/API/WebTwain.Util.html#uselocalservice) to false in the intialization code.
+
+## Creating the WebTwain instance
 
  3. Explain the init process of DWT
     - Load the main JS files
