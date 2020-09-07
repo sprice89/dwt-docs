@@ -230,7 +230,6 @@ for(var i = 0; i < sources.length; i++) {
 }
 ```
 
-
 If you are still having issues with a device after reading the above information. You can 
 
   - Check out [hardware issue]({{site.indepth}}troubleshooting/scanners-hardware.html)
