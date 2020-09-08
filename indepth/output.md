@@ -178,3 +178,10 @@ https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/save-uploa
 https://developer.dynamsoft.com/dwt/kb/2026
 https://developer.dynamsoft.com/dwt/kb/2170
 https://developer.dynamsoft.com/dwt/kb/2123
+
+
+
+## How to achieve automation
+
+- Event-driving workflow
+- Next-gen API like `startScan`

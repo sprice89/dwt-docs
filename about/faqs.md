@@ -35,7 +35,7 @@ DWT is a commercial software. Generally, Dynamsoft allows it to be used free of 
 
 DWT comes with a 30-day free trial license from the day the software is installed with the [Official installer](https://www.dynamsoft.com/Downloads/WebTWAIN_Download.aspx). After that, a developer can extend the trial twice on [this page](https://www.dynamsoft.com/CustomerPortal/Portal/TrialLicense.aspx?product=dwt).
 
-If more time is required for evaluation purposes, please contact [Dynamsoft Support]({{site.about}}getsupport.html).
+If more time is required for evaluation purposes, you can contact [Dynamsoft Support]({{site.about}}getsupport.html).
 
 ## What if I want Dynamsoft help with the implementation
 
