@@ -5,7 +5,8 @@ description: "TOADD"
 title: "TOADD"
 ---
 
-# `Dynamsoft.WebTwainEnv`
+# Dynamsoft. WebTwainEnv
+
 > Global properties and functions.
 
 ``` typescript
@@ -29,6 +30,7 @@ interface Dynamsoft.WebTwainEnv {
     IfAddMD5InUploadHeader: boolean;
     IfDisableDefaultSettings: boolean;
     IfUseActiveXForIE10Plus: boolean;
+    readonly inited: boolean;
     ProductKey: string;
     ResourcesPath: string;
     UseLocalService: boolean;
@@ -44,7 +46,7 @@ interface Dynamsoft.WebTwainEnv {
         asyncFailureFunc: function (errorString: string) {}
     ): void;
     CreateDWTObjectEx(
-        dwtInitialConfig: IDWTInitialConfig,                 
+        dwtInitialConfig: DWTInitialConfig,                 
         asyncSuccessFunc: (DWObject: WebTwain) => {},                   
         asyncFailureFunc: (errorString: string) => {}
     ): void;
@@ -64,7 +66,7 @@ interface Dynamsoft.WebTwainEnv {
 
 ## Options
 
-### `Containers`
+### `Containers: Container[]`
 
 An array of `Container` definitions that specifies the UI elements for `WebTwain` instances. The `Container` interface is defined below
 
@@ -77,73 +79,69 @@ interface Container {
 }
 ```
 
-### `IfAddMD5InUploadHeader`
-
+### `IfAddMD5InUploadHeader: boolean`
   
   Whether or not an md5 header `dwt-md5` should be included in HTTP upload requests. Note that this header is not a standard header and may be deemed invalid on some web servers.
   
   The default value is `false` .
+  
 
-### `ProductKey`
+### `readonly inited: boolean`
+  
+  Indicates whether the Dynamic Web TWAIN library is ready to work.
+  
 
+### `ProductKey: boolean`
   
   Sets or returns the product key for the library. A product key is required to enables certain modules of the library.
   
 
-### `ResourcesPath`
-
+### `ResourcesPath: boolean`
   
   Sets or returns where the library looks for resources files including service installers, CSS, etc.
   
 
-### `UseLocalService`
-
+### `UseLocalService: boolean`
   Sets or returns whether to use the service or use WASM only. This property can be changed at runtime (but not recommended) and affects `WebTwain` instances created after the change.
 
   The default value is `true` .
 
 ## Functions
 
-### `CreateDWTObject`
-
+### `CreateDWTObject(...): void`
   Creates a new `WebTwain` instance that listens to the specified host & ports. An UI element specified by the parameter `ContainerId` which is typically a <div> is required. The library will generate a UI and bind it to this element.
   
 
-### `CreateDWTObjectEx`
-
+### `CreateDWTObjectEx(...): void`
   Creates a new UI-less `WebTwain` instance. This instance will be uniquely identified by the parameter `WebTwainId` .
 
-``` javascript
-interface IDWTInitialConfig {
-    WebTwainId: string,
-        Host ? : string,
-        Port ? : string,
-        PortSSL ? : string
-}
+``` typescript
+  interface DWTInitialConfig {
+
+      WebTwainId: string,
+          Host ? : string,
+          Port ? : string,
+          PortSSL ? : string
+
+  }
 ```
 
-### `DeleteDWTObject`
+### `DeleteDWTObject(Id: string)` : void
 
   Delete the `WebTwain` instance specified by `Id` which can either be a `ContainerId` or a `WebTwainId` .
 
-### `GetWebTwain`
-
+### `GetWebTwain(ContainerId?: string): WebTwain`
   Gets an `WebTwain` instance by its `ContainerId` .
-  
 
-### `GetWebTwainEx`
-
+### `GetWebTwainEx(WebTwainId: string): WebTwain`
   Gets an `WebTwain` instance by its `WebTwainId` .
   
 
-### `Load`
-
+### `Load(): void`
   Initiates the library. If there are predefined `Containers` , one `WebTwain` instance will be created for each `Container` .
 
-### `RegisterEvent`
-
+### `RegisterEvent(...): void`
   Registers an environmental event. Typically the event is `OnWebTwainReady` which is triggered when the initialization completes.
 
-### `Unload`
-
+### `Unload(): void`
   Destroys all `WebTwain` instances and cuts off the connection to the Dynamsoft Service.

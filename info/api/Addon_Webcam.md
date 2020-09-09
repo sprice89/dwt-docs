@@ -1,25 +1,42 @@
-/<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain.Addon.Webcam
 
-| Methods | |
-|:-|:-|
-| [CaptureImage()](#captureimage) | [CloseSource()](#closesource) |
-| [GetCameraControlPropertySetting()](#getcameracontrolpropertysetting) | [GetCameraControlPropertyMoreSetting()](#getcameracontrolpropertymoresetting) |
-| [GetVideoPropertySetting()](#getvideopropertysetting) | [GetVideoPropertyMoreSetting()](#getvideopropertymoresetting) |
-| [SetCameraControlPropertySetting()](#setcameracontrolpropertysetting) | [SetVideoPropertySetting()](#setvideopropertysetting) |
-| [GetFrameRate()](#getframerate) | [SetFrameRate()](#setframerate) |
-| [GetMediaType()](#getmediatype) | [SetMediaType()](#setmediatype) |
-| [GetResolution()](#getresolution) | [SetResolution()](#setresolution) |
-| [GetFramePartURL()](#getframeparturl) | [GetFrameURL()](#getframeurl) |
-| [GetSourceList()](#) | [SelectSource()](#) |
-| [PauseVideo()](#) | [PlayVideo()](#) |
-| [SetVideoRotateMode()](#) | [StopVideo()](#) |
+**Methods**
+
+* [CaptureImage()](#captureimage) 
+* [CloseSource()](#closesource)
+* [GetCameraControlPropertySetting()](#getcameracontrolpropertysetting) 
+* [GetCameraControlPropertyMoreSetting()](#getcameracontrolpropertymoresetting)
+* [GetVideoPropertySetting()](#getvideopropertysetting) 
+* [GetVideoPropertyMoreSetting()](#getvideopropertymoresetting)
+* [SetCameraControlPropertySetting()](#setcameracontrolpropertysetting) 
+* [SetVideoPropertySetting()](#setvideopropertysetting)
+* [GetFrameRate()](#getframerate) 
+* [SetFrameRate()](#setframerate)
+* [GetMediaType()](#getmediatype) 
+* [SetMediaType()](#setmediatype)
+* [GetResolution()](#getresolution) 
+* [SetResolution()](#setresolution)
+* [GetFramePartURL()](#getframeparturl) 
+* [GetFrameURL()](#getframeurl)
+* [GetSourceList()](#getsourcelist) 
+* [SelectSource()](#selectsource)
+* [PauseVideo()](#pausevideo)
+* [PlayVideo()](#playvideo)
+* [SetVideoRotateMode()](#setvideorotatemode) 
+* [StopVideo()](#stopvideo)
 
 ## CaptureImage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Capture an image from the current camera.
  * @param successCallback A callback function that is executed if the request succeeds.
@@ -39,9 +56,9 @@ CaptureImage(
 ---
 
 ## GetSourceList
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return a list of all available cameras.
  */
@@ -50,8 +67,8 @@ GetSourceList(): string[];
 
 ---
 ## SelectSource
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
  * Select a camera to use.
  * @param name Specify the camera.
@@ -61,9 +78,9 @@ SelectSource(name: string): boolean;
 
 ---
 ## CloseSource
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Close the current camera.
  */
@@ -72,9 +89,9 @@ CloseSource(): boolean;
 
 ---
 ## GetSourceList
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return a list of all available cameras.
  */
@@ -83,9 +100,9 @@ GetSourceList(): string[];
 
 ---
 ## SelectSource
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Select a camera to use.
  * @param name Specify the camera.
@@ -95,16 +112,16 @@ SelectSource(name: string): boolean;
 
 ---
 ## CloseSource
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Close the current camera.
  */
 CloseSource(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 When you close the camera, the video stream will stop at the last frame.
 
@@ -112,9 +129,9 @@ When you close the camera, the video stream will stop at the last frame.
 
 ## PlayVideo
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Start to play the video stream from the current camera.
  * @param DWObject Specify a WebTwain instance to show the video.
@@ -130,9 +147,9 @@ PlayVideo(
 
 ---
 ## PauseVideo
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Pause the video.
  */
@@ -141,16 +158,16 @@ PauseVideo(): boolean;
 
 ---
 ## StopVideo
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Stop the video.
  */
 StopVideo(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 When you capture a frame, it's always the actual latest frame from the camera even if you have paused the video.
 
@@ -159,38 +176,38 @@ When you close the camera, the video stream will stop at the last frame.
 ---
 
 ## GetCameraControlPropertySetting
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return information about the specified camera property.
  * @param property Specify the property.
  */
 GetCameraControlPropertySetting(
     property: EnumDWT_CameraControlProperty | number
-): ICameraControlProperty;
+): CameraControlProperty;
 ```
 
 ---
 ## GetCameraControlPropertyMoreSetting
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return detailed information about the specified camera property.
  * @param property Specify the property.
  */
 GetCameraControlPropertyMoreSetting(
     property: Dynamsoft.EnumDWT_CameraControlProperty | number
-): ICameraControlPropertyExtra;
+): CameraControlPropertyExtra;
 ```
 
 ---
 ## SetCameraControlPropertySetting
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the specified camera property.
  * @param property Specify the property.
@@ -203,7 +220,7 @@ SetCameraControlPropertySetting(
     auto: boolean
 ): boolean;
 
-interface ICameraControlProperty {
+interface CameraControlProperty {
     /**
      * Return the value of the property.
      */
@@ -214,7 +231,7 @@ interface ICameraControlProperty {
     GetIfAuto(): boolean;
 }
 
-interface ICameraControlPropertyExtra {
+interface CameraControlPropertyExtra {
     /**
      * Return the minimum value of the property.
      */
@@ -238,45 +255,45 @@ interface ICameraControlPropertyExtra {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
-Check out [Dynamsoft.EnumDWT_CameraControlProperty](Dynamsoft.Enum.md#dynamsoftenumdwt_cameracontrolproperty).
+Check out [Dynamsoft.EnumDWT_CameraControlProperty]({{site.info}}api/Dynamsoft_Enum.html#dynamsoftenumdwt_cameracontrolproperty).
 
 ---
 
 ## GetVideoPropertySetting
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return information about the specified video property.
  * @param property Specify the property.
  */
 GetVideoPropertySetting(
     property: Dynamsoft.EnumDWT_VideoProperty | number
-): IVideoControlProperty;
+): VideoControlProperty;
 ```
 
 ---
 ## GetVideoPropertyMoreSetting
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return detailed information about the specified video property.
  * @param property Specify the property.
  */
 GetVideoPropertyMoreSetting(
     property: Dynamsoft.EnumDWT_VideoProperty | number
-): IVideoControlPropertyExtra;
+): VideoControlPropertyExtra;
 ```
 
 ---
 ## SetVideoPropertySetting
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the specified video property.
  * @param property Specify the property.
@@ -289,7 +306,7 @@ SetVideoPropertySetting(
     auto: boolean
 ): boolean;
 
-interface IVideoControlProperty {
+interface VideoControlProperty {
     /**
      * Return the value of the property.
      */
@@ -300,7 +317,7 @@ interface IVideoControlProperty {
     GetIfAuto(): boolean;
 }
 
-interface IVideoControlPropertyExtra {
+interface VideoControlPropertyExtra {
     /**
      * Return the minimum value of the property.
      */
@@ -324,48 +341,48 @@ interface IVideoControlPropertyExtra {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
-Check out [Dynamsoft.EnumDWT_VideoProperty](Dynamsoft.Enum.md#dynamsoftenumdwt_videoproperty).
+Check out [`Dynamsoft.EnumDWT_VideoProperty`]({{site.info}}api/Dynamsoft_Enum.html#dynamsoftenumdwt_videoproperty).
 
 ---
 
 ## GetFrameRate
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the frame rates supported by the current camera.
  */
-GetFrameRate(): IFrameRate;
+GetFrameRate(): FrameRate;
 ```
 
 ---
 ## GetMediaType
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
  * Return the media types supported by the current camera.
  */
-GetMediaType(): IMediaType;
+GetMediaType(): MediaType;
 ```
 
 ---
 ## GetResolution
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the resolutions supported by the current camera.
  */
-GetResolution(): IResolution;
+GetResolution(): Resolution;
 ```
 
 ---
 ## SetFrameRate
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the frame rate.
  * @param rate Specify the frame rate.
@@ -375,9 +392,9 @@ SetFrameRate(rate: number): boolean;
 
 ---
 ## SetMediaType
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the media type.
  * @param type Sepcify the media type.
@@ -387,17 +404,16 @@ SetMediaType(type: string): boolean;
 
 ---
 ## SetResolution
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the resolution.
  * @param resolution Specify the resolution.
  */
 SetResolution(resolution: string): boolean;
 
-
-interface IFrameRate {
+interface FrameRate {
     /**
      * Return the number of available frame rates.
      */
@@ -412,7 +428,7 @@ interface IFrameRate {
     GetCurrent(): number;
 }
 
-interface IMediaType {
+interface MediaType {
     /**
      * Return the number of available media types.
      */
@@ -427,7 +443,7 @@ interface IMediaType {
     GetCurrent(): string;
 }
 
-interface IResolution {
+interface Resolution {
     /**
      * Return the number of available resolutions.
      */
@@ -445,9 +461,9 @@ interface IResolution {
 
 ---
 ## SetVideoRotateMode
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Rotate the video.
  * @param mode Specify the rotate mode
@@ -457,17 +473,17 @@ SetVideoRotateMode(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Check out [Dynamsoft.EnumDWT_VideoRotateMode](Dynamsoft.Enum.md#dynamsoftenumdwt_videorotatemode).
+Check out [`Dynamsoft.EnumDWT_VideoRotateMode`](Dynamsoft.Enum.md#dynamsoftenumdwt_videorotatemode).
 
 ---
 
 ## GetFrameURL
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the URL (http(s)://) for the latest frame.
  */
@@ -476,15 +492,15 @@ GetFrameURL(): string;
 
 ---
 ## GetFramePartURL
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
  * Return the internal URL (dwt://) for the latest frame.
  */
 GetFramePartURL(): string;
 ```
 
-### Usage notes
+**Usage notes**
 
 `GetFrameURL()` returns a public URL that can be used to access the frame directly by any applicatoin capable of HTTP requests that runs on the same machine. For example: 'https://127.0.0.1:18623/dwt/dwt_16000428/img?id=853407158&index=-1&width=-1&height=-1&webcam=80&t=1590481406860'.
 

@@ -1,21 +1,27 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # Dynamsoft.FileUploader
 
-| Methods |
-|:-|
-| [Init()](#init) |
-| [CreateJob()](#createjob) |
-| [Run()](#run) |
-| [Cancel()](#cancel) |
-| [CancelAllUpload()](#cancelallupload) |
+**Methods**
+
+* [Init()](#init)
+* [CreateJob()](#createjob)
+* [Run()](#run)
+* [Cancel()](#cancel)
+* [CancelAllUpload()](#cancelallupload)
 
 ---
 
 ## Init
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Initialize and create a FileUploader instance.
  * @param URL Specify a path to retrieve the FileUploader library.
@@ -28,7 +34,7 @@
 Init(
     URL: string,
     successCallback: (
-        uploadManager: IUploadManager
+        uploadManager: UploadManager
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -37,7 +43,7 @@ Init(
 ): void;
 ```
 
-### Usage notes
+**Usage notes**
 
 The FileUploader library is installed with Dynamsoft Service by default, therefore, `URL` can be left empty "".
 
@@ -45,15 +51,15 @@ The FileUploader library is installed with Dynamsoft Service by default, therefo
 
 ## CreateJob
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Create an upload job.
  */
-CreateJob(): IJob;
+CreateJob(): Job;
 
-interface IJob {
+interface Job {
     /**
      * Specify the block size (in bytes). By default, it's 10240.
      */
@@ -65,7 +71,7 @@ interface IJob {
     /**
      * Specify the fields in the HTTP Post Form.
      */
-    FormField: IFormField;
+    FormField: FormField;
     /**
      * Specify custom HTTP Post request headers.
      * Example: job.HttpHeader["Content-Type"] = "text/plain";
@@ -82,7 +88,7 @@ interface IJob {
      * @argument errorString The error string.
      */
     OnRunFailure: (
-        job: IJob,
+        job: Job,
         errorCode: number,
         errorString: string
     ) => void;
@@ -90,14 +96,14 @@ interface IJob {
      * A callback triggered when the job succeeds.
      * @argument job Specify the job.
      */
-    OnRunSuccess: (job: IJob) => void;
+    OnRunSuccess: (job: Job) => void;
     /**
      * A callback triggered multiple times during the upload.
      * @argument job Specify the job.
      * @argument percentage Return the percentage.
      */
     OnUploadTransferPercentage: (
-        job: IJob,
+        job: Job,
         percentage: number
     ) => void;
     /**
@@ -107,7 +113,7 @@ interface IJob {
     /**
      * Specify the main content of the job, i.e. the file(s).
      */
-    SourceValue: ISourceValue;
+    SourceValue: SourceValue;
     /**
      * Specify the number of threads (<=4) for the upload.
      */
@@ -117,7 +123,7 @@ interface IJob {
      */
     readonly Version: number;
 }
-interface ISourceValue {
+interface SourceValue {
     /**
      * Specify the block size. By default, it's 10240.
      * @param source A URL to specify the content of the file.
@@ -128,10 +134,10 @@ interface ISourceValue {
     Add: (
         source: string,
         name: string,
-        key?: string
+        key ? : string
     ) => void;
 }
-interface IFormField {
+interface FormField {
     /**
      * Specify the block size. By default, it's 10240.
      * @param key Specify the key of the field.
@@ -147,35 +153,38 @@ interface IFormField {
 ---
 
 ## Run
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
-* Start uploading (processing the specified job).
-* @param job Specify the job.
-*/
-Run(job: IJob): boolean;
+ * Start uploading (processing the specified job).
+ * @param job Specify the job.
+ */
+Run(job: Job): boolean;
 ```
 
 ---
 
 ## Cancel
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Cancel a job.
  * @param job Specify the job.
  */
-Cancel(job: IJob): boolean;
+Cancel(job: Job): boolean;
 ```
 
 ---
 
 ## CancelAllupload
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Cancel all jobs.
  */
@@ -183,23 +192,24 @@ CancelAllUpload(): boolean;
 ```
 
 ---
-### Usage notes
+
+**Usage notes**
 
 `Cancel()` or `CancleAllUpload()` should be called in the event [OnUploadTransferPercentage](#onuploadtransferpercentage).
 
-### Example
+**Example**
 
-```javascript
-var dsUploadManager; 
-Dynamsoft.FileUploader.Init('', function(obj) { 
+``` javascript
+var dsUploadManager;
+Dynamsoft.FileUploader.Init('', function(obj) {
     dsUploadManager = obj;
     var job = dsUploadManager.CreateJob();
-    job.OnUploadTransferPercentage =  FileUpload_OnUploadTransferPercentage;
+    job.OnUploadTransferPercentage = FileUpload_OnUploadTransferPercentage;
     dsUploadManager.Run(job);
-    function FileUpload_OnUploadTransferPercentage(job, iPercentage)
-    {    
+
+    function FileUpload_OnUploadTransferPercentage(job, iPercentage) {
         console.log('job cancelled!')
         dsUploadManager.Cancel(job);
     }
-}, function(){});
+}, function() {});
 ```

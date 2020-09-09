@@ -1,25 +1,39 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain Util
 
-| Methods |      |
-|:-|:-|
-| [RegisterEvent()](#registerevent) | [UnregisterEvent()](#unregisterevent) |
-| [SetLanguage()](#setlanguage) | [GenerateURLForUploadData()](#generateurlforuploaddata) |
+**Methods**
 
-| Properties | |
-|:-|:-|
-| [ErrorCode](#errorcode) | [ErrorString](#errorstring) |
-| [LogLevel](#loglevel) | [Manufacturer](#manufacturer) |
-| [ProductFamily](#productfamily) | [ProductName](#productname) |
-| [VersionInfo](#versioninfo) | [ProductKey](#productkey) |
+* [RegisterEvent()](#registerevent) 
+* [UnregisterEvent()](#unregisterevent)
+* [SetProductKeyAsync()](#setproductkeyasync)
+* [SetLanguage()](#setlanguage)
+* [GenerateURLForUploadData()](#generateurlforuploaddata)
+
+**Properties**
+
+* [ErrorCode](#errorcode)
+* [ErrorString](#errorstring)
+* [LogLevel](#loglevel)
+* [Manufacturer](#manufacturer)
+* [ProductFamily](#productfamily)
+* [ProductName](#productname)
+* [VersionInfo](#versioninfo)
+* [ProductKey](#productkey)
+* [UseLocalService](#uselocalservice)
 
 ---
 
 ## RegisterEvent
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Specify an event listener for the specified built-in event.
  * @param name Specify the event
@@ -29,11 +43,12 @@ RegisterEvent(name: string, callback: () => void): boolean;
 ```
 
 ---
+
 ## UnregisterEvent
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Remove an event listener from the specified built-in event.
  * @param name Specify the event
@@ -42,17 +57,31 @@ RegisterEvent(name: string, callback: () => void): boolean;
 UnregisterEvent(name: string, callback: () => void): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 There can only be one listener for each built-in event. If you call `RegisterEvent` on the same event again, the new callback will replace the old one.
 
 ---
 
+## SetProductKeyAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Set the product key.
+ * @param productKey Specify the key.
+ */
+SetProductKeyAsync(
+    productKey: string
+): Promise<any>;
+```
+
 ## SetLanguage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the language for the authorization dialogs.
  * @param language Specify the language.
@@ -62,7 +91,7 @@ SetLanguage(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The language set with this method is only for the built-in security dialogs which show up when the user tries to access a scanner, a camera or a local file.
 
@@ -70,9 +99,9 @@ The language set with this method is only for the built-in security dialogs whic
 
 ## GenerateURLForUploadData
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Generate a URL to be used by a FileUpoader instance to fetch the data to upload.
  * @param indices Specify the images to upload.
@@ -98,7 +127,7 @@ GenerateURLForUploadData(
 ): void;
 ```
 
-### Usage notes
+**Usage notes**
 
 The language set with this method is only for the built-in security dialogs which show up when the user tries to access a scanner, a camera or a local file.
 
@@ -106,16 +135,16 @@ The language set with this method is only for the built-in security dialogs whic
 
 ## ErrorCode
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the error code.
  */
 readonly ErrorCode: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 The `ErrorCode` and `ErrorString` always reflect the result of the last API call. So make sure you read them in time.
 
@@ -123,16 +152,16 @@ The `ErrorCode` and `ErrorString` always reflect the result of the last API call
 
 ## ErrorString
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the error string.
  */
 readonly ErrorString: string;
 ```
 
-### Usage notes
+**Usage notes**
 
 The `ErrorCode` and `ErrorString` always reflect the result of the last API call. So make sure you read them in time.
 
@@ -140,28 +169,28 @@ The `ErrorCode` and `ErrorString` always reflect the result of the last API call
 
 ## LogLevel
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the log level for debugging.
  */
 LogLevel: number;
 ```
 
-### Usage notes
+**Usage notes**
 
-The logs for the Dynamic Web TWAIN library are saved in the directory `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\log\`. By default, `LogLevel` is 0 and nothing is recorded. When it is set to 1, all debugging information is recorded.
+The logs for the Dynamic Web TWAIN library are saved in the directory `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\log\` . By default, `LogLevel` is 0 and nothing is recorded. When it is set to 1, all debugging information is recorded.
 
-Setting `LogLevel` to 1/0 is equivalent to setting `LogLevel` to 14/1 in the file `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\DSConfiguration.ini`.
+Setting `LogLevel` to 1/0 is equivalent to setting `LogLevel` to 14/1 in the file `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64\DSConfiguration.ini` .
 
 ---
 
 ## Manufacturer
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Manufacturer in the identity string of the Dynamic Web TWAIN library.
  */ 
@@ -170,15 +199,15 @@ readonly Manufacturer: string;
 
 ## Usage notes
 
-`Manufacturer`, `ProductFamily`, `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
+`Manufacturer` , `ProductFamily` , `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
 
 ---
 
 ## ProductFamily
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * ProductFamily in the identity string of the Dynamic Web TWAIN library.
  */
@@ -187,15 +216,15 @@ readonly ProductFamily: string;
 
 ## Usage notes
 
-`Manufacturer`, `ProductFamily`, `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
+`Manufacturer` , `ProductFamily` , `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
 
 ---
 
 ## ProductName
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * ProductName in the identity string of the Dynamic Web TWAIN library.
  */
@@ -204,15 +233,15 @@ readonly ProductName: string;
 
 ## Usage notes
 
-`Manufacturer`, `ProductFamily`, `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
+`Manufacturer` , `ProductFamily` , `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
 
 ---
 
 ## VersionInfo
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * VersionInfo in the identity string of the Dynamic Web TWAIN library.
  */
@@ -221,21 +250,32 @@ readonly VersionInfo: string;
 
 ## Usage notes
 
-`Manufacturer`, `ProductFamily`, `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
+`Manufacturer` , `ProductFamily` , `ProductName` and `VersionInfo` together form the identity string of the Dynamic Web TWAIN library.
 
 ---
 
 ## ProductKey
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the ProductKey.
  */
 ProductKey: string;
 ```
 
-### Usage notes
+**Usage notes**
 
-The ProductKey contains the license to use the Dynamic Web TWAIN library.
+The ProductKey contains the license to use the Dynamic Web TWAIN library. From version 16.1, if the license needs to be changed at runtime, use the method `SetProductKeyAsync()` instead.
+
+## UseLocalService
+
+**Syntax**
+
+``` typescript
+/**
+ * Return whether this WebTwain instance is in Local-Service mode or WASM mode.
+ */
+UseLocalService:boolean; 
+```

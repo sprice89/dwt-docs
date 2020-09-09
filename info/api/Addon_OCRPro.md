@@ -1,26 +1,35 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain.Addon.OCRPro
 
 For Server Side OCR, check out [Server-Side OCR](#server-side)
 
 
-| Methods | |
-|:-|:-|
-| [Download()](#download) | [IsModuleInstalled()](#ismoduleinstalled) |
-| [Recognize()](#recognize) | [RecognizeFile()](#recognizefile) |
-| [RecognizeRect()](#recognizerect) | [RecognizeSelectedImages()](#recognizeselectedimages) |
+**Methods**
 
-| Property |
-|:-|
-| [Settings](#settings) |
+* [Download()](#download) 
+* [IsModuleInstalled()](#ismoduleinstalled)
+* [Recognize()](#recognize) 
+* [RecognizeFile()](#recognizefile)
+* [RecognizeRect()](#recognizerect) 
+* [RecognizeSelectedImages()](#recognizeselectedimages)
+
+**Properties**
+
+* [Settings](#settings)
 
 ---
 
 ## Download
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Download and install the OCR Professional add-on on the local system.
  * @param path The URL to download the add-on (typically a ZIP file).
@@ -42,16 +51,16 @@ Download(
 ---
 ## IsModuleInstalled
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the OCR Professional engine has been installed.
  */
 IsModuleInstalled(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 This method will attempt to download and install the dll from the server if the dll doesn't exist already or the exising one is of a different version. You can also call `IsModuleInstalled()` first to determine whether it is necessary to call `Download()`.
 
@@ -59,9 +68,9 @@ This method will attempt to download and install the dll from the server if the 
 
 ## Recognize
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the specified image in the buffer.
  * @param index Specify the image.
@@ -76,7 +85,7 @@ Recognize(
     index: number,
     successCallback: (
         imageId: number,
-        result: IOCRProResult
+        result: OCRProResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -89,9 +98,9 @@ Recognize(
 
 ## RecognizeFile
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the specified local file.
  * @param path Specify a local file.
@@ -105,7 +114,7 @@ Recognize(
 RecognizeFile(path: string,
     successCallback: (
         path: string,
-        result: IOCRProResult
+        result: OCRProResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -118,9 +127,9 @@ RecognizeFile(path: string,
 
 ## RecognizeRect
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the specified rectangular area(s) on the image.
  * @param index Specify the image.
@@ -134,11 +143,11 @@ RecognizeFile(path: string,
  */
 RecognizeRect(
     index: number,
-    aryRects: IRect[],
+    aryRects: Rect[],
     successCallback: (
         imageId: number,
-        aryRects: IRect[],
-        result: IOCRProResult
+        aryRects: Rect[],
+        result: OCRProResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -151,9 +160,9 @@ RecognizeRect(
 
 ## RecognizeSelectedImages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the selected images in the buffer.
  * @param index Specify the image.
@@ -165,7 +174,7 @@ RecognizeRect(
  */
 RecognizeSelectedImages(
     successCallback: (
-        result: IOCRProResult
+        result: OCRProResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -174,17 +183,17 @@ RecognizeSelectedImages(
 ): void;
 ```
 
-### Usage notes
+**Usage notes**
 
-```javascript
+``` typescript
 
-interface IRect {
+interface Rect {
     left: number;
     right: number;
     top: number;
     bottom: number;
 }
-interface IOCRProResult {
+interface OCRProResult {
     /**
      * Return a base64 string that contains the result of the OCR.
      */
@@ -196,7 +205,7 @@ interface IOCRProResult {
     /**
      * Return an array which contains detailed error information for each page that was OCR'd
      */
-    GetErrorDetailList(): IError[];
+    GetErrorDetailList(): Error[];
     /**
      * Return the error string.
      */
@@ -221,14 +230,14 @@ interface IOCRProResult {
      * Return the content of a page.
      * @param index Specify the page
      */
-    GetPageContent(index: number): IPage;
+    GetPageContent(index: number): Page;
     /**
      * Save the OCR result as a file.
      * @param path The path to save the file.
      */
     Save(path: string): boolean;
 }
-interface IError {
+interface Error {
     /**
      * Return the index of the image or path of the file.
      */
@@ -244,7 +253,7 @@ interface IError {
      */
     GetPage(): number;
 }
-interface IPage {
+interface Page {
     /**
      * Return the number of letters in the page.
      */
@@ -253,7 +262,7 @@ interface IPage {
      * Return the content of the specified letter.
      * @index Specify the letter.
      */
-    GetLetterContent(index: number): ILetter;
+    GetLetterContent(index: number): Letter;
     /**
      * Return the number of recognized rectangles in the page.
      */
@@ -264,7 +273,7 @@ interface IPage {
      */
     GetZoneContent(index: number): string;
 }
-interface ILetter {
+interface Letter {
     /**
      * Return the text of the letter.
      */
@@ -280,15 +289,15 @@ interface ILetter {
 
 ## Settings
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the current settings of the OCR engine.
  */
-Settings: ISettings | boolean | null;
+Settings: Settings | boolean | null;
 
-interface ISettings {
+interface Settings {
     /**
      * Specify the target language.
      */
@@ -316,9 +325,9 @@ interface ISettings {
     /**
      * Configure the redaction.
      */
-    Redaction: IRedaction;
+    Redaction: Redaction;
 }
-interface IRedaction {
+interface Redaction {
     /**
      * Specify the text to redact.
      */
@@ -334,14 +343,14 @@ interface IRedaction {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
 A Settings object can be created with the following method.
-```javascript
+``` typescript
 /**
  * Create a new "Settings" object.
  */ 
-Dynamsoft.WebTwain.Addon.OCRPro.NewSettings: ISettings;
+Dynamsoft.WebTwain.Addon.OCRPro.NewSettings: Settings;
 ```
 
 ----
