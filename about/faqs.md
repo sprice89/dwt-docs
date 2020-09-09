@@ -91,18 +91,18 @@ Resources files help you include DWT in your application. The following shows th
       > For Linux
       - LICENSE
     - src
-    > These files contain functionalities for
+    > These files contain the following functionalities for the [WASM-mode]({{site.indepth}}initialize.html#wasm-mode)
     > - image input & output
     > - decode & encode
     > - PDF read & write
     > - Viewer & UI
-      - dynamsoft.imagecore-1.6.1.wasm
       - dynamsoft.imageio.js
-      - dynamsoft.imageio_wasm-1.6.1.js
-      - dynamsoft.imageio-1.6.1.wasm
-      - dynamsoft.imageProc-1.6.1.wasm
-      - dynamsoft.pdfReader-1.6.1.wasm
-      - dynamsoft.pdfWriter-1.6.1.wasm
+      - dynamsoft.imageio_wasm-<version number>.js
+      - dynamsoft.imagecore-<version number>.wasm
+      - dynamsoft.imageio-<version number>.wasm
+      - dynamsoft.imageProc-<version number>.wasm
+      - dynamsoft.pdfReader-<version number>.wasm
+      - dynamsoft.pdfWriter-<version number>.wasm
       - dynamsoft.viewer.css
       - dynamsoft.viewer.js
       - dynamsoft.webtwain.css

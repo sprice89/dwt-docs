@@ -109,9 +109,9 @@ The following versions are supported
   - iPadOS 13.* [Recommended]
 
 - The following browsers are supported
-  - Chrome 68.* ~ 79.*
-  - Chrome 80.* ~ 85.* [Recommended]
-  - Firefox 61.* ~ 69.*
+  - Chrome 68.* ~ 79.* (no video streaming)
+  - Chrome 80.* ~ 85.* (no video streaming) [Recommended]
+  - Firefox 61.* ~ 69.* (no video streaming)
   - Firefox 70.* ~ 80.* [Recommended]
   - Safari 7.* ~ 12.*
   - Safari 13.* ~ 14.* [Recommended]
@@ -139,3 +139,16 @@ There are many different browsers on the market which may not have been listed a
 
   - Make sure it works by testing our [demo page](https://demo.dynamsoft.com/dwt/online_demo_scan.aspx)
   - Do thorough tests before going into production
+
+## WASM browsers
+
+WASM browsers refer to the browsers with the following advanced features:
+
+[Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) - [More info](https://caniuse.com/#feat=blobbuilder)
+[URL/createObjectURL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL) - [More info](https://caniuse.com/#feat=bloburls)
+[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) - [More info](https://caniuse.com/#feat=webworkers)
+[WebAssembly](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/WebAssembly) -
+[More info](https://caniuse.com/#feat=wasm)
+[MediaDevices/getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) - [More info](https://caniuse.com/#feat=stream)
+
+Dynamsoft recommends the use of the latest versions of the modern browsers. Check out the list of browsers above and try to use those marked as `Recommended`.
