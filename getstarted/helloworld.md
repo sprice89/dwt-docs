@@ -16,11 +16,11 @@ The following steps show you how to create your first web-based scanning applica
 Create an `helloworld.html` anywhere and copy the `Resources` folder to the same location. You can typically find this folder in `C:\Program Files (x86)\Dynamsoft\Dynamic Web TWAIN SDK {Version Number}\`
 * Resources
 
-![Build-the-Hello-World-Scan-Page-1]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-1.png)
+    ![Build-the-Hello-World-Scan-Page-1]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-1.png)
 
 * The project
 
-![Build-the-Hello-World-Scan-Page-2]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-2.png)
+    ![Build-the-Hello-World-Scan-Page-2]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-2.png)
 
 ## Include the library
 
@@ -35,7 +35,7 @@ Embed the script of the library and an element on the page.
 <div id="dwtcontrolContainer"></div>
 ```
 
-> "dwtcontrolContainer" is the default id for the div. You can change it in the file dynamsoft.webtwain.config.js if necessary.
+> "dwtcontrolContainer" is the default id for the div. You can change it in the file `dynamsoft.webtwain.config.js` if necessary.
 
 ## Write code to scan
 
@@ -150,21 +150,21 @@ function AcquireImage() {
 
 * Open the page in your browser
 
-![Build-the-Hello-World-Scan-Page-3]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-3.png)
+    ![Build-the-Hello-World-Scan-Page-3]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-3.png)
 
-> If you see a license notice, please make sure you have a valid trial license. Contact [Dynamsoft Support]({{site.about}}getsupport.html) if you need help.
+    > If you see a license notice, please make sure you have a valid trial license. Contact [Dynamsoft Support]({{site.about}}getsupport.html) if you need help.
 
 * Press the button
 
-![Build-the-Hello-World-Scan-Page-4]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-4.png)
+    ![Build-the-Hello-World-Scan-Page-4]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-4.png)
 
-> Only TWAIN / ICA / SANE compliant devices are listed in the Select Source dialog. If your connected scanner doesn't show up in the list, please make sure the proper driver is installed. If you are using Windows and don’t have a real scanner at hand, you can install the [Virtual Scanner](https://download.dynamsoft.com/TWAIN/twainds.win32.installer.2.1.3.msi) – a scanner simulator which is developed by the [TWAIN Working Group](https://www.twain.org/) for testing purposes.
+    > Only TWAIN / ICA / SANE compliant devices are listed in the Select Source dialog. If your connected scanner doesn't show up in the list, please make sure the proper driver is installed. If you are using Windows and don’t have a real scanner at hand, you can install the [Virtual Scanner](https://download.dynamsoft.com/TWAIN/twainds.win32.installer.2.1.3.msi) – a scanner simulator which is developed by the [TWAIN Working Group](https://www.twain.org/) for testing purposes.
 
 * After scan
 
-The scanned documents will show up on the page
+    The scanned documents will show up on the page
 
-![Build-the-Hello-World-Scan-Page-5]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-5.png)
+    ![Build-the-Hello-World-Scan-Page-5]({{site.assets}}imgs/Build-the-Hello-World-Scan-Page-5.png)
 
 ## Try it out on your mobile phone
 

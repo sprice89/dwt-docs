@@ -145,10 +145,14 @@ There are many different browsers on the market which may not have been listed a
 WASM browsers refer to the browsers with the following advanced features:
 
 [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) - [More info](https://caniuse.com/#feat=blobbuilder)
+
 [URL/createObjectURL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL) - [More info](https://caniuse.com/#feat=bloburls)
+
 [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) - [More info](https://caniuse.com/#feat=webworkers)
+
 [WebAssembly](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/WebAssembly) -
 [More info](https://caniuse.com/#feat=wasm)
+
 [MediaDevices/getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) - [More info](https://caniuse.com/#feat=stream)
 
 Dynamsoft recommends the use of the latest versions of the modern browsers. Check out the list of browsers above and try to use those marked as `Recommended`.

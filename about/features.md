@@ -46,7 +46,7 @@ Check out more on [platforms]({{site.getstarted}}platform.html).
 DWT makes the following tasks easy
 
 * Scan documents [>>Read More<<]({{site.indepth}}input.html#scan)
-* Take pictures from cameras [>>Read More<<]({{site.indepth}}input.html#camera)
+* Take pictures from cameras [>>Read More<<]({{site.indepth}}input.html#capture)
 * Load or download existing documents [>>Read More<<]({{site.indepth}}input.html#load)
 * Edit images [>>Read More<<]({{site.indepth}}edit.html)
 * Save documents locally [>>Read More<<]({{site.indepth}}output.html#save)
