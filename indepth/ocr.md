@@ -112,10 +112,10 @@ For more elaboration, please see our [blog post](https://www.dynamsoft.com/blog/
 # Methods for performing OCR <br>
 
 * 4 methods provided for performing OCR<br>
-1.[Recognize()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognize)<br>
-2.[RecognizeFile()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizefile)<br>
-3.[RecognizeRect()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizerect)<br>
-4.[RecognizeSelectedImages()](https://www.dynamsoft.com/docs/dwt/API/Addon.OCR.html#recognizeselectedimages)
+1.[Recognize()](../info/api/Addon_OCR.html#recognize)<br>
+2.[RecognizeFile()](../info/api/Addon_OCR.html#recognizefile)<br>
+3.[RecognizeRect()](../info/api/Addon_OCR.html#recognizerect)<br>
+4.[RecognizeSelectedImages()](../info/api/Addon_OCR.html#recognizeselectedimages)
 
 # Reference Samples and Further Info
 

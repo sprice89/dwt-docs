@@ -7,7 +7,7 @@ title: "TOADD"
 
 # OUTPUT
 
-## A few different ways to output
+# A few different ways to output
 
  Dynamic WebTWAIN allows for you to output scanned images into a variety of formats to meet your development needs.<br><br>
 
@@ -18,13 +18,13 @@ title: "TOADD"
 -You can use the [ConvertToBase64() method ](../info/api/WebTwain_IO.html#converttobase64)<br><br>
 - Convert to a BLOB<br> 
 -You can use the [ConvertToBlob() method](../info/api/WebTwain_IO.html#ConvertToBlob)<br><br>
-- Save locally
+- Save locally<br><br>
     - Show dialog to save<br>
-        You can set the [IfShowFileDialog](../info/api/WebTwain_IO.html#ifshowfiledialog) property to true, which will show the open/save file dialog whenever you save an image within the DWT buffer<br>
+       -You can set the [IfShowFileDialog](../info/api/WebTwain_IO.html#ifshowfiledialog) property to true, which will show the open/save file dialog whenever you save an image within the DWT buffer<br><br>
     
     - Save to absolute path<br>
-        -Dynamsoft offers several functions to save your images to an absolute file path. Depending on what your exact needs are, you can choose from any of the following functions:<br>
-        - [SaveAllAsMultiPageTIFF()](../info/api/WebTwain_IO.html#saveallasmultipagetiff<br>
+        -Dynamsoft offers several functions to save your images to an absolute file path. Depending on what your exact needs are, you can choose from any of the following functions:<br><br>
+        - [SaveAllAsMultiPageTIFF()](../info/api/WebTwain_IO.html#saveallasmultipagetiff)<br>
       
         - [SaveAllAsPDF()](../info/api/WebTwain_IO.html#saveallaspdf)<br>
         
@@ -40,11 +40,11 @@ title: "TOADD"
          
         - [SaveSelectedImagesAsMultiPagePDF()](../info/api/WebTwain_IO.html#SaveSelectedImagesAsMultiPagePDF)<br>
         
-        - [SaveSelectedImagesAsMultiPageTIFF()](../info/api/WebTwain_IO.html#Saveselectedimagesasmultipagetiff)<br>
+        - [SaveSelectedImagesAsMultiPageTIFF()](../info/api/WebTwain_IO.html#Saveselectedimagesasmultipagetiff)<br><br>
          
     - Open dialog to get a path, then save to that path without a dialog (multiple images) <br>
-If you want to the user to choose a file path once and then save multiple images to that location, you can do so via the
-OnGetFilePathDialog event.
+-If you want to the user to choose a file path once and then save multiple images to that location, you can do so via the
+OnGetFilePathDialog event.<br><br>
 
 It would look something like this:<br>
 ```javascript
