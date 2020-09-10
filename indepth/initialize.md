@@ -102,7 +102,7 @@ When it comes to loading the Web TWAIN controls, you can configure the SDK to ei
   
 1. Set the value of `Dynamsoft.WebTwainEnv.AutoLoad` to *false* in dynamsoft.webtwain.config.js (of the `Resources` folder)  
 2. Use methods `Dynamsoft.WebTwainEnv.Load` and `Dynamsoft.WebTwainEnv.Unload` to dynamically load and unload the control, like such:  
-```  
+```c
 function UnloadControl() {  
 //Unload the control manually  
 Dynamsoft.WebTwainEnv.Unload();  
@@ -117,7 +117,7 @@ Once the controls are loaded in, then you can proceed to create the Web TWAIN ob
   
 ### Creating the Web TWAIN Object  
 The base of the Web TWAIN object is defined in `Dynamsoft.WebTwainEnv.Containers`, an array of `Container` definitions that specifies the UI elements for WebTwain instances. The `Container` interface is defined below  
-```  
+```c
 interface Container {  
 	WebTwainId: string, // ID of the WebTwain instance  
 	ContainerId?: string, // ID of the HTML div element  
@@ -130,7 +130,7 @@ By default, the `Containers` array in `dynamsoft.webtwain.config.js` file of the
 Dynamsoft.WebTwainEnv.Containers=[{ContainerId:'dwtcontrolContainer',Width:270,Height:350}];  
 ```  
 To create the Web TWAIN object from the containers, we first set a variable to hold the Web TWAIN object, and then retrieve the object based on the container ID using `GetWebTwain` or `GetWebTwainEx` as such:  
-```  
+```c
 var DWObject;  
   
 function Dynamsoft_OnReady() {  
@@ -139,13 +139,13 @@ DWObject = Dynamsoft.WebTwainEnv.GetWebTwain('dwtcontrolContainer');
   
 /* Alternatively, the same could be done using the Web TWAIN ID */  
   
-DWObject = Dynamsoft.WebTwainEnv.GetWebTwainEx()  
+DWObject = Dynamsoft.WebTwainEnv.GetWebTwainEx(')  
 }  
 ```  
 And now, `DWObject` can be used to run all of the Web TWAIN controls corresponding to that container.  
   
 Instead of creating the Web TWAIN objects from a pre-defined set of `Containers`, you can also create them dynamically using `CreateDWTObject` and `CreateDWTObjectEx`. The first creates a UI-based Web TWAIN object, so it takes a `Container` object as input. The latter method creates a new UI-less Web TWAIN instance, so it is not dependent on a `Container` object, but rather a `DWTInitialConfig` object:
-```
+```c
 interface DWTInitialConfig {
 	WebTwainId: string,
 	Host ? : string,
@@ -154,20 +154,20 @@ interface DWTInitialConfig {
 }
  ```
 Now to demonstrate how to use either of those methods:
-```
- var DWObject2;
+```c
+ var DWObject;
  
  /* Note that a div element with ID "dwtcontrolContainer2" needs to already exist in the HTML 
  for the method to be successful */
  
  Dynamsoft.WebTwainEnv.CreateDWTObject(
      "dwtcontrolContainer2", "www.dynamsoft.com", 18622, 18623,
-     function (newDWObject) { DWObject2 = newDWObject; },
+     function (newDWObject) { DWObject = newDWObject; },
      function (errorString) { alert(errorString); }
  );
  ```
- ```
- var DWObject2;
+```c
+ var DWObject;
 
 const dwtConfig1: DWTInitialConfig = {
 	WebTwainId: "wtID1",
@@ -178,24 +178,8 @@ const dwtConfig1: DWTInitialConfig = {
 
  Dynamsoft.WebTwainEnv.CreateDWTObjectEx(
      dwtConfig1,
-     function (newDWObject) { DWObject2 = newDWObject; },
+     function (newDWObject) { DWObject = newDWObject; },
      function (errorString) { alert(errorString); }
  );
- ```
-3.Explain the init process of DWT  
-- Load the main JS files  
-- Establish basic work environment  
-- Load supporting JS/CSS files  
-- [optional] Load add-on JS files  
-- Create WebTwain instances  
-- Service Mode  
-- Show prompt to install service  
-- Establish connection to the service  
-- WASM Mode  
-- Load supporting JS/WASM files  
-- Different ways to create a WebTwain instance  
-- Load() based on `Containers`  
-- Explain the Container and how to change it  
-- Dynamsoft_OnReady  
-- CreateDWTObject & CreateDWTObjectEx  
-- Callback functions
+```
+And just like that, a Web TWAIN object is created and ready to be used via `DWObject`. That pretty much sums up the initialzation process and the various things that go into it.
