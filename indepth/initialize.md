@@ -182,4 +182,4 @@ const dwtConfig1: DWTInitialConfig = {
      function (errorString) { alert(errorString); }
  );
 ```
-And just like that, a Web TWAIN object is created and ready to be used via `DWObject`. That pretty much sums up the initialzation process and the various things that go into it.
+And just like that, a Web TWAIN object is created and ready to be used via `DWObject`. That pretty much sums up the initialization process and the various things that go into it.
