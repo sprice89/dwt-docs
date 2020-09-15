@@ -1,3 +1,8 @@
+## How to achieve automation
+
+* Event-driving workflow
+* Next-gen API like `startScan`
+
 https://www.dynamsoft.com/docs/dwt/KB/Dev-Customize.html
 
 https://developer.dynamsoft.com/dwt/kb/2854

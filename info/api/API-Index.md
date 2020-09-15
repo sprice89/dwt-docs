@@ -343,6 +343,7 @@ title: "TOADD"
 * [JPEGQuality]()
 * [IfTiffMultiPage]({{site.info}}api/WebTwain_IO.html#iftiffmultipage)   
 * [TIFFCompressionType]({{site.info}}api/WebTwain_IO.html#tiffcompressiontype)
+* [MaxUploadImageSize]({{site.info}}api/WebTwain_IO.html#maxuploadimagesize)
 
 #### Events
 

@@ -13,10 +13,12 @@ title: "TOADD"
 
 * [LoadImage()](#loadimage)
 * [LoadImageEx()](#loadimageex)
-* [LoadImageFromBase64Binary()](#loadimagefrombase64binary)|
-* [LoadImageFromBinary()](#loadimagefrombinary)|
+* [LoadImageFromBase64Binary()](#loadimagefrombase64binary)
+* [LoadImageFromBinary()](#loadimagefrombinary)
 * [LoadDibFromClipboard()](#loaddibfromclipboard)
+
 <!--* [LoadDibFromClipboardAsync()](#loaddibfromclipboardasync)-->
+
 * [FTPDownload()](#ftpdownload)
 * [FTPDownloadEx()](#ftpdownloadex)
 * [HTTPDownload()](#httpdownload)
@@ -47,9 +49,9 @@ title: "TOADD"
 * [HTTPUploadThroughPostDirectly()](#httpuploadthroughpostdirectly)
 * [SaveAsBMP()](#saveasbmp)
 * [SaveAsJPEG()](#saveasjpeg)
-* [SaveAsPDF()](#saveaspdf)  |
+* [SaveAsPDF()](#saveaspdf)
 * [SaveAsPNG()](#saveaspng)
-* [SaveAsTIFF()](#saveastiff)|
+* [SaveAsTIFF()](#saveastiff)
 * [SaveSelectedImagesAsMultiPagePDF()](#saveselectedimagesasmultipagepdf)
 * [SaveSelectedImagesAsMultiPageTIFF()](#saveselectedimagesasmultipagetiff)
 * [SaveAllAsMultiPageTIFF()](#saveallasmultipagetiff)
@@ -96,7 +98,7 @@ title: "TOADD"
 
 > [Deprecation] The following APIs are deprecated.
 >
-> [Alternative] New methods like ConvertToBase64(), PDF.Write.Setup()
+> [Alternative] New methods like ConvertToBase64(), PDF. Write. Setup()
 
 **Methods**
 
@@ -340,6 +342,7 @@ However, calling them asynchronously is recommended.
 
 ---
 <!--
+
 ## LoadDibFromClipboardAsync
 
 **Syntax**
@@ -1727,6 +1730,7 @@ SetUploadSegment(
 ``` javascript
 /**
  * Return or set whether to show open/save file dialog when saving images in the buffer or loading images from a local directory.
+ * @Note Supported in Service mode only.
  */
 IfShowFileDialog: boolean;
 ```
@@ -1774,6 +1778,7 @@ IfShowProgressBar: boolean;
  * @param allowMultiSelect Whether or not multiple files can be selected at the same time. Only valid in an open-file dialog.
  * @param showOverwritePrompt Whether or not a prompt shows up when saving a file may overwrite an existing file.
  * @param flag If set to 0, bAllowMultiSelect and bShowOverwritePrompt will be effective. Otherwise, these two parameters are ignored.
+ * @Note Supported in Service mode only.
  */
 ShowFileDialog(
     isSave: boolean,
@@ -1819,6 +1824,7 @@ DWObject.ShowFileDialog(false, "BMP,TIF,JPG,PNG,PDF|*.bmp;*.tif;*.png;*.jpg;*.pd
 /**
  * Export all image data in the buffer to a new browser window and use the browser's built-in print feature to print the image(s).
  * @param useOSPrintWindow Whether to use the print feature of the operating system instead.
+ * @Note the parameter only works in Service mode.
  */
 Print(useOSPrintWindow ? : boolean): boolean;
 ```
