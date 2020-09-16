@@ -1,60 +1,84 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain Buffer Manage
 
-| 	Methods	 | 	 |
-|:-|:-|
-| [ClearImageTags()](#clearimagetags) | [FilterImagesByTag()](#filterimagesbytag) |
-| [SetDefaultTag()](#setdefaulttag) | [TagImages()](#tagimages) |
-| [GetImageBitDepth()](#getimagebitdepth) | [GetImageSize()](#getimagesize) |
-| [GetImageSizeWithSpecifiedType()](#getimagesizewithspecifiedtype) | [GetSelectedImagesSize()](#getselectedimagessize) |
-| [GetImageHeight()](#getimageheight) | [GetImageWidth()](#getimagewidth) |
-| [GetImagePartURL()](#getimageparturl) | [GetImageURL()](#getimageurl) |
-| [GetImageXResolution()](#getimagexresolution) | [GetImageYResolution()](#getimageyresolution) |
-| [GetSkewAngle()](#getskewangle) | [GetSkewAngleEx()](#getskewangleex) |
-| [ImageIDToIndex()](#imageidtoindex) | [IndexToImageID()](#indextoimageid) |
-| [IsBlankImage()](#isblankimage) | [IsBlankImageExpress()](#isblankimageexpress) |
-| [SelectAllImages()](#selectallimages) | [SelectImages](#selectimages) |
-| [MoveImage()](#moveimage) | [SwitchImage()](#switchimage) |
-| [RemoveImage()](#removeimage) | [RemoveAllImages()](#removeallimages) |
-| [RemoveAllSelectedImages()](#removeallselectedimages) |  |
+**Methods**
 
-| 	Properties	 | 		 |
-|:-|:-|
-| [BlankImageCurrentStdDev](#blanimagecurrentstddev) |[BlankImageMaxStdDev](#blankimagemaxstddev) |
-| [BlankImageThreshold](#blankimagethreshold) | [BufferMemoryLimit](#buffermemorylimit) |
-| [CurrentImageIndexInBuffer](#currentimageindexinbuffer) | [HowManyImagesInBuffer](#howmanyimagesinbuffer) |
-|[IfAllowLocalCache](#ifallowlocalcache) | [SelectedImagesIndices](#selectedimagesindices)|
-| [SelectionRectAspectRatio](#selectionrectaspectratio) | [MaxImagesInBuffer](#maximagesinbuffer) |
+* [ClearImageTags()](#clearimagetags) 
+* [FilterImagesByTag()](#filterimagesbytag)
+* [SetDefaultTag()](#setdefaulttag) 
+* [TagImages()](#tagimages)
+* [GetImageBitDepth()](#getimagebitdepth)
+<!--* [GetImageBitDepthAsync()](#getimagebitdepthasync)-->
+* [GetImageSize()](#getimagesize)
+* [GetImageSizeWithSpecifiedType()](#getimagesizewithspecifiedtype) 
+* [GetSelectedImagesSize()](#getselectedimagessize)
+* [GetImageHeight()](#getimageheight) 
+* [GetImageWidth()](#getimagewidth)
+* [GetImagePartURL()](#getimageparturl) 
+* [GetImageURL()](#getimageurl)
+* [GetImageXResolution()](#getimagexresolution) 
+* [GetImageYResolution()](#getimageyresolution)
+* [GetSkewAngle()](#getskewangle) 
+* [GetSkewAngleEx()](#getskewangleex)
+* [ImageIDToIndex()](#imageidtoindex) 
+* [IndexToImageID()](#indextoimageid)
+* [IsBlankImage()](#isblankimage) 
+* [IsBlankImageExpress()](#isblankimageexpress)
+* [SelectAllImages()](#selectallimages) 
+* [SelectImages()](#selectimages)
+* [MoveImage()](#moveimage) 
+* [SwitchImage()](#switchimage)
+* [RemoveImage()](#removeimage) 
+* [RemoveAllImages()](#removeallimages)
+<!--* [RemoveAllImagesAsync()](#removeallimagesasync)-->
+* [RemoveAllSelectedImages()](#removeallselectedimages)
+<!--* [RemoveAllSelectedImagesAsync()](#removeallselectedimagesasync)-->
 
-| Event |
-|:-|
-| [OnBitmapChanged](#onbitmapchanged) |
-| [OnImageAreaSelected](#onimageareaselected) |
-| [OnImageAreaDeSelected](#onimageareadeselected) |
-| [OnIndexChangeDragDropDone](#onindexchangedragdropdone) |
-| [OnTopImageInTheViewChanged](#ontopimageintheviewchanged) |
+**Properties**
+
+* [BlankImageCurrentStdDev](#blanimagecurrentstddev)
+* [BlankImageMaxStdDev](#blankimagemaxstddev)
+* [BufferMemoryLimit](#buffermemorylimit)
+* [CurrentImageIndexInBuffer](#currentimageindexinbuffer) 
+* [HowManyImagesInBuffer](#howmanyimagesinbuffer)
+* [IfAllowLocalCache](#ifallowlocalcache) 
+* [SelectedImagesIndices](#selectedimagesindices)
+* [MaxImagesInBuffer](#maximagesinbuffer)
+
+**Events**
+
+* [OnBitmapChanged](#onbitmapchanged)
+* [OnIndexChangeDragDropDone](#onindexchangedragdropdone)
+* [OnTopImageInTheViewChanged](#ontopimageintheviewchanged)
 
 > [Deprecation] The following APIs are deprecated.
 
-| Methods | |
-|:-|:-|
-| [GetSelectedImageIndex()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Runtime-Info.html#GetSelectedImageIndex) | [SetSelectedImageIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#SetSelectedImageIndex) |
+**Deprecated Methods**
 
-| Property |
-|:-|
-| [SelectedImagesCount](https://www.dynamsoft.com/docs/dwt15.3.1/API/Runtime-Info.html#SelectedImagesCount) |
+* [GetSelectedImageIndex()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Runtime-Info.html#GetSelectedImageIndex) 
+* [SetSelectedImageIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#SetSelectedImageIndex)
+
+**Deprecated Properties**
+
+* [SelectedImagesCount](https://www.dynamsoft.com/docs/dwt15.3.1/API/Runtime-Info.html#SelectedImagesCount)
 
 ---
 
 ## IndexToImageID
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
- * Return the imageId of an image specified by the index.
- * @param index The index of the image.
- */
+* Return the imageId of an image specified by the index.
+* @param index The index of the image.
+*/
 IndexToImageID(index: number): number;
 ```
 
@@ -62,9 +86,9 @@ IndexToImageID(index: number): number;
 
 ## ImageIDToIndex
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the index of an image specified by the imageId.
  * @param imageId The imageId of the image.
@@ -72,15 +96,15 @@ IndexToImageID(index: number): number;
 ImageIDToIndex(imageId: number): number;
 ```
 
-### Usage notes
+**Usage notes**
 
 An `imageId` is unique and won't change as long as the Dynamsoft Service process is running. It's a better way to keep track of an image than the `index` which changes easily.
 
 ## ClearImageTags
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Remove all tags from the specified image.
  * @param index Specify the image.
@@ -91,9 +115,10 @@ ClearImageTags(index: number): boolean;
 ---
 
 ## FilterImagesByTag
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Filter images by the specified tag.
  * @param tag The tag used as the filter.
@@ -104,9 +129,10 @@ FilterImagesByTag(tag: string): boolean;
 ---
 
 ## SetDefaultTag
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Set a default tag for newlay acquired images.
  * @param tag Specifies the tag.
@@ -117,9 +143,10 @@ SetDefaultTag(tag: string): boolean;
 ---
 
 ## TagImages
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Add a tag to specified images.
  * @param indices Specifies images to be tagged.
@@ -128,10 +155,13 @@ SetDefaultTag(tag: string): boolean;
 TagImages(indices: number[], tag: string): boolean;
 ```
 
-## GetImageBitDepth
-### Syntax
+---
 
-```javascript
+## GetImageBitDepth
+
+**Syntax**
+
+``` typescript
 /**
  * Return the pixel bit depth of the specified image.
  * @param index Specify the image.
@@ -140,11 +170,26 @@ GetImageBitDepth(index: number): number;
 ```
 
 ---
+<!--
+## GetImageBitDepthAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Return the pixel bit depth of the specified image.
+ * @param index Specify the image.
+ */
+GetImageBitDepthAsync(index: number): Promise<number>;
+```
+
+--->
 
 ## GetImageHeight
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the height (in pixels) of the specified image.
  * @param index Specify the image.
@@ -155,9 +200,10 @@ GetImageHeight(index: number): number;
 ---
 
 ## GetImageWidth
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the width (in pixels) of the specified image.
  * @param index Specify the image.
@@ -168,9 +214,10 @@ GetImageWidth(index: number): number;
 ---
 
 ## GetImageXResolution
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the horizontal resolution of the specified image.
  * @param index Specify the image.
@@ -181,9 +228,10 @@ GetImageXResolution(index: number): number;
 ---
 
 ## GetImageYResolution
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the vertical resolution of the specified image.
  * @param index Specify the image.
@@ -194,9 +242,10 @@ GetImageYResolution(index: number): number;
 ---
 
 ## GetSkewAngle
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the skew angle of the specified image.
  * @param index Specify the image.
@@ -219,9 +268,10 @@ GetSkewAngle(
 ---
 
 ## GetSkewAngleEx
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the skew angle of the specified rectangle on the specified image.
  * @param index Specify the image.
@@ -249,16 +299,17 @@ GetSkewAngleEx(
 ): number | void;
 ```
 
-## Usage notes
+**Usage notes**
 
-After you get the skew angle of an image, you can rotate it with the method [Rotate](#WebTwain.Edit.md#rotate) to perform deskewing.
+After you get the skew angle of an image, you can rotate it with the method [Rotate]({{site.info}}api/WebTwain_Edit.html#rotate) to perform deskewing.
 
 ---
 
 ## GetImageSize
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Calculate the size in bytes of the specified image assuming it's resized to the given dimensions.
  * @param index Specify the image.
@@ -269,10 +320,12 @@ GetImageSize(index: number, width: number, height: number): number;
 ```
 
 ---
-## GetImageSizeWithSpecifiedType
-### Syntax
 
-```javascript
+## GetImageSizeWithSpecifiedType
+
+**Syntax**
+
+``` typescript
 /**
  * Calculate the size in bytes of the specified image assuming an expected file type.
  * @param index Specify the image.
@@ -282,10 +335,12 @@ GetImageSizeWithSpecifiedType(index: number, type: Dynamsoft.EnumDWT_ImageType |
 ```
 
 ---
-## GetSelectedImagesSize
-### Syntax
 
-```javascript
+## GetSelectedImagesSize
+
+**Syntax**
+
+``` typescript
 /**
  * Calculate the size in bytes of all selected images assuming an expected file type.
  * @param type Sepcify the expected file type.
@@ -293,16 +348,17 @@ GetImageSizeWithSpecifiedType(index: number, type: Dynamsoft.EnumDWT_ImageType |
 GetSelectedImagesSize(type: Dynamsoft.EnumDWT_ImageType | number): number;
 ```
 
-### Usage notes
+**Usage notes**
 
 If the calculation fails, -1 is returned.
 
 ---
 
 ## GetImagePartURL
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the internal URL of the specified image. 
  * @param index Specify the image.
@@ -312,16 +368,17 @@ If the calculation fails, -1 is returned.
 GetImagePartURL(index: number, width?: number, height?: number): string;
 ```
 
-### Usage notes
+**Usage notes**
 
 If width and height are not specified, you get the original image, otherwise you get the image with specified width or height while keeping the same aspect ratio. The returned string is like this 'dwt://dwt_trial_13000404/img?id=306159652&index=0&t=1502184632022'.
 
 ---
 
 ## GetImageURL
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the direct URL of the specified image. 
  * @param index Specify the image.
@@ -331,16 +388,17 @@ If width and height are not specified, you get the original image, otherwise you
 GetImageURL(index: number, width?: number, height?: number): string;
 ```
 
-### Usage notes
+**Usage notes**
 
 If width or height is set to -1, you get the original image, otherwise you get the image with specified width or height while keeping the same aspect ratio.
 
 ---
 
 ## CurrentImageIndexInBuffer
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Return the index of the current image in the buffer or 
  * Set the image specified by index as the current image.
@@ -349,10 +407,12 @@ CurrentImageIndexInBuffer: number;
 ```
 
 ---
-## HowManyImagesInBuffer
-### Syntax
 
-```javascript
+## HowManyImagesInBuffer
+
+**Syntax**
+
+``` typescript
 /**
  * Return how many images are held in the buffer
  */
@@ -360,25 +420,29 @@ readonly HowManyImagesInBuffer: number;
 ```
 
 ---
-## MaxImagesInBuffer
-### Syntax
 
-```javascript
+## MaxImagesInBuffer
+
+**Syntax**
+
+``` typescript
 /**
  * Return or set how many images can be held in the buffer.
  */ 
 MaxImagesInBuffer: number;
 ```
 
-### Usage notes
+**Usage notes**
 
-When acquiring images and the number of images goes beyond the value set to `MaxImagesInBuffer`, new images will replace old images starting from the 1st one.
+When acquiring images and the number of images goes beyond the value set to `MaxImagesInBuffer` , new images will replace old images starting from the 1st one.
 
 ---
-## SelectedImagesIndices
-### Syntax
 
-```javascript
+## SelectedImagesIndices
+
+**Syntax**
+
+``` typescript
 /**
  * Return the indices of the selected images.
  */
@@ -386,10 +450,12 @@ readonly SelectedImagesIndices: number[];
 ```
 
 ---
-## SelectAllImages
-### Syntax
 
-```javascript
+## SelectAllImages
+
+**Syntax**
+
+``` typescript
 /**
  * Select all images and return the indices.
  */
@@ -397,11 +463,12 @@ SelectAllImages(): number[];
 ```
 
 ---
+
 ## SelectImages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 
 /**
  * Select the specified images.
@@ -412,25 +479,11 @@ SelectImages(indices: number[]): boolean;
 
 ---
 
-## SelectionRectAspectRatio
-
-### Syntax
-
-```javascript
-/**
- * Change the position of an image in the buffer.
- * @param from Specify the original position by index.
- * @param to Specify the target position by index.
- */
-SelectionRectAspectRatio: number;
-```
-
----
-
 ## MoveImage
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Change the position of an image in the buffer.
  * @param from Specify the original position by index.
@@ -443,9 +496,9 @@ MoveImage(from: number, to: number): boolean;
 
 ## SwitchImage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Exchange the positions of two images.
  * @param index1 Specify the 1st image.
@@ -458,22 +511,25 @@ SwitchImage(index1: number, index2: number): boolean;
 
 ## RemoveImage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
+
 * Remove the specified image.
 * @param index Specify the image.
+
 */
 RemoveImage(index: number): boolean;
 ```
 
 ---
+
 ## RemoveAllImages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Remove all images.
  */
@@ -481,11 +537,25 @@ RemoveAllImages(): boolean;
 ```
 
 ---
+<!--
+## RemoveAllImagesAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Remove all images.
+ */
+RemoveAllImagesAsync(): Promise<boolean>;
+```
+
+--->
+
 ## RemoveAllSelectedImages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Remove all selected images.
  */
@@ -493,12 +563,25 @@ RemoveAllSelectedImages(): boolean;
 ```
 
 ---
+<!--
+## RemoveAllSelectedImagesAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Remove all selected images.
+ */
+RemoveAllSelectedImagesAsync(): Promise<boolean>;
+```
+
+----->
 
 ## SelectionRectAspectRatio
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Specify a aspect ratio to be used when selecting a rectangle on an image.
  */
@@ -509,9 +592,9 @@ SelectionRectAspectRatio: number;
 
 ## BlankImageCurrentStdDev
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the deviation of the pixels in the current image.
  */
@@ -522,9 +605,9 @@ readonly BlankImageCurrentStdDev: number;
 
 ## BlankImageMaxStdDev
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the maximum deviation of the pixels in an image which is used to determine whether the image is blank.
  */
@@ -532,25 +615,24 @@ BlankImageMaxStdDev: number;
 ```
 
 ---
+## BufferMemoryLimit
 
-## BlankImageThreshold
+**Syntax**
 
-### Syntax
-
-```javascript
+``` typescript
 /**
- * Retrun or set the dividing line between black and white.
+ * Return or set how much physical memory is allowed for storing images currently 
+ * loaded in Dynamic Web TWAIN. Once the limit is reached, images will be cached on the hard disk.
  */
-BlankImageThreshold: number;
+BufferMemoryLimit: number;
 ```
 
 ---
-
 ## IsBlankImage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /** 
  * Check whether the specified image is blank.
  * @param index Specify the image.
@@ -562,9 +644,9 @@ IsBlankImage(index: number): boolean;
 
 ## IsBlankImageExpress
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /** 
  * Check whether the specified image is blank.
  * @param index Specify the image.
@@ -572,25 +654,23 @@ IsBlankImage(index: number): boolean;
 IsBlankImageExpress(index: number): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 `IsBlankImage` is more accurate than `IsBlankImageExpress` but it works slower.
 
-`BlankImageCurrentStdDev` should be read after either `IsBlankImage()` or `IsBlankImageExpress`.
+`BlankImageCurrentStdDev` should be read after either `IsBlankImage()` or `IsBlankImageExpress` .
 
-If you believe an image should be blank but `IsBlankImage()` or `IsBlankImageExpress` is returning `false`, you can read `BlankImageCurrentStdDev` for that image and then set a bigger value to `BlankImageMaxStdDev`.
+If you believe an image should be blank but `IsBlankImage()` or `IsBlankImageExpress` is returning `false` , you can read `BlankImageCurrentStdDev` for that image and then set a bigger value to `BlankImageMaxStdDev` .
 
 Both `BlankImageCurrentStdDev` and `BlankImageMaxStdDev` range from 0 to 100.
-
-`BlankImageThreshold` ranges from 0 to 255 and is 128 by default. The bigger the value is, the more likely an image may be regarded as blank.
 
 ---
 
 ## IfAllowLocalCache 
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether the feature of disk caching is enabled.
  */
@@ -601,9 +681,9 @@ IfAllowLocalCache: boolean;
 
 ## OnBitmapChanged
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * A built-in callback triggered when a change occurs in the buffer.
  * @argument indexString A string of the changed index(indices).
@@ -618,7 +698,7 @@ RegisterEvent('OnBitmapChanged',
 ): boolean; 
 ```
 
-### Usage notes
+**Usage notes**
 
 Operation types include 
 
@@ -632,9 +712,9 @@ Operation types include
 
 ## OnTopImageInTheViewChanged
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * A built-in callback triggered when the top image currently displayed in the viewer changes.
  * @argument index Index of the current image.
@@ -646,48 +726,11 @@ RegisterEvent('OnTopImageInTheViewChanged',
 
 ---
 
-## OnImageAreaSelected
-
-### Syntax
-
-```javascript
-/**
- * A built-in callback triggered when a rectangle is selected on an image in the buffer.
- * @argument index Specify the image.
- * @argument left, top, right, bottom: Return the coordinates of the rectangle.
- * @argument rectangleIndex The index of the rectangle
- */
-RegisterEvent('OnImageAreaSelected',
-    function (index: number,
-        left: number, top: number,
-        right: number, bottom: number,
-        rectangleIndex: number
-    ) {}
-): boolean;
-```
-
----
-## OnImageAreaDeSelected
-
-### Syntax
-
-```javascript
-/**
- * A built-in callback triggered when selected rectangles are cleared.
- * @argument index Specify the image.
- */
-RegisterEvent('OnImageAreaDeSelected',
-    function (index: number) {}
-): boolean; 
-```
-
----
-
 ## OnIndexChangeDragDropDone
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * A built-in callback triggered when images in the buffer are dragged to new positions.
  * @argument indexPairs The list of index changes.

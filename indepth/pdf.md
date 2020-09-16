@@ -53,3 +53,6 @@ DWObject.LoadImageEx('', Dynamsoft.EnumDWT_ImageType.IT_ALL,//Opens up file sele
 
 
 ## point to a sample (all platforms compliant)
+
+
+* Set up PDF attributes

@@ -1,26 +1,40 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain.Addon.OCR
 
 For Server Side OCR, check out [Server-Side OCR](#server-side).
 
-| Methods | |
-|:-|:-|
-| [Download()](#download) | [DownloadLangData()](#downloadlangdata) |
-| [IsModuleInstalled()](#ismoduleinstalled) | [SetLanguage()](#setlanguage) |
-| [SetOutputFormat()](#setoutputformat) | [SetPageSetMode()](#setpagesetmode) |
-| [GetIfUseDetectedFont()](#getifusedetectedfont) | [SetIfUseDetectedFont()](#setifusedetectedfont) |
-| [GetUnicodeFontName()](#getunicodefontname) | [SetUnicodeFontName()](#setunicodefontname) |
-| [GetMinFontSizeforMoreAccurateResult()](#getminfontsizeformoreaccurateresult) | [SetMinFontSizeforMoreAccurateResult()](#setminfontsizeformoreaccurateresult) |
-| [Recognize()](#recognize) | [RecognizeFile()](#recognizefile) |
-| [RecognizeRect()](#recognizerect) | [RecognizeSelectedImages()](#recognizeselectedimages) |
+**Methods**
+
+* [Download()](#download) 
+* [DownloadLangData()](#downloadlangdata)
+* [IsModuleInstalled()](#ismoduleinstalled) 
+* [SetLanguage()](#setlanguage)
+* [SetOutputFormat()](#setoutputformat) 
+* [SetPageSetMode()](#setpagesetmode)
+* [GetIfUseDetectedFont()](#getifusedetectedfont) 
+* [SetIfUseDetectedFont()](#setifusedetectedfont)
+* [GetUnicodeFontName()](#getunicodefontname) 
+* [SetUnicodeFontName()](#setunicodefontname)
+* [GetMinFontSizeforMoreAccurateResult()](#getminfontsizeformoreaccurateresult) 
+* [SetMinFontSizeforMoreAccurateResult()](#setminfontsizeformoreaccurateresult)
+* [Recognize()](#recognize) 
+* [RecognizeFile()](#recognizefile)
+* [RecognizeRect()](#recognizerect) 
+* [RecognizeSelectedImages()](#recognizeselectedimages)
 
 ---
 
 ## Download
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Download and install the OCR add-on on the local system.
  * @param path The URL to download the add-on (typically a ZIP file).
@@ -42,16 +56,16 @@ Download(
 ---
 ## IsModuleInstalled
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the OCR engine has been installed.
  */
 IsModuleInstalled(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 This method will attempt to download and install the dll from the server if the dll doesn't exist already or the exising one is of a different version. You can also call `IsModuleInstalled()` first to determine whether it is necessary to call `Download()`.
 
@@ -59,9 +73,9 @@ This method will attempt to download and install the dll from the server if the 
 
 ## DownloadLangData
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Download and install an OCR language package.
  * @param path The URL to download the package (typically a ZIP file).
@@ -84,9 +98,9 @@ DownloadLangData(
 
 ## GetIfUseDetectedFont
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the output uses the fonts detected by the OCR system or the default/provided ones. Only valid when the result format is PDF.
  */
@@ -96,9 +110,9 @@ GetIfUseDetectedFont(): boolean;
 ---
 ## SetIfUseDetectedFont
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set whether the output uses the fonts detected by the OCR system or the default/provided ones. Only valid when the result format is PDF.
  * @param value Whether to use or not the detected font.
@@ -109,9 +123,9 @@ SetIfUseDetectedFont(value: boolean): boolean;
 
 ## GetMinFontSizeforMoreAccurateResult
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the font size base to apply higher-level regional accurate OCR.
  */
@@ -121,9 +135,9 @@ GetMinFontSizeforMoreAccurateResult(): number;
 ---
 ## SetMinFontSizeforMoreAccurateResult
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the font size base to apply higher-level regional accurate OCR.
  * @param size Specify the size.
@@ -131,7 +145,7 @@ GetMinFontSizeforMoreAccurateResult(): number;
 SetMinFontSizeforMoreAccurateResult(size: number): number;
 ```
 
-### Usage notes
+**Usage notes**
 
 If the font size is set to 0, it indicates no regional accurate OCR will be performed.
 
@@ -139,9 +153,9 @@ If the font size is set to 0, it indicates no regional accurate OCR will be perf
 
 ## GetUnicodeFontName
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the font name for OCR. Only valid when the output format is PDF.
  */
@@ -151,9 +165,9 @@ GetUnicodeFontName(): string;
 ---
 ## SetUnicodeFontName
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the font name for OCR. Only valid when the output format is PDF.
  * @param name Specify a font to be used for the OCR.
@@ -161,7 +175,7 @@ GetUnicodeFontName(): string;
 SetUnicodeFontName(name: string): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The `name` parameter in `SetUnicodeFontName()` should be the name (without the `.font` extension) of an existing Windows font in the directory (`C:\Windows\Fonts`).
 
@@ -173,9 +187,9 @@ The font set with `SetUnicodeFontName()` is only used when `SetIfUseDetectedFont
 
 ## SetLanguage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Configure the OCR operation.
  * @param language Specify the target language.
@@ -186,9 +200,9 @@ SetLanguage(language: Dynamsoft.EnumDWT_OCRLanguage | number): boolean;
 ---
 ## SetOutputFormat
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Configure the OCR operation.
  * @param format Specify the output format.
@@ -199,9 +213,9 @@ SetOutputFormat(format: Dynamsoft.EnumDWT_OCROutputFormat | number): boolean;
 ---
 ## SetPageSetMode
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Configure the OCR operation.
  * @param mode Specify the OCR page layout analysis mode.
@@ -209,7 +223,7 @@ SetOutputFormat(format: Dynamsoft.EnumDWT_OCROutputFormat | number): boolean;
 SetPageSetMode(mode: Dynamsoft.EnumDWT_OCRPageSetMode | number): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The default `language` is `eng` which indicates English. To use a certain language, you must first have its language data locally, if it's not available yet, you can download it using the method [DownloadLangData()](#downloadlangdata).
 
@@ -221,9 +235,9 @@ The default `mode` is `PSM_AUTO` which indicates automatic page segmentation.
 
 ## Recognize
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the specified image in the buffer.
  * @param index Specify the image.
@@ -238,7 +252,7 @@ Recognize(
     index: number,
     successCallback: (
         imageId: number,
-        result: IOCRResult
+        result: OCRResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -250,9 +264,9 @@ Recognize(
 ---
 ## RecognizeFile
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 
 /**
  * Perform OCR on the specified local file.
@@ -267,7 +281,7 @@ Recognize(
 RecognizeFile(path: string,
     successCallback: (
         path: string,
-        result: IOCRResult
+        result: OCRResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -279,9 +293,9 @@ RecognizeFile(path: string,
 ---
 ## RecognizeRect
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the specified rectangular area on the image.
  * @param index Specify the image.
@@ -308,7 +322,7 @@ RecognizeRect(
         top: number,
         right: number,
         bottom: number,
-        result: IOCRResult
+        result: OCRResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -320,9 +334,9 @@ RecognizeRect(
 ---
 ## RecognizeSelectedImages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Perform OCR on the selected images in the buffer.
  * @param index Specify the image.
@@ -334,7 +348,7 @@ RecognizeRect(
  */
 RecognizeSelectedImages(
     successCallback: (
-        result: IOCRResult
+        result: OCRResult
     ) => void,
     failureCallback: (
         errorCode: number,
@@ -343,10 +357,10 @@ RecognizeSelectedImages(
 ): void;
 ```
 
-### Usage notes
+**Usage notes**
 
-```javascript
-interface IOCRResult {
+``` typescript
+interface OCRResult {
     /**
      * Return a base64 string that contains the result of the OCR.
      * Newlines are represented by the newline character: '\n'.
@@ -381,9 +395,9 @@ interface IOCRResult {
      * Return the content of a pageset.
      * @param index Specify the pageset
      */
-    GetPageSetContent(index: number): IPageSet;
+    GetPageSetContent(index: number): PageSet;
 }
-interface IPageSet {
+interface PageSet {
     /**
      * Return the number of pages in the pageset.
      */
@@ -392,9 +406,9 @@ interface IPageSet {
      * Return the content of the specified page.
      * @index Specify the page.
      */
-    GetPageContent(index: number): IPage;
+    GetPageContent(index: number): Page;
 }
-interface IPage {
+interface Page {
     /**
      * Return the number of lines in the page.
      */
@@ -403,9 +417,9 @@ interface IPage {
      * Return the content of the specified line.
      * @index Specify the line.
      */
-    GetLineContent(index: number): ILine;
+    GetLineContent(index: number): Line;
 }
-interface ILine {
+interface Line {
     /**
      * Return the number of words in the line.
      */
@@ -418,9 +432,9 @@ interface ILine {
      * Return the content of the specified word.
      * @index Specify the word.
      */
-    GetWordContent(index: number): IWord;
+    GetWordContent(index: number): Word;
 }
-interface IWord {
+interface Word {
     /**
      * Return the font name/size of the word.
      */

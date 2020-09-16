@@ -7,6 +7,13 @@ title: "TOADD"
 
 # DYNAMSOFT SERVICE
 
+## How to install DWT
+
+- For development and test
+  - Refer to [how to get dwt]({{site.about}}resources.html#how-to-get-dwt) to download and install the library.
+- For production (installation on the client machines)
+  - The library has built-in guidance for the installation
+  
 * How to install it
     - Normal procedure (prompt and such)
     - Install by command

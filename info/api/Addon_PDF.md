@@ -1,21 +1,27 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain.Addon.PDF
 
-| Methods |
-|:-|
-| [ConvertToImage](#converttoimage) |
-| [GetConvertMode](#getconvertmode) |
-| [IsModuleInstalled](#ismoduleinstalled) |
-| [IsTextBasedPDF()](#istextbasedpdf) |
-| [SetConvertMode()](#setconvertmode) |
-| [SetPassword()](#setpassword) |
-| [SetResolution()](#setresolution) |
-| [Write.Setup()](#writesetup) |
+**Methods**
+
+* [ConvertToImage](#converttoimage)
+* [GetConvertMode](#getconvertmode)
+* [IsModuleInstalled](#ismoduleinstalled)
+* [IsTextBasedPDF()](#istextbasedpdf)
+* [SetConvertMode()](#setconvertmode)
+* [SetPassword()](#setpassword)
+* [SetResolution()](#setresolution)
+* [Write.Setup()](#writesetup)
 
 ---
 ## ConvertToImage
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
  * Convert the specified PDF file to image(s).
  * @param path The path of the PDF file.
@@ -37,8 +43,8 @@ ConvertToImage(
 
 ---
 ## GetConvertMode
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
  * Return the convert mode.
  */
@@ -47,8 +53,8 @@ GetConvertMode(): number;
 
 ---
 ## IsModuleInstalled
-### Syntax
-```javascript
+**Syntax**
+``` typescript
 /**
 * Return whether the PDF module has been installed.
 */
@@ -57,9 +63,9 @@ IsModuleInstalled(): boolean;
 
 ---
 ## IsTextBasedPDF
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Detect whether a local PDF file is text based or not.
  * @path Specify the path of the PDF file.
@@ -69,9 +75,9 @@ IsTextBasedPDF(path: string): boolean;
 
 ---
 ## SetConvertMode
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the convert mode.
  * @param mode Specify the mode.
@@ -81,9 +87,9 @@ SetConvertMode(mode: Dynamsoft.EnumDWT_ConvertMode | number): boolean;
 
 ---
 ## SetPassword
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the password for reading encrypted PDF files.
  * @param password Specify the password.
@@ -93,9 +99,9 @@ SetPassword(password: string): boolean;
 
 ---
 ## SetResolution
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the resolution for rasterizing.
  * @param resolution Specify the resolution.
@@ -103,7 +109,7 @@ SetPassword(password: string): boolean;
 SetResolution(resolution: number): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 There are three conversion modes
 
@@ -116,17 +122,16 @@ The default resolution for the conversion is 200. We recommend that you set a va
 ---
 
 ## Write.Setup()
+**Syntax**
 
-### Syntax
-
-```javascript
+``` typescript
 /**
  * Set up the PDF writing engine.
  * @param settings Configures how the PDF is generated.
  */
-Write.Setup(settings: IPDFWSettings): void;
+Write.Setup(settings: PDFWSettings): void;
 
-interface IPDFWSettings {
+interface PDFWSettings {
     /**
      * Specify the author.
      */
@@ -178,6 +183,6 @@ interface IPDFWSettings {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
 Use this method before you create a PDF with methods such as `HTTPUpload()` and `SaveAsPDF()`;

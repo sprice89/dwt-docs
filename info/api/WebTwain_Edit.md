@@ -1,40 +1,62 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain Edit
 
-| Methods | |
-|:-|:-|
-| [Crop()](#crop) | [CropToClipboard()](#croptoclipboard) |
-| [CutFrameToClipboard()](#cutframetoclipboard) | [CutToClipboard()](#cuttoclipboard) |
-| [CopyToClipboard()](#copytoclipboard) | [Erase()](#erase) |
-| [Flip()](#flip) | [Mirror()](#mirror) |
-| [Rotate()](#rotate) | [RotateEx()](#rotateex) |
-| [RotateLeft()](#rotateleft) | [RotateRight()](#rotateright) |
-| [ChangeBitDepth()](#changebitdepth) | [SetDPI()](#setdpe) |
-| [ConvertToBW()](#converttobw) | [ConvertToGrayScale()](#converttograyscale) |
-| [ChangeImageSize()](#changeimagesize) | [Invert()](#invert) |
-| [SetImageWidth()](#setimagewidth) | [ShowImageEditor()](#showimageeditor) |
+## Methods
 
-| Property |
-|:-|
-| [BackgroundFillColor](#backgroundfillcolor) |
+* [Crop()](#crop) 
+* [CropToClipboard()](#croptoclipboard)
+* [CutFrameToClipboard()](#cutframetoclipboard) 
+* [CutToClipboard()](#cuttoclipboard)
+* [CopyToClipboard()](#copytoclipboard) 
+* [Erase()](#erase)
+* [Flip()](#flip)
+<!--* [FlipAsync()](#flipasync)-->
+* [Mirror()](#mirror)
+<!--* [MirrorAsync()](#mirrorasync)-->
+* [Rotate()](#rotate) 
+<!--* [RotateAsync()](#rotate) -->
+* [RotateEx()](#rotateex)
+* [RotateLeft()](#rotateleft) 
+<!--* [RotateLeftAsync()](#rotateleft) -->
+* [RotateRight()](#rotateright)
+<!--* [RotateRightAsync()](#rotateright)-->
+* [ChangeBitDepth()](#changebitdepth) 
+* [SetDPI()](#setdpe)
+* [ConvertToBW()](#converttobw) 
+* [ConvertToGrayScale()](#converttograyscale)
+<!--* [ConvertToGrayScaleAsync()](#converttograyscaleasync)-->
+* [ChangeImageSize()](#changeimagesize) 
+* [Invert()](#invert)
+* [SetImageWidth()](#setimagewidth) 
+* [ShowImageEditor()](#showimageeditor)
+
+**Properties**
+
+* [BackgroundFillColor](#backgroundfillcolor)
 
 > [Deprecation] The following APIs are deprecated.
 >
 > [Alternative] Annotation feature to be added in a later version.
 
+## Methods
 
-| Methods | |
-|:-|:-|
-| [AddText()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#AddText) | [CreateTextFont()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#CreateTextFont) |
-| [OverlayRectangle()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#OverlayRectangle) | |
+* [AddText()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#AddText) 
+* [CreateTextFont()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#CreateTextFont)
+* [OverlayRectangle()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Basic-Edit.html#OverlayRectangle)
 
 ---
 
 ## ShowImageEditor
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Show the built-in image editor. If called without any arguments while the editor is open, it'll close the editor.
  * @param divId Specify a div element to hold the editor.
@@ -48,19 +70,19 @@ ShowImageEditor(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 If you call the method without any parameter, the editor will take up the full screen. If you'd like to show the editor in a div element, you need to specify all 3 parameters.
 
-If the editor is shown full-screen, you can call the method again to hide it.
+If you call the method again, the editor will be closed.
 
 ---
 
 ## ChangeBitDepth
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Change the bit depth of the specified image.
  * @param index Specify the image.
@@ -74,7 +96,7 @@ ChangeBitDepth(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The allowed bit depths are 1, 4, 8, 24.
 
@@ -82,9 +104,9 @@ The allowed bit depths are 1, 4, 8, 24.
 
 ## ChangeImageSize
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Change the size of the specified image.
  * @param index Specify the image.
@@ -110,10 +132,12 @@ ChangeImageSize(
 ```
 
 ---
-## SetDPI
-### Syntax
 
-```javascript
+## SetDPI
+
+**Syntax**
+
+``` typescript
 /**
  * Change the DPI (dots per inch) of the specified image.
  * @param index Specify the image.
@@ -140,17 +164,17 @@ SetDPI(
 ): void | boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Check out [Dynamsoft.EnumDWT_InterpolationMethod](Dynamsoft.Enum.md#dynamsoftenumdwt_interpolationmethod).
+Check out [`Dynamsoft.EnumDWT_InterpolationMethod`]({{site.info}}api/Dynamsoft_Enum.html#dynamsoftenumdwt_interpolationmethod).
 
 ---
 
 ## ConvertToBW
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Convert the specified image to black & white.
  * @param index Specify the image.
@@ -170,11 +194,12 @@ ConvertToBW(
 ```
 
 ---
+
 ## ConvertToGrayScale
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Convert the specified image to grayscale.
  * @param index Specify the image.
@@ -194,10 +219,28 @@ ConvertToGrayScale(
 ```
 
 ---
+<!--
+## ConvertToGrayScaleAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Convert the specified image to grayscale.
+ * @param index Specify the image.
+ */
+ConvertToGrayScaleAsync(
+    index: number
+): Promise<boolean>;
+```
+
+----->
+
 ## Invert
 
-### Syntax
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Invert the colour of the pixels on the specified image.
  * @param index Specify the image.
@@ -220,9 +263,9 @@ Invert(
 
 ## SetImageWidth
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Change the width of the specified image by adding a margin or removing part of the image.
  * @param index Specify the image.
@@ -247,9 +290,9 @@ SetImageWidth(
 
 ## Flip
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Flip the specified image.
  * @param index Specify the image.
@@ -269,10 +312,28 @@ Flip(
 ```
 
 ---
+<!--
+## FlipAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Flip the specified image.
+ * @param index Specify the image.
+ */
+FlipAsync(
+    index: number
+): Promise<boolean>;
+```
+
+--->
+
 ## Mirror
 
-### Syntax
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Mirror the specified image.
  * @param index Specify the image.
@@ -292,9 +353,27 @@ Mirror(
 ```
 
 ---
+<!--
+## MirrorAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Mirror the specified image.
+ */
+MirrorAsync(
+    index: number
+): Promise<boolean>;
+```
+
+--->
+
 ## RotateLeft
-### Syntax
-```javascript
+
+**Syntax**
+
+``` typescript
 /**
  * Rotate the specified image 90 degrees counterclockwise.
  * @param index Specify the image.
@@ -314,9 +393,28 @@ RotateLeft(
 ```
 
 ---
+<!--
+## RotateLeftAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Rotate the specified image 90 degrees counterclockwise.
+ * @param index Specify the image.
+ */
+RotateLeftAsync(
+    index: number
+): Promise<boolean>;
+```
+
+--->
+
 ## RotateRight
-### Syntax
-```javascript
+
+**Syntax**
+
+``` typescript
 /**
  * Rotate the specified image 90 degrees clockwise.
  * @param index Specify the image.
@@ -336,9 +434,27 @@ RotateRight(
 ```
 
 ---
+<!--
+## RotateRightAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Rotate the specified image 90 degrees clockwise.
+ */
+RotateRightAsync(
+    index: number
+): Promise<boolean>;
+```
+
+--->
+
 ## Rotate
-### Syntax
-```javascript
+
+**Syntax**
+
+``` typescript
 /**
  * Rotate the specified image by the specified angle.
  * @param index Specify the image.
@@ -362,9 +478,32 @@ Rotate(
 ```
 
 ---
+<!--
+## RotateAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Rotate the specified image by the specified angle.
+ * @param index Specify the image.
+ * @param angle Specify the angle.
+ * @param keepSize Whether to keep the original size.
+ */
+RotateAsync(
+    index: number,
+    angle: number,
+    keepSize: boolean
+): Promise<boolean>;
+```
+
+--->
+
 ## RotateEx
-### Syntax
-```javascript
+
+**Syntax**
+
+``` typescript
 /**
  * Rotate the specified image by the specified angle.
  * @param index Specify the image.
@@ -389,16 +528,17 @@ RotateEx(
 ): void | boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Check out [Dynamsoft.EnumDWT_InterpolationMethod](Dynamsoft.Enum.md#dynamsoftenumdwt_interpolationmethod).
+Check out [`Dynamsoft.EnumDWT_InterpolationMethod`]({{site.info}}api/Dynamsoft_Enum.html#dynamsoftenumdwt_interpolationmethod).
 
 ---
 
 ## Crop
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Crop the specified image using the specified coordinates.
  * @param index Specify the image.
@@ -426,10 +566,12 @@ Crop(
 ```
 
 ---
-## Erase
-### Syntax
 
-```javascript
+## Erase
+
+**Syntax**
+
+``` typescript
 /**
  * Erase a rectangular area from the specified image.
  * @param index Specify the image.
@@ -457,10 +599,12 @@ Erase(
 ```
 
 ---
-## CopyToClipboard
-### Syntax
 
-```javascript
+## CopyToClipboard
+
+**Syntax**
+
+``` typescript
 /**
  * Copy the specified image to the clipboard of the operating system.
  * @param index Specify the image.
@@ -469,11 +613,26 @@ CopyToClipboard(index: number): boolean;
 ```
 
 ---
+<!--
+## CopyToClipboardAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Copy the specified image to the clipboard of the operating system.
+ * @param index Specify the image.
+ */
+CopyToClipboardAsync(index: number): Promise<boolean>;
+```
+
+--->
 
 ## CutToClipboard
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Cut the specified image to the clipboard of the operating system.
  * @param index Specify the image.
@@ -484,9 +643,10 @@ CutToClipboard(index: number): boolean;
 ---
 
 ## CropToClipboard
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Crop a rectangular area from the specified image to the clipboard of the operating system.
  * @param index Specify the image.
@@ -507,9 +667,10 @@ CropToClipboard(
 ---
 
 ## CutFrameToClipboard
-### Syntax
 
-```javascript
+**Syntax**
+
+``` typescript
 /**
  * Cut a rectangular area from the specified image to the clipboard of the operating system.
  * @param index Specify the image.
@@ -527,7 +688,7 @@ CutFrameToClipboard(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The empty area resulted from the crop/erase/cut will be filled with the colour set with [BackgroundFillColor](#backgroundfillcolor).
 
@@ -535,15 +696,15 @@ The empty area resulted from the crop/erase/cut will be filled with the colour s
 
 ## BackgroundFillColor
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the fill colour for the empty area on an image that has been cut/cropped/erased.
  */
 BackgroundFillColor: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 By default the colour is white (0xffffff). The byte-ordering of the 24-bit RGB value is **RRGGBB**. RR represents red, GG represents green and BB represents blue.

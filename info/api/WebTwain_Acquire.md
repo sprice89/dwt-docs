@@ -1,108 +1,170 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain Scan
 
->  The following APIs are compatible with  TWAIN | ICA | SANE (Windows, macOS and Linux)
+> The following APIs are compatible with  TWAIN | ICA | SANE (Windows, macOS and Linux)
 
-| Methods |  |
-|:-|:-|
-| [AcquireImage()](#acquireimage) | [CloseSource()](#closesource) |
-| [CloseWorkingProcess](#closeworkingprocess) | [DisableSource()](#disablesource) |
-| [EnableSource()](#enablesource) | [GetDeviceType()](#getdevicetype) |
-| [GetSourceNameItems()](#getsourcenameitems) | [GetSourceNames()](#getsourcenames) |
-| [OpenSource()](#opensource) | [SelectSource()](#selectsource) |
-| [SelectSourceByIndex()](#selectsourcebyindex) | [SetOpenSourceTimeout()](#setopensourcetimeout) |
-| [startScan()](#startscan) | [EnableSourceUI()](#enablesourceui) |
+**Methods**
 
-| Properties |  |
-|:-|:-|
-| [CurrentSourceName](#currentsourcename) | [IfDisableSourceAfterAcquire](#ifdisablesourceafteracquire) |
-| [IfDuplexEnabled](#ifduplexenabled) | [IfFeederEnabled](#iffeederenabled) |
-| [PageSize](#pagesize) | [PixelType](#pixeltype) |
-| [Resolution](#resolution) | [SourceCount](#sourcecount) |
+* [GetSourceNameItems()](#getsourcenameitems) 
+* [GetSourceNames()](#getsourcenames)
+* [GetSourceNamesAsync()](#getsourcenamesasync)
+* [GetDeviceType()](#getdevicetype)
+* [SelectSource()](#selectsource)
+* [SelectSourceAsync()](#selectsourceasync)
+* [SelectSourceByIndex()](#selectsourcebyindex) 
+* [SelectSourceByIndexAsync()](#selectsourcebyindexasync) 
+* [SetOpenSourceTimeout()](#setopensourcetimeout)
+* [OpenSource()](#opensource)
+* [OpenSourceAsync()](#opensourceasync)
+* [EnableSourceUI()](#enablesourceui)
+* [EnableSource()](#enablesource)
+* [AcquireImage()](#acquireimage)
+* [startScan()](#startscan)
+* [DisableSource()](#disablesource)
+* [CloseSource()](#closesource)
+* [CloseSourceAsync()](#closesourceasync)
+* [CloseWorkingProcess](#closeworkingprocess)
 
-|Events| |
-|:-|:-|
-| [OnPostAllTransfers](#onpostalltransfers) | [OnPostTransfer](#onposttransfer) |
-| [OnPostTransferAsync](#onposttransferasync) | [OnPreAllTransfers](#onprealltransfers) |
-| [OnPreTransfer](#onpretransfer) | |
+**Properties**
+
+* [CurrentSourceName](#currentsourcename) 
+* [IfDisableSourceAfterAcquire](#ifdisablesourceafteracquire)
+* [IfDuplexEnabled](#ifduplexenabled) 
+* [IfFeederEnabled](#iffeederenabled)
+* [PageSize](#pagesize) 
+* [PixelType](#pixeltype)
+* [Resolution](#resolution) 
+* [SourceCount](#sourcecount)
+
+**Events**
+
+* [OnPostAllTransfers](#onpostalltransfers) 
+* [OnPostTransfer](#onposttransfer)
+* [OnPostTransferAsync](#onposttransferasync) 
+* [OnPreAllTransfers](#onprealltransfers)
+* [OnPreTransfer](#onpretransfer)
 
 > The following APIs are compatible with TWAIN (mostly Windows, but could also be macOS)
 
-| 	Methods	 | 		 |
-|:-|:-|
-| [CancelAllPendingTransfers()](#cancelallpendingtransfers) |  [CloseSourceManager()](#closesourcemanager) |
-| [FeedPage()](#feedpage) | [GetCustomDSData()](#getcustomdsdata) |
-| [GetCustomDSDataEx()](#getcustomdsdataex) | [OpenSourceManager()](#opensourcemanager) |
-| [ResetImageLayout()](#resetimagelayout) | [RewindPage()](#rewindpage) |
-| [SetCustomDSData()](#setcustomdsdata) | [SetCustomDSDataEx()](#setcustomdsdataex) |
-| [SetFileXferInfo()](#setfilexferinfo) | [SetImageLayout()](#setimagelayout) |
-| [getCapabilities](#getcapabilities) | [setCapabilities](#setcapabilities) |
+**Methods**
 
-| 	Properties	 | 		 |
-|:-|:-|
-| [BitDepth ](#bitdepth) | [Brightness](#brightness) |
-| [Contrast](#contrast) | [DataSourceStatus](#datasourcestatus) |
-| [DefaultSourceName](#defaultsourcename) | [Duplex](#duplex) |
-| [IfAutoBright](#ifautobright) | [IfAutoDiscardBlankpages](#ifautodiscardblankpages) |
-| [IfAutoFeed](#ifautofeed) | [IfAutomaticBorderDetection](#ifautomaticborderdetection) |
-| [IfAutomaticDeskew](#ifautomaticdeskew) | [IfAutoScan](#ifautoscan) |
-| [IfFeederLoaded](#iffeederloaded) | [IfPaperDetectable](#ifpaperdetectable) |
-| [IfShowIndicator](#ifshowindicator) | [IfShowUI](#ifshowui) |
-| [IfUIControllable](#ifuicontrollable) | [IfUseTwainDSM](#ifusetwaindsm) |
-| [ImageLayoutDocumentNumber](#imagelayoutdocumentnumber) | [ImageLayoutFrameBottom](#imagelayoutframebottom) |
-| [ImageLayoutFrameLeft](#imagelayoutframeleft) | [ImageLayoutFrameNumber](#imagelayoutframenumber) |
-| [ImageLayoutFrameRight](#imagelayoutframeright) | [ImageLayoutFrameTop](#imagelayoutframetop) |
-| [ImageLayoutPageNumber](#imagelayoutpagenumber) | [ImagePixelType](#imagepixeltype) |
-| [ImageBitsPerPixel](#imagebitsperpixel) | [ImageLength](#imagelength) |
-| [ImageWidth](#imagewidth) | [ImageXResolution](#imagexresolution)|
-| [ImageYResolution](#imageyresolution) | [XferCount](#xfercount) |
-| [MagData](#magdata) | [MagType](#magtype) |
-| [PendingXfers](#pendingxfers) | [PixelFlavor](#pixelflavor) |
-| [TransferMode](#transfermode) | [Unit](#unit) |
+* [OpenSourceManager()](#opensourcemanager)
+* [OpenSourceManagerAsync()](#opensourcemanagerasync)  
+* [CloseSourceManager()](#closesourcemanager)
+* [CloseSourceManagerAsync()](#closesourcemanagerasync)
+* [GetCustomDSData()](#getcustomdsdata)
+* [GetCustomDSDataEx()](#getcustomdsdataex) 
+* [CancelAllPendingTransfers()](#cancelallpendingtransfers)
+* [FeedPage()](#feedpage) 
+* [ResetImageLayout()](#resetimagelayout) 
+* [RewindPage()](#rewindpage)
+* [SetCustomDSData()](#setcustomdsdata) 
+* [SetCustomDSDataEx()](#setcustomdsdataex)
+* [SetFileXferInfo()](#setfilexferinfo) 
+* [SetImageLayout()](#setimagelayout)
+* [getCapabilities](#getcapabilities) 
+* [setCapabilities](#setcapabilities)
 
-|Event|
-|:-|
-| [OnSourceUIClose](#onsourceuiclose) |
+**Properties**
 
+* [BitDepth ](#bitdepth) 
+* [BlankImageThreshold](#blankimagethreshold) 
+* [Brightness](#brightness)
+* [Contrast](#contrast) 
+* [DataSourceStatus](#datasourcestatus)
+* [DefaultSourceName](#defaultsourcename) 
+* [Duplex](#duplex)
+* [IfAutoBright](#ifautobright) 
+* [IfAutoDiscardBlankpages](#ifautodiscardblankpages)
+* [IfAutoFeed](#ifautofeed)
+* [IfAutomaticBorderDetection](#ifautomaticborderdetection)
+* [IfAutomaticDeskew](#ifautomaticdeskew) 
+* [IfAutoScan](#ifautoscan)
+* [IfFeederLoaded](#iffeederloaded) 
+* [IfPaperDetectable](#ifpaperdetectable)
+* [IfShowIndicator](#ifshowindicator) 
+* [IfShowUI](#ifshowui)
+* [IfUIControllable](#ifuicontrollable) 
+* [IfUseTwainDSM](#ifusetwaindsm)
+* [ImageCaptureDriverType](#imagecapturedrivertype)
+* [ImageLayoutDocumentNumber](#imagelayoutdocumentnumber) 
+* [ImageLayoutFrameBottom](#imagelayoutframebottom)
+* [ImageLayoutFrameLeft](#imagelayoutframeleft) 
+* [ImageLayoutFrameNumber](#imagelayoutframenumber)
+* [ImageLayoutFrameRight](#imagelayoutframeright) 
+* [ImageLayoutFrameTop](#imagelayoutframetop)
+* [ImageLayoutPageNumber](#imagelayoutpagenumber) 
+* [ImagePixelType](#imagepixeltype)
+* [ImageBitsPerPixel](#imagebitsperpixel) 
+* [ImageLength](#imagelength)
+* [ImageWidth](#imagewidth) 
+* [ImageXResolution](#imagexresolution)|
+* [ImageYResolution](#imageyresolution) 
+* [XferCount](#xfercount)
+* [MagData](#magdata) 
+* [MagType](#magtype)
+* [PendingXfers](#pendingxfers) 
+* [PixelFlavor](#pixelflavor)
+* [TransferMode](#transfermode) 
+* [Unit](#unit)
+
+**Events**
+
+* [OnSourceUIClose](#onsourceuiclose)
 
 > [Deprecation] The following APIs are deprecated.
 > [Alternative] Use getCapabilities() and setCapabilities() instead.
 
-| Methods | |
-|:-|:-|
-| [CapGet()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGet) | [CapGetHelp()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetHelp) |
-| [CapGetCurrent()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetCurrent) | [CapGetDefault()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetDefault) |
-| [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom) | [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft) |
-| [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight) | [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop) |
-| [CapGetLabel()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabel) | [CapGetLabels()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabels) |
-| [CapSet()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSet) | [CapReset()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapReset) |
-| [CapSetFrame()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame) | [CapIfSupported()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapIfSupported) |
-| [GetCapItems()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItems) | [GetCapItemsString()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItemsString) |
-| [SetCapItems()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItems) | [SetCapItemsString()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItemsString) |
+**Methods**
 
-| Properties | |
-|:-|:-|
-| [Capability](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#Capability) | [CapNumItems](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapNumItems) |
-| [CapMaxValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMaxValue) | [CapMinValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMinValue) |
-| [CapCurrentValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentValue) | [CapCurrentIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentIndex) |
-| [CapDefaultValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultValue) | [CapDefaultIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultIndex) |
-| [CapType](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapType) | [CapValueType](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueType) |
-| CapDescription | [CapStepSize](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapStepSize) |
-| [CapValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValue) | [CapValueString](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueString) |
+* [CapGet()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGet) 
+* [CapGetHelp()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetHelp)
+* [CapGetCurrent()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetCurrent) 
+* [CapGetDefault()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetDefault)
+* [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom) 
+* [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft)
+* [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight) 
+* [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop)
+* [CapGetLabel()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabel) 
+* [CapGetLabels()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetLabels)
+* [CapSet()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSet) 
+* [CapReset()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapReset)
+* [CapSetFrame()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame) 
+* [CapIfSupported()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapIfSupported)
+* [GetCapItems()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItems) 
+* [GetCapItemsString()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#GetCapItemsString)
+* [SetCapItems()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItems) 
+* [SetCapItemsString()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#SetCapItemsString)
 
-> The following API only makes sense on macOS and Linux
+**Properties**
 
-| Property|
-|:-|
-| [ImageCaptureDriverType](#imagecapturedrivertype) |
+* [Capability](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#Capability) 
+* [CapNumItems](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapNumItems)
+* [CapMaxValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMaxValue) 
+* [CapMinValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapMinValue)
+* [CapCurrentValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentValue) 
+* [CapCurrentIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapCurrentIndex)
+* [CapDefaultValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultValue) 
+* [CapDefaultIndex](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapDefaultIndex)
+* [CapType](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapType) 
+* [CapValueType](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueType)
+* [CapStepSize](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapStepSize)
+* [CapValue](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValue) 
+* [CapValueString](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapValueString)
 
 ---
 
 ## AcquireImage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Start image acquisition.
  * @param deviceConfiguration Configuration for the acquisition.
@@ -112,7 +174,7 @@
  * @argument errorString The error string.
  */
 AcquireImage(
-    deviceConfiguration?: IDeviceConfiguration
+    deviceConfiguration?: DeviceConfiguration
 ): void;
 
 AcquireImage(
@@ -123,14 +185,14 @@ AcquireImage(
 ): void;
 
 AcquireImage(
-    deviceConfiguration?: IDeviceConfiguration,
+    deviceConfiguration?: DeviceConfiguration,
     successCallBack?: () => void,
     failureCallBack?: (
         errorCode: number,
         errorString: string) => void
 ): void;
 
-interface IDeviceConfiguration {
+interface DeviceConfiguration {
     /**
      * Whether to show the built-in User Interface from the device vendor
      */
@@ -170,8 +232,7 @@ interface IDeviceConfiguration {
 }
 ```
 
-
-### Usage notes
+**Usage notes**
 
 `extendedImageInfoQueryLevel` is 0 by default which means the following information will be retrieved (if available):
 
@@ -259,14 +320,14 @@ If it's set to 1, the following will also be retrieved (if available):
 
 If it's set to 2, then besides what's mentioned in the two tables above, the Dynamci Web TWAIN library will also try to query the scanner for its own custom extended image info.
 
-### Example
+**Example**
 
 > The example code shows 4 ways to use the API `AcquireImage()`
 
-```javascript
+``` javascript
 var deviceConfiguration = {
     IfShowUI: false,
-    PixelType:Dynamsoft.EnumDWT_PixelType.TWPT_RGB,
+    PixelType: Dynamsoft.EnumDWT_PixelType.TWPT_RGB,
     Resolution: 300,
     IfFeederEnabled: true,
     IfDuplexEnabled: false,
@@ -288,7 +349,7 @@ function AcquireImage1() {
     DWObject.SelectSource(function() {
         DWObject.OpenSource();
         DWObject.IfShowUI = false;
-        DWObject.PixelType =Dynamsoft.EnumDWT_PixelType.TWPT_RGB;
+        DWObject.PixelType = Dynamsoft.EnumDWT_PixelType.TWPT_RGB;
         DWObject.Resolution = 300;
         DWObject.IfFeederEnabled = true;
         DWObject.IfDuplexEnabled = false;
@@ -308,7 +369,7 @@ function AcquireImage3() {
     DWObject.SelectSource(function() {
         DWObject.OpenSource();
         DWObject.IfShowUI = false;
-        DWObject.PixelType =Dynamsoft.EnumDWT_PixelType.TWPT_RGB;
+        DWObject.PixelType = Dynamsoft.EnumDWT_PixelType.TWPT_RGB;
         DWObject.Resolution = 300;
         DWObject.IfFeederEnabled = true;
         DWObject.IfDuplexEnabled = false;
@@ -329,9 +390,9 @@ function AcquireImage4() {
 
 ## CloseSource
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Close the data source (a TWAIN/ICA/SANE device which in most cases is a scanner) to free it to be used by other applications.
  */
@@ -340,35 +401,48 @@ CloseSource(): boolean;
 
 ---
 
+## CloseSourceAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Close the data source (a TWAIN/ICA/SANE device which in most cases is a scanner) to free it to be used by other applications.
+ */
+CloseSourceAsync(): Promise<boolean>;
+```
+
+---
+
 ## DisableSource
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Disable the data source (a TWAIN/ICA/SANE device which in most cases is a scanner) to stop the acquiring process. If the data source's user interface is displayed, it will be closed.
  */
 DisableSource(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-After `DisableSource()` is called, the Source is still open and you can continue to acquire images by calling `AcquireImage()` or `EnableSource()`.
+After `DisableSource()` is called, the Source is still open and you can continue to acquire images by calling `AcquireImage()` or `EnableSource()` .
 
 ---
 
 ## EnableSource
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Enable the data source to start the acquiring process.
  */ 
 EnableSource(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The method is equivalent to `AcquireImage()` without parameters.
 
@@ -376,9 +450,9 @@ The method is equivalent to `AcquireImage()` without parameters.
 
 ## EnableSourceUI
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Display the TWAIN source's built-in user interface.
  * @param successCallback A callback function that is executed if the request succeeds.
@@ -392,17 +466,17 @@ EnableSourceUI(
 ): void;
 ```
 
-### Usage notes
+**Usage notes**
 
-This method enables the user to manipulate the settings for scanning but not start an actual scan. It only works if the source supports the capability `CAP_ENABLEDSUIONLY`. User can call [GetCustomDSDataEx()](#getcustomdsdataex) to save the settings in the callback `successCallBack` and later call [SetCustomDSDataEx()](#setcustomdsdataex) to apply the settings before starting a scan.
+This method enables the user to manipulate the settings for scanning but not start an actual scan. It only works if the source supports the capability `CAP_ENABLEDSUIONLY` . User can call [GetCustomDSDataEx()](#getcustomdsdataex) to save the settings in the callback `successCallBack` and later call [SetCustomDSDataEx()](#setcustomdsdataex) to apply the settings before starting a scan.
 
 ---
 
 ## OpenSource
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Load a data source to get it ready to acquire images.
  */
@@ -411,18 +485,31 @@ OpenSource(): boolean;
 
 ---
 
+## OpenSourceAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Load a data source to get it ready to acquire images.
+ */
+OpenSourceAsync(): Promise<boolean>;
+```
+
+---
+
 ## GetSourceNames
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return all available data sources (scanners, etc.) and optionally all detailed information about them.
  * @param bIncludeDetails Whether to return more details about the data sources or just their names.
  */
 GetSourceNames(bIncludeDetails: boolean): string[] | ISourceDetails[];
 
-interface ISourceDetails {
+interface SourceDetails {
     /**
      * The driver type which can be "TWAIN" | "ICA" | "SANE"
      */
@@ -463,9 +550,9 @@ interface ISourceDetails {
     /**
      * Detailed version of the data source.
      */
-    Version?: IVersion;
+    Version?: Version;
 }
-interface IVersion {
+interface Version {
     MajorNum?: number;
     MinorNum?: number;
     Language?: number;
@@ -476,11 +563,25 @@ interface IVersion {
 
 ---
 
+## GetSourceNamesAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Return all available data sources (scanners, etc.) and optionally all detailed information about them.
+ * @param bIncludeDetails Whether to return more details about the data sources or just their names.
+ */
+GetSourceNamesAsync(bIncludeDetails: boolean): Promise<string[] | ISourceDetails[]>;
+```
+
+---
+
 ## SelectSource
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Bring up the Source Selection User Interface (UI) for the user to choose a data source.
  * @param successCallback A callback function that is executed if the request succeeds.
@@ -494,29 +595,49 @@ SelectSource(
 ): boolean | void;
 ```
 
-### Usage notes
+**Usage notes**
 
-It's recommended to use this API asynchronously by pass arguments to the parameters `successCallback` and `failureCallback`.
+It's recommended to use this API asynchronously by pass arguments to the parameters `successCallback` and `failureCallback` .
 On `Windows` and `Windows` only, you can call this method with no arguments so that it runs synchronously and return a boolean value.
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.SelectSource(function() {
     DWObject.OpenSource();
     DWObject.AcquireImage();
-}, function (errorCode, errorString) {
+}, function(errorCode, errorString) {
     console.log(errorString);
 });
 ```
 
 ---
 
+## SelectSourceAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Bring up the Source Selection User Interface (UI) for the user to choose a data source.
+ * @param successCallback A callback function that is executed if the request succeeds.
+ * @param failureCallback A callback function that is executed if the request fails.
+ * @argument errorCode The error code.
+ * @argument errorString The error string.
+ */
+SelectSourceAsync(
+    successCallBack?: () => void,
+    failureCallBack?: (errorCode: number, errorString: string) => void
+): Promise<boolean>;
+```
+
+---
+
 ## SelectSourceByIndex
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Select a data source by its index.
  * @param index The index of the data source.
@@ -524,9 +645,9 @@ DWObject.SelectSource(function() {
 SelectSourceByIndex(index: number): boolean;
 ```
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.SelectSourceByIndex(0);
 DWObject.OpenSource();
 DWObject.AcquireImage();
@@ -534,11 +655,34 @@ DWObject.AcquireImage();
 
 ---
 
+## SelectSourceByIndexAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Select a data source by its index.
+ * @param index The index of the data source.
+ */
+SelectSourceByIndexAsync(index: number): Promise<boolean>;
+```
+
+**Example**
+
+``` javascript
+DWObject.SelectSourceByIndexAsync(0)
+    .then(() =>
+        return DWObject.OpenSourceAsync())
+    .then(() => retyrb DWObject.AcquireImage());
+```
+
+---
+
 ## SetOpenSourceTimeout
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Sets a timer which stops the data source opening process once it expires.
  * @param duration Define the duration of the timer (in milliseconds).
@@ -546,10 +690,10 @@ DWObject.AcquireImage();
 SetOpenSourceTimeout(duration: number): boolean;
 ```
 
-### Example
+**Example**
 
-```javascript
-DWObject.SelectSource(function() {      
+``` javascript
+DWObject.SelectSource(function() {
     DWObject.SetOpenSourceTimeout(3000);
     DWObject.OpenSource();
     DWObject.AcquireImage();
@@ -560,16 +704,16 @@ DWObject.SelectSource(function() {
 
 ## startScan
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Start the acquisition by passing all settings at once.
  * @param scanSetup Configuration for the acquisition.
  */
-startScan(scanSetup: IScanSetup): Promise<IScanSetup>;
+startScan(scanSetup: ScanSetup): Promise<IScanSetup>;
 
-interface IScanSetup {
+interface ScanSetup {
   /**
    * An id that specifies this specific setup.
    */
@@ -713,7 +857,7 @@ interface IScanSetup {
   /**
    * A callback triggered before the scan, after the scan and after each page has been transferred.
    */
-  funcScanStatus?: (status: IStatus) => void,
+  funcScanStatus?: (status: Status) => void,
   /**
    * Set up how the scanned images are outputted.
    */
@@ -830,16 +974,16 @@ interface IScanSetup {
 
 ## CancelAllPendingTransfers
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Cancels all pending transfers.
  */ 
 CancelAllPendingTransfers(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 This method is only valid in the events [OnPreAllTransfers](#onprealltransfers), [OnPreTransfer](#onpretransfer) and [OnPostTransfer](#onposttransfer).
 
@@ -847,33 +991,42 @@ This method is only valid in the events [OnPreAllTransfers](#onprealltransfers),
 
 ## CloseSourceManager
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Closes and unloads Data Source Manager.
  */
 CloseSourceManager(): boolean;
 ```
 
-### Usage notes
+---
 
-If this method is not called explicitly by the application, it'll be called automatically when the browser or tab closes.
+## CloseSourceManagerAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Closes and unloads Data Source Manager.
+ */
+CloseSourceManagerAsync(): Promise<boolean>;
+```
 
 ---
 
 ## CloseWorkingProcess
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Closes the scanning process to release resources on the machine.
  */
 CloseWorkingProcess(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 In the HTML5 edition, Dynamic Web TWAIN uses a separate process to communicate with the scanners. When it's not scanning, you can choose to close this process to release the resources (CPU, memory, etc.) used on the machine.
 
@@ -881,26 +1034,26 @@ In the HTML5 edition, Dynamic Web TWAIN uses a separate process to communicate w
 
 ## FeedPage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Ejects the current page and begins scanning the next page in the document feeder.
  */
 FeedPage(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Use this method after [OpenSource()](#opensource) is called and make sure [IfFeederEnabled](#iffeederenabled) is `true`.
+Use this method after [OpenSource()](#opensource) is called and make sure [IfFeederEnabled](#iffeederenabled) is `true` .
 
 ---
 
 ## GetCustomDSData
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Get the custom data source data and saves the data in a specified file.
  * @param fileName The path of the file to save the data source data to.
@@ -908,9 +1061,9 @@ Use this method after [OpenSource()](#opensource) is called and make sure [IfFee
 GetCustomDSData(fileName: string): boolean;
 ```
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.GetCustomDSData("C:\\customDSData");
 ```
 
@@ -918,9 +1071,9 @@ DWObject.GetCustomDSData("C:\\customDSData");
 
 ## GetCustomDSDataEx
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Gets custom DS data and returns it in a base64 string.
  */
@@ -931,16 +1084,16 @@ GetCustomDSDataEx(): string;
 
 ## GetDeviceType
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Inspect the current data source and return whether it is a scanner, a webcam, etc.
  */
 GetDeviceType(): number;
 ```
 
-### Usage notes
+**Usage notes**
 
 | Value | Description |
 |:-|:-|
@@ -957,9 +1110,9 @@ GetDeviceType(): number;
 
 ## GetSourceNameItems
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Get the name of a data source by its index in data source manager source list.
  * @param index The index of the data source.
@@ -971,16 +1124,33 @@ GetSourceNameItems(index: number): string;
 
 ## OpenSourceManager
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Load and open data source manager.
  */
 OpenSourceManager(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
+
+If application identification needs to be set, it should be set before this API.
+
+---
+
+## OpenSourceManagerAsync
+
+**Syntax**
+
+``` typescript
+/**
+ * Load and open data source manager.
+ */
+OpenSourceManagerAsync(): Promise<boolean>;
+```
+
+**Usage notes**
 
 If application identification needs to be set, it should be set before this API.
 
@@ -988,16 +1158,16 @@ If application identification needs to be set, it should be set before this API.
 
 ## ResetImageLayout
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Reset the image layout in the data source.
  */
 ResetImageLayout(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 To set the image layout manually, you can use [SetImageLayout()](#setimagelayout)
 
@@ -1005,26 +1175,26 @@ To set the image layout manually, you can use [SetImageLayout()](#setimagelayout
 
 ## RewindPage
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * If called while {IfFeederEnabled} property is true, the data source will return the current page to the input area and return the last page from the output area into the acquisition area.
  */
 RewindPage(): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Use this method after [OpenSource()](#opensource) method and make sure [IfFeederEnabled](#iffeederenabled) is `true`.
+Use this method after [OpenSource()](#opensource) method and make sure [IfFeederEnabled](#iffeederenabled) is `true` .
 
 ---
 
 ## SetCustomDSData
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Sets custom data source data to be used for scanning, the data is stored in a file which can be regarded as a scanning profile.
  * @param fileName The path  of the file.
@@ -1032,7 +1202,7 @@ Use this method after [OpenSource()](#opensource) method and make sure [IfFeeder
 SetCustomDSData(fileName: string): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 Typically, the data source data file is created by the method [GetCustomDSData()](#getcustomdsdata).
 
@@ -1040,9 +1210,9 @@ Typically, the data source data file is created by the method [GetCustomDSData()
 
 ## SetCustomDSDataEx
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set custom data source data to be used for scanning, the input is a base64 string.
  * @param dsDataString The string that contains custom data source data.
@@ -1050,7 +1220,7 @@ Typically, the data source data file is created by the method [GetCustomDSData()
 SetCustomDSDataEx(dsDataString: string): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 Typically the data source data string is created by the method [GetCustomDSDataEx()](#getcustomdsdataex)
 
@@ -1058,9 +1228,9 @@ Typically the data source data string is created by the method [GetCustomDSDataE
 
 ## SetFileXferInfo
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the file transfer information to be used in File Transfer mode.
  * @param fileName The path to transfer the file to.
@@ -1072,33 +1242,30 @@ SetFileXferInfo(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 Make sure the format you set is supported by the data source.
 
 Example argument for the parameter `fileName`
+* "C:\\webtwain.jpg": The next scanned image will be compressed as a JPEG file named `webtwain` and transferred to "C:\\".
+* "C:\\webtwain" + <> + ".jpg": The scanned images will result in "C:\\webtwain1.jpg", "C:\\webtwain2.jpg", "C:\\webtwain3.jpg", etc.
+* "C:\\webtwain" + <%06d> + ".jpg": The scanned images will result in "C:\\webtwain000001.jpg", "C:\\webtwain000002.jpg", "C:\\webtwain000003.jpg", etc.
 
-- "C:\\webtwain.jpg": The next scanned image will be compressed as a JPEG file named `webtwain` and transferred to "C:\\".
-- "C:\\webtwain" + <> + ".jpg": The scanned images will result in "C:\\webtwain1.jpg","C:\\webtwain2.jpg", "C:\\webtwain3.jpg", etc.
-- "C:\\webtwain" + <%06d> + ".jpg": The scanned images will result in "C:\\webtwain000001.jpg", "C:\\webtwain000002.jpg",  "C:\\webtwain000003.jpg", etc.
+Check out the available formats [Dynamsoft. EnumDWT_FileFormat]({{site.info}}api/Dynamsoft_Enum.html#dynamsoftenumdwt_fileformat).
 
-Check out the available formats [Dynamsoft.EnumDWT_FileFormat](Dynamsoft.Enum.md#dynamsoftenumdwt_fileformat).
+**Example**
 
-
-### Example
-
-```javascript
+``` javascript
 DWObject.OpenSource();
-DWObject.TransferMode =Dynamsoft.EnumDWT_TransferMode.TWSX_FILE;
-if(DWObject.TransferMode ===Dynamsoft.EnumDWT_TransferMode.TWSX_FILE) {
-    if(DWObject.SetFileXferInfo(
-        "C:\\Temp\\WebTWAIN&lt;&gt;.bmp",
-		EnumDWT_FileFormat.TWFF_BMP
-        )
-    ) {
-        DWObject.IfShowUI = true;		
-		DWObject.AcquireImage(); 
-	}
+DWObject.TransferMode = Dynamsoft.EnumDWT_TransferMode.TWSX_FILE;
+if (DWObject.TransferMode === Dynamsoft.EnumDWT_TransferMode.TWSX_FILE) {
+    if (DWObject.SetFileXferInfo(
+            "C:\\Temp\\WebTWAIN&lt;&gt;.bmp",
+            EnumDWT_FileFormat.TWFF_BMP
+        )) {
+        DWObject.IfShowUI = true;
+        DWObject.AcquireImage();
+    }
 }
 ```
 
@@ -1106,9 +1273,9 @@ if(DWObject.TransferMode ===Dynamsoft.EnumDWT_TransferMode.TWSX_FILE) {
 
 ## SetImageLayout
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set the left, top, right, and bottom sides of the image layout rectangle for the current data source. The image layout rectangle defines a frame of the data source's scanning area to be acquired.
  * @param left Specify the rectangle (leftmost coordinate).
@@ -1124,9 +1291,9 @@ SetImageLayout(
 ): boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-The arguments set to the parameters `left`, `top`, `right`, `bottom` are based on the value of the `Unit` property which is `inches` by default.
+The arguments set to the parameters `left` , `top` , `right` , `bottom` are based on the value of the `Unit` property which is `inches` by default.
 
 This API is device-dependent. If a data source doesn't support the customization of the scan area, this method might not work correctly.
 
@@ -1134,17 +1301,17 @@ Since there are several ways to negotiate the scan area, it becomes confusing wh
 
 The TWAIN Working Group has suggested the following behavior
 
-- If the current frame is set by `SetImageLayout`. The same frame shall be what you get with the APIs [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom), [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft), [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight), [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop) and the property [PageSize](#pagesize) shall return `TWSS_NONE` | 0.
-- If the current frame is set from negotiating the capability `ICAP_FRAMES` with the method [CapSetFrame()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame), the property [PageSize](#pagesize) shall return `TWSS_NONE` | 0 and the image layout shall reflect the same frame with the properties [ImageLayoutFrameBottom](#imagelayoutframebottom), [ImageLayoutFrameLeft](#imagelayoutframeleft), [ImageLayoutFrameRight](#imagelayoutframeright) and [ImageLayoutFrameTop](#imagelayoutframetop).
-- If the current fixed frame is set by the property [PageSize](#pagesize), the same dimensions shall be reflected in the APIs [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom), [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft), [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight), [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop) as well as [ImageLayoutFrameBottom](#imagelayoutframebottom), [ImageLayoutFrameLeft](#imagelayoutframeleft), [ImageLayoutFrameRight](#imagelayoutframeright) and [ImageLayoutFrameTop](#imagelayoutframetop). Note, however, the orientation (in other words, whether it's in the portrait mole or landscape mode) also plays a role in the order of the values.
+* If the current frame is set by `SetImageLayout` . The same frame shall be what you get with the APIs [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom), [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft), [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight), [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop) and the property [PageSize](#pagesize) shall return `TWSS_NONE` | 0.
+* If the current frame is set from negotiating the capability `ICAP_FRAMES` with the method [CapSetFrame()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapSetFrame), the property [PageSize](#pagesize) shall return `TWSS_NONE` | 0 and the image layout shall reflect the same frame with the properties [ImageLayoutFrameBottom](#imagelayoutframebottom), [ImageLayoutFrameLeft](#imagelayoutframeleft), [ImageLayoutFrameRight](#imagelayoutframeright) and [ImageLayoutFrameTop](#imagelayoutframetop).
+* If the current fixed frame is set by the property [PageSize](#pagesize), the same dimensions shall be reflected in the APIs [CapGetFrameBottom()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameBottom), [CapGetFrameLeft()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameLeft), [CapGetFrameRight()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameRight), [CapGetFrameTop()](https://www.dynamsoft.com/docs/dwt15.3.1/API/Capability-Negotiation.html#CapGetFrameTop) as well as [ImageLayoutFrameBottom](#imagelayoutframebottom), [ImageLayoutFrameLeft](#imagelayoutframeleft), [ImageLayoutFrameRight](#imagelayoutframeright) and [ImageLayoutFrameTop](#imagelayoutframetop). Note, however, the orientation (in other words, whether it's in the portrait mole or landscape mode) also plays a role in the order of the values.
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.SelectSource();
 DWObject.OpenSource();
 DWObject.IfShowUI = false;
-DWObject.Unit =Dynamsoft.EnumDWT_UnitType.TWUN_PIXELS;
+DWObject.Unit = Dynamsoft.EnumDWT_UnitType.TWUN_PIXELS;
 DWObject.SetImageLayout(50, 50, 100, 100);
 DWObject.AcquireImage();
 ```
@@ -1153,83 +1320,83 @@ DWObject.AcquireImage();
 
 ## BitDepth
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
- * Return or set the pixel bit depth for the current value of `PixelType`.
+ * Return or set the pixel bit depth for the current value of `PixelType` .
  */
 BitDepth: number;
 ```
 
-### Usage notes
+**Usage notes**
 
-Set this property after `OpenSource()` and before `AcquireImage()`.
+Set this property after `OpenSource()` and before `AcquireImage()` .
 
-By default, the bit depth is 1 for `TWPT_BW`, 8 for `TWPT_GRAY` and 24 for `TWPT_RGB`.
+By default, the bit depth is 1 for `TWPT_BW` , 8 for `TWPT_GRAY` and 24 for `TWPT_RGB` .
 
 ---
 
 ## IfAppendImage
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
  * Return or set whether newly acquired images are inserted or appended.
  */
 IfAppendImage: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-The value of this property defaults to `true`, which means that the newly acquired image will be appended to the last image in the buffer.
+The value of this property defaults to `true` , which means that the newly acquired image will be appended to the last image in the buffer.
 
-If it's set to `false`, the images will be inserted before the current image. The important thing to note is that, by design, the current image is always the last acquired one which means that the images acquired after setting `IfAppendImage` to `false` will be displayed / retained in the reverse order.
+If it's set to `false` , the images will be inserted before the current image. The important thing to note is that, by design, the current image is always the last acquired one which means that the images acquired after setting `IfAppendImage` to `false` will be displayed / retained in the reverse order.
 
 ---
 
 ## IfDisableSourceAfterAcquire
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
  * Return or set whether to close the user interface after all images have been acquired.
  */
 IfDisableSourceAfterAcquire: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-This property only makes sense when `IfShowUI` is set to `true`.
+This property only makes sense when `IfShowUI` is set to `true` .
 
 ---
 
 ## IfDuplexEnabled
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
  * Return or set whether to enable duplex scanning (in other words, whether to scan both sides of the paper).
  */
 IfDuplexEnabled: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-Set this property after `OpenSource()` and before `AcquireImage()`. 
+Set this property after `OpenSource()` and before `AcquireImage()` . 
 
-Not all scanners support duplex scanning. To confirm, check the user manual of the device or check the value of `Duplex` after `OpenSource()`.
+Not all scanners support duplex scanning. To confirm, check the user manual of the device or check the value of `Duplex` after `OpenSource()` .
 
 ---
 
 ## IfFeederEnabled
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
  * Return or set whether a data source's Automatic Document Feeder (ADF) is enabled for scanning.
  */
@@ -1238,45 +1405,45 @@ IfFeederEnabled: boolean;
 
 ## Usage notes
 
-Set this property after `OpenSource()` and before `AcquireImage()`.
+Set this property after `OpenSource()` and before `AcquireImage()` .
 
-If the property is set to `true`, the data source will try acquiring images from the document feeder first. If the data source doesn't have a document feeder, the flatbed will be used.
+If the property is set to `true` , the data source will try acquiring images from the document feeder first. If the data source doesn't have a document feeder, the flatbed will be used.
 
 ---
 
 ## IfShowUI
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
  * Return or set whether the data source displays the user interface when scanning.
  */
 IfShowUI: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-If the property is set to `true`, the data source will display its user interface when `AcquireImage()` is called. Otherwise, the UI will not be displayed and the scan will start immediately.
+If the property is set to `true` , the data source will display its user interface when `AcquireImage()` is called. Otherwise, the UI will not be displayed and the scan will start immediately.
 
 ---
 
 ## ImageCaptureDriverType
 
-### Syntax
+**Syntax**
 
-```
+``` 
 /**
- * Return or set whether to use TWAIN or ICA protocol on macOS.
+ * Return or set the driver type which determines the type of sources to use.
  */
 ImageCaptureDriverType: Dynamsoft.EnumDWT_Driver | number;
 ```
 
-### Usage notes
+**Usage notes**
 
-Set this property right after the SDK is initialized or after calling `CloseSourceManager()` and `OpenSourceManager()`.
+Set this property right after the SDK is initialized or after calling `CloseSourceManager()` and `OpenSourceManager()` .
 
-This property only makes sense on macOS. The allowed values for `EnumDWT_Driver` are
+The allowed values for `EnumDWT_Driver` are
 
 | Label | Value | Description |
 |:-|:-|:-|
@@ -1284,14 +1451,16 @@ This property only makes sense on macOS. The allowed values for `EnumDWT_Driver`
 | ICA | 3 | Use data sources that conforms to the Image Capture Architecture |
 | SANE | 3 | Use data sources that conforms to the SANE API |
 | TWAIN_AND_ICA | 4 | Use both TWAIN and ICA data sources |
+| TWAIN_AND_TWAIN64 | 4 | Use both 32bit and 64bit TWAIN drivers |
+| TWAIN64 | 5 | Use 64bit TWAIN sources |
 
 ---
 
 ## PageSize
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the page size the data source uses to acquire images.
  */
@@ -1302,9 +1471,9 @@ PageSize: Dynamsoft.EnumDWT_CapSupportedSizes | number;
 
 ## PixelType
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the pixel type used when acquiring images. 
  */
@@ -1315,9 +1484,9 @@ PixelType: Dynamsoft.EnumDWT_PixelType | number;
 
 ## Resolution
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the resolution used when acquiring images.
  */
@@ -1328,9 +1497,9 @@ Resolution: number;
 
 ## SourceCount
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Returns how many data sources are available on the local system.
  */
@@ -1339,20 +1508,37 @@ readonly SourceCount: number;
 
 ---
 
+## BlankImageThreshold
+
+**Syntax**
+
+``` typescript
+/**
+ * Retrun or set the dividing line between black and white.
+ */
+BlankImageThreshold: number;
+```
+
+**Usage Notes**
+
+`BlankImageThreshold` ranges from 0 to 255 and is 128 by default, it's only effective when [ `PixelType` ] is set to `TWPT_BW` . The bigger the value is, the more likely an image may be regarded as blank.
+
+---
+
 ## Brightness
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the brightness to be used for scanning by the data source.
  */
 Brightness: number;
 ```
 
-### Usage notes
+**Usage notes**
 
-Set this property after `OpenSource()` and before `AcquireImage()`.
+Set this property after `OpenSource()` and before `AcquireImage()` .
 
 Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and 1000 the brightest.
 
@@ -1360,18 +1546,18 @@ Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and
 
 ## Contrast
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set Contrast to be used for scanning by the data source.
  */
 Contrast: number;
 ```
 
-### Usage notes
+**Usage notes**
 
-Set this property after `OpenSource()` and before `AcquireImage()`.
+Set this property after `OpenSource()` and before `AcquireImage()` .
 
 Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and 1000 the brightest.
 
@@ -1379,16 +1565,16 @@ Typically, the value range is -1000 ~ 1000 where -1000 indicates the darkest and
 
 ## CurrentSourceName
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the device name of current source. 
  */
 readonly CurrentSourceName: string; 
 ```
 
-### Usage notes
+**Usage notes**
 
 If no source is currently selected, this property returns "".
 
@@ -1396,16 +1582,16 @@ If no source is currently selected, this property returns "".
 
 ## DataSourceStatus
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return a value that indicates the data source status.
  */
 DataSourceStatus: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 | Value | Description|
 |:-|:-|
@@ -1418,9 +1604,9 @@ DataSourceStatus: number;
 
 ## DefaultSourceName
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the name of the default source.
  */
@@ -1431,16 +1617,16 @@ DefaultSourceName: string;
 
 ## Duplex
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the source supports duplex. If yes, it further returns the level of duplex the data source supports.
  */
 readonly Duplex: Dynamsoft.EnumDWT_DUPLEX | number;
 ```
 
-### Usage notes
+**Usage notes**
 
 | Label | Value | Description |
 |:-|:-|:-|
@@ -1454,9 +1640,9 @@ readonly Duplex: Dynamsoft.EnumDWT_DUPLEX | number;
 
 ## IfAutoBright
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether to enable the data source's auto-brightness feature.
  */
@@ -1467,16 +1653,16 @@ IfAutoBright: boolean;
 
 ## IfAutoDiscardBlankpages
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether the data source (the scanner) discards blank images during scanning automatically.
  */
 IfAutoDiscardBlankpages: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The property works only if the device and its driver supports discarding blank pages. You can find whether your device supports this capbility from its user manual.
 
@@ -1486,33 +1672,33 @@ Alternatively, the Dynamic Web TWAIN library can also detect blank images after 
 
 ## IfAutoFeed
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether to enable the data source's automatic document feeding process.
  */
 IfAutoFeed: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-If set to `true`, the data source will automatically feed the next page from the document feeder as soon as the previous page is scanned.
+If set to `true` , the data source will automatically feed the next page from the document feeder as soon as the previous page is scanned.
 
 ---
 
 ## IfAutomaticBorderDetection
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether to enable the data source's automatic border detection feature.
  */
 IfAutomaticBorderDetection: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The property works only if the device and its driver support detecting the border automatically. You can find whether your device supports this capbility from its user manual.
 
@@ -1522,16 +1708,16 @@ Once enabled, the data source (scanner) will automatically detect the borders of
 
 ## IfAutomaticDeskew
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether to enable the data source's automatic skew correction feature.
  */
 IfAutomaticDeskew: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 The property works only if the device and its driver supports automatical deskewing. You can find whether your device supports this capbility from its user manual.
 
@@ -1539,18 +1725,18 @@ The property works only if the device and its driver supports automatical deskew
 
 ## IfAutoScan
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether to enable the data source's automatic document scanning process.
  */
 IfAutoScan: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-This property is only valid when [IfFeederEnabled](#iffeederenabled) is set to `true`.
+This property is only valid when [IfFeederEnabled](#iffeederenabled) is set to `true` .
 
 The fundamental assumption behind this property is that the device may be able to capture the number of images indicated by the property [XferCount](#xfercount) without waiting for the Application to request the image transfers. This is
 only possible if the device has internal buffers capable of caching the images it captures.
@@ -1559,33 +1745,33 @@ only possible if the device has internal buffers capable of caching the images i
 
 ## IfFeederLoaded
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether or not there are documents loaded in the data source's feeder.
  */
 readonly IfFeederLoaded: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-This property is only valid when [IfFeederEnabled](#iffeederenabled) and [IfPaperDetectable](#ifpaperdetectable) are `true`.
+This property is only valid when [IfFeederEnabled](#iffeederenabled) and [IfPaperDetectable](#ifpaperdetectable) are `true` .
 
 ---
 
 ## IfPaperDetectable
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the Source has a paper sensor that can detect pages on the ADF or Flatbed.
  */
 readonly IfPaperDetectable: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 Check this property after [OpenSource()](#opensource) is called.
 
@@ -1593,36 +1779,35 @@ Check this property after [OpenSource()](#opensource) is called.
 
 ## IfShowIndicator
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether the data source displays a progress indicator during acquisition and transfer.
  */
 IfShowIndicator: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
-This property works only when IfShowUI is set to `false`.
+This property works only when IfShowUI is set to `false` .
 
-The indicator will only be hidden if you set both [IfShowUI](#ifshowui) and [IfShowIndicator](#ifshowindicator) to `false`.
+The indicator will only be hidden if you set both [IfShowUI](#ifshowui) and [IfShowIndicator](#ifshowindicator) to `false` .
 
 ---
 
-
 ## IfUIControllable
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return whether the data source supports acquisitions with the UI (User Interface) disabled.
  */
 readonly IfUIControllable: boolean; 
 ```
 
-### Usage notes
+**Usage notes**
 
 Check this property after [OpenSource()](#opensource) is called.
 
@@ -1630,16 +1815,16 @@ Check this property after [OpenSource()](#opensource) is called.
 
 ## IfUseTwainDSM
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set whether the new TWAIN DSM (data source Manager) is used for acquisitions. The new TWAIN DSM is a DLL called 'TWAINDSM.dll' while the default | old DSM is called 'twain_32.dll'.
  */
 IfUseTwainDSM: boolean;
 ```
 
-### Usage notes
+**Usage notes**
 
 This property should be set before any TWAIN related methods or properties are called or set.
 
@@ -1647,9 +1832,9 @@ This property should be set before any TWAIN related methods or properties are c
 
 ## ImageLayoutFrameBottom
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the value of the bottom edge of the current image frame (in Unit).
  */
@@ -1660,9 +1845,9 @@ readonly ImageLayoutFrameBottom: number;
 
 ## ImageLayoutFrameLeft
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the value of the left edge of the current image frame (in Unit).
  */
@@ -1673,9 +1858,9 @@ readonly ImageLayoutFrameLeft: number;
 
 ## ImageLayoutFrameRight
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the value of the right edge of the current image frame (in Unit).
  */
@@ -1686,9 +1871,9 @@ readonly ImageLayoutFrameRight: number;
 
 ## ImageLayoutFrameTop
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the value of the top edge of the current image frame (in Unit).
  */
@@ -1699,9 +1884,9 @@ readonly ImageLayoutFrameTop: number;
 
 ## ImageLayoutDocumentNumber
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the document number of the current image.
  */
@@ -1709,11 +1894,12 @@ readonly ImageLayoutDocumentNumber: number;
 ```
 
 ---
+
 ## ImageLayoutPageNumber
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the page number of the current image.
  */
@@ -1721,11 +1907,12 @@ readonly ImageLayoutPageNumber: number;
 ```
 
 ---
+
 ## ImageBitsPerPixel
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the bit depth of the current image.
  */
@@ -1733,10 +1920,12 @@ readonly ImageBitsPerPixel: number;
 ```
 
 ---
-## ImageLength
-### Syntax
 
-```javascript
+## ImageLength
+
+**Syntax**
+
+``` typescript
 /**
  * Return the length of the current image.
  */
@@ -1744,10 +1933,12 @@ readonly ImageLength: number;
 ```
 
 ---
-## ImageWidth
-### Syntax
 
-```javascript
+## ImageWidth
+
+**Syntax**
+
+``` typescript
 /**
  * Return the width of the current image.
  */
@@ -1755,10 +1946,12 @@ readonly ImageWidth: number;
 ```
 
 ---
-## ImageXResolution
-### Syntax
 
-```javascript
+## ImageXResolution
+
+**Syntax**
+
+``` typescript
 /**
  * Return the horizontal resolution of the current image.
  */
@@ -1766,10 +1959,12 @@ readonly ImageXResolution: number;
 ```
 
 ---
-## ImageYResolution
-### Syntax
 
-```javascript
+## ImageYResolution
+
+**Syntax**
+
+``` typescript
 /**
  * Return the vertical resolution of the current image.
  */
@@ -1777,11 +1972,12 @@ readonly ImageYResolution: number;
 ```
 
 ---
+
 ## ImagePixelType
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the pixel type of the current image.
  */
@@ -1789,11 +1985,12 @@ readonly ImagePixelType: Dynamsoft.EnumDWT_PixelType | number;
 ```
 
 ---
+
 ## MagData
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the data of the magnetic data if the data source supports magnetic data recognition.
  */
@@ -1804,16 +2001,16 @@ readonly MagData: string;
 
 ## MagType
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the type of the magnetic data if the data source supports magnetic data recognition.
  */
 readonly MagType: Dynamsoft.EnumDWT_MagType | number;
 ```
 
-### Usage notes
+**Usage notes**
 
 The numbers returned by these APIs are based on the value of the [Unit](#unit) property which by default means "inches".
 
@@ -1825,16 +2022,16 @@ These APIs are only valid in the callbacks for the events [OnPreTransfer](#onpre
 
 ## PendingXfers
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return the number of transfers the data source is ready to supply upon demand.
  */
 readonly PendingXfers: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 This property is only valid in the event [OnPostTransfer](#onposttransfer).
 
@@ -1844,41 +2041,42 @@ The data source returns -1 if it is not sure how many transfers are pending whic
 
 ## PixelFlavor
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the pixel flavor to be used for acquiring images.
  */
 PixelFlavor: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 Available values: 
-- 0: Chocolate. Zero pixel represents darkest shade
-- 1: Vanilla. Zero pixel represents lightest shade.
+
+* 0: Chocolate. Zero pixel represents darkest shade
+* 1: Vanilla. Zero pixel represents lightest shade.
 
 ---
 
 ## TransferMode
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the data source's transfer mode.
  */
 TransferMode: Dynamsoft.EnumDWT_TransferMode | number;
 ```
 
-### Usage notes
+**Usage notes**
 
 Allowed values are
 
-- TWSX_NATIVE | 0: The default mode. In this mode, the whole image is transfered in a single memory block. 
-- TWSX_FILE | 1: In this mode, the image is transfered to a specified file on the disk directly. This mode is ideal when transferring large images that might encounter memory limitations with Native mode. Check out [SetFileXferInfo](#SetFileXferInfo) for more information.
-- TWSX_MEMORY | 2: In this mode, the image is transferred in multiple memory blocks. It's ideal for transferring very large images or a large number of images in a short time.
+* TWSX_NATIVE | 0: The default mode. In this mode, the whole image is transfered in a single memory block. 
+* TWSX_FILE | 1: In this mode, the image is transfered to a specified file on the disk directly. This mode is ideal when transferring large images that might encounter memory limitations with Native mode. Check out [SetFileXferInfo](#SetFileXferInfo) for more information.
+* TWSX_MEMORY | 2: In this mode, the image is transferred in multiple memory blocks. It's ideal for transferring very large images or a large number of images in a short time.
 
 TWSX_NATIVE and TWSX_MEMORY are required by all TWAIN data sources while TWSX_FILE is not. Therefore, make sure the data source supports TWSX_FILE before you use it.
 
@@ -1886,22 +2084,22 @@ TWSX_NATIVE and TWSX_MEMORY are required by all TWAIN data sources while TWSX_FI
 
 ## Unit
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return or set the unit of measure for all quantities.     
  */
 Unit: Dynamsoft.EnumDWT_UnitType | number;
 ```
 
-### Usage notes
+**Usage notes**
 
 Allowed values are
 
 | Label | Value | Description |
 |:-|:-|:-|
-| TWUN_INCHES | 0 | inches(Default) |
+| TWUN_INCHES | 0 | inches(Default)
 | TWUN_CENTIMETERS | 1 |centimeters |
 | TWUN_PICAS | 2 | picas |
 | TWUN_POINTS | 3 | points |
@@ -1913,16 +2111,16 @@ Allowed values are
 
 ## XferCount
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Return and set the number of images your application is willing to accept for each scan job.
  */ 
 XferCount: number;
 ```
 
-### Usage notes
+**Usage notes**
 
 Allowed values are between -1 and 215 where -1 indicate multiple images.
 
@@ -1930,22 +2128,22 @@ Allowed values are between -1 and 215 where -1 indicate multiple images.
 
 ## OnPostAllTransfers
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered when all page(s) have been scanned and transferred.
  */
 RegisterEvent('OnPostAllTransfers',function(){});
 ```
 
-### Usage notes
+**Usage notes**
 
 This event fires after all pages in the document feeder have been scanned and transferred. This is a good place to upload the images, detect barcodes, discard blank pages, etc.
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.RegisterEvent('OnPostAllTransfers',
     function() {
         console.log("All images are transferred.");
@@ -1957,20 +2155,20 @@ DWObject.RegisterEvent('OnPostAllTransfers',
 
 ## OnPostTransfer
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered after each page has been scanned and transferred.
  * @argument outputInfo Detailed information about the image that just got transferred.
  */ 
-RegisterEvent('OnPostTransfer',function(outputInfo: IOutputInfo) {});
+RegisterEvent('OnPostTransfer',function(outputInfo: OutputInfo) {});
 ```
 
-### Example
+**Example**
 
-```javascript
-DWObject.RegisterEvent('OnPostTransfer', 
+``` javascript
+DWObject.RegisterEvent('OnPostTransfer',
     function() {
         console.log("An image has been scanned");
     }
@@ -1981,20 +2179,20 @@ DWObject.RegisterEvent('OnPostTransfer',
 
 ## OnPostTransferAsync
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered after each page has been scanned and transferred. This is the asynchronous counterpart to the synchronous event {OnPostTransfer}.
  * @argument outputInfo Detailed information about the image that just got transferred.
  */ 
-RegisterEvent('OnPostTransferAsync',function(outputInfo: IOutputInfo) {});
+RegisterEvent('OnPostTransferAsync',function(outputInfo: OutputInfo) {});
 ```
 
-### Usage notes
+**Usage notes**
 
-```javascript
-interface IoutputInfo {
+``` typescript
+interface outputInfo {
     /**
      * Id of the image if it's transferred to the buffer.
      */
@@ -2014,9 +2212,9 @@ interface IoutputInfo {
 }
 ```
 
-### Example
+**Example**
 
-```javascript
+``` javascript
 DWObject.RegisterEvent('OnPostTransferAsync',
     function(outputInfo) {
         console.log("The image ID is " + outputInfo.imageId);
@@ -2028,21 +2226,21 @@ DWObject.RegisterEvent('OnPostTransferAsync',
 
 ## OnPreAllTransfers
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered when all images are scanned and ready to be transferred.
  */
 RegisterEvent('OnPreAllTransfers',function(){});
 ```
 
-### Usage notes
+**Usage notes**
 
 Multiple transfers may occur in two cases
 
-- Multiple images are scanned through the ADF(Auto Document Feeder)
-- Multiple frames are scanned on one single page
+* Multiple images are scanned through the ADF(Auto Document Feeder)
+* Multiple frames are scanned on one single page
 
 In such cases, the event `OnPreTransfer` is triggered multiple times but `OnPreAllTransfers` is triggerred only once. 
 
@@ -2052,30 +2250,30 @@ In the callback function of this event, you can call `CancelAllPendingTransfers(
 
 ## OnPreTransfer
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered when a page has been scanned and is ready to be transferred.
  */
 RegisterEvent('OnPreTransfer',function(){...});
 ```
 
-### Usage notes
+**Usage notes**
 
 In the callback function of this event, you can 
 
-- Check `PendingXFERs` for the number of pending transfers. 
-- Check the information about the transferred image including `ImageLayoutDocumentNumber`, `ImageLayoutFrameLeft`, `ImageLayoutFrameTop`, `ImageLayoutFrameRight`, `ImageLayoutFrameBottom`, `ImageLayoutPageNumber`, `ImageLayoutFrameNumber`, etc.
-- Call `CancelAllPendingTransfers()` to cancel all the rest of the transfers.
+* Check `PendingXFERs` for the number of pending transfers. 
+* Check the information about the transferred image including `ImageLayoutDocumentNumber` , `ImageLayoutFrameLeft` , `ImageLayoutFrameTop` , `ImageLayoutFrameRight` , `ImageLayoutFrameBottom` , `ImageLayoutPageNumber` , `ImageLayoutFrameNumber` , etc.
+* Call `CancelAllPendingTransfers()` to cancel all the rest of the transfers.
 
 ---
 
 ## OnSourceUIClose
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * This event is triggered when the user interface of the data source is closed manually by the user.
  */
@@ -2086,9 +2284,9 @@ RegisterEvent('OnSourceUIClose',function() {});
 
 ## getCapabilities
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Gets detailed information about all capabilities of the current data source.
  * @param successCallback A callback function that is executed if the request succeeds.
@@ -2098,7 +2296,7 @@ RegisterEvent('OnSourceUIClose',function() {});
  * @argument errorString The error string.
  */
 getCapabilities(
-    successCallback: (capabilityDetails: ICapabilityDetails[]) => void,
+    successCallback: (capabilityDetails: CapabilityDetails[]) => void,
     failureCallback: (
         errorCode: number,
         errorString: string
@@ -2108,7 +2306,7 @@ getCapabilities(
 /**
  * Detailed information about a specific capability
  */
-interface ICapabilityDetails {
+interface CapabilityDetails {
     /**
      * The Capability.
      */
@@ -2168,20 +2366,21 @@ interface ValueAndLabel {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
 Check out the Enumerations
-* [Dynamsoft.EnumDWT_Cap](Dynamsoft.Enum.md#enumdwt_cap)
-* [Dynamsoft.EnumDWT_CapType](Dynamsoft.Enum.md#enumdwt_captype)
-* [Dynamsoft.EnumDWT_CapValueType](Dynamsoft.Enum.md#enumdwt_capvaluetype)
+
+* [ `Dynamsoft.EnumDWT_Cap` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_cap)
+* [ `Dynamsoft.EnumDWT_CapType` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_captype)
+* [ `Dynamsoft.EnumDWT_CapValueType` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_capvaluetype)
 
 ---
 
 ## setCapabilities
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Sets up one or multiple capabilities in one call.
  * @param capabilities A object that describes how to set capabilities.
@@ -2190,12 +2389,12 @@ Check out the Enumerations
  * @argument capabilities The capabilities to set.
  */
 setCapabilities(
-    capabilities: ICapabilities,
-    successCallback: (capabilities: ICapabilities) => void,
-    failureCallback: (capabilities: ICapabilities) => void
+    capabilities: Capabilities,
+    successCallback: (capabilities: Capabilities) => void,
+    failureCallback: (capabilities: Capabilities) => void
 ): void;
 
-interface ICapabilities {
+interface Capabilities {
     /**
      * Whether to "ignore" or "fail" the request if an exception occurs. This is an overall setting that is inherited by all capabilities. 
      */
@@ -2203,10 +2402,10 @@ interface ICapabilities {
     /**
      * Specifies how to set capabilities
      */
-    capabilities: ICapabilitySetup[]
+    capabilities: CapabilitySetup[]
 }
 
-interface ICapabilitySetup {
+interface CapabilitySetup {
     /**
      * Specify a capability
      */
@@ -2224,8 +2423,8 @@ interface ICapabilitySetup {
 }
 ```
 
-### Usage notes
+**Usage notes**
 
 To make things easier, Dynamsoft designed the API with a simplified parameter `Capabilities` which only requires the minimum information for setting a capability: a number to specify the capability and the value to set to it. Underneath, Dynamsoft takes care of container type setting, value type setting as well as data validation.
 
-Pay attention to the argument you set to the overall parameter `exception` and the individual parameter `exception` for each capability. If the overall parameter is set to `fail`, the setting will abort as soon as an exception is raised while setting any of the capabilities. Otherwise, `ignore` means to carry on setting the next capability even when the previous one failed. Aside from the overall parameter, the individual `exception` is optional but takes precedence if set. In other words, you can set the overall `exception` to `ignore` and then set the individual one to `fail` for the capabilities which you think are important. This way, you get notified if these important capabilities failed to be set while other less-important ones are ignored when setting them failed.
+Pay attention to the argument you set to the overall parameter `exception` and the individual parameter `exception` for each capability. If the overall parameter is set to `fail` , the setting will abort as soon as an exception is raised while setting any of the capabilities. Otherwise, `ignore` means to carry on setting the next capability even when the previous one failed. Aside from the overall parameter, the individual `exception` is optional but takes precedence if set. In other words, you can set the overall `exception` to `ignore` and then set the individual one to `fail` for the capabilities which you think are important. This way, you get notified if these important capabilities failed to be set while other less-important ones are ignored when setting them failed.

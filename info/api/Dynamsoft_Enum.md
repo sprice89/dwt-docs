@@ -1,4 +1,10 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>	
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # Enums
 
 ## Dynamsoft.EnumDWT_PixelType
@@ -224,7 +230,7 @@
 | TWFF_JPX | 13 | A file format from the Joint Photographic Experts Group ISO/IEC 15444-2 (TWAIN Spec 1.91) |
 | TWFF_DEJAVU | 14 | A file format from LizardTech (TWAIN Spec 1.91) |
 | TWFF_PDFA | 15 | A file format from Adobe PDF/A, Version 1 (TWAIN Spec 2.0) |
-| TWFF_PDFA2 | 16 | A file format from Adobe PDF/A, Version 2 (TWAIN Spec 2.1) |
+| TWFF_PDFA2 | 16 | A file format from Adobe PDF/A, Version 2 (TWAIN Spec 2.1) 、
 
 
 ## Dynamsoft.EnumDWT_TIFFCompressionType 
@@ -813,6 +819,8 @@
 | ICA | 3 |
 | SANE | 3 |
 | TWAIN_AND_ICA | 4 |
+| TWAIN_AND_TWAIN64 | 4 |
+| TWAIN64 | 5 |
 
 
 ## Dynamsoft.EnumDWT_OCRDownloadType 
@@ -875,15 +883,14 @@
 | OCRPSM_OSD_ONLY | 0 | Script detection only(OSD). |
 | PSM_AUTO_OSD | 1 | Automatic page segmentation with orientation and script detection. (OSD) |
 | PSM_AUTO_ONLY | 2 | Automatic page segmentation, but no OSD, or OCR. |
-| PSM_AUTO | 3 | Fully automatic page segmentation, but no OSD. (Default) |
+| PSM_AUTO | 3 | Fully automatic page segmentation, but no OSD. (Default)
 | PSM_SINGLE_COLUMN | 4 | Assume a single column of text of variable sizes. |
 | PSM_SINGLE_COLUMN | 5 | Assume a single uniform block of vertically aligned text. |
 | PSM_SINGLE_BLOCK | 6 | Assume a single uniform block of text. |
 | PSM_SINGLE_LINE | 7 | Treat the image as a single text line. |
 | PSM_SINGLE_WORD | 8 | Treat the image as a single word. |
 | PSM_CIRCLE_WORD | 9 | Treat the image as a single word in a circle. |
-| PSM_SINGLE_CHAR | 10 | Treat the image as a single character.
- |
+| PSM_SINGLE_CHAR | 10 | Treat the image as a single character. |
 
 
 ## Dynamsoft.EnumDWT_OCRProRecognitionModule 
@@ -1000,8 +1007,6 @@
 | VRM_270_DEGREES_CLOCKWISE | 3 | 270 degrees Clockwise |
 | VRM_FLIP_VERTICAL | 4 | Flip |
 | VRM_FLIP_HORIZONTAL | 5 | Mirror |
-
-
 
 ## Error List
 

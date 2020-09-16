@@ -7,11 +7,11 @@ title: "TOADD"
 
 # Use Dynamic Web TWAIN with Angular
 
-[Angular](https://angular.io/) is one of the most popular and mature JavaScript frameworks. Check out the following on how to implement features of Dynamic Web TWAIN into an Angular application.
+[Angular](https://angular.io/) is one of the most popular and mature JavaScript frameworks. Check out the following on how to implement Dynamic Web TWAIN into an Angular application.
 
 ## Preparation
 
-* Make sure you have [node](https://nodejs.org/) and [Angular CLI](https://cli.angular.io/) installed. Example in this article uses `node 14.4.0` and `Angular CLI 9.1.12` .
+* Make sure you have [node](https://nodejs.org/) and [Angular CLI](https://cli.angular.io/) installed. `node 14.4.0` and `Angular CLI 9.1.12` are used in the example below.
 
 ## Create the sample project
 
@@ -23,12 +23,13 @@ ng new dwt-angular
 
 * CD to the root directory of the application and install the dependencies
 
-``` 
-npm install dwt@16.0.0
+```
+// version 16.1 + recommended
+npm install dwt
 ```
 
 ``` 
-npm install @types/dwt@16.0.0
+npm install @types/dwt
 ```
 
 ## Configure the project
@@ -79,10 +80,10 @@ ng generate component dwt
     }
     ```
     > Note:
-    > * `containerId` specifies the DIV to create Dynamic Web TWAIN viewer in which is defined in `dwt.component.html`.
+    > * `containerId` specifies the DIV to create Dynamic Web TWAIN viewer in. It is defined in `dwt.component.html`.
     > * `Dynamsoft_OnReady` is the callback function triggered when the initialization succeeds.
     > * `ProductKey` must be set to a valid trial or full key.
-    > * `ResourcesPath` is set to the location of the static files mentioned in [Configure the project](#configuretheproject).
+    > * `ResourcesPath` is set to the location of the static files mentioned in [Configure the project](#configure-the-project).
 
     - Get a handler of the `WebTwain` instance
 
@@ -118,67 +119,7 @@ Edit the file `app.component.html` to contain nothing but the following
 ng serve -o
 ```
 
-> If you have installed Dynamic Web TWAIN and have configured a valid `ProductKey`. You will have a working page to scan documents from your scanner now. If not, you should see an error message in the console that says
->
-> ```
-> The Dynamsoft namespace is missing
-> ```
->
-> Read on to find the solution to the issue.
-
-* Take advantage of the built-in service-install prompt
-
-    Dynamsoft defined a few functions to handle the situations where Dynamsoft Service is not installed. These functions are put in a file called `dynamsoft.webtwain.install.js` which gets loaded at runtime. As a result, these functions are not considered part of the `dwt` module. To make sure these functions work correctly, we need to write some extra code.
-
-    - Copy & paste the following function to `dwt.component.ts`
-
-    ``` typescript
-    /**
-    * To make dynamsoft.webtwain.install.js compatible with Angular
-    */
-    modulizeInstallJS() {
-        let _DWT_Reconnect = (<any>window).DWT_Reconnect;
-        (<any>window).DWT_Reconnect = (...args) => _DWT_Reconnect.call({ Dynamsoft: Dynamsoft }, ...args);
-        let __show_install_dialog = (<any>window)._show_install_dialog;
-        (<any>window)._show_install_dialog = (...args) => __show_install_dialog.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainOldPluginNotAllowedCallback = (<any>window).OnWebTwainOldPluginNotAllowedCallback;
-        (<any>window).OnWebTwainOldPluginNotAllowedCallback = (...args) => _OnWebTwainOldPluginNotAllowedCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainNeedUpgradeCallback = (<any>window).OnWebTwainNeedUpgradeCallback;
-        (<any>window).OnWebTwainNeedUpgradeCallback = (...args) => _OnWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainPreExecuteCallback = (<any>window).OnWebTwainPreExecuteCallback;
-        (<any>window).OnWebTwainPreExecuteCallback = (...args) => _OnWebTwainPreExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTwainPostExecuteCallback = (<any>window).OnWebTwainPostExecuteCallback;
-        (<any>window).OnWebTwainPostExecuteCallback = (...args) => _OnWebTwainPostExecuteCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnRemoteWebTwainNotFoundCallback = (<any>window).OnRemoteWebTwainNotFoundCallback;
-        (<any>window).OnRemoteWebTwainNotFoundCallback = (...args) => _OnRemoteWebTwainNotFoundCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnRemoteWebTwainNeedUpgradeCallback = (<any>window).OnRemoteWebTwainNeedUpgradeCallback;
-        (<any>window).OnRemoteWebTwainNeedUpgradeCallback = (...args) => _OnRemoteWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
-        let _OnWebTWAINDllDownloadFailure = (<any>window).OnWebTWAINDllDownloadFailure;
-        (<any>window).OnWebTWAINDllDownloadFailure = (...args) => _OnWebTWAINDllDownloadFailure.call({ Dynamsoft: Dynamsoft }, ...args);
-    }
-    ```
-
-    - In `ngOnInit()`, change the follwing line
-
-    ``` typescript
-    Dynamsoft.WebTwainEnv.Load();
-    ```
-
-    to
-
-    ``` typescript
-    let checkScript = () => {
-        if (Dynamsoft.Lib.detect.scriptLoaded) {
-            this.modulizeInstallJS();
-            Dynamsoft.WebTwainEnv.Load();
-        } else {
-            setTimeout(() => checkScript(), 100);
-        }
-    };
-    checkScript();
-    ```
-
-Save everything, when the application reloads in the browser or when you try `ng serve` again, you will have a working project that has Dynamic Web TWAIN well implemented. From now on, you can try adding more features from the library to meet your business requirements.
+> If you have installed Dynamic Web TWAIN and have configured a valid `ProductKey`. You will have a working page to scan documents from your scanner now. Otherwise, you should see instructions on the page that guide you to install the library.
 
 Check out the following two sample projects:
 

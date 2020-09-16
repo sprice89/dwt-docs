@@ -11,6 +11,7 @@ title: "TOADD"
     - Mention multiple servers
 * Resourcespath setting
 
+## server-side ocr?
 
 https://developer.dynamsoft.com/dwt/kb/2005
 

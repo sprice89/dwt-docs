@@ -1,32 +1,38 @@
-<script src="https://www.dynamsoft.com/assets/js/jquery.dynamsoft.header.js?showSearch=false&host=www.dynamsoft.com"></script>
+---
+layout: default-layout
+needAutoGenerateSidebar: true
+description: "TOADD"
+title: "TOADD"
+---
+
 # WebTwain.Addon.BarcodeReader
 
-| Methods |
-|:-|
-| [decode()](#decode) |
-| [getRuntimeSettings()](#getruntimesettings) |
-| [updateRuntimeSettings()](#updateruntimesettings) |
-| [resetRuntimeSettings()](#resetruntimesettings) |
-| [initRuntimeSettingsWithString()](#initruntimesettingswithstring) |
+**Methods**
+
+* [decode()](#decode)
+* [getRuntimeSettings()](#getruntimesettings)
+* [updateRuntimeSettings()](#updateruntimesettings)
+* [resetRuntimeSettings()](#resetruntimesettings)
+* [initRuntimeSettingsWithString()](#initruntimesettingswithstring)
 
 ---
 
 ## decode
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Read an image in the buffer and try to locate and decode barcode(s) on it.
  * @param index Specify the image to decode.
  */
-decode(index: number): Promise<ITextResults>;
+decode(index: number): Promise < ITextResults > ;
 
-interface ITextResults {
+interface TextResults {
     [index: number]: TextResult;
-    description?: string;
-    exception?: number;
-    imageid?: number;
+    description ? : string;
+    exception ? : number;
+    imageid ? : number;
 }
 interface TextResult {
     /**
@@ -60,13 +66,13 @@ interface TextResult {
     /**
      * The corresponding localization result.
      */
-    localizationResult: ILocalizationResult;
+    localizationResult: LocalizationResult;
     /**
      * Other information
      */
-    results: IResult[];
+    results: Result[];
 }
-interface ILocalizationResult {
+interface LocalizationResult {
     /**
      * The angle of a barcode. Values range from 0 to 360.
      */
@@ -109,7 +115,7 @@ interface ILocalizationResult {
     resultCoordinateType: number;
     terminatePhase: number;
 }
-interface IResult {
+interface Result {
     accompanyingTextBytes: number[];
     clarity: number;
     confidence: number;
@@ -122,13 +128,13 @@ interface IResult {
 
 ## getRuntimeSettings
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Get the current runtime settings.
  */
-getRuntimeSettings(): Promise<RuntimeSettings>;
+getRuntimeSettings(): Promise < RuntimeSettings > ;
 
 interface RuntimeSettings {
     barcodeFormatIds: number;
@@ -136,7 +142,7 @@ interface RuntimeSettings {
     binarizationModes: number[];
     deblurLevel: number;
     expectedBarcodesCount: number;
-    furtherModes: IFurtherModes;
+    furtherModes: FurtherModes;
     intermediateResultSavingMode: number;
     intermediateResultTypes: number;
     localizationModes: number[];
@@ -145,7 +151,7 @@ interface RuntimeSettings {
     minResultConfidence: number;
     pdfRasterDPI: number;
     pdfReadingMode: number;
-    region: IRegion;
+    region: Region;
     resultCoordinateType: number;
     returnBarcodeZoneClarity: number;
     scaleDownThreshold: number;
@@ -154,7 +160,7 @@ interface RuntimeSettings {
     textResultOrderModes: number[];
     timeout: number;
 }
-interface IFurtherModes {
+interface FurtherModes {
     accompanyingTextRecognitionModes: number[];
     barcodeColourModes: number[];
     barcodeComplementModes: number[];
@@ -169,7 +175,7 @@ interface IFurtherModes {
     textFilterModes: number[];
     textureDetectionModes: number[];
 }
-interface IRegion {
+interface Region {
     regionBottom: number;
     regionLeft: number;
     regionMeasuredByPercentage: number;
@@ -182,30 +188,30 @@ interface IRegion {
 
 ## updateRuntimeSettings
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Update the runtime settings with a given object or use the string "speed", "balance", or "coverage" to use our preset settings. The default setting is "coverage".
  * @param settings Specify the runtime settings.
  */
-updateRuntimeSettings(settings: RuntimeSettings): Promise<RuntimeSettings>;
+updateRuntimeSettings(settings: RuntimeSettings): Promise < RuntimeSettings > ;
 ```
 
-### Example
+**Example**
 
-```javascript
-DWObject.Addon.BarcodeReader.getRuntimeSettings('balance').then(function (settings) {
+``` javascript
+DWObject.Addon.BarcodeReader.getRuntimeSettings('balance').then(function(settings) {
     settings.barcodeFormatIds = Dynamsoft.EnumBarcodeFormat.BF_ONED;
     return DWObject.Addon.BarcodeReader.updateRuntimeSettings(settings);
-    ).then(function () {
-        DWObject.Addon.BarcodeReader.decode(0).then(function (textResult) {
+).then(function() {
+    DWObject.Addon.BarcodeReader.decode(0).then(function(textResult) {
             console.log(textResult[0].barcodeText);
         },
-        function (ex) {
+        function(ex) {
             console.log(ex.message || ex);
         });
-    });  
+    });
 });
 ```
 
@@ -213,26 +219,27 @@ DWObject.Addon.BarcodeReader.getRuntimeSettings('balance').then(function (settin
 
 ## resetRuntimeSettings
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Reset all runtime settings to default values.
  */
-resetRuntimeSettings(): Promise<RuntimeSettings>;
+resetRuntimeSettings(): Promise < RuntimeSettings > ;
 ```
 
 ---
+
 ## initRuntimeSettingsWithString
 
-### Syntax
+**Syntax**
 
-```javascript
+``` typescript
 /**
  * Set up the barcode reader with advanced settings.
  * @param settings The runtime setting in the form of a string.
  */
 initRuntimeSettingsWithString(
     settings: string
-): Promise<RuntimeSettings>;
+): Promise < RuntimeSettings > ;
 ```
