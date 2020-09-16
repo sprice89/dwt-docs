@@ -134,3 +134,7 @@ OCR Basic on the other hand can be purchased either annually or perpetually and 
 
 
 
+https://developer.dynamsoft.com/dwt/kb/installation-and-upgrade/how-to-upgrade-the-ocr-pro-module-from-trial-to-full
+
+server side
+client side

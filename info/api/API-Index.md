@@ -59,7 +59,6 @@ title: "TOADD"
 * [HowManyImagesInBuffer]({{site.info}}api/WebTwain_Buffer.html#howmanyimagesinbuffer)
 * [IfAllowLocalCache]({{site.info}}api/WebTwain_Buffer.html#ifallowlocalcache)   
 * [SelectedImagesIndices]({{site.info}}api/WebTwain_Buffer.html#selectedimagesindices)
-* [SelectionRectAspectRatio]({{site.info}}api/WebTwain_Buffer.html#selectionrectaspectratio)   
 * [MaxImagesInBuffer]({{site.info}}api/WebTwain_Buffer.html#maximagesinbuffer)
 
 #### Events
@@ -417,6 +416,7 @@ title: "TOADD"
 * [MouseY]({{site.info}}api/WebTwain_Viewer.html#mousey)
 * [ImageMargin]({{site.info}}api/WebTwain_Viewer.html#imagemargin)  
 * [MouseShape]({{site.info}}api/WebTwain_Viewer.html#mouseshape)
+* [SelectionRectAspectRatio]({{site.info}}api/WebTwain_Buffer.html#selectionrectaspectratio)
 * [Zoom]({{site.info}}api/WebTwain_Viewer.html#zoom)
 
 #### Events

@@ -369,7 +369,7 @@ interface DWTInitialConfig {
 Compared with [ `CreateDWTObject` ](#dynamsoftwebtwainenvcreatedwtobject), `CreateDWTObjectEx` requires a `WebTwainId` instead of a `ContainerId` .
 
 The following would be equivalent to using [Load](#dynamsoftwebtwainenvload) with the configuration `Dynamsoft.WebTwainEnv.Containers = [{ContainerId: 'dwtcontrolContainer1', Width: '585px', Height: '513px'}`
-> NOTE that the created instance doesn't have a built-in viewer but used the method `BindViewer` to add a viewer
+> NOTE that the created instance doesn't have a built-in viewer but used the method [ `BindViewer()` ]({{site.info}}api/WebTwain_Viewer.html#bindviewer) to add a viewer
 
 ``` javascript
 Dynamsoft.WebTwainEnv.CreateDWTObjectEx({

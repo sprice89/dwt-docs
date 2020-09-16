@@ -17,6 +17,7 @@ breadcrumbText: HomePage
    - [HelloWorld]({{site.getstarted}}helloworld.html)
    - [Hardware]({{site.getstarted}}hardware.html)
    - [Platform]({{site.getstarted}}platform.html)
+   - [FileTypes]({{site.getstarted}}filetype.html)
 
 * TECHNIQUES
 
@@ -24,24 +25,35 @@ breadcrumbText: HomePage
    - [Input]({{site.indepth}}input.html)
    - [Output]({{site.indepth}}output.html)
    - [Buffer]({{site.indepth}}buffer.html)
-   - [View]({{site.indepth}}view.html)
+   - [Viewer]({{site.indepth}}viewer.html)
+   - [UI]({{site.indepth}}ui.html)
    - [Edit]({{site.indepth}}edit.html)
    - [Read Barcode]({{site.indepth}}barcode.html)
    - [OCR]({{site.indepth}}ocr.html)
    - [Handle PDF]({{site.indepth}}pdf.html)
 
 * DEVELOPMENT
+
    - [Upgrade Guide]({{site.indepth}}development/upgrade.html)
    - [Angular Integration]({{site.indepth}}development/angular.html)
    - [React Integration]({{site.indepth}}development/react.html)
    - [Vue Integration]({{site.indepth}}development/vue.html)
    - [MVC Integration]({{site.indepth}}development/mvc.html)
-   - [Server-side Scripting]({{site.indepth}}development/serverScript.html)
+   - [Server-side Scripting]({{site.indepth}}development/serverscript.html)
+   - [Professional Service]({{site.indepth}}development/proservice.html)
+   - [About ActiveX]({{site.indepth}}development/activex.html)
+   - [Other Topics]({{site.indepth}}development/topics.html)
 
 * DEPLOYMENT
+
    - [Server Setup]({{site.indepth}}deployment/server.html)
    - [Service Setup]({{site.indepth}}deployment/service.html)
    - [Scenarios]({{site.indepth}}deployment/scenarios.html)
+
+* TROUBLESHOOTING
+
+   - [How to Debug]({{site.indepth}}troubleshooting/debug.html)
+   - [Handle Errors]({{site.indepth}}troubleshooting/handleerrors.html)
 
 * [GOVERNANCE]({{site.info}}governance.html)
 
@@ -65,6 +77,7 @@ breadcrumbText: HomePage
    - [WebTwain_IO]({{site.info}}api/WebTwain_IO.html)
    - [WebTwain_Util]({{site.info}}api/WebTwain_Util.html)
    - [Addon_BarcodeReader]({{site.info}}api/Addon_BarcodeReader.html)
+   - [Addon_Camera]({{site.info}}api/Addon_Camera.html)
    - [Addon_OCR]({{site.info}}api/Addon_OCR.html)
    - [Addon_OCRPro]({{site.info}}api/Addon_OCRPro.html)
    - [Addon_PDF]({{site.info}}api/Addon_PDF.html)

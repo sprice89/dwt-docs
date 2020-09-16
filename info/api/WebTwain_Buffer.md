@@ -44,20 +44,16 @@ title: "TOADD"
 
 * [BlankImageCurrentStdDev](#blanimagecurrentstddev)
 * [BlankImageMaxStdDev](#blankimagemaxstddev)
-* [BlankImageThreshold](#blankimagethreshold) 
 * [BufferMemoryLimit](#buffermemorylimit)
 * [CurrentImageIndexInBuffer](#currentimageindexinbuffer) 
 * [HowManyImagesInBuffer](#howmanyimagesinbuffer)
 * [IfAllowLocalCache](#ifallowlocalcache) 
 * [SelectedImagesIndices](#selectedimagesindices)
-* [SelectionRectAspectRatio](#selectionrectaspectratio) 
 * [MaxImagesInBuffer](#maximagesinbuffer)
 
 **Events**
 
 * [OnBitmapChanged](#onbitmapchanged)
-* [OnImageAreaSelected](#onimageareaselected)
-* [OnImageAreaDeSelected](#onimageareadeselected)
 * [OnIndexChangeDragDropDone](#onindexchangedragdropdone)
 * [OnTopImageInTheViewChanged](#ontopimageintheviewchanged)
 
@@ -483,21 +479,6 @@ SelectImages(indices: number[]): boolean;
 
 ---
 
-## SelectionRectAspectRatio
-
-**Syntax**
-
-``` typescript
-/**
- * Change the position of an image in the buffer.
- * @param from Specify the original position by index.
- * @param to Specify the target position by index.
- */
-SelectionRectAspectRatio: number;
-```
-
----
-
 ## MoveImage
 
 **Syntax**
@@ -634,19 +615,6 @@ BlankImageMaxStdDev: number;
 ```
 
 ---
-
-## BlankImageThreshold
-
-**Syntax**
-
-``` typescript
-/**
- * Retrun or set the dividing line between black and white.
- */
-BlankImageThreshold: number;
-```
-
----
 ## BufferMemoryLimit
 
 **Syntax**
@@ -695,8 +663,6 @@ IsBlankImageExpress(index: number): boolean;
 If you believe an image should be blank but `IsBlankImage()` or `IsBlankImageExpress` is returning `false` , you can read `BlankImageCurrentStdDev` for that image and then set a bigger value to `BlankImageMaxStdDev` .
 
 Both `BlankImageCurrentStdDev` and `BlankImageMaxStdDev` range from 0 to 100.
-
-`BlankImageThreshold` ranges from 0 to 255 and is 128 by default. The bigger the value is, the more likely an image may be regarded as blank.
 
 ---
 
@@ -754,44 +720,6 @@ Operation types include
  * @argument index Index of the current image.
  */
 RegisterEvent('OnTopImageInTheViewChanged',
-    function (index: number) {}
-): boolean; 
-```
-
----
-
-## OnImageAreaSelected
-
-**Syntax**
-
-``` typescript
-/**
- * A built-in callback triggered when a rectangle is selected on an image in the buffer.
- * @argument index Specify the image.
- * @argument left, top, right, bottom: Return the coordinates of the rectangle.
- * @argument rectangleIndex The index of the rectangle
- */
-RegisterEvent('OnImageAreaSelected',
-    function (index: number,
-        left: number, top: number,
-        right: number, bottom: number,
-        rectangleIndex: number
-    ) {}
-): boolean;
-```
-
----
-
-## OnImageAreaDeSelected
-
-**Syntax**
-
-``` typescript
-/**
- * A built-in callback triggered when selected rectangles are cleared.
- * @argument index Specify the image.
- */
-RegisterEvent('OnImageAreaDeSelected',
     function (index: number) {}
 ): boolean; 
 ```

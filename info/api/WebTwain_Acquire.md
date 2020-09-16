@@ -74,6 +74,7 @@ title: "TOADD"
 **Properties**
 
 * [BitDepth ](#bitdepth) 
+* [BlankImageThreshold](#blankimagethreshold) 
 * [Brightness](#brightness)
 * [Contrast](#contrast) 
 * [DataSourceStatus](#datasourcestatus)
@@ -1018,7 +1019,7 @@ CloseSourceManagerAsync(): Promise<boolean>;
 
 **Syntax**
 
-```typescript
+``` typescript
 /**
  * Closes the scanning process to release resources on the machine.
  */
@@ -1453,7 +1454,6 @@ The allowed values for `EnumDWT_Driver` are
 | TWAIN_AND_TWAIN64 | 4 | Use both 32bit and 64bit TWAIN drivers |
 | TWAIN64 | 5 | Use 64bit TWAIN sources |
 
-
 ---
 
 ## PageSize
@@ -1505,6 +1505,23 @@ Resolution: number;
  */
 readonly SourceCount: number;
 ```
+
+---
+
+## BlankImageThreshold
+
+**Syntax**
+
+``` typescript
+/**
+ * Retrun or set the dividing line between black and white.
+ */
+BlankImageThreshold: number;
+```
+
+**Usage Notes**
+
+`BlankImageThreshold` ranges from 0 to 255 and is 128 by default, it's only effective when [ `PixelType` ] is set to `TWPT_BW` . The bigger the value is, the more likely an image may be regarded as blank.
 
 ---
 
@@ -2353,9 +2370,9 @@ interface ValueAndLabel {
 
 Check out the Enumerations
 
-* [`Dynamsoft.EnumDWT_Cap`]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_cap)
-* [`Dynamsoft.EnumDWT_CapType`]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_captype)
-* [`Dynamsoft.EnumDWT_CapValueType`]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_capvaluetype)
+* [ `Dynamsoft.EnumDWT_Cap` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_cap)
+* [ `Dynamsoft.EnumDWT_CapType` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_captype)
+* [ `Dynamsoft.EnumDWT_CapValueType` ]({{site.info}}api/Dynamsoft_Enum.html#enumdwt_capvaluetype)
 
 ---
 

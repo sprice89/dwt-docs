@@ -5,7 +5,7 @@ description: "TOADD"
 title: "TOADD"
 ---
 
-# WebTwain.Viewer
+# WebTwain. Viewer
 
 > For WebTwain instances
 
@@ -29,6 +29,7 @@ title: "TOADD"
 * [MouseY](#mousey)
 * [ImageMargin](#imagemargin) 
 * [MouseShape](#mouseshape)
+* [SelectionRectAspectRatio](#selectionrectaspectratio) 
 * [Zoom](#zoom)
 
 **Events**
@@ -37,8 +38,10 @@ title: "TOADD"
 * [OnMouseDoubleClick](#onmousedoubleclick)
 * [OnMouseMove](#onmousemove) 
 * [OnMouseRightClick](#onmouserightclick)
+* [OnImageAreaSelected](#onimageareaselected)
+* [OnImageAreaDeSelected](#onimageareadeselected)
 
-> For the WebTwain.Viewer interface
+> For the WebTwain. Viewer interface
 
 **Methods**
 
@@ -378,6 +381,21 @@ DWObject.RegisterEvent('OnMouseMove',
 
 ---
 
+## SelectionRectAspectRatio
+
+**Syntax**
+
+``` typescript
+/**
+ * Change the position of an image in the buffer.
+ * @param from Specify the original position by index.
+ * @param to Specify the target position by index.
+ */
+SelectionRectAspectRatio: number;
+```
+
+---
+
 ## MouseShape
 
 **Syntax**
@@ -505,6 +523,44 @@ RegisterEvent('OnMouseClick', function(index: number) {}): boolean;
 RegisterEvent('OnMouseDoubleClick', function(index: number) {}): boolean;
 RegisterEvent('OnMouseRightClick', function(index: number) {}): boolean;
 RegisterEvent('OnMouseMove', function(index: number) {}): boolean;
+```
+
+---
+
+## OnImageAreaSelected
+
+**Syntax**
+
+``` typescript
+/**
+ * A built-in callback triggered when a rectangle is selected on an image in the buffer.
+ * @argument index Specify the image.
+ * @argument left, top, right, bottom: Return the coordinates of the rectangle.
+ * @argument rectangleIndex The index of the rectangle
+ */
+RegisterEvent('OnImageAreaSelected',
+    function (index: number,
+        left: number, top: number,
+        right: number, bottom: number,
+        rectangleIndex: number
+    ) {}
+): boolean;
+```
+
+---
+
+## OnImageAreaDeSelected
+
+**Syntax**
+
+``` typescript
+/**
+ * A built-in callback triggered when selected rectangles are cleared.
+ * @argument index Specify the image.
+ */
+RegisterEvent('OnImageAreaDeSelected',
+    function (index: number) {}
+): boolean; 
 ```
 
 ---
@@ -737,9 +793,11 @@ closeVideo(): void;
  */
 on(name: string, callback: () => void): boolean;
 ```
+
 ---
 
 ## video-closed
+
 **Syntax**
 
 ``` typescript
@@ -752,6 +810,7 @@ on("video-closed", callback: () => void): boolean;
 ---
 
 ## video-error
+
 **Syntax**
 
 ``` typescript
@@ -769,7 +828,7 @@ on("video-error", callback: (errorCode, errorString) => void): boolean;
 
 **Syntax**
 
-```typescript
+``` typescript
 /**
  * Whether to only show the thumbnails view.
  */

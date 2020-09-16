@@ -54,8 +54,9 @@ For more information, check [How to use a TWAIN-Direct scanner](#how-to-use-a-tw
 
 Custom DataSource Data (CDD for short) is a feature provided by TWAIN and implemented by TWAIN sources (drivers). The idea is to save all TWAIN-related configurations in a file or a base64 string and use it later to restore the same configurations on the same device or a device of the same model. This feature can be very useful in cases like sharing the same configurations across multiple devices, or presetting a device for scanning, etc. `DWT` provides 2 pairs of methods to enable this feature which are
 
-* `GetCustomDSData()` , `SetCustomDSData()`
-* `GetCustomDSDataEx()` , `SetCustomDSDataEx()`
+* [ `GetCustomDSData()` ]({{site.info}}api/WebTwain_Acquire.html#getcustomdsdata) , [ `SetCustomDSData()` ]({{site.info}}api/WebTwain_Acquire.html#setcustomdsdata)
+* [ `GetCustomDSDataEx()` ]({{site.info}}api/WebTwain_Acquire.html#getcustomdsdataex) , [ `SetCustomDSDataEx()` ]({{site.info}}api/WebTwain_Acquire.html#setcustomdsdataex)
+
   
 The first pair saves or loads the data from a file and the second pair saves or loads the data from a base64 string.
 
