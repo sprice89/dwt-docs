@@ -63,13 +63,14 @@ Yes, you can use the following to change the colors of the viewer.
 
 You can use the `Viewer` in the following ways
 
-* Navigate through all images
-* Show one or multiple images in one view
-* Fit one image to the view (h, w)
-* Show the image in its actual size
-* Zoom in to see more details of an image
-  + How to use Ctrl + Wheel to do this
-* Highlight a specified region on the image (OverlayRectangle)
+### Navigate through all images
+### Show one or multiple images in one view
+### Fit one image to the view
+### Show the image in its actual size
+### Zoom in to see more details of an image
+  * How to use Ctrl + Wheel to do this
+### Highlight a specified region on the image (OverlayRectangle) -- deprecated, can ignore this one?
+### Select an area
 
 ## Unbind the Viewer
 
@@ -92,3 +93,16 @@ The Image Editor is
 #### Can I specify where and how big the Editor is
 
 #### Can I change the colors of the Editor
+
+## Using the built-in Image Editor
+
+`DWT` comes with a built-in GUI image editor that offers the user a more visual way to edit scanned images.
+
+Accessing the image editor is simple, all you need to do is call the ShowImageEditor() method.
+
+Calling the method by default will have the image editor occupy the entire image. However, you can customize that by assigning the image editor a specific 'div' element in code, specified by the input parameter(s).
+
+``` 
+DWObject.ShowImageEditor(); // displays image editor in full screen
+DWObject.ShowImageEditor("divID", <width in px>, <height in px>); // limit the image editor to a section of the page
+```
