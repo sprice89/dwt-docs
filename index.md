@@ -63,6 +63,7 @@ breadcrumbText: HomePage
    - [Proposed]({{site.info}}releases/proposed.html)
    - [In development]({{site.info}}releases/indev.html)
    - [Deprecated]({{site.info}}releases/deprecated.html)
+   - [Known bugs]({{site.info}}releases/bugs.html)
    - [Beta]({{site.info}}releases/beta.html)
    - [Released]({{site.info}}releases/released.html)
 

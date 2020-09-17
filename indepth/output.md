@@ -187,16 +187,7 @@ Yes, you can use the API [ `HttpFieldNameOfUploadedImage` ]({{site.info}}api/Web
 
 ##### Can I show my own upgrade progress bar
 
-Yes, you can build your own progress bar with the help of the built-in event [ `OnInternetTransferPercentage` ]({{site.info}}api/WebTwain_IO.html#oninternettransferpercentage). 
-
-``` javascript
-DWObject.RegisterEvent('OnInternetTransferPercentage',
-    function(percentage) {
-        console.log(percentage);
-        // Use the percentage to build your own progress bar
-    }
-);
-```
+Yes, please check out [customize the progress bar]({{site.indepth}}ui.html#progress-bar).
 
 #### How do I know whether the upload succeeded
 
@@ -574,14 +565,4 @@ There are a few things that you can try to reduce the size of a resulting file
 
 ### Can I hide the progress bar
 
-When `DWT` performs a time-consuming task, it'll show a progress bar. This progress bar is either like this
-
-![Indepth-output-1]({{site.assets}}imgs/Indepth-output-1.png)
-
-or like this (with a `Cancel` button)
-
-![Indepth-output-2]({{site.assets}}imgs/Indepth-output-2.png)
-
-The 1st bar shows up when saving or converting and can be hidden by setting [ `IfShowProgressBar` ]({{site.info}}api/WebTwain_IO.html#ifshowprogressbar) to `false` .
-
-Both bars show up when uploading or downloading and can be hidden by setting  [ `IfShowCancelDialogWhenImageTransfer` ]({{site.info}}api/WebTwain_IO.html#ifshowcanceldialogwhenimagetransfer) to `false` .
+Yes, check out [hide the progress bar]({{site.indepth}}ui.html#progress-bar) for more information.

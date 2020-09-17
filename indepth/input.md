@@ -286,7 +286,7 @@ DWObject. LoadImageEx("", Dynamsoft. EnumDWT_ImageType. IT_ALL, onSuccess, onFai
 
 ### Open an existing file with its absolute path
 
-> Only supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and only when `DWT` runs in the [Service-Mode]({{site.indepth}}initialize.html#service-mode). Example code is as follows
+> Only supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and only when `DWT` runs in the [service mode]({{site.indepth}}initialize.html#service-mode). Example code is as follows
 
 ```javascript    
 var onSuccess = function () {
