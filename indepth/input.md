@@ -462,7 +462,7 @@ function loadFileFromBase64() {
 
 ### Load files from the system clipboard
 
-> Supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and only when `DWT` runs in the [Service-Mode]({{site.indepth}}initialize.html#service-mode).
+> Supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and only when `DWT` runs in the [service mode]({{site.indepth}}initialize.html#service-mode).
 
 ``` javascript
 DWObject.LoadDibFromClipboard()

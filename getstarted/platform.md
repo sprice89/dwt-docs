@@ -29,7 +29,7 @@ The Dynamic Web TWAIN library is designed to be cross-platform which means it ca
   + Firefox 70.* ~ 80.* [Recommended]
   + Microsoft Edge Spartan
   + Microsoft Edge Anaheim [Recommended]
-  + Internet Explorer 8 ~ 11
+  + Internet Explorer 10 ~ 11
 
 ### Browsers on macOS
 
@@ -99,6 +99,10 @@ The Dynamic Web TWAIN library is designed to be cross-platform which means it ca
   + Firefox 61.* ~ 69.*
   + Firefox 70.* ~ 80.* [Recommended]
 
+## ActiveX browsers
+
+ActiveX browsers refer to Internet Explorer 8 and 9. They are not included in the above lists
+
 ## Browsers on mobile devices
 
 ### Browsers on iOS & iPadOS
@@ -131,17 +135,6 @@ The following versions are supported
   + Firefox 61.* ~ 69.*
   + Firefox 70.* ~ 80.* [Recommended]
 
-## Other operating systems
-
-Apart from the systems listed above, there could be some other systems which are also supported but not listed. However, Dynamsoft doesn't recommend the use of such systems as they are not tested by us. If you need to use the Dynamic Web TWAIN library on a system not mentioned above, please first contact [Dynamsoft Support]({{site.about}}getsupport.html) to get more information.
-
-## Other browsers.
-
-There are many different browsers on the market which may not have been listed above. However, these browsers most likely use the same browser engines that one of the listed browsers use. For example, Opera uses [ `Blink` ](https://en.wikipedia.org/wiki/Blink_(web_engine)) just like Chrome on desktop. These browsers probably work too. If you plan to use any of the browsers that haven't been listed above, you should
-
-  + Make sure it works by testing our [demo page](https://demo.dynamsoft.com/dwt/online_demo_scan.aspx)
-  + Do thorough tests before going into production
-
 ## WASM browsers
 
 WASM browsers refer to the browsers with the following advanced features and when `DWT` runs in the [WASM mode]({{site.indepth}}initialize.html#wasm-mode):
@@ -158,3 +151,14 @@ WASM browsers refer to the browsers with the following advanced features and whe
 [MediaDevices/getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) - [More info](https://caniuse.com/#feat=stream)
 
 Dynamsoft recommends the use of the latest versions of the modern browsers. Check out the list of browsers above and try to use those marked as `Recommended` .
+
+## Other operating systems
+
+Apart from the systems listed above, there could be some other systems which are also supported but not listed. However, Dynamsoft doesn't recommend the use of such systems as they are not tested by us. If you need to use the Dynamic Web TWAIN library on a system not mentioned above, please first contact [Dynamsoft Support]({{site.about}}getsupport.html) to get more information.
+
+## Other browsers.
+
+There are many different browsers on the market which may not have been listed above. However, these browsers most likely use the same browser engines that one of the listed browsers use. For example, Opera uses [ `Blink` ](https://en.wikipedia.org/wiki/Blink_(web_engine)) just like Chrome on desktop. These browsers probably work too. If you plan to use any of the browsers that haven't been listed above, you should
+
+  + Make sure it works by testing our [demo page](https://demo.dynamsoft.com/dwt/online_demo_scan.aspx)
+  + Do thorough tests before going into production

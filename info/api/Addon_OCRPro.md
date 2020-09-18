@@ -89,7 +89,8 @@ Recognize(
     ) => void,
     failureCallback: (
         errorCode: number,
-        errorString: string
+        errorString: string,
+        result: OCRProResult
     ) => void
 ): void;
 ```
@@ -118,7 +119,8 @@ RecognizeFile(path: string,
     ) => void,
     failureCallback: (
         errorCode: number,
-        errorString: string
+        errorString: string,
+        result: OCRProResult
     ) => void
 ): void;
 ```
@@ -151,7 +153,8 @@ RecognizeRect(
     ) => void,
     failureCallback: (
         errorCode: number,
-        errorString: string
+        errorString: string,
+        result: OCRProResult
     ) => void
 ): void;
 ```
@@ -178,7 +181,8 @@ RecognizeSelectedImages(
     ) => void,
     failureCallback: (
         errorCode: number,
-        errorString: string
+        errorString: string,
+        result: OCRProResult
     ) => void
 ): void;
 ```
