@@ -25,6 +25,8 @@ https://developer.dynamsoft.com/dwt/kb/2830
 
 https://developer.dynamsoft.com/dwt/kb/2758 (email an upload)
 
+### License Checker for OCRPro
+
 ### Receive segmented upload
 
 ``` csharp

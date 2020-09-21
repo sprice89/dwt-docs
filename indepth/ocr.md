@@ -27,7 +27,7 @@ Client side OCR only works in [browsers on Windows]({{site.getstarted}}platform.
 
 ### Use OCRB
 
-#### Step one - Include the addon
+#### Step one - Include OCRB
 
 To include this addon is to reference the necessary JavaScript file `dynamsoft.webtwain.addon.ocr.js` which is **NOT** included in the [resources files]({{site.about}}faqs.html#what-are-the-resources-files). If you can't find this file, you can contact [Dynamsoft Support]({{site.about}}getsupport.html) or get it from [here](https://tst.dynamsoft.com/public/download/ocr/OCRBasicx64-v16.zip).
 
@@ -37,7 +37,7 @@ To include this addon is to reference the necessary JavaScript file `dynamsoft.w
 <script src="dynamsoft.webtwain.addon.ocr.js"> </script>
 ```
 
-#### Step two - Install the addon
+#### Step two - Install OCRB
 
 `OCRB` is not included by default in the [service installation]({{site.indepth}}deployment/service.html#how-to-install-dwt). To use it, you need to download and install it with the APIs [ `Download()` ]({{site.info}}api/Addon_OCR.html#download) and [ `DownloadLangData()` ]({{site.info}}api/Addon_OCR.html#downloadlangdata).
 
@@ -77,7 +77,7 @@ Once the installation is done, you should be able to find the following file and
 * `DynamicOCRx64_10.0.0.0618.dll` : The version number may vary.
 * `DynamicOCR\eng.traineddata` : This is for English, other language(s) may have different name(s).
 
-#### Step three - Perform OCR
+#### Step three - Perform OCR with OCRB
 
 Once installed, you can start using the addon. Check out the following code snippet which makes use of the methods [ `SetLanguage()` ]({{site.info}}api/Addon_OCR.html#setlanguage), [ `SetOutputFormat()` ]({{site.info}}api/Addon_OCR.html#setoutputformat) and [ `Recognize()` ]({{site.info}}api/Addon_OCR.html#recognize).
 
@@ -108,45 +108,26 @@ function DoOCR() {
 }
 ```
 
-##### Other methods for OCR
+##### Other methods for OCRB
 
 * [ `RecognizeFile()` ]({{site.info}}api/Addon_OCR.html#recognizefile): This method reads a specified local file.
 * [ `RecognizeRect()` ]({{site.info}}api/Addon_OCR.html#recognizerect): This method reads a specified rectangular area on an image.
 * [ `RecognizeSelectedImages()` ]({{site.info}}api/Addon_OCR.html#recognizeselectedimages): This method reads multiple images at a time.
-
-##### Online demo
-
-[Simple Client-Side OCR Basic Sample App](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=133)
-
-### Optimize Recognition
-
-There are several ways to improve the OCR accuracy, they involve either adjusting the scanner settings, choosing high-quality source files or using two built-in methods.
-
-#### Better Input
-
-* Adjust resolution -- 300DPI is usually recommended; 
-* Adjust color of scanned document - greyscale is recommended; 
-* Adjust brightness settings. You would use the [Brightness]({{site.info}}api/WebTwain_Acquire.html#brightness) property for this. A 50% brightness is usually suitable; 
-* Adjust file type and compression - Lossless compression types would be the best option (i.e. `TIFF` or `PNG` but not `JPEG` )
-
-> For more elaboration, please see our [blog post](https://www.dynamsoft.com/blog/insights/scan-settings-for-best-ocr-accuracy/) on the matter.
-
-#### The built-in methods
-
-The two methods [ `GetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#getminfontsizeformoreaccurateresult) &[ `SetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#setminfontsizeformoreaccurateresult) get or set the font size for a regional OCR operation. The idea is that if the engine finds a certain area on the input image to have a font size smaller than what is set, it will try to read that area one more time to get a better result.
-
-### Other methods
-
+* [ `GetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#getminfontsizeformoreaccurateresult) &[ `SetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#setminfontsizeformoreaccurateresult): Gets or sets the font size for a regional OCR operation. The idea is that if the engine finds a certain area on the input image to have a font size smaller than what is set, it will try to read that area one more time to get a better result.
 * [ `SetPageSetMode()` ]({{site.info}}api/Addon_OCR.html#setpagesetmode): Configures how OCR is done.
 
-The following four methods are only effective when the output format is PDF.
+> The following four methods are only effective when the output format is PDF.
 
 * [ `GetIfUseDetectedFont()` ]({{site.info}}api/Addon_OCR.html#getifusedetectedfont) & [ `SetIfUseDetectedFont()` ]({{site.info}}api/Addon_OCR.html#setifusedetectedfont): Whether to use detected fonts in the resulting PDF.
 * [ `GetUnicodeFontName()` ]({{site.info}}api/Addon_OCR.html#getunicodefontname) & [ `SetUnicodeFontName()` ](({{site.info}}api/Addon_OCR.html#setunicodefontname)): Returns or sets the font to use.
 
+##### Online demo for OCRB
+
+[Scan-Documents-and-Do-Client-side-OCR-Basic](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=133)
+
 ### Use OCRPro
 
-#### Step one - Include the addon
+#### Step one - Include OCRPro
 
 To include this addon is to reference the necessary JavaScript file `dynamsoft.webtwain.addon.ocrpro.js` which is **NOT** included in the [resources files]({{site.about}}faqs.html#what-are-the-resources-files). If you can't find this file, you can contact [Dynamsoft Support]({{site.about}}getsupport.html) or get it from [here](https://tst.dynamsoft.com/public/download/ocr/OCRProx64-v16.zip).
 
@@ -156,7 +137,7 @@ To include this addon is to reference the necessary JavaScript file `dynamsoft.w
 <script src="dynamsoft.webtwain.addon.ocrpro.js"> </script>
 ```
 
-#### Step two - Install the addon
+#### Step two - Install OCRPro
 
 `OCRPro` is not included by default in the [service installation]({{site.indepth}}deployment/service.html#how-to-install-dwt). To use it, you need to download and install it with the APIs [ `Download()` ]({{site.info}}api/Addon_OCRPro.html#download).
 
@@ -182,7 +163,7 @@ Once the installation is done, you should be able to find the following under `C
 * `DynamicOCRProx64_1.2.0.0806.dll` : The version number may vary.
 * `OCRProResource\{hundreds of files}` : There are a few hundred files under this directory `OCRProResource` .
 
-#### Step three - Perform OCR
+#### Step three - Perform OCR with OCRPro
 
 Once installed, you can start using the addon. Check out the following code snippet which sets up the operation with [ `Settings` ]({{site.info}}api/Addon_OCRPro.html#settings) and then starts reading with [ `Recognize()` ]({{site.info}}api/Addon_OCRPro.html#recognize).
 
@@ -239,88 +220,437 @@ function DoOCR() {
 }
 ```
 
-##### About Settings
+#### About Settings
 
-`OCRPro` is configured though `Settings` , the following shows all the configurable parameters.
-
-Languages: "eng"
-LicenseChecker: ""
-OutputFormat: ""
-PDFAVersion: ""
-PDFVersion: ""
-RecognitionModule: ""
-Redaction: b
-FindText: ""
-FindTextAction: 2
-FindTextFlags: 1
+`OCRPro` is configured through `Settings` , the following shows all the configurable parameters. Check out more details [here]({{site.info}}api/Addon_OCRPro.html#settings). The following shows how to OCR and create a PDF file that has the keyword 'TWAIN' stricken out.
 
 ``` javascript
 var settings = Dynamsoft.WebTwain.Addon.OCRPro.NewSettings();
-settings.RecognitionModule = OCRRecognitionModule[document.getElementById("ddlOCRRecognitionModule").selectedIndex].val;
-settings.Languages = OCRLanguages[document.getElementById("ddlLanguages").selectedIndex].val;
-settings.OutputFormat = OCROutputFormat[document.getElementById("ddlOCROutputFormat").selectedIndex].val;
+settings.Languages = "eng";
+settings.LicenseChecker = "LicenseChecker.aspx";
+settings.OutputFormat = Dynamsoft.EnumDWT_OCRProOutputFormat.OCRPFT_IOTPDF;
+settings.PDFAVersion = Dynamsoft.EnumDWT_OCRProPDFAVersion.OCRPPDFAV_1A;
+settings.PDFVersion = Dynamsoft.EnumDWT_OCRProPDFVersion.OCRPPDFV_5;
+settings.RecognitionModule = Dynamsoft.EnumDWT_OCRProRecognitionModule.OCRPM_FASTEST;
+settings.Redaction.FindText = "TWAIN";
+settings.Redaction.FindTextFlags = Dynamsoft.EnumDWT_OCRFindTextFlags.OCRFT_WHOLEWORD;
+settings.Redaction.FindTextAction = Dynamsoft.EnumDWT_OCRFindTextAction.OCRFT_STRIKEOUT;
 ```
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >
-
-##### Other methods for OCR
+##### Other methods for OCRPro
 
 * [ `RecognizeFile()` ]({{site.info}}api/Addon_OCRPro.html#recognizefile): This method reads a specified local file.
 * [ `RecognizeRect()` ]({{site.info}}api/Addon_OCRPro.html#recognizerect): This method reads one or multiple rectangular area(s) on an image.
 * [ `RecognizeSelectedImages()` ]({{site.info}}api/Addon_OCRPro.html#recognizeselectedimages): This method reads multiple images at a time.
 
-##### Online demo
+##### Online demo for OCRPro
 
-[Simple Client-Side OCR Basic Sample App](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=133)
+[Scan-Documents-and-Do-Client-side-OCR-Pro](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=149)
 
-### Optimize Recognition
+### Questions
 
-There are several ways to improve the OCR accuracy, they involve either adjusting the scanner settings, choosing high-quality source files or using two built-in methods.
+#### Can I OCR multiple languages at the same time
 
-#### Better Input
+Yes, but only with [OCRPro](use-ocrpro). The code is like
+
+``` javascript
+// Reads both English and Arabic
+settings.Languages = "eng,arabic"
+```
+
+#### Can I OCR multiple zones at the same time
+
+Yes, but only with [OCRPro](use-ocrpro). The code is like
+
+``` javascript
+var aryRects = [{
+        left: 213,
+        top: 105,
+        right: 419,
+        bottom: 166
+    },
+    {
+        left: 112,
+        top: 256,
+        right: 303,
+        bottom: 325
+    }
+];
+DWObject.Addon.OCRPro.RecognizeRect(
+    0, aryRects,
+    function(sImageIndex, aryRects, result) {
+        if (result == null)
+            return null;
+        var bRet = "",
+            pageCount = result.GetPageCount();
+        if (pageCount == 0) {
+            alert("OCR result is Null.");
+            return;
+        } else {
+            for (var i = 0; i < pageCount; i++) {
+                var page = result.GetPageContent(i);
+                var letterCount = page.GetLettersCount();
+                for (var n = 0; n < letterCount; n++) {
+                    var letter = page.GetLetterContent(n);
+                    bRet += letter.GetText();
+                }
+            }
+            console.log(bRet);
+        }
+    },
+    function(errorcode, errorstring, result) {
+        if (errorcode != -2600 && errorcode != -2601) {
+            //-2600:LicenseChecker cannot be empty.  
+            //-2601:Cannot connect to the LicenseChecker, please check and make sure it's set correctly.
+            alert(errorstring);
+        }
+        var strErrorDetail = "";
+        var aryErrorDetailList = result.GetErrorDetailList();
+        for (var i = 0; i < aryErrorDetailList.length; i++) {
+            if (i > 0)
+                strErrorDetail += ";";
+            strErrorDetail += aryErrorDetailList[i].GetMessage();
+        }
+        if (strErrorDetail.length > 0 && errorstring != strErrorDetail)
+            alert(strErrorDetail);
+    }
+);
+```
+
+#### What is a LicenseChecker
+
+The `LicenseChecker` is a server-side script that tracks the usage of the license. It's required by [OCRPro](use-ocrpro). For more info, please check out [OCRPro License Tracking Mechanism](https://tst.dynamsoft.com/public/docs/ocr/OCRPRO-LICENSE-TRACKING-MECHANISM.pdf).
+
+Also check out [License Checker for OCRPro]({{server.indepth}}development/serverscript.md#license-checker-for-ocrpro) on how to write the server side script.
+
+#### Comparsion between OCRB and OCRPro
+
+Check out the comparison sheet [here](https://www.dynamsoft.com/Documents/ocr-basic-versus-ocr-pro.pdf).
+
+#### How to optimize Recognition
+
+There are several ways to improve the OCR accuracy, they involve either adjusting the scanner settings or choosing high-quality source files.
 
 * Adjust resolution -- 300DPI is usually recommended; 
 * Adjust color of scanned document - greyscale is recommended; 
 * Adjust brightness settings. You would use the [Brightness]({{site.info}}api/WebTwain_Acquire.html#brightness) property for this. A 50% brightness is usually suitable; 
-* Adjust file type and compression - Lossless compression types would be the best option (i.e. `TIFF` or `PNG` but not `JPEG` )
+* File type and compression - Lossless compression types would be the better option (i.e. `TIFF` or `PNG` but not `JPEG` )
 
 > For more elaboration, please see our [blog post](https://www.dynamsoft.com/blog/insights/scan-settings-for-best-ocr-accuracy/) on the matter.
 
-#### The built-in methods
+## Server side OCR
 
-The two methods [ `GetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#getminfontsizeformoreaccurateresult) &[ `SetMinFontSizeforMoreAccurateResult()` ]({{site.info}}api/Addon_OCR.html#setminfontsizeformoreaccurateresult) get or set the font size for a regional OCR operation. The idea is that if the engine finds a certain area on the input image to have a font size smaller than what is set, it will try to read that area one more time to get a better result.
+### Environment
 
-### Other methods
+Server side OCR has no restriction on what OS or application is running on the client side. It receives an OCR request via HTTP from a client, carries out the OCR operation and returns the results to the client. While both `OCRB` and `OCRPro` can work on the server side, we generally recommend the use of `OCRPro` in this scenario.
 
-* [ `SetPageSetMode()` ]({{site.info}}api/Addon_OCR.html#setpagesetmode): Configures how OCR is done.
+For `OCRPro` , only Windows can be used as the server OS. For `OCRB` , the server can run either `Windows` or `Linux` .
 
-The following four methods are only effective when the output format is PDF.
+### Use OCRPro on the Server Side
 
-* [ `GetIfUseDetectedFont()` ]({{site.info}}api/Addon_OCR.html#getifusedetectedfont) & [ `SetIfUseDetectedFont()` ]({{site.info}}api/Addon_OCR.html#setifusedetectedfont): Whether to use detected fonts in the resulting PDF.
-* [ `GetUnicodeFontName()` ]({{site.info}}api/Addon_OCR.html#getunicodefontname) & [ `SetUnicodeFontName()` ](({{site.info}}api/Addon_OCR.html#setunicodefontname)): Returns or sets the font to use.
+The following shows how to set up the environment for server-side `OCRPro` .
 
-# Reference Samples and Further Info
+#### Download the resources
 
-* 
+The resources of `OCRPro` can be downloaded [here](https://tst.dynamsoft.com/public/download/ocr/OCRProx64-v16-Server.zip).
 
-* [Zonal OCR which compares both OCR Basic and OCR Pro](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=210)
-* [OCR Basic vs OCR Pro Comparison](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-basic-vs-ocr-pro)
+#### Install OCRPro on the Server
 
-## How to enable `OCRPro`
+`OCRPro` must be used with `Dynamsoft Service` . If the service is not installed yet, install it first. Check out [How to install Dynamsoft Service]({{site.indepth}}deployment/service.html#how-to-install-dwt). Once the service is installed, unzip the resources downloaded in the previous step and put all the files in the service directory which is typically located at `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64_16` .
 
-For specifics including code samples and overall steps, please see the [OCR Pro developer's guide](https://download2.dynamsoft.com//Support/Developer's%20Guide_OCR_Pro.pdf)
+#### Use OCRPro on the server
 
-# Licensing
+`OCRPro` runs as a service on the server, it receives an OCR request and process it before returning the results. But there are lots of other things to be considered which are listed below. 
 
-* OCR Pro
+> For more informaiton on how it works, check out [the demos](#online-demo-for-ocrpro-on-the-server-side)
 
-Due to the fact that Kofax is the creator of the OCR pro engine, they have implemented a license tracking mechanism that will consider both time (annual license) as well as the usage ( the number of pages that have OCR peformed). This mechanism is mandatory and will need to be implemented for your OCR solution to function properly. For a detailed guide on setting up/ configuring this mechansim, please consult [this guide](https://developer.dynamsoft.com/dwt/kb/develop-with-dynamic-web-twain/dynamic-web-twain-ocr-pro-add-on-license-tracking-mechanism)    
+##### What the client needs to do
 
-* OCR Basic
+* Choose one or multiple source file(s) for OCRing
+* Specify how the OCR should be done
+* Upload both the file(s) and the configuration via an HTTP request
+* Wait to receive the results
 
-OCR Basic on the other hand can be purchased either annually or perpetually and there is no limit on the number of scans that can be performed. Your license key will simply allow for the use of the OCR APIs for the length of time of your contract.
+##### What the server needs to do
 
-https://developer.dynamsoft.com/dwt/kb/installation-and-upgrade/how-to-upgrade-the-ocr-pro-module-from-trial-to-full
+* Receive the HTTP request and parse it
+* Save the uploaded file(s) to a temporary location
+* Fill in the missing pieces in the configuration which includes but is not limited to the source file location, the output location, etc.
+* Send a request to the `OCRPro` service and wait for the results
+* Send the results back to the client
 
-server side
-client side
+The following code shows how the 2nd last step (the step where `OCRPro` is involved) works (sample in CSharp)
+
+``` csharp
+using System;
+using System.Data;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Net;
+
+namespace OCRProServer
+{
+    public class DoOCRPro
+    {
+        private bool m_bFinsh = false;
+        private string m_strResponse = "";
+        public event UploadStringCompletedEventHandler UploadStringCompleted;
+        public string DoOCR(string strRequestBody)
+        {
+            try
+            {
+                System.ComponentModel.AsyncOperationManager.SynchronizationContext = new System.Threading.SynchronizationContext();
+                m_bFinsh = false;
+                m_strResponse = "";
+                using (System.Net.WebClient client = new System.Net.WebClient())
+                {
+                    client.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.7 Safari/537.36");
+                    client.UploadStringCompleted += new UploadStringCompletedEventHandler(UploadStringCallback);
+                    Uri objUrl = new Uri("http://127.0.0.1:18622/dwt/dwt_16100728/OCRPro");
+                    client.UploadStringAsync(objUrl, strRequestBody);
+                    while (1 > 0)
+                    {
+                        if (m_bFinsh == true)
+                            break;
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    return m_strResponse;
+                }
+            }
+            catch (Exception ex)
+            {
+                string _ex = ex.Message;
+                return _ex;
+            }
+        }
+        private void UploadStringCallback(object sender, UploadStringCompletedEventArgs e)
+        {
+            m_bFinsh = true;
+            m_strResponse = e.Result;   
+        }
+    }   
+}
+```
+
+In the above code, `strRequestBody` is the request string from the client, the following is an example
+
+``` javascript
+'{\"productKey\": \"t0068UwAAAKFJIfMK40K5w7fZAGnZGT66NwT7b0knh9Zk64FmR5uh3zBxP2VJVVQfjoOjmRJEBdrSu/8S1OPmkefKBxBZYH0=\",\"inputFile\":[\"E:\\Temp\\Sample\\UploadedImages\\original\\20200921_111323_411_803sample.tif\"],\"settings\": {\"recognitionModule\": \"AUTO\",\"languages\": \"eng\",\"recognitionMethod\": \"Page\",\"threadCount\": \"2\",\"outputFormat\": \"TXTS\"},\"zones\": [],\"outputFile\": \"E:\\Temp\\Sample\\UploadedImages\\results\\30f5a4f0g3kwvy3zlb5lus55\\20200921_111323_441_803.txt\"}'
+```
+
+To make it readable, the following shows the same request as a JSON object, you can see that it basically tells `OCRPro` where to find the source file, how to perform OCR and where to save the resulting file.
+
+``` JavaScript
+{
+    "productKey": "t0068UwAAAKFJIfMK40K5w7fZAGnZGT66NwT7b0knh9Zk64FmR5uh3zBxP2VJVVQfjoOjmRJEBdrSu/8S1OPmkefKBxBZYH0=",
+    "inputFile": ["E:\\Temp\\Sample\\UploadedImages\\original\\20200921_111323_411_803sample.tif"],
+    "settings": {
+        "recognitionModule": "AUTO",
+        "languages": "eng",
+        "recognitionMethod": "Page",
+        "threadCount": "2",
+        "outputFormat": "TXTS"
+    },
+    "zones": [],
+    "outputFile": "E:\\Temp\\Sample\\UploadedImages\\results\\30f5a4f0g3kwvy3zlb5lus55\\20200921_111323_441_803.txt"
+}
+```
+
+For more information on the configuration, check out [OCRPro Request]({{site.info}}api/Addon_OCRPro.html#ocrproserversiderequest).
+
+The result from `OCRPro` is also a string
+
+``` javascript
+'{"request":{"productKey": "t0068MgAAAKk5nzw7Ecl1QTHojmUi0rirfoEXce8SHEAPsDYLF5LYej1qeka3+1fJIrvOQvize+9ZvzdxpqHpbk29eqrGR8g=","inputFile":["E:\\\\Temp\\\\Sample\\\\UploadedImages\\\\original\\\\20200921_130743_710_538sample.tif"],"settings": {"recognitionModule": "AUTO","languages": "eng","recognitionMethod": "Page","threadCount": "2","outputFormat": "TXTS"},"zones": [],"outputFile": "E:\\\\Temp\\\\Sample\\\\UploadedImages\\\\results\\\\30f5a4f0g3kwvy3zlb5lus55\\\\20200921_130743_711_538.txt"},"code":0,"message":"Recognize succeeded.","alreadyOCRCount":1,"ocrTotalCount":10000,"resultFile":"\","resultDetail":[[{"letter":"W","boundary":[120,126,137,140]},{"letter":"s","boundary":[831,1253,839,1265]}...]],"resultZoneDetail":[[]],"errorList":[]}'
+```
+
+In JSON, it is like this
+
+``` javascript
+{
+    "request": {
+        "productKey": "t0068MgAAAKk5nzw7Ecl1QTHojmUi0rirfoEXce8SHEAPsDYLF5LYej1qeka3+1fJIrvOQvize+9ZvzdxpqHpbk29eqrGR8g=",
+        "inputFile": ["E:\\\\Temp\\\\Sample\\\\UploadedImages\\\\original\\\\20200921_130743_710_538sample.tif"],
+        "settings": {
+            "recognitionModule": "AUTO",
+            "languages": "eng",
+            "recognitionMethod": "Page",
+            "threadCount": "2",
+            "outputFormat": "TXTS"
+        },
+        "zones": [],
+        "outputFile": "E:\\\\Temp\\\\Sample\\\\UploadedImages\\\\results\\\\30f5a4f0g3kwvy3zlb5lus55\\\\20200921_130743_711_538.txt"
+    },
+    "code": 0,
+    "message": "Recognize succeeded.",
+    "alreadyOCRCount": 1,
+    "ocrTotalCount": 10000,
+    "resultFile": "\\",
+    "resultDetail": [
+        [{
+            "letter": "W",
+            "boundary": [120, 126, 137, 140]
+        }, {
+            "letter": "s",
+            "boundary": [831, 1253, 839, 1265]
+        }, ...]
+    ],
+    "resultZoneDetail": [
+        []
+    ],
+    "errorList": []
+}
+```
+
+For more information on the resulting object, check out [OCRPro Response]({{site.info}}api/Addon_OCRPro.html#ocrproserversideresponse).
+
+##### Online demo for OCRPro on the Server side
+
+* CSharp: [Scan-Documents-and-Do-Server-side-OCR-Pro](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=148)
+* Java: [Scan-Documents-and-Do-Server-side-OCR-Pro-Java](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=213)
+
+### Use OCRB on the Server Side
+
+As mentioned above, using OCRB on the server side is not recommended by Dynamsoft unless
+
+* You need to read a language not supported by `OCRPro` like Chinese. [Languages List](https://www.dynamsoft.com/Products/ocr-pro-languages.aspx)
+* You need to do OCR on Linux
+
+The following shows how to get `OCRB` set up, the environment is
+
+* OS: Windows 10
+* JRE: 1.8.0_221
+* Web Server: Tomcat 9.0.24 (64bit)
+* Eclipse: Oxygen.3a Release (4.7.3a)
+
+> If you'd like to use other environments, please first contact [Dynamsoft Support]({{site.about}}getsupport.html).
+
+#### Download OCRB resources
+
+The resources of `OCRB` for the specified environment can be downloaded [here](https://tst.dynamsoft.com/public/download/ocr/OCRBasicx64-v16-Server.zip).
+
+#### Deploy OCRB resources
+
+Unzip what's downloaded in the previous step, copy the entire folder `WebContent` and paste it to Tomcat. In our case, the folder goes to `C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps` .
+
+#### Use OCRB
+
+##### Upload the file and the configuration
+
+The following code shows how to upload the file to be read using `DWT` and the configuration for the reading
+
+> NOTE: you can upload the file and the configuration in other ways too, it's not required to use `DWT` .
+
+``` javascript
+function DoOCR(index) {
+    if (DWObject) {
+        // `url` is the target URL to receive the HTTP request.
+        var url = CurrentPath + "upload";
+        DWObject.ClearAllHTTPFormField();
+        DWObject.SetHTTPFormField("ProductKey", DWObject.ProductKey);
+        DWObject.SetHTTPFormField("OutputFormat", OCROutputFormat[document.getElementById("ddlOCROutputFormat").selectedIndex].val);
+        DWObject.SetHTTPFormField("InputLanguage", OCRLanguages[document.getElementById("ddlLanguages").selectedIndex].val);
+        DWObject.HTTPUpload(
+            url,
+            [index],
+            Dynamsoft.EnumDWT_ImageType.IT_PDF,
+            Dynamsoft.EnumDWT_UploadDataFormat.Binary,
+            "sampleFile.pdf",
+            function() {
+                console.log('upload success with no returned info');
+            },
+            // `OnOCRResultReturned` processes the returend OCR result
+            OnOCRResultReturned
+        );
+    }
+}
+```
+
+##### Receive and save the uploaded file
+
+Open the file `CRBasicx64-v16-Server\src\com\dynamsoft\demo\FileLoadServlet.java` to see how it works. The core function in there is called `service()` . We'll break it down below
+
+``` java
+DiskFileItemFactory factory = new DiskFileItemFactory();
+String path = this.getServletContext().getRealPath("/uploadTemp");
+factory.setRepository(new File(path));
+factory.setSizeThreshold(1024 * 1024);
+ServletFileUpload upload = new ServletFileUpload(factory);
+List<FileItem> list;
+try {
+    list = (List<FileItem>)upload.parseRequest(request);
+    for (FileItem item: list) {
+        String name = item.getFieldName();
+        if (item.isFormField()) {} else {
+            String value = item.getName();
+            int start = value.lastIndexOf("\\");
+            String filename = value.substring(start + 1);
+            request.setAttribute(name, filename);
+            InputStream inputStream = null;
+            OutputStream out = null;
+            try {
+                inputStream = item.getInputStream();
+                byte[] aryImageBuffer = FileLoadServlet.readBytes(inputStream);
+                out = new FileOutputStream(new File(path, filename));
+                out.write(aryImageBuffer, 0, aryImageBuffer.length);
+            } catch (IOException e) {
+            } finally {
+                inputStream.close();
+                out.close();
+            }
+        }
+    }
+} catch (FileUploadException e1) {
+    e1.printStackTrace();
+}
+```
+
+The above code (extracted from `service()` ) is used for receiving and saving the uploaded file, it's not really necessary as OCR happens at the same time.
+
+##### Perform OCR and return the results
+
+``` java
+// Define the paths of the OCRB Engine and the language data path
+String strDllPath = this.getServletContext().getRealPath("/") + "WEB-INF\\lib";
+String strTessDataPath = this.getServletContext().getRealPath("/") + "WEB-INF\\lib\\tessdata";
+// Define the response header
+response.setContentType("text/html;charset=utf-8");
+request.setCharacterEncoding("utf-8"); 
+String fileExtention = ".txt";
+// Create an OCRB instance
+DynamsoftOCRBasic ocr = new DynamsoftOCRBasic();
+ocr.setOCRDllPath(strDllPath);
+ocr.setOCRTessDataPath(strTessDataPath);
+// Do OCR
+byte[] result = ocr.ocrImage(aryImageBuffer, refaryRetResultDetails);
+if(result.length > 0) {
+	if(fileExtention == ".pdf"){
+		response.getWriter().write("|#|" + strOCRResultFileName);
+	} else {
+		response.reset(); 
+		response.setContentType("text/plain");
+		response.setHeader("Content-disposition", "attachment; filename=\"" + strOCRResultFileName + "\"");
+		// Write file to response.
+		OutputStream output = response.getOutputStream();
+		output.write(result);
+		output.close();
+	}
+}
+// Write the result on the server too (not necessary, just for future reference)
+outResult = new FileOutputStream(new File(path, strOCRResultFileName));
+outResult.write(result, 0, result.length);
+outResult.close();
+```
+
+As shown in the above code, `OCRB` is represented by the class `DynamsoftOCRBasic` and the key method is `ocrImage()` . Check out the [full list of the OCRB server-side methods]({{server.info}}api/Addon_OCR.html#server-side).
+
+##### Online demo for OCRB on the Server side
+
+[Scan-Documents-and-Do-Server-side-OCR-Basic-Java](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=212)
