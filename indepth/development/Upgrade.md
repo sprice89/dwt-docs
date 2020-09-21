@@ -5,67 +5,90 @@ description: "TOADD"
 title: "TOADD"
 ---
 
-# Upgrade to latest version
+# UPGRADE
 
-Essentially, there are three steps required to update your application to use a newer version of Dynamic WebTWAIN. Two of the steps would be done by the application developer on the server -ide. The 3rd step would be done by users/ system administrators on the client side. The server side-steps are explained in detail below. For client-side upgrade steps, please see our [client side upgrade guide](./clientsideupgrade.html) 
+Dynamsoft tries to improve `DWT` constantly and release one major version and 2 to 4 minor versions each year. The recommendation for our customers is to always keep your application up-to-date with our latest release. In this section, we'll talk about how to upgrade your application.
 
-1. Update the serverside "Resources" Folder ---------Done by application developer
-2. Replace your old license key with the newer one.---------Done by application developer
-3. Ensure client machines have uninstalled the old version of the service in preparation to install the newer version. ---Done by user/ system administrator. 
+Essentially, there are three steps required to upgrade your application to use a newer version of `DWT` . Two of the steps would be done by the **application developer** on the server-side. The 3rd step would be done by **users** or **system administrators** on the client side.
 
-> NOTES
->
-> If you are upgrading from a very old version (at least 2 major versions apart like from v12 to v15), more steps may be needed. Please contact Dynamsoft Support for more information.
+1. Update the server-side resources for `DWT` ; 
+2. Replace your old license key with the newer one;
+3. Ensure client machines have uninstalled the old version of the service in preparation to install the newer version;
 
+> If you are upgrading from a very old version (over 2 major versions apart like from v12 to v15), more steps may be needed. Please contact [Dynamsoft Support]({{site.about}}getsupport.html) for more information.
 
-## For the developer
-There are two basic steps involved, updating the server side "Resources" folder, and replacing your old product key with the new one. Both steps are emphasized below.
+## Update the resources files
 
-### Step 1 Update Resources on the Server
+Read more about [resources files]({{site.about}}faqs.html#what-are-the-resources-files).
 
-a) Uninstall the trial/old version
-Windows: Search Dynamic Web TWAIN in Control Panel -> Programs and Features, and remove all the relevant components there.
+### Regular Web application
 
-macOS: Execute Applications > Dynamsoft > Dynamic Web TWAIN SDK {Version Number} > Uninstall.pkg
+#### Uninstall the old version
 
-b) Install the latest full version
+* **Windows**: Search `Dynamic Web TWAIN` in `Control Panel -> Programs and Features` , and remove all the relevant components there.
 
-The download link of the full version can be found in the purchasing email that was sent to the registered email/purchaser’s email. If you purchased the SDK but lost the download link of the full version, please log into the Dynamsoft Customer Portal and find the download link there under Download Center --> Download Products --> Full Version Download -->
+* **macOS**: Execute `Applications > Dynamsoft > Dynamic Web TWAIN SDK {Version Number} > Uninstall.pkg`
 
-c) Replace the whole Resources folder of Dynamic Web TWAIN in your application with the Resources folder of the full version (the resources folder will be generated after running the installer from the download link above). Typically, you can find it at the following path:
+#### Install the new version
 
-Windows: C:\Program Files (x86)\Dynamsoft\Dynamic Web TWAIN SDK {Version Number}
+Generally, you can [get the installer]({{site.about}}resources.html#how-to-get-dwt) to install the new verion.
 
-macOS: Applications > Dynamsoft > Dynamic Web TWAIN SDK {Version Number}
+#### Replace the resources files
 
-### Step 2 Update the License Key
+If you haven't renamed the official folder, the resources files should reside in a folder named "Resources". In this step, copy the new resources files and replace the old ones. The new files are typically found in the following location after the installation
 
-In the file dynamsoft.webtwain.config.js, search for Dynamsoft.WebTwainEnv.ProductKey and input the product key(s) you received.
+* **Windows**: `C:\Program Files (x86)\Dynamsoft\Dynamic Web TWAIN SDK {Version Number}\`
+* **macOS**: `Applications > Dynamsoft > Dynamic Web TWAIN SDK {Version Number}`
 
-Dynamsoft.WebTwainEnv.ProductKey = 't0076lQAAAGNcO61He******;t0076lQAAAGNcO61He******';
-NOTE
+### Applications that make use of the `dwt` package
 
-If you are using dynamsoft.webtwain.min.js, you should search for X.ProductKey instead.
-If you are referencing the file from the cloud (like from Dynamsoft Website- NOT RECOMMENDED), then you need to update the license at runtime. For example:
+If your application uses a framework or library like `Angular` , `React` , `Vue` , etc., the upgrade is easier as you just need to install the new version to replace the old one. For example
 
-function Dynamsoft_OnReady() {
-    var DWObject = Dynamsoft.WebTwainEnv.GetWebTwain('dwtcontrolContainer');
-    DWObject.ProductKey = 't0076lQAAAGNcO61He******;t0076lQAAAGNcO61He******';
-}
+``` cmd
+npm install dwt
+```
 
+or 
 
----
-layout: default-layout
-needAutoGenerateSidebar: true
-description: "TOADD"
-title: "TOADD"
----
-# How to upgrade Dynamic WebTWAIN on the Client Side
+``` cmd
+yarn add dwt
+```
+
+You may want to update the types definition as well
+
+``` cmd
+npm install @types/dwt
+```
+
+or 
+
+``` cmd
+yarn add @types/dwt
+```
+
+## Update the License Key
+
+When you upgrade across major versions, the license is different and needs to be updated. The license of `DWT` is set using the global API `Dynamsoft.WebTwainEnv.ProductKey` and the change is only effective before [creating `WebTwain` instances]({{site.indepth}}initialize.html#creating-the-webtwain-instance). 
+
+Normally, you can just make the change in the file `dynamsoft.webtwain.config.js` .
+
+``` javascript
+// If you have multiple license keys, just separate them with semicolons.
+Dynamsoft.WebTwainEnv.ProductKey = 't0076lQAAAGNcO61He******; t0076lQAAAGNcO61He******';
+```
+
+If you set it elsewhere, you just find it and replace it.
+
+## Update `DWT` on the client-side
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >
 
 # For the end users
+
 When accessing the new site for the first time, users will be prompted to download and install a new version of the Dynamsoft Service. They may need to uninstall the old version of the service first. Follow the instructions on the download prompt to complete the installation. Then the service will be connected or you can refresh your browser. 
 
 # Uninstall Old Service on the Client Machines
+
 On Windows
 1) Remove Dynamsoft Service (Trial) through Control Panel, if you see anything named like "Dynamsoft " or "Dynamic Web TWAIN ", Then remove them as well.
 2) Remove the folder C:\Windows\SysWOW64\Dynamsoft\DynamsoftService and C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64 together with all files under it.
@@ -77,6 +100,7 @@ On Linux
 Run the file uninstall.sh to uninstall it. The file can be found in opt/dynamsoft/DynamsoftService
 
 # Install the new service on the Client Machines
+
 Dynamic Web TWAIN runs 100% on the client-side, every client machine needs to install its components (known as the Dynamsoft Service) in order to use the SDK.
 
 When users first visit the web page which has Dynamic Web TWAIN implemented, the automatic initialization of the SDK which is built in its JavaScript library will try to establish connection with the Dynamsoft Service which is expected to be installed locally.
@@ -108,6 +132,7 @@ title: "TOADD"
 ---
 
 # Upgrade to include mobile functionality
+
 If you are upgrading to version 16 for mobile functionality, there are some considerations to be made. As mobile support is one of the newest offerings from Dynamsoft, not all of the old DWT features are fully available at present. That said, we are constantly working on increasing the mobile supported feature set, so we recommend reviewing our*[release notes](https://www.dynamsoft.com/Products/WebTWAIN_News.aspx)*, and if you have any doubts, contact dynamsoft support.
 
 As an example for how some existing DWT features will work on mobile, see below: 

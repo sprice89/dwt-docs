@@ -35,13 +35,13 @@ breadcrumbText: HomePage
 
 * DEVELOPMENT
 
-   - [Upgrade Guide]({{site.indepth}}development/upgrade.html)
    - [Angular Integration]({{site.indepth}}development/angular.html)
    - [React Integration]({{site.indepth}}development/react.html)
    - [Vue Integration]({{site.indepth}}development/vue.html)
    - [MVC Integration]({{site.indepth}}development/mvc.html)
    - [Server-side Scripting]({{site.indepth}}development/serverscript.html)
    - [Professional Service]({{site.indepth}}development/proservice.html)
+   - [Upgrade Guide]({{site.indepth}}development/upgrade.html)
    - [About ActiveX]({{site.indepth}}development/activex.html)
    - [Other Topics]({{site.indepth}}development/topics.html)
 

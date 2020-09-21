@@ -11,7 +11,7 @@ title: "TOADD"
 
 * [Official installer](https://www.dynamsoft.com/Downloads/WebTWAIN_Download.aspx)
 
-> With this option, you get a package meant for developers to evaluate the library. When the package is installed, you get all the [resources files]({{site.about}}faqs.html#what-are-the-resources-files), documentation and samples for the library. Also, you get a 30-day free trial to use the library.
+> With this option, you get a package meant for developers to evaluate the library. When the package is installed, you get all the [resources files]({{site.about}}faqs.html#what-are-the-resources-files), documentation and samples for the library. If you are evaluating the software, you also get a 30-day free trial to use the library.
 
 * [NPM package](https://www.npmjs.com/package/dwt)
 

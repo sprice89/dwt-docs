@@ -263,36 +263,33 @@ To load means to open files which are accessible on the system. These files can 
 
 ### [Recommended] Show the `Open File` dialog and select files to load.
 
-> Supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and [mobile]({{site.getstarted}}platform.html#browsers-on-mobile-devices). However, you see the `Open File` dialog only on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices). On mobile browsers, you get options to take a quick shot, open an existing picture on the device or open an existing file stored on the device. Example code is as follows
+> Supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and [mobile]({{site.getstarted}}platform.html#browsers-on-mobile-devices). 
 
-``` javascript    
-var onSuccess = function () {
+The `Open File` dialog only works on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices). On mobile browsers, you get options to take a quick shot, open an existing picture on the device or open an existing file stored on the device. Example code is as follows
 
+``` javascript
+var onSuccess = function() {
     console.log("Loaded a file successfully!");
-
-}; 
-var onFailure = function (errorCode, errorString) {
-
+};
+var onFailure = function(errorCode, errorString) {
     console.log(errorString);
-
-}; 
-DWObject. IfShowFileDialog = true; 
+};
+DWObject.IfShowFileDialog = true;
 // PDF Addon is used here to ensure PDF support
-DWObject. Addon. PDF. SetResolution(200); 
-DWObject. Addon. PDF. SetConvertMode(Dynamsoft. EnumDWT_ConvertMode. CM_RENDERALL); 
-DWObject. LoadImageEx("", Dynamsoft. EnumDWT_ImageType. IT_ALL, onSuccess, onFailure); 
-
-``` 
+DWObject.Addon.PDF.SetResolution(200);
+DWObject.Addon.PDF.SetConvertMode(Dynamsoft.EnumDWT_ConvertMode.CM_RENDERALL);
+DWObject.LoadImageEx("", Dynamsoft.EnumDWT_ImageType.IT_ALL, onSuccess, onFailure);
+```
 
 ### Open an existing file with its absolute path
 
 > Only supported on [desktop]({{site.getstarted}}platform.html#browsers-on-desktop-devices) and only when `DWT` runs in the [service mode]({{site.indepth}}initialize.html#service-mode). Example code is as follows
 
-```javascript    
-var onSuccess = function () {
+``` javascript
+var onSuccess = function() {
     console.log("Loaded a file successfully!");
 };
-var onFailure = function (errorCode, errorString) {
+var onFailure = function(errorCode, errorString) {
     console.log(errorString);
 };
 DWObject.IfShowFileDialog = false;
