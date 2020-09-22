@@ -238,13 +238,15 @@ If you are not sure how to change the `RuntimSettings` , the addon also comes wi
 * `balance` : between `speed` and `coverage`
 The following shows their differences
 
-| Parameter | `speed` | `balance` | `coverage` |
-| :-: | :-: | :-: | :-: |
-| `deblurLevel` |  `3` 	|  `5` 	|  `9` |
-| `grayscaleTransformationModes` | `[2, 0, 0, 0, 0, 0, 0, 0]` 	| `[2, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 1, 0, 0, 0, 0, 0, 0]` |
-| `textFilterModes` | `[0, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 0, 0, 0, 0, 0, 0, 0]` |
-| `localizationModes` | `[2, 32, 64, 0, 0, 0, 0, 0]` 	 | `[2, 4, 32, 64, 0, 0, 0, 0]` 	 | `[2, 16, 4, 8, 32, 64, 0, 0]` |
-| `scaleDownThreshold` | `2300` 	| `2300` 	| `214748347` |
+| Parameter | `speed` | `balance` | `coverage` | `default` |
+| :-: | :-: | :-: | :-: | :-: |
+| `deblurLevel` |  `3` 	|  `5` 	|  `9` | `9` |
+| `barcodeFormatIds_2` |  `32505858` 	|  `32505858` 	|  `32505858` | `0` |
+| `expectedBarcodesCount` |  `512` 	|  `512` 	|  `512` | `0` |
+| `grayscaleTransformationModes` | `[2, 0, 0, 0, 0, 0, 0, 0]` 	| `[2, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 1, 0, 0, 0, 0, 0, 0]` | `[2, 0, 0, 0, 0, 0, 0, 0]` |
+| `textFilterModes` | `[0, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 0, 0, 0, 0, 0, 0, 0]` 	 | `[2, 0, 0, 0, 0, 0, 0, 0]` | `[2, 0, 0, 0, 0, 0, 0, 0]` |
+| `localizationModes` | `[2, 32, 64, 0, 0, 0, 0, 0]` 	 | `[2, 4, 32, 64, 0, 0, 0, 0]` 	 | `[2, 16, 4, 8, 32, 64, 0, 0]` | `[2, 16, 4, 8, 0, 0, 0, 0]` |
+| `scaleDownThreshold` | `2300` 	| `2300` 	| `214748347` | `2300` |
 
 To use one of these modes, simply call `updateRuntimeSettings()`
 

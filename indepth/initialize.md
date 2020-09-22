@@ -66,7 +66,7 @@ A major difference between the Service mode and the WASM mode is that the latter
 
 Other than that, the performance and speed of the WASM mode is inferior as well because it is not able to gain as many resources as the service mode.
 
-At Dynamsoft, we tried and are still trying to make these two modes to function as closely to each other as possible.
+At Dynamsoft, we tried and are still trying to make these two modes to function as closely to each other as possible. Also check out [Expand your application to mobile platforms]({{site.indepth}}development/upgrade.html#expand-your-application-to-mobile-platforms).
 
 #### How to use WASM mode on desktop
 

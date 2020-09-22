@@ -171,9 +171,11 @@ interface PDFWSettings {
      */
     title: string;
     /**
-     * Specify the PDF version. For example, '1.5'.
+     * Specify the PDF version. For example, 1.5. The allowed values are 1.1 ~ 1.7.
+     * NOTE: If the compression type is PDF_JBig2, the lowerest version is 1.4
+     * If the compression type is PDF_JP2000, the lowerest version is 1.5
      */
-    version: string;
+    version: number;
     /**
      * Specify the quality of the images in the file.
      * The value ranges from 0 to 100.

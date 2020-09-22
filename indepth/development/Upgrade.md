@@ -81,66 +81,36 @@ If you set it elsewhere, you just find it and replace it.
 
 ## Update `DWT` on the client-side
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >
+### Service mode
 
-# For the end users
+From 16.*, `DWT` is designed to be backward compatible (unfortunatlye, just as far back as 16.0). The compatibility is done in two ways
 
-When accessing the new site for the first time, users will be prompted to download and install a new version of the Dynamsoft Service. They may need to uninstall the old version of the service first. Follow the instructions on the download prompt to complete the installation. Then the service will be connected or you can refresh your browser. 
+* For minor versions like 16.1 to 16.2, if the newer version of `DWT` has been installed on a desktop, websites utilizing both the newer version and the old version can work without reinstalling of `DWT` ; 
+* For major versions like 16.* to 17.*, the newer version will be installed to a different directory which can coexist with the older version. The user can choose to uninstall the old version if necessary; 
 
-# Uninstall Old Service on the Client Machines
+That means, once you, as the maintainer, have finished upgrading your application to a newer `DWT` on the server side, the clients could face one of two situations
 
-On Windows
-1) Remove Dynamsoft Service (Trial) through Control Panel, if you see anything named like "Dynamsoft " or "Dynamic Web TWAIN ", Then remove them as well.
-2) Remove the folder C:\Windows\SysWOW64\Dynamsoft\DynamsoftService and C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64 together with all files under it.
+* If the clients have installed the same or even newer version of `DWT` themselves (probably from another application that uses `DWT` ), they don't need to do anything; 
+* If the clients never installed `DWT` or have an older version of it, they will be required to do a reinstallation of `DWT` . The process is described [here]({{site.indepth}}deployment/service.html#how-to-install-dwt).
 
-On macOS
-3)Run the file Uninstall.pkg to uninstall it. The file can be found in Go > Applications > Dynamsoft > WebTwain > {installed version No.} >
+### WASM mode
 
-On Linux
-Run the file uninstall.sh to uninstall it. The file can be found in opt/dynamsoft/DynamsoftService
+By comparison, if `DWT` runs only in the [wasm mode]({{site.indepth}}initialize.html#wasm-mode), the clients don't need to install anything themselves as the [WASM browsers]({{site.getstarted}}platform.html#wasm-browsers) will take care of the upgrade process. What the clients may encounter is a slower-than-usual page loading when they visit the application for the first time after the upgrade.
 
-# Install the new service on the Client Machines
+## Other Topics
 
-Dynamic Web TWAIN runs 100% on the client-side, every client machine needs to install its components (known as the Dynamsoft Service) in order to use the SDK.
+### Expand your application to mobile platforms
 
-When users first visit the web page which has Dynamic Web TWAIN implemented, the automatic initialization of the SDK which is built in its JavaScript library will try to establish connection with the Dynamsoft Service which is expected to be installed locally.
+If you are upgrading to version 16 for mobile functionality (basically, `DWT` in [wasm mode]({{site.indepth}}initialize.html#wasm-mode)), there are some considerations to be made. As mobile support is one of the newest offerings from Dynamsoft, not all of the old `DWT` features are fully available at present. That said, we are constantly working on increasing the mobile supported feature set, so we recommend reviewing our **[release notes]({{site.info}}releases/released.html)**, and if you have any doubts, contact [Dynamsoft Support]({{site.about}}getsupport.html).
 
-NOTE: the initialization happens after the DOMContentLoaded event fires.
+As an example for how some existing `DWT` features will work on [mobile platforms]({{site.getstarted}}platform.html#browsers-on-mobile-devices), see below: 
 
-Should the connection fail, it means the service is not installed and the following prompt will come up and ask the end user to download and install the service.
-
-![service install](../assets/serviceinstall.png)
-
-NOTE: the same prompt will appear no matter whether the client OS is Windows, macOS or Linux. But the file you download differs on different Systems. On Windows and macOS, the users can double click the downloaded installer to install the SDK. On Linux, however, the users will need to run either one of the following command to install it
-
-Debian / Ubuntu
-
-dpkg -i DynamsoftServiceSetup.deb
-Fedora
-
-rpm -ivh DynamsoftServiceSetup.rpm
-
-Once the installation is done, you can click 'Reconnect to the service' or refresh the page to start using the SDK.
-
-![service reconnect](../assets/servicereconnect.png)
-
----
-layout: default-layout
-needAutoGenerateSidebar: true
-description: "TOADD"
-title: "TOADD"
----
-
-# Upgrade to include mobile functionality
-
-If you are upgrading to version 16 for mobile functionality, there are some considerations to be made. As mobile support is one of the newest offerings from Dynamsoft, not all of the old DWT features are fully available at present. That said, we are constantly working on increasing the mobile supported feature set, so we recommend reviewing our*[release notes](https://www.dynamsoft.com/Products/WebTWAIN_News.aspx)*, and if you have any doubts, contact dynamsoft support.
-
-As an example for how some existing DWT features will work on mobile, see below: 
-
-Scanning -> this will become capturing from mobile cameras
-Loading -> this is also just loading or capturing
-Edit -> similar to existing desktop browser functionality
-upload -> similiar to existing desktop browser functionality
-barcode reading, pdf rasterizing ->identical to current desktop browser functionality
-save -> supported, but it may not work as well on mobile since there isn't an equivalent idea to a file system, especially on iOS.
-ocr -> not supported on mobile yet
+* **Scanning**: this will become either capturing from mobile cameras or [capturing from a Windows machine]({{site.indepth}}input.html#how-to-enable-remote-scan) in the LAN; 
+* **Loading**: this will be either loading or capturing; 
+* **Saving**: this will become an in-browser downloading operation as mentioned [here]({{site.indepth}}output.html#save-as-a-download); 
+* **Editing**: similar to existing desktop functionality but the performance is not as good; 
+* **Uploading**: similiar to existing desktop browser functionality but is limited to only one API [ `HTTPUpload()` ]({{site.info}}api/WebTwain_IO.html#httpupload); 
+* **Viewing**: Identical to current desktop browser functionality; 
+* **Barcode reading**: Identical to current desktop browser functionality; 
+* **PDF Handling**: Identical to current desktop browser functionality; 
+* **OCR**: client-side support is to be added in a later version; 

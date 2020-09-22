@@ -96,7 +96,7 @@ DWObject.Addon.PDF.Write.Setup({
     producer: "Dynamsoft Corporation",
     subject: "Demoing File",
     title: "Sample PDF Made by DWT",
-    version: "1.5",
+    version: 1.5,
     quality: 80
 });
 DWObject.IfShowFileDialog = true;
