@@ -25,7 +25,7 @@ OCR can be performed on the client side as well as the server side.
 
 Client side OCR only works in [browsers on Windows]({{site.getstarted}}platform.html#browsers-on-Windows) and [Mobile]({{site.getstarted}}platform.html#browsers-on-mobile-devices) and in [Service mode]({{site.indepth}}initialize.html#service-mode).
 
-### Use OCRB
+### Use OCRB on the Client Side
 
 #### Step one - Include OCRB
 
@@ -125,7 +125,7 @@ function DoOCR() {
 
 [Scan-Documents-and-Do-Client-side-OCR-Basic](https://www.dynamsoft.com/Downloads/WebTWAIN-Sample-Download.aspx?SampleID=133)
 
-### Use OCRPro
+### Use OCRPro on the Client Side
 
 #### Step one - Include OCRPro
 
@@ -358,7 +358,7 @@ The resources of `OCRPro` can be downloaded [here](https://tst.dynamsoft.com/pub
 
 `OCRPro` must be used with `Dynamsoft Service` . If the service is not installed yet, install it first. Check out [How to install Dynamsoft Service]({{site.indepth}}deployment/service.html#how-to-install-dwt). Once the service is installed, unzip the resources downloaded in the previous step and put all the files in the service directory which is typically located at `C:\Windows\SysWOW64\Dynamsoft\DynamsoftServicex64_16` .
 
-#### Use OCRPro on the server
+#### Use OCRPro on the Server
 
 `OCRPro` runs as a service on the server, it receives an OCR request and process it before returning the results. But there are lots of other things to be considered which are listed below. 
 

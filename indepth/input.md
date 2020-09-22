@@ -365,11 +365,11 @@ try
 {
     String fileName = "sample.tif";
     String filePath = Server.MapPath(".") + "\\files\\" + fileName;
-        System.IO.FileInfo fileInfo = new System.IO.FileInfo(filePath);
-        Response.ClearContent();
-        Response.ClearHeaders();
-        Response.Clear();
-        Response.Buffer = true;
+    System.IO.FileInfo fileInfo = new System.IO.FileInfo(filePath);
+    Response.ClearContent();
+    Response.ClearHeaders();
+    Response.Clear();
+    Response.Buffer = true;
     String fileNameEncode;
     fileNameEncode = HttpUtility.UrlEncode(fileName, System.Text.Encoding.UTF8);
     fileNameEncode = fileNameEncode.Replace("+", "%20");

@@ -222,7 +222,7 @@ Yes, when the file to upload is huge, you can use the method [ `SetUploadSegment
 DWObject.SetUploadSegment(1, 500);
 ```
 
-For segmented upload, the server-side script is quite different. Check out how it is done in C# [here]({{site.indepth}}development/serverscript.html#receive-segmented-upload).
+For segmented upload, the server-side script is quite different. Check out how it is done in C# [here]({{site.indepth}}development/serverscript.html#segmented-upload).
 
 ##### What are all the APIs `DWT` provides for HTTP upload
 
