@@ -14,7 +14,7 @@ title: "TOADD"
 - For production (installation on the client machines)
   - The library has built-in guidance for the installation
   
-* How to install it (what if an older version exists --> must consider)
+* How to install it (what if an older version exists --> must consider uninstalling)
     - Normal procedure (prompt and such)
     - Install by command
     - Personal installer

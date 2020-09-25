@@ -97,6 +97,8 @@ That means, once you, as the maintainer, have finished upgrading your applicatio
 
 By comparison, if `DWT` runs only in the [wasm mode]({{site.indepth}}initialize.html#wasm-mode), the clients don't need to install anything themselves as the [WASM browsers]({{site.getstarted}}platform.html#wasm-browsers) will take care of the upgrade process. What the clients may encounter is a slower-than-usual page loading when they visit the application for the first time after the upgrade.
 
+Once upgraded, the old WASM files will continue to exist in the browser as cached data until it's purged by the browser or by the user.
+
 ## Other Topics
 
 ### Expand your application to mobile platforms
